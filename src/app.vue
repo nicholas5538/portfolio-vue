@@ -7,6 +7,23 @@ import { Toggle } from "radix-vue";
 import Button from "~/components/Button.vue";
 import { listElements, resumeButtonProps } from "~/constants/globalVariables";
 
+useServerSeoMeta({
+  title: "Nicholas Yong's Portfolio",
+  ogTitle: "Nicholas Yong's Portfolio",
+  creator: "Nicholas Yong",
+  description:
+    "Hello, I'm Nicholas Yong and I love to build simple and beautiful things",
+  ogDescription:
+    "Hello, I'm Nicholas Yong and I love to build simple and beautiful things",
+  contentSecurityPolicy: {
+    manifestSrc: "/favicons/site.webmanifest",
+  },
+  themeColor: [
+    { content: "#f8f8f8", media: "(prefers-color-scheme: light)" },
+    { content: "#212529", media: "(prefers-color-scheme: dark)" },
+  ],
+});
+
 const darkMode = ref(false);
 </script>
 
