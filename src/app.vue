@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faFaceLaughBeam } from "@fortawesome/free-solid-svg-icons/faFaceLaughBeam";
 import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
 import { faSun } from "@fortawesome/free-regular-svg-icons/faSun";
-import { Toggle } from "radix-vue";
+import { SwitchRoot, SwitchThumb } from "radix-vue";
 
 useServerSeoMeta({
   title: "Nicholas Yong's Portfolio",
@@ -23,6 +23,8 @@ useServerSeoMeta({
 });
 
 const darkMode = ref(false);
+const toggleIconClass =
+  "dark:text-light-orange transition-colors duration-300 ease-out";
 </script>
 
 <template>
@@ -42,15 +44,35 @@ const darkMode = ref(false);
       <div class="order-first lg:order-2">
         <DropdownMenu />
       </div>
-      <div class="order-last">
-        <Toggle
-          v-model:pressed="darkMode"
-          aria-label="Toggle theme"
-          class="text-2xl text-aqua hover:text-dark-aqua dark:text-light-orange dark:hover:text-orange-red flex h-[35px] w-[35px] items-center justify-center rounded leading-4 transition-colors duration-300 ease-out"
+      <div class="order-last flex gap-2 items-center">
+        <label
+          class="hidden text-white text-[15px] leading-none pr-2 select-none xl:inline-block"
+          for="appearance"
         >
-          <FontAwesomeIcon v-show="darkMode" :icon="faMoon" />
-          <FontAwesomeIcon v-show="!darkMode" :icon="faSun" />
-        </Toggle>
+          Appearance
+        </label>
+        <SwitchRoot
+          id="appearance"
+          v-model:checked="darkMode"
+          class="w-[42px] h-[25px] outline flex bg-black/50 shadow-sm rounded-full relative data-[state=checked]:bg-black cursor-pointer dark:outline-light-orange"
+        >
+          <SwitchThumb asChild>
+            <span
+              class="block w-[21px] h-[21px] my-auto bg-transparent shadow-sm rounded-full transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]"
+            >
+              <FontAwesomeIcon
+                v-show="darkMode"
+                :class="toggleIconClass"
+                :icon="faMoon"
+              />
+              <FontAwesomeIcon
+                v-show="!darkMode"
+                :class="toggleIconClass"
+                :icon="faSun"
+              />
+            </span>
+          </SwitchThumb>
+        </SwitchRoot>
       </div>
     </nav>
   </header>
