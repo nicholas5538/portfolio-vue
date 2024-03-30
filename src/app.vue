@@ -4,8 +4,6 @@ import { faFaceLaughBeam } from "@fortawesome/free-solid-svg-icons/faFaceLaughBe
 import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
 import { faSun } from "@fortawesome/free-regular-svg-icons/faSun";
 import { Toggle } from "radix-vue";
-import Button from "~/components/Button.vue";
-import { listElements, resumeButtonProps } from "~/constants/globalVariables";
 
 useServerSeoMeta({
   title: "Nicholas Yong's Portfolio",
@@ -42,23 +40,7 @@ const darkMode = ref(false);
         />
       </div>
       <div class="order-first lg:order-2">
-        <ul
-          class="hidden flex-row items-center justify-between gap-x-6 lg:order-2 lg:flex 2xl:gap-x-10"
-        >
-          <li
-            v-for="(list, index) in listElements"
-            class="navbar-text cursor-pointer hover:underline hover:decoration-white-400 hover:decoration-2 hover:underline-offset-8"
-          >
-            <Button
-              v-bind="resumeButtonProps"
-              v-if="index === listElements.length - 1"
-              link-class="xl:text-xl"
-            />
-            <template v-else>
-              {{ list }}
-            </template>
-          </li>
-        </ul>
+        <DropdownMenu />
       </div>
       <div class="order-last">
         <Toggle
@@ -66,8 +48,8 @@ const darkMode = ref(false);
           aria-label="Toggle theme"
           class="text-2xl text-aqua hover:text-dark-aqua dark:text-light-orange dark:hover:text-orange-red flex h-[35px] w-[35px] items-center justify-center rounded leading-4 transition-colors duration-300 ease-out"
         >
-          <FontAwesomeIcon v-if="darkMode" :icon="faMoon" />
-          <FontAwesomeIcon v-else :icon="faSun" />
+          <FontAwesomeIcon v-show="darkMode" :icon="faMoon" />
+          <FontAwesomeIcon v-show="!darkMode" :icon="faSun" />
         </Toggle>
       </div>
     </nav>
