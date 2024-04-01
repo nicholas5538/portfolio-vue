@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "check": "prettier . --check",
     "dev": "nuxt dev",
-    "format": "prettier . --write",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
     "generate": "nuxt generate",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "prepare": "husky"
@@ -25,14 +27,14 @@
     "vue-router": "4.3.0"
   },
   "devDependencies": {
+    "@nuxt/eslint-config": "0.2.0",
     "@typescript-eslint/eslint-plugin": "6.4.0",
+    "@typescript-eslint/parser": "6.21.0",
     "autoprefixer": "10.4.19",
     "eslint": "8.57.0",
-    "eslint-config-love": "43.1.0",
+    "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-n": "16.6.2",
     "eslint-plugin-promise": "6.1.1",
-    "eslint-plugin-vue": "9.24.0",
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
     "postcss": "8.4.38",
