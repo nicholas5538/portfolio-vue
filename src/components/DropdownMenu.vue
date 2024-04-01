@@ -39,6 +39,7 @@ const lastIndex = listElements.length - 1;
         >
           <DropdownMenuItem
             v-for="(list, index) in listElements"
+            :key="list"
             class="cursor-pointer font-mont font-semibold tracking-widest text-black-200 transition duration-200 hover:bg-white-300 hover:text-aqua rounded-none dark:text-white-200 dark:hover:bg-black-400 dark:hover:text-orange"
             :class="{
               'rounded-tr-xl': index === 0,
@@ -71,11 +72,12 @@ const lastIndex = listElements.length - 1;
     >
       <li
         v-for="(list, index) in listElements"
+        :key="list"
         class="navbar-text cursor-pointer hover:underline hover:decoration-white-400 hover:decoration-2 hover:underline-offset-8"
       >
         <Button
-          v-bind="resumeButtonProps"
           v-if="index === listElements.length - 1"
+          v-bind="resumeButtonProps"
           link-class="xl:text-xl"
         />
         <template v-else>

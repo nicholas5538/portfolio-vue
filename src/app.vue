@@ -56,7 +56,7 @@ const toggleIconClass =
           v-model:checked="darkMode"
           class="w-[42px] h-[25px] outline flex bg-black/50 shadow-sm rounded-full relative data-[state=checked]:bg-black cursor-pointer dark:outline-light-orange"
         >
-          <SwitchThumb asChild>
+          <SwitchThumb as-child>
             <span
               class="block w-[21px] h-[21px] my-auto bg-transparent shadow-sm rounded-full transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]"
             >
