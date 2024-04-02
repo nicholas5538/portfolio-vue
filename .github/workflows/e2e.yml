@@ -11,21 +11,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  Test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4.1.1
+      - name: Install pnpm
+        run: npm -g install pnpm
+
       - uses: actions/setup-node@v4.0.2
         with:
           node-version-file: ".nvmrc"
           cache: "pnpm"
           cache-dependency-path: pnpm-lock.yaml
+
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
       - name: Run E2E tests
         run: pnpm run test-e2e
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4.3.1
         if: always()
