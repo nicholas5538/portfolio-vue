@@ -22,3 +22,15 @@ logs
 .env
 .env.*
 !.env.example
+
+# Vitest
+./coverage
+
+# Playwright
+/packages/playwright-core/src/generated
+/packages/playwright-ct-core/src/generated
+/packages/playwright/README.md
+/packages/playwright-test/README.md
+/packages/playwright-core/api.json
+playwright-report
+test-results

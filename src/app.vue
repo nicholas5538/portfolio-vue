@@ -64,11 +64,13 @@ const toggleIconClass =
                 v-show="darkMode"
                 :class="toggleIconClass"
                 :icon="faMoon"
+                data-testid="faMoon"
               />
               <FontAwesomeIcon
                 v-show="!darkMode"
                 :class="toggleIconClass"
                 :icon="faSun"
+                data-testid="faSun"
               />
             </span>
           </SwitchThumb>
