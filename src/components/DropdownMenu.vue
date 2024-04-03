@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 import { resumeButtonProps } from "~/constants/globalVariables";
 import Button from "~/components/Button.vue";
 import {
@@ -27,7 +25,7 @@ const lastIndex = listElements.length - 1;
   <div class="lg:hidden">
     <DropdownMenuRoot v-model:open="toggleState">
       <DropdownMenuTrigger>
-        <FontAwesomeIcon :icon="faBars" />
+        <IconCSS name="mdi:hamburger-menu" />
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
         <DropdownMenuContent
