@@ -3,8 +3,9 @@ import { defineVitestConfig } from "@nuxt/test-utils/config";
 export default defineVitestConfig({
   test: {
     coverage: {
-      reporter: ["text", "json", "html"],
+      reporter: ["text", "json", "json-summary", "html"],
       reportOnFailure: true,
+      reportsDirectory: "coverage",
     },
     environmentOptions: {
       nuxt: {
