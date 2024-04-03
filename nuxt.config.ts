@@ -51,7 +51,7 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-  modules: ["@nuxt/test-utils/module"],
+  modules: ["@nuxt/test-utils/module", "nuxt-icon"],
   postcss: {
     plugins: {
       tailwindcss: {},
