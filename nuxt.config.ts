@@ -59,5 +59,6 @@ export default defineNuxtConfig({
     },
   },
   srcDir: "src/",
+  telemetry: false,
   typescript: { typeCheck: true },
 });
