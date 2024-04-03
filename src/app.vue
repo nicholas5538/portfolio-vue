@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faFaceLaughBeam } from "@fortawesome/free-solid-svg-icons/faFaceLaughBeam";
-import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
-import { faSun } from "@fortawesome/free-regular-svg-icons/faSun";
-import { SwitchRoot, SwitchThumb } from "radix-vue";
+import ThemeSwitch from "~/components/ThemeSwitch.vue";
 
 useServerSeoMeta({
   title: "Nicholas Yong's Portfolio",
@@ -21,10 +19,6 @@ useServerSeoMeta({
     { content: "#212529", media: "(prefers-color-scheme: dark)" },
   ],
 });
-
-const darkMode = ref(false);
-const toggleIconClass =
-  "dark:text-light-orange transition-colors duration-300 ease-out";
 </script>
 
 <template>
@@ -37,44 +31,51 @@ const toggleIconClass =
       <div class="order-2 flex flex-row items-center gap-x-2 lg:order-first">
         <h1 class="navbar-text">NICHOLAS</h1>
         <FontAwesomeIcon
-          class="hidden h-6 w-6 text-black-200 dark:text-white-400 sm:block"
+          class="hidden h-6 w-6 text-black-200 sm:block dark:text-white-400"
           :icon="faFaceLaughBeam"
         />
       </div>
       <div class="order-first lg:order-2">
         <DropdownMenu />
       </div>
-      <div class="order-last flex gap-2 items-center">
+      <div class="order-last flex items-center gap-2">
         <label
-          class="hidden text-white text-[15px] leading-none pr-2 select-none xl:inline-block"
+          class="hidden cursor-pointer select-none pr-2 text-[15px] leading-none text-black-200 xl:inline-block dark:text-white-200"
           for="appearance"
         >
           Appearance
         </label>
-        <SwitchRoot
-          id="appearance"
-          v-model:checked="darkMode"
-          class="w-[42px] h-[25px] outline flex bg-black/50 shadow-sm rounded-full relative data-[state=checked]:bg-black cursor-pointer dark:outline-light-orange"
-        >
-          <SwitchThumb as-child>
-            <span
-              class="block w-[21px] h-[21px] my-auto bg-transparent shadow-sm rounded-full transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]"
+        <ClientOnly fallback-tag="div">
+          <ThemeSwitch />
+          <template #fallback>
+            <button
+              class="bg-black/50 data-[state=checked]:bg-black relative flex h-[25px] w-[42px] cursor-pointer rounded-full shadow-sm outline dark:outline-light-orange"
+              type="button"
+              disabled
             >
-              <FontAwesomeIcon
-                v-show="darkMode"
-                :class="toggleIconClass"
-                :icon="faMoon"
-                data-testid="faMoon"
-              />
-              <FontAwesomeIcon
-                v-show="!darkMode"
-                :class="toggleIconClass"
-                :icon="faSun"
-                data-testid="faSun"
-              />
-            </span>
-          </SwitchThumb>
-        </SwitchRoot>
+              <svg
+                class="text-white mx-auto animate-spin dark:text-light-orange"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                ></circle>
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+            </button>
+          </template>
+        </ClientOnly>
       </div>
     </nav>
   </header>

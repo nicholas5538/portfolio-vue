@@ -34,3 +34,6 @@ logs
 /packages/playwright-core/api.json
 playwright-report
 test-results
+
+#Vitest
+src/coverage

@@ -44,7 +44,14 @@ export default defineNuxtConfig({
   build: { analyze: true },
   css: ["~/assets/css/fonts.css", "~/assets/css/main.css"],
   devServer: { port: 5173 },
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
+  modules: ["@nuxt/test-utils/module"],
   postcss: {
     plugins: {
       tailwindcss: {},
