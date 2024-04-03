@@ -11,8 +11,8 @@ test.describe("Desktop viewport only", { tag: "@desktop" }, () => {
 
   test("Test dark mode switch", async ({ page }) => {
     const themeButton = page.getByLabel("Appearance");
-    const faSun = page.getByTestId("faSun");
-    const faMoon = page.getByTestId("faMoon");
+    const faSun = page.getByTestId("sun");
+    const faMoon = page.getByTestId("moon");
 
     await expect(themeButton).toBeInViewport();
     await expect(faSun).toBeVisible();
