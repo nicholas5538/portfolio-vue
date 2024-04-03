@@ -1,4 +1,4 @@
-import useThemeMount from "~/composables/useThemeMount";
+import useThemeMount from "~/composables/themeMount";
 
 function useToggleTheme() {
   const darkMode = useState("darkMode", () => false);

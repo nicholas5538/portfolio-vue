@@ -38,7 +38,7 @@ function clearMocks() {
 describe("useToggleTheme initial render", () => {
   afterAll(() => clearMocks());
 
-  test("Theme is light without any OS preference or theme key in localStorage", async () => {
+  test("Initial theme is light without any OS preference or theme key in localStorage", async () => {
     const component = await mountSuspended(ThemeSwitch);
 
     const darkMode = useState("darkMode");
@@ -50,7 +50,7 @@ describe("useToggleTheme initial render", () => {
     });
   });
 
-  test("Theme is dark with a theme key and value dark in localStorage", async () => {
+  test("Initial theme is dark with a theme key and value dark in localStorage", async () => {
     await mountSuspended(ThemeSwitch);
     const darkMode = useState("darkMode");
     expect(darkMode.value).toBeTruthy();

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
 import { faSun } from "@fortawesome/free-regular-svg-icons/faSun";
 import { SwitchRoot, SwitchThumb } from "radix-vue";
-import useToggleTheme from "~/composables/useToggleTheme";
+import useToggleTheme from "~/composables/toggleTheme";
 
 const darkMode = useState<boolean>("darkMode");
 const { toggleTheme } = useToggleTheme();
