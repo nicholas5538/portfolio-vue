@@ -4,25 +4,23 @@ test.beforeEach(async ({ page, goto }) => {
   await goto("/", { waitUntil: "hydration" });
   await expect(page).toHaveTitle("Nicholas Yong's Portfolio");
   await expect(page.getByRole("heading")).toHaveText("NICHOLAS");
-
-  const themeButton = page.getByLabel("Appearance");
-  const faSun = page.getByTestId("faSun");
-  const faMoon = page.getByTestId("faMoon");
-
-  await expect(themeButton).toBeInViewport();
-  await expect(faSun).toBeVisible();
-  await expect(faMoon).not.toBeVisible();
-
-  await themeButton.click();
-  await expect(faSun).not.toBeVisible();
-  await expect(faMoon).toBeVisible();
 });
 
 test.describe("Desktop viewport only", { tag: "@desktop" }, () => {
   test.skip(({ isMobile }) => isMobile);
 
-  test("Navigation bar rendering", async ({ page }) => {
-    await expect(page.getByLabel("Appearance")).toBeVisible();
+  test("Test dark mode switch", async ({ page }) => {
+    const themeButton = page.getByLabel("Appearance");
+    const faSun = page.getByTestId("faSun");
+    const faMoon = page.getByTestId("faMoon");
+
+    await expect(themeButton).toBeInViewport();
+    await expect(faSun).toBeVisible();
+    await expect(faMoon).not.toBeVisible();
+
+    await themeButton.click();
+    await expect(faSun).not.toBeVisible();
+    await expect(faMoon).toBeVisible();
   });
 });
 
