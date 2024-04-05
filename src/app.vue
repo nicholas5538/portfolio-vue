@@ -80,5 +80,5 @@ useServerSeoMeta({
       </nav>
     </header>
   </div>
-  <!--  <NuxtPage page-key="static" />-->
+  <NuxtPage page-key="static" />
 </template>
