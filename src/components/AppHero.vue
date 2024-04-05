@@ -47,12 +47,12 @@ const { data } = await useFetch<gitUserSchema>("/user", {
         class="z-20 scale-110 bg-contain transition-transform duration-300 ease-in-out hover:scale-125"
       >
         <NuxtPicture
+          alt="Profile picture"
           format="webp"
           fill="fill"
           placeholder
           quality="100"
           src="/images/profile.webp"
-          data-testid="profile picture"
         />
       </div>
     </aside>
