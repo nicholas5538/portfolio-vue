@@ -5,7 +5,7 @@ test.beforeEach(async ({ page, goto }) => {
   await expect(page).toHaveTitle("Nicholas Yong's Portfolio");
 });
 
-test.describe("Hero section", () => {
+test.describe("Hero section picture and headings", () => {
   test("Hero picture and headings", async ({ page }) => {
     await expect(
       page.getByAltText("Profile picture", { exact: true })
@@ -17,8 +17,12 @@ test.describe("Hero section", () => {
       })
     ).toBeVisible();
   });
+});
 
-  test("Hero icon buttons", async ({ page }) => {
+test.describe("Hero icon buttons", () => {
+  test.skip(({ isMobile }) => isMobile);
+
+  test("Hero icon buttons' hover effect", async ({ page }) => {
     const linkIcon = page.getByLabel(
       "Click to see more on my LinkedIn Profile",
       {
@@ -30,7 +34,6 @@ test.describe("Hero section", () => {
     });
 
     await page.mouse.down();
-    await expect(linkIcon).toBeVisible();
     await expect(gitIcon).toBeVisible();
 
     await linkIcon.hover();

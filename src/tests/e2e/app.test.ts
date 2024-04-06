@@ -6,6 +6,8 @@ test.beforeEach(async ({ page, goto }) => {
 });
 
 test.describe("Desktop viewport only", { tag: "@desktop" }, () => {
+  test.skip(({ isMobile }) => isMobile);
+
   test("Test dark mode switch", async ({ page }) => {
     const themeButton = page.getByLabel("Appearance");
     const faSun = page.getByTestId("sun");
@@ -25,9 +27,6 @@ test.describe("Mobile viewport only", { tag: "@mobile" }, () => {
   test.skip(({ isMobile }) => !isMobile);
 
   test("Test navigation bar dropdown menu", async ({ page }) => {
-    // const dropdownContent = page.getByLabel(
-    //   "radix-vue-dropdown-menu-trigger-1"
-    // );
     const dropdownContent = page.getByRole("menu");
     await expect(dropdownContent).not.toBeVisible();
 
