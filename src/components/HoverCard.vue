@@ -15,7 +15,7 @@ const hoverState = ref(false);
     <HoverCardTrigger as-child>
       <slot name="cardTrigger" />
     </HoverCardTrigger>
-    <HoverCardPortal :side-offset="5">
+    <HoverCardPortal>
       <HoverCardContent
         align="center"
         avoid-collisions

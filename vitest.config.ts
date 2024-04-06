@@ -1,3 +1,4 @@
+// @vitest-environment nuxt
 import { defineVitestConfig } from "@nuxt/test-utils/config";
 
 export default defineVitestConfig({
@@ -20,7 +21,7 @@ export default defineVitestConfig({
       "**/cypress/**",
       "**/.{idea,git,cache,output,temp}/**",
       "**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*",
-      "./src/tests/e2e/*",
+      "./src/tests/e2e/**",
     ],
   },
 });
