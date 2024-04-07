@@ -32,8 +32,6 @@ test.describe("Hero icon buttons", () => {
     const gitIcon = page.getByLabel("Click to see more on my GitHub Profile", {
       exact: true,
     });
-
-    await page.mouse.down();
     await expect(gitIcon).toBeVisible();
 
     await linkIcon.hover();

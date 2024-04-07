@@ -51,11 +51,11 @@
   }
 
   .about-me-text {
-    @apply mb-5 text-base font-normal transition-colors duration-300 ease-out md:col-span-2 md:mb-0 md:text-lg xl:text-xl dark:text-white-100;
+    @apply text-base font-normal transition-colors duration-300 ease-out md:col-span-2 md:mb-0 md:text-lg xl:text-xl dark:text-white-100;
   }
 
   .about-me-animation {
-    @apply absolute -right-12 -top-16 h-44 w-44 md:static md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-6 md:h-72 md:w-72 md:place-self-center lg:col-start-3 lg:h-[22rem] lg:w-[22rem] xl:h-[28rem] xl:w-[28rem] dark:-right-0 dark:-top-0 dark:h-[7rem] dark:w-[7rem] dark:md:-top-16 dark:md:right-12 dark:md:h-[10rem] dark:md:w-[10rem] dark:lg:h-[13rem] dark:lg:w-[13rem];
+    @apply absolute right-0 top-0 h-[7rem] w-[7rem] md:static md:-top-16 md:right-12 md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-6 md:h-[10rem] md:w-[10rem] md:place-self-center lg:col-start-3 lg:h-[13rem] lg:w-[13rem];
   }
 
   .white-bg-heading {
