@@ -56,6 +56,7 @@ export default defineNuxtConfig({
     payloadExtraction: true,
   },
   modules: ["@nuxt/image", "@nuxt/test-utils/module", "nuxt-icon"],
+  plugins: ["~/plugins/Lottie.client"],
   postcss: {
     plugins: {
       tailwindcss: {},
