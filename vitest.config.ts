@@ -23,5 +23,11 @@ export default defineVitestConfig({
       "**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*",
       "./src/tests/e2e/**",
     ],
+    server: {
+      deps: {
+        inline: ["vitest-canvas-mock"],
+      },
+    },
+    setupFiles: ["./vitest.setup.ts"],
   },
 });
