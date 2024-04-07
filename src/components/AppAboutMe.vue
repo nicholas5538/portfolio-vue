@@ -9,7 +9,8 @@ import AboutMeJSON from "assets/animations/aboutme.json";
     >
       <div class="md:col-span-2 md:justify-self-start">
         <h2 class="mb-5 text-xl font-bold md:mb-0 md:text-3xl xl:text-4xl">
-          👨 <span class="span-heading">About Me</span>
+          <Icon name="👨" size="36" />
+          <span class="span-heading">About Me</span>
         </h2>
         <h2
           class="mb-5 text-lg font-bold text-white-400 md:mb-0 md:text-3xl xl:text-4xl dark:text-white-300"
