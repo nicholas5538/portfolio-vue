@@ -2,12 +2,6 @@ import { fileURLToPath } from "node:url";
 import { defineConfig, devices } from "@playwright/test";
 import type { ConfigOptions } from "@nuxt/test-utils/playwright";
 
-const devicesToTest = [
-  "Desktop Chrome",
-  "Desktop Firefox",
-  "iPhone 14 Pro",
-] satisfies Array<string | (typeof devices)[string]>;
-
 export default defineConfig<ConfigOptions>({
   use: {
     trace: "on-first-retry",
@@ -21,6 +15,19 @@ export default defineConfig<ConfigOptions>({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
-  projects: devicesToTest.map((p) => ({ name: p, use: devices[p] })),
+  projects: [
+    {
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"], isMobile: false },
+    },
+    {
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"], isMobile: false },
+    },
+    {
+      name: "Mobile Chrome",
+      use: { ...devices["Pixel 7"], isMobile: true },
+    },
+  ],
   timeout: 30000,
 });

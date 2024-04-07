@@ -51,11 +51,21 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-  modules: ["@nuxt/test-utils/module", "nuxt-icon"],
+  experimental: {
+    renderJsonPayloads: false,
+    payloadExtraction: true,
+  },
+  modules: ["@nuxt/image", "@nuxt/test-utils/module", "nuxt-icon"],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
+    },
+  },
+  runtimeConfig: {
+    githubSecret: "",
+    public: {
+      githubBaseUrl: "https://api.github.com",
     },
   },
   srcDir: "src/",
