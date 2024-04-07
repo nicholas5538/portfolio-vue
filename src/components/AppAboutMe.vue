@@ -35,7 +35,7 @@ import AboutMeJSON from "assets/animations/aboutme.json";
       <h3 class="about-me-text m-0 font-semibold text-white-300">
         Graduated B.Eng. with Honours in Aircraft Systems Engineering, from
         <NuxtLink
-          aria-label="SIT"
+          aria-label="SIT ASE program external link"
           class="cursor-pointer text-light-blue no-underline hover:underline hover:underline-offset-4 dark:text-orange"
           external
           target="_blank"
