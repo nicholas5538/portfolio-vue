@@ -60,9 +60,9 @@ const { data } = await useFetch<gitUserSchema>("/user", {
       class="mb-4 md:col-span-2 md:row-start-1 md:row-end-2 md:mb-0 md:text-4xl xl:text-5xl"
     >
       <span class="inline-block origin-wave animate-wave text-4xl xl:text-5xl">
-        <Icon name="👋" />
+        <Icon name="👋" size="36" />
       </span>
-      &nbsp;&nbsp;Hi there! I&apos;m
+      Hi there! I&apos;m
       <span
         class="bg-transparent bg-gradient-to-b from-aqua to-aqua bg-clip-text font-bold text-transparent transition-bgi duration-300 ease-out md:text-black-200 dark:bg-orange-gradient dark:text-transparent"
       >
