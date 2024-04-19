@@ -5,11 +5,16 @@ test.beforeEach(async ({ page, goto }) => {
   await expect(page).toHaveTitle("Nicholas Yong's Portfolio");
 });
 
-test("Skills section heading, icons and lottie component", async ({ page }) => {
-  // Test if the heading text Skills is visible
-  await expect(page.getByRole("heading", { name: "Skills" })).toBeVisible();
-  // Test if one of the icons is visible
+test("Skills section heading, icons and lottie component", async ({
+  page,
+  isMobile,
+}) => {
+  await expect(page.getByRole("heading", { name: "💪Skills" })).toBeVisible();
   await expect(page.getByLabel("TypeScript")).toBeVisible();
-  // Test if the lottie component is visible
-  await expect(page.getByTestId("skillLottie")).toBeVisible();
+
+  if (isMobile) {
+    await expect(page.getByTestId("skillLottie")).toBeHidden();
+  } else {
+    await expect(page.getByTestId("skillLottie")).toBeVisible();
+  }
 });
