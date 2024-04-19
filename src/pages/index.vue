@@ -7,5 +7,6 @@ import AppAboutMe from "~/components/AppAboutMe.vue";
   <main>
     <AppHero />
     <LazyAppAboutMe />
+    <LazyAppSkills />
   </main>
 </template>
