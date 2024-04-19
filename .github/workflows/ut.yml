@@ -29,5 +29,5 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: Run E2E tests
+      - name: Run coverage test
         run: pnpm run test:cov
