@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { TooltipProvider } from "radix-vue";
+import SkillsJSON from "assets/animations/skills.json";
 import averageGoodIcons from "~/constants/skill-icons";
 </script>
 
@@ -12,9 +13,7 @@ import averageGoodIcons from "~/constants/skill-icons";
         <Icon name="💪" size="36" />
         <span class="span-heading from-black-200 to-black-200">Skills</span>
       </h2>
-      <h2
-        class="text-lg font-bold text-white-400 md:text-3xl xl:text-4xl dark:text-white-300"
-      >
+      <h2 class="text-lg font-bold md:text-3xl xl:text-4xl dark:text-white-300">
         Some technologies and tools I have used
       </h2>
     </div>
@@ -48,5 +47,15 @@ import averageGoodIcons from "~/constants/skill-icons";
         </div>
       </div>
     </div>
+    <ClientOnly>
+      <aside
+        class="hidden h-56 w-56 md:absolute md:bottom-20 md:right-28 md:block lg:bottom-40 lg:right-5 lg:h-[22rem] lg:w-[22rem] xl:h-[28rem] xl:w-[28rem] dark:md:right-10 dark:lg:h-[17rem] dark:lg:w-[17rem] dark:xl:h-[23rem] dark:xl:w-[23rem]"
+      >
+        <Lottie :animation-data="SkillsJSON" :speed="0.75" />
+      </aside>
+      <template #fallback>
+        <p>Loading Lottie animation</p>
+      </template>
+    </ClientOnly>
   </div>
 </template>
