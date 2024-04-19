@@ -49,7 +49,7 @@ import averageGoodIcons from "~/constants/skill-icons";
     </div>
     <ClientOnly>
       <aside
-        class="hidden h-56 w-56 md:absolute md:bottom-20 md:right-28 md:block lg:bottom-40 lg:right-5 lg:h-[22rem] lg:w-[22rem] xl:h-[28rem] xl:w-[28rem] dark:md:right-10 dark:lg:h-[17rem] dark:lg:w-[17rem] dark:xl:h-[23rem] dark:xl:w-[23rem]"
+        class="hidden h-56 w-56 lg:absolute lg:bottom-40 lg:right-5 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]"
       >
         <Lottie
           :animation-data="SkillsJSON"
