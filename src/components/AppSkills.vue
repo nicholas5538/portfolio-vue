@@ -51,7 +51,11 @@ import averageGoodIcons from "~/constants/skill-icons";
       <aside
         class="hidden h-56 w-56 md:absolute md:bottom-20 md:right-28 md:block lg:bottom-40 lg:right-5 lg:h-[22rem] lg:w-[22rem] xl:h-[28rem] xl:w-[28rem] dark:md:right-10 dark:lg:h-[17rem] dark:lg:w-[17rem] dark:xl:h-[23rem] dark:xl:w-[23rem]"
       >
-        <Lottie :animation-data="SkillsJSON" :speed="0.75" />
+        <Lottie
+          :animation-data="SkillsJSON"
+          :speed="0.75"
+          data-testid="skillLottie"
+        />
       </aside>
       <template #fallback>
         <p>Loading Lottie animation</p>
