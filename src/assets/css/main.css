@@ -30,6 +30,10 @@
     @apply absolute -left-20 -top-64 -z-20 h-[20rem] w-[4000px] -rotate-6 bg-gradient-to-b from-blue-gradient-1 to-blue-gradient-2 transition-bgi duration-300 ease-out md:-left-40 md:h-[31.25rem] xl:-top-80 xl:h-[37.5rem] 2xl:h-[43.75rem] 3xl:h-[50rem] dark:from-black-300 dark:to-black-300;
   }
 
+  .dark-mode-container {
+    @apply dark:mb-24 dark:md:mb-10;
+  }
+
   .dark-blue-gradient {
     @apply absolute -left-[4.5rem] -top-56 -z-10 h-[120%] w-[4000px] -rotate-6 bg-dark-blue transition-colors duration-300 ease-out ipad-mini:h-[125%] lg:h-[135%] xl:h-[135%] 2xl:h-[145%] 3xl:h-[160%];
   }

@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import AboutMeJSON from "assets/animations/aboutme.json";
+
+const darkMode = useState<boolean>("darkMode");
 </script>
 
 <template>
   <div class="dark-blue-section">
     <div
-      class="dark-blue-container md:mb-40 md:grid-rows-5 md:gap-y-4 lg:mb-52 2xl:mb-[15.5rem] 3xl:mb-[17rem]"
+      class="dark-blue-container dark-mode-container md:mb-40 md:grid-rows-5 md:gap-y-4 lg:mb-52 2xl:mb-[15.5rem] 3xl:mb-[17rem]"
     >
       <div class="md:col-span-2 md:justify-self-start">
-        <h2 class="mb-5 text-xl font-bold md:mb-0 md:text-3xl xl:text-4xl">
+        <h2 class="mb-5 text-xl font-bold md:text-3xl xl:text-4xl">
           <Icon name="👨" size="36" />
           <span class="span-heading">About Me</span>
         </h2>
@@ -53,6 +55,6 @@ import AboutMeJSON from "assets/animations/aboutme.json";
         </template>
       </ClientOnly>
     </div>
-    <div class="dark-blue-gradient" />
+    <div v-if="!darkMode" class="dark-blue-gradient" />
   </div>
 </template>
