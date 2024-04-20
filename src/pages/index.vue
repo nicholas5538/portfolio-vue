@@ -8,5 +8,6 @@ import AppAboutMe from "~/components/AppAboutMe.vue";
     <AppHero />
     <LazyAppAboutMe />
     <LazyAppSkills />
+    <LazyAppWorkExperience />
   </main>
 </template>

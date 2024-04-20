@@ -31,11 +31,11 @@
   }
 
   .dark-blue-gradient {
-    @apply absolute -left-[4.5rem] -top-56 -z-10 h-[120%] w-[4000px] -rotate-6 bg-dark-blue transition-colors duration-300 ease-out ipad-mini:h-[125%] lg:h-[135%] xl:h-[135%] 2xl:h-[145%] 3xl:h-[160%] dark:bg-black-300;
+    @apply absolute -left-[4.5rem] -top-56 -z-10 h-[120%] w-[4000px] -rotate-6 bg-dark-blue transition-colors duration-300 ease-out ipad-mini:h-[125%] lg:h-[135%] xl:h-[135%] 2xl:h-[145%] 3xl:h-[160%];
   }
 
   .dark-blue-section {
-    @apply relative z-0 bg-dark-blue;
+    @apply relative z-0 dark:bg-black-300;
   }
 
   .navbar-text {
