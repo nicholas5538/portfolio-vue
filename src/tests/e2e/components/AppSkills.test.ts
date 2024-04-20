@@ -9,12 +9,20 @@ test("Skills section heading, icons and lottie component", async ({
   page,
   isMobile,
 }) => {
-  await expect(page.getByRole("heading", { name: "💪Skills" })).toBeVisible();
-  await expect(page.getByLabel("TypeScript")).toBeVisible();
+  const skillsLottie = page.getByTestId("skillLottie");
+  const typeScriptIcon = page.getByLabel("TypeScript", { exact: true });
+
+  await expect(typeScriptIcon).toHaveAttribute("data-state", "closed");
+  await expect(typeScriptIcon).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "💪Skills", exact: true })
+  ).toBeVisible();
 
   if (isMobile) {
-    await expect(page.getByTestId("skillLottie")).toBeHidden();
+    await expect(skillsLottie).toBeHidden();
   } else {
-    await expect(page.getByTestId("skillLottie")).toBeVisible();
+    await typeScriptIcon.hover();
+    await expect(typeScriptIcon).toHaveAttribute("data-state", "delayed-open");
+    await expect(skillsLottie).toBeVisible();
   }
 });
