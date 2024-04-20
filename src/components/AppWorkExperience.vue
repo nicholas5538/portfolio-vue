@@ -68,7 +68,11 @@ const darkMode = useState<boolean>("darkMode");
             {{ pointer }}
           </li>
         </ul>
-        <ul v-if="workExperience.skills" class="mt-2 flex flex-wrap">
+        <ul
+          v-if="workExperience.skills"
+          :aria-label="`Technologies used in ${workExperience.company}`"
+          class="mt-2 flex flex-wrap"
+        >
           <li
             v-for="skill of workExperience.skills"
             :key="`${workExperience.company} skill - ${skill}`"
@@ -86,7 +90,10 @@ const darkMode = useState<boolean>("darkMode");
         <aside
           class="hidden h-44 w-44 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-5 lg:block lg:h-[14rem] lg:w-[14rem] lg:place-self-center xl:h-[18rem] xl:w-[18rem]"
         >
-          <Lottie :animation-data="ExperienceJSON" />
+          <Lottie
+            :animation-data="ExperienceJSON"
+            data-testid="experienceLottie"
+          />
         </aside>
         <template #fallback>
           <p>Loading Lottie animation</p>
