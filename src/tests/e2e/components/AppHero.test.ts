@@ -33,6 +33,7 @@ test.describe("Hero icon buttons", () => {
       exact: true,
     });
     await expect(gitIcon).toBeVisible();
+    await expect(gitIcon).toHaveAttribute("data-state", "closed");
 
     await linkIcon.hover();
     await expect(
@@ -40,6 +41,7 @@ test.describe("Hero icon buttons", () => {
     ).toBeVisible();
 
     await gitIcon.hover();
+    await expect(gitIcon).toHaveAttribute("data-state", "open");
     await expect(
       page.getByAltText("GitHub Avatar image", {
         exact: true,
