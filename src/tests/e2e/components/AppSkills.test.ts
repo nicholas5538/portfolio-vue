@@ -10,14 +10,12 @@ test("Skills section heading, icons and lottie component", async ({
   isMobile,
 }) => {
   const skillsLottie = page.getByTestId("skillLottie");
-  const typeScriptIcon = page.getByLabel("TypeScript", { exact: true }).first();
-  const typeScriptToolTip = page
-    .getByText("TypeScript", { exact: true })
-    .first();
+  const psIcon = page.getByLabel("Photoshop", { exact: true });
+  const psToolTip = page.getByText("Photoshop", { exact: true });
 
-  await expect(typeScriptIcon).toHaveAttribute("data-state", "closed");
-  await expect(typeScriptIcon).toBeVisible();
-  await expect(typeScriptToolTip).toBeHidden();
+  await expect(psIcon).toHaveAttribute("data-state", "closed");
+  await expect(psIcon).toBeVisible();
+  await expect(psToolTip).toBeHidden();
   await expect(
     page.getByRole("heading", { name: "💪Skills", exact: true })
   ).toBeVisible();
@@ -25,9 +23,9 @@ test("Skills section heading, icons and lottie component", async ({
   if (isMobile) {
     await expect(skillsLottie).toBeHidden();
   } else {
-    await typeScriptIcon.hover();
-    await expect(typeScriptIcon).toHaveAttribute("data-state", "delayed-open");
-    await expect(typeScriptToolTip).toBeVisible();
+    await psIcon.hover();
+    await expect(psIcon).toHaveAttribute("data-state", "delayed-open");
+    await expect(psToolTip).toBeVisible();
     await expect(skillsLottie).toBeVisible();
   }
 });
