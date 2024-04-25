@@ -2,13 +2,10 @@ import { expect, test } from "@nuxt/test-utils/playwright";
 
 const invalidURL = "/random-url";
 
-test.beforeEach(async ({ page, goto }) => {
+test("Error page rendering and redirect button", async ({ page, goto }) => {
   await goto(invalidURL, { waitUntil: "hydration" });
   await expect(page).toHaveURL(invalidURL);
   await expect(page).toHaveTitle("Page not found");
-});
-
-test("Error page rendering and redirect button", async ({ page }) => {
   await expect(
     page.getByRole("heading", {
       name: "Uh oh, looks like you're lost.",

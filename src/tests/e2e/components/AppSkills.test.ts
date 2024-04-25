@@ -1,14 +1,13 @@
 import { expect, test } from "@nuxt/test-utils/playwright";
 
-test.beforeEach(async ({ page, goto }) => {
-  await goto("/", { waitUntil: "hydration" });
-  await expect(page).toHaveTitle("Nicholas Yong's Portfolio");
-});
-
 test("Skills section heading, icons and lottie component", async ({
   page,
+  goto,
   isMobile,
 }) => {
+  await goto("/", { waitUntil: "hydration" });
+  await expect(page).toHaveTitle("Nicholas Yong's Portfolio");
+
   const skillsLottie = page.getByTestId("skillLottie");
   const psIcon = page.getByLabel("Photoshop", { exact: true });
   const psToolTip = page.getByText("Photoshop", { exact: true });
