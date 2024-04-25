@@ -1,13 +1,11 @@
 import { expect, test } from "@nuxt/test-utils/playwright";
 
-test.beforeEach(async ({ page, goto }) => {
-  await goto("/", { waitUntil: "hydration" });
-  await expect(page).toHaveTitle("Nicholas Yong's Portfolio");
-});
-
 test("About Me section heading, link and Lottie component", async ({
   page,
+  goto,
 }) => {
+  await goto("/", { waitUntil: "hydration" });
+  await expect(page).toHaveTitle("Nicholas Yong's Portfolio");
   await expect(
     page.getByLabel("SIT ASE program external link", { exact: true })
   ).toBeVisible();

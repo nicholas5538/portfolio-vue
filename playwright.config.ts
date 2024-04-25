@@ -29,5 +29,5 @@ export default defineConfig<ConfigOptions>({
       use: { ...devices["Pixel 7"], isMobile: true },
     },
   ],
-  timeout: 30000,
+  timeout: process.env.CI ? 45000 : 30000,
 });
