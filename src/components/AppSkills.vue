@@ -2,6 +2,9 @@
 import { TooltipProvider } from "radix-vue";
 import SkillsJSON from "assets/animations/skills.json";
 import averageGoodIcons from "~/constants/skill-icons";
+import type { TElement } from "~/constants/typeInference";
+
+const listRefs = useState<TElement[]>("listRefs");
 </script>
 
 <template>
@@ -9,7 +12,7 @@ import averageGoodIcons from "~/constants/skill-icons";
     class="dark-mode-container relative mx-auto mb-12 flex w-11/12 max-w-7xl flex-col items-start justify-center gap-y-6 2xl:mb-24"
   >
     <div>
-      <h2 class="white-bg-heading mb-5">
+      <h2 :ref="(el) => listRefs.push(el)" class="white-bg-heading mb-5">
         <Icon name="💪" size="36" />
         <span class="span-heading from-black-200 to-black-200">Skills</span>
       </h2>

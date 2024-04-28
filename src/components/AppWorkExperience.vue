@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { workExperiences } from "~/constants/globalVariables";
 import ExperienceJSON from "assets/animations/experience.json";
+import { workExperiences } from "~/constants/globalVariables";
+import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
+const listRefs = useState<TElement[]>("listRefs");
 </script>
 
 <template>
@@ -11,7 +13,10 @@ const darkMode = useState<boolean>("darkMode");
       class="dark-blue-container mb-40 md:mb-72 md:mt-20 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-[22rem] xl:mb-80 2xl:mb-[26rem] 3xl:mb-[22rem]"
     >
       <div class="md:col-span-2 md:row-start-1 md:row-end-1 md:mb-0 md:mt-5">
-        <h2 class="mb-5 text-xl font-bold text-blue md:text-3xl xl:text-4xl">
+        <h2
+          :ref="(el) => listRefs.push(el)"
+          class="mb-5 text-xl font-bold text-blue md:text-3xl xl:text-4xl"
+        >
           <Icon name="🧑‍💻" size="36" />
           <span class="span-heading">Experience</span>
         </h2>

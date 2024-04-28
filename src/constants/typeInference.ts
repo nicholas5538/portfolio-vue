@@ -1,3 +1,5 @@
+import type { ComponentPublicInstance } from "vue";
+
 export interface gitUserSchema {
   login: string;
   id: number;
@@ -32,3 +34,5 @@ export interface gitUserSchema {
   created_at: string;
   updated_at: string;
 }
+
+export type TElement = Element | ComponentPublicInstance | null;
