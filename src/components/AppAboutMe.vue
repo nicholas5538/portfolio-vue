@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import AboutMeJSON from "assets/animations/aboutme.json";
+import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
+const listRefs = useState<TElement[]>("listRefs", () => []);
 </script>
 
 <template>
@@ -10,7 +12,10 @@ const darkMode = useState<boolean>("darkMode");
       class="dark-blue-container dark-mode-container md:mb-40 md:grid-rows-5 md:gap-y-4 lg:mb-52 2xl:mb-[15.5rem] 3xl:mb-[17rem]"
     >
       <div class="md:col-span-2 md:justify-self-start">
-        <h2 class="mb-5 text-xl font-bold md:text-3xl xl:text-4xl">
+        <h2
+          :ref="(el) => listRefs.push(el)"
+          class="mb-5 text-xl font-bold md:text-3xl xl:text-4xl"
+        >
           <Icon name="👨" size="36" />
           <span class="span-heading">About Me</span>
         </h2>

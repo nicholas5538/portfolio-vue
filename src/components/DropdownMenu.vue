@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { resumeButtonProps } from "~/constants/globalVariables";
 import Button from "~/components/Button.vue";
+import useScrollElementIntoView from "~/composables/scrollElementIntoView";
+import { resumeButtonProps } from "~/constants/globalVariables";
+import type { TElement } from "~/constants/typeInference";
 import {
   DropdownMenuContent,
   DropdownMenuItem,
@@ -9,6 +11,11 @@ import {
   DropdownMenuTrigger,
 } from "radix-vue";
 
+function executeScrollFn(index: number): void {
+  return useScrollElementIntoView(listRefs.value[index]);
+}
+
+const listRefs = useState<TElement[]>("listRefs");
 const toggleState = ref(false);
 const listElements = [
   "About Me",
@@ -37,14 +44,17 @@ const lastIndex = listElements.length - 1;
         >
           <DropdownMenuItem
             v-for="(list, index) in listElements"
-            :key="list"
-            class="cursor-pointer rounded-none font-mont font-semibold tracking-widest text-black-200 transition duration-200 hover:bg-white-300 hover:text-aqua dark:text-white-200 dark:hover:bg-black-400 dark:hover:text-orange"
-            :class="{
-              'rounded-tr-xl': index === 0,
-              'rounded-br-xl': index === lastIndex,
-              'py-2.5 pl-4': index < lastIndex,
-            }"
+            :key="`${list}-dropdown`"
+            :class="[
+              {
+                'rounded-tr-xl': index === 0,
+                'rounded-br-xl': index === lastIndex,
+                'py-2.5 pl-4': index < lastIndex,
+              },
+              'cursor-pointer rounded-none font-mont font-semibold tracking-widest text-black-200 transition duration-200 hover:bg-white-300 hover:text-aqua dark:text-white-200 dark:hover:bg-black-400 dark:hover:text-orange',
+            ]"
             :value="list"
+            @click="executeScrollFn(index)"
           >
             <NuxtLink
               v-if="index === lastIndex"
@@ -70,8 +80,9 @@ const lastIndex = listElements.length - 1;
     >
       <li
         v-for="(list, index) in listElements"
-        :key="list"
+        :key="`${list}-navbar`"
         class="navbar-text cursor-pointer hover:underline hover:decoration-white-400 hover:decoration-2 hover:underline-offset-8"
+        @click="executeScrollFn(index)"
       >
         <Button
           v-if="index === listElements.length - 1"
