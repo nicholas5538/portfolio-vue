@@ -21,6 +21,23 @@ test.describe("Desktop viewport only", { tag: "@desktop" }, () => {
     await expect(faSun).not.toBeVisible();
     await expect(faMoon).toBeVisible();
   });
+
+  test("Browser's scrollIntoView API", async ({ page }) => {
+    const experienceListItem = page
+      .getByRole("listitem")
+      .filter({ hasText: "Experience" });
+    const experienceHeading = page.getByRole("heading", {
+      name: "🧑‍💻Experience",
+      exact: true,
+    });
+
+    await expect(experienceListItem).toBeInViewport();
+    await expect(experienceHeading).not.toBeInViewport();
+
+    // TODO: In the future, check whether the experienceListItem is not in the viewport once useScrollDirection has been implemented
+    await experienceListItem.click({ button: "left" });
+    await expect(experienceHeading).toBeInViewport();
+  });
 });
 
 test.describe("Mobile viewport only", { tag: "@mobile" }, () => {
