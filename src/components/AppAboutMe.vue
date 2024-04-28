@@ -3,7 +3,7 @@ import AboutMeJSON from "assets/animations/aboutme.json";
 import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
-const listRefs = useState<TElement[]>("listRefs", () => []);
+const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 import useThemeMount from "~/composables/themeMount";
 
 function useToggleTheme() {
-  const darkMode = useState("darkMode", () => false);
+  const darkMode = useState("darkMode", () => shallowRef(false));
 
   function toggleTheme() {
     if (localStorage.getItem("theme") === "dark") {
