@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "radix-vue";
 
-function executeScrollFn(index: number): void {
+function executeScrollFn(index: number) {
   return useScrollElementIntoView(listRefs.value[index]);
 }
 
@@ -54,7 +54,7 @@ const lastIndex = listElements.length - 1;
               'cursor-pointer rounded-none font-mont font-semibold tracking-widest text-black-200 transition duration-200 hover:bg-white-300 hover:text-aqua dark:text-white-200 dark:hover:bg-black-400 dark:hover:text-orange',
             ]"
             :value="list"
-            @click="executeScrollFn(index)"
+            @click.prevent.left="executeScrollFn(index)"
           >
             <NuxtLink
               v-if="index === lastIndex"
@@ -82,7 +82,7 @@ const lastIndex = listElements.length - 1;
         v-for="(list, index) in listElements"
         :key="`${list}-navbar`"
         class="navbar-text cursor-pointer hover:underline hover:decoration-white-400 hover:decoration-2 hover:underline-offset-8"
-        @click="executeScrollFn(index)"
+        @click.prevent.left="executeScrollFn(index)"
       >
         <Button
           v-if="index === listElements.length - 1"
