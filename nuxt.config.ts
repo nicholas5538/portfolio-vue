@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const largeModules = ["radix-vue", "vue3-lottie"];
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -72,4 +74,18 @@ export default defineNuxtConfig({
   srcDir: "src/",
   telemetry: false,
   typescript: { typeCheck: true },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            const separatedModule = largeModules.find((module) =>
+              id.includes(module)
+            );
+            if (separatedModule) return separatedModule;
+          },
+        },
+      },
+    },
+  },
 });
