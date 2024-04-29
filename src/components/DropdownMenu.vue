@@ -38,6 +38,7 @@ const lastIndex = listElements.length - 1;
         <DropdownMenuContent
           align="end"
           class="z-50 min-w-[300px] max-w-sm rounded-br-xl rounded-tr-xl bg-white-400 shadow-dropdown will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade dark:bg-black-500 dark:shadow-none"
+          hide-when-detached
           side="bottom"
           :side-offset="22"
           update-position-strategy="optimized"
@@ -80,6 +81,7 @@ const lastIndex = listElements.length - 1;
     >
       <li
         v-for="(list, index) in listElements"
+        v-once
         :key="`${list}-navbar`"
         class="navbar-text cursor-pointer hover:underline hover:decoration-white-400 hover:decoration-2 hover:underline-offset-8"
         @click.prevent.left="executeScrollFn(index)"
