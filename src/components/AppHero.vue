@@ -20,6 +20,7 @@ const { data } = await useFetch<gitUserSchema>("/user", {
     "X-GitHub-Api-Version": "2022-11-28",
   },
   key: "user",
+  lazy: true,
   method: "get",
   timeout: 5000,
   pick: [
@@ -32,13 +33,15 @@ const { data } = await useFetch<gitUserSchema>("/user", {
     "login",
     "name",
   ],
+  server: true,
   watch: false,
 });
 </script>
 
 <template>
   <div
-    class="mx-auto mb-28 grid w-11/12 max-w-7xl grid-cols-1 pt-32 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-evenly md:gap-x-8 md:pt-60 lg:mb-60 xl:grid-cols-4"
+    v-once
+    class="mx-auto mb-28 grid w-11/12 max-w-7xl grid-cols-1 pt-32 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-evenly md:gap-x-8 md:pt-60 lg:mb-60 xl:grid-cols-4 dark:mb-12 dark:2xl:mb-24"
   >
     <aside
       class="z-10 mx-auto mb-8 h-72 w-48 overflow-hidden rounded-3xl shadow-dropdown md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:mb-0 md:mr-0 md:h-min md:w-full xl:col-span-2 xl:w-9/12 dark:shadow-none"
@@ -82,7 +85,7 @@ const { data } = await useFetch<gitUserSchema>("/user", {
       </h2>
       <div class="flex flex-row items-center justify-start gap-x-6">
         <div v-for="[key, value] in externalLinks" :key="key">
-          <HoverCard v-if="key === 'GitHub'">
+          <LazyHoverCard v-if="key === 'GitHub'">
             <template #cardTrigger>
               <NuxtLink
                 :aria-label="`Click to see more on my ${key} Profile`"
@@ -168,7 +171,7 @@ const { data } = await useFetch<gitUserSchema>("/user", {
                 </div>
               </div>
             </template>
-          </HoverCard>
+          </LazyHoverCard>
           <TooltipProvider v-else :delay-duration="300">
             <Tooltip :name="value.name" :text="value.text" :url="value.url">
               <template #link>
