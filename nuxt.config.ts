@@ -57,7 +57,21 @@ export default defineNuxtConfig({
     renderJsonPayloads: false,
     payloadExtraction: true,
   },
-  modules: ["@nuxt/image", "@nuxt/test-utils/module", "nuxt-icon"],
+  modules: [
+    "@nuxt/image",
+    "@nuxt/test-utils/module",
+    "nuxt-icon",
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          Montserrat: {
+            wght: "100..900",
+          },
+        },
+      },
+    ],
+  ],
   plugins: ["~/plugins/Lottie.client"],
   postcss: {
     plugins: {
