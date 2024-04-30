@@ -9,11 +9,12 @@ export default {
     "./src/plugins/**/*.{js,ts}",
     "./src/app.vue",
     "./src/error.vue",
+    "./nuxt.config.ts",
   ],
   theme: {
     extend: {
       fontFamily: {
-        mont: ["var(--font-mont)"],
+        mont: ["Montserrat", "sans-serif"],
       },
       colors: {
         black: {
