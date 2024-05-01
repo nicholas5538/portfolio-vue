@@ -15,6 +15,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
+      HUSKY: 0
       NUXT_GITHUB_SECRET: ${{ secrets.NUXT_GITHUB_SECRET }}
 
     steps:

@@ -13,7 +13,7 @@
     "lint:fix": "eslint . --fix",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "prepare": "husky",
+    "prepare": "node .husky/install.mjs",
     "test": "vitest --watch=false",
     "test:watch": "vitest -w",
     "test:cov": "vitest run --coverage",
