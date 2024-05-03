@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import useScrollElementIntoView from "~/composables/scrollElementIntoView";
 import ThemeSwitch from "~/components/ThemeSwitch.vue";
+import type { TElement } from "~/constants/typeInference";
+
+const listRefs = useState<TElement[]>("listRefs");
+
+function scrollToElement(index: number) {
+  return useScrollElementIntoView(listRefs.value[index]);
+}
 
 useSeoMeta({
   title: "Nicholas Yong's Portfolio",
@@ -39,7 +47,7 @@ useSeoMeta({
             />
           </div>
           <div class="order-first lg:order-2">
-            <DropdownMenu />
+            <DropdownMenu @execute-scroll="scrollToElement" />
           </div>
           <div class="order-last flex items-center gap-2">
             <label
