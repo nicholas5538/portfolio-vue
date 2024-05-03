@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import Button from "~/components/Button.vue";
-import useScrollElementIntoView from "~/composables/scrollElementIntoView";
 import { resumeButtonProps } from "~/constants/globalVariables";
-import type { TElement } from "~/constants/typeInference";
 import {
   DropdownMenuContent,
   DropdownMenuItem,
@@ -11,11 +9,14 @@ import {
   DropdownMenuTrigger,
 } from "radix-vue";
 
-function executeScrollFn(index: number) {
-  return useScrollElementIntoView(listRefs.value[index]);
+const emit = defineEmits<{
+  (e: "executeScroll", index: number): void;
+}>();
+
+function scrollEmit(index: number) {
+  return emit("executeScroll", index);
 }
 
-const listRefs = useState<TElement[]>("listRefs");
 const toggleState = ref(false);
 const listElements = [
   "About Me",
@@ -55,7 +56,7 @@ const lastIndex = listElements.length - 1;
               'cursor-pointer rounded-none font-mont font-semibold tracking-widest text-black-200 transition duration-200 hover:bg-white-300 hover:text-aqua dark:text-white-200 dark:hover:bg-black-400 dark:hover:text-orange',
             ]"
             :value="list"
-            @click.prevent.left="executeScrollFn(index)"
+            @click.prevent.left="scrollEmit(index)"
           >
             <NuxtLink
               v-if="index === lastIndex"
@@ -84,7 +85,7 @@ const lastIndex = listElements.length - 1;
         v-once
         :key="`${list}-navbar`"
         class="navbar-text cursor-pointer hover:underline hover:decoration-white-400 hover:decoration-2 hover:underline-offset-8"
-        @click.prevent.left="executeScrollFn(index)"
+        @click.prevent.left="scrollEmit(index)"
       >
         <Button
           v-if="index === listElements.length - 1"
