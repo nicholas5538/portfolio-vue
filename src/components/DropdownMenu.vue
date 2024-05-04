@@ -33,7 +33,10 @@ const lastIndex = listElements.length - 1;
   <div class="lg:hidden">
     <DropdownMenuRoot v-model:open="toggleState">
       <DropdownMenuTrigger>
-        <IconCSS name="mdi:hamburger-menu" />
+        <IconCSS
+          class="text-black-200 dark:text-white-400"
+          name="mdi:hamburger-menu"
+        />
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
         <DropdownMenuContent
@@ -84,7 +87,7 @@ const lastIndex = listElements.length - 1;
         v-for="(list, index) in listElements"
         v-once
         :key="`${list}-navbar`"
-        class="navbar-text cursor-pointer hover:underline hover:decoration-white-400 hover:decoration-2 hover:underline-offset-8"
+        class="navbar-text cursor-pointer transition-all duration-300 ease-out hover:underline hover:decoration-black-200 hover:decoration-2 hover:underline-offset-8 dark:hover:decoration-white-400"
         @click.prevent.left="scrollEmit(index)"
       >
         <Button

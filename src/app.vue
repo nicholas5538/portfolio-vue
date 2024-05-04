@@ -2,7 +2,7 @@
 
 <template>
   <NuxtLoadingIndicator />
-  <NuxtLayout>
-    <NuxtPage page-key="static" />
+  <NuxtLayout name="default">
+    <NuxtPage :page-key="(route) => route.fullPath" />
   </NuxtLayout>
 </template>
