@@ -11,7 +11,7 @@ const listRefs = useState<TElement[]>("listRefs");
 <template>
   <div class="dark-blue-section">
     <div
-      class="dark-blue-container mb-40 md:mb-72 md:mt-20 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-[22rem] xl:mb-80 2xl:mb-[26rem] 3xl:mb-[22rem]"
+      class="dark-blue-container mb-48 md:mb-72 md:mt-20 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-[22rem] xl:mb-80 2xl:mb-[26rem] 3xl:mb-[22rem] dark:mb-12 dark:xl:mb-24"
     >
       <div class="md:col-span-2 md:row-start-1 md:row-end-1 md:mb-0 md:mt-5">
         <h2
