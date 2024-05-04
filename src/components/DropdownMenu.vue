@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Button from "~/components/Button.vue";
+import Button from "~/components/Button.server.vue";
 import { resumeButtonProps } from "~/constants/globalVariables";
 import {
   DropdownMenuContent,

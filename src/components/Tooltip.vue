@@ -6,7 +6,7 @@ import {
   TooltipRoot,
   TooltipTrigger,
 } from "radix-vue";
-import IconButton from "~/components/IconButton.vue";
+import IconButton from "~/components/IconButton.server.vue";
 
 const props = withDefaults(
   defineProps<{
