@@ -3,6 +3,7 @@ import { TooltipProvider } from "radix-vue";
 import { computed } from "vue";
 import { projects } from "~/constants/globalVariables";
 import type { TElement } from "~/constants/typeInference";
+import SkillLabels from "~/components/SkillLabels.server.vue";
 
 function checkIndex(index: number) {
   return index % 2 === 0;
@@ -61,22 +62,11 @@ const columnPlacement = computed(() => {
             >
               {{ value.projectDescription }}
             </p>
-            <ul
-              :aria-label="`Technologies used in ${value.projectTitle}`"
-              class="mt-2 flex flex-wrap gap-x-4 gap-y-2"
-            >
-              <li
-                v-for="skill of value.techStack"
-                :key="`${value.projectTitle} skill - ${skill}`"
-                class="mr-1.5 mt-2"
-              >
-                <div
-                  class="leading-1.5 flex items-center rounded-full bg-aqua/50 px-3 py-1 text-sm transition-colors duration-300 ease-out dark:bg-light-orange/50"
-                >
-                  {{ skill }}
-                </div>
-              </li>
-            </ul>
+            <SkillLabels
+              :label="`Technologies used in ${value.projectTitle}`"
+              :skills="value.techStack"
+              class="gap-x-4 gap-y-2"
+            />
           </div>
           <div
             :class="[

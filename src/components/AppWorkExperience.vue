@@ -2,6 +2,7 @@
 import ExperienceJSON from "assets/animations/experience.json";
 import { workExperiences } from "~/constants/globalVariables";
 import type { TElement } from "~/constants/typeInference";
+import SkillLabels from "~/components/SkillLabels.server.vue";
 
 const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs");
@@ -73,23 +74,11 @@ const listRefs = useState<TElement[]>("listRefs");
             {{ pointer }}
           </li>
         </ul>
-        <ul
+        <SkillLabels
           v-if="workExperience.skills"
-          :aria-label="`Technologies used in ${workExperience.company}`"
-          class="mt-2 flex flex-wrap"
-        >
-          <li
-            v-for="skill of workExperience.skills"
-            :key="`${workExperience.company} skill - ${skill}`"
-            class="mr-1.5 mt-2"
-          >
-            <div
-              class="leading-1.5 flex items-center rounded-full bg-aqua/50 px-3 py-1 text-sm transition-colors duration-300 ease-out dark:bg-light-orange/50"
-            >
-              {{ skill }}
-            </div>
-          </li>
-        </ul>
+          :label="`Technologies used in ${workExperience.company}`"
+          :skills="workExperience.skills"
+        />
       </div>
       <ClientOnly fallback-tag="span">
         <aside
