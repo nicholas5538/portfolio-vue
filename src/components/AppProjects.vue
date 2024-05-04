@@ -23,7 +23,7 @@ const columnPlacement = computed(() => {
     <div class="mx-auto mb-20 w-11/12 max-w-7xl sm:mb-28 2xl:mb-44">
       <h2
         :ref="(el) => listRefs.push(el)"
-        class="white-bg-heading mb-5 text-lg md:mb-0 md:text-3xl xl:text-4xl"
+        class="white-bg-heading mb-5 text-lg md:text-3xl xl:text-4xl"
       >
         <Icon name="👇" size="36" />
         <span class="span-heading from-black-400 to-black-400">Projects</span>
@@ -91,7 +91,7 @@ const columnPlacement = computed(() => {
                 Links
               </h4>
               <div class="flex flex-row flex-wrap gap-x-4 md:justify-center">
-                <TooltipProvider nuxt-client :delay-duration="300">
+                <TooltipProvider :delay-duration="300">
                   <Tooltip
                     v-for="{ name, text, url } in value.links"
                     :key="`${value.projectTitle}-${text}-link`"
@@ -109,11 +109,12 @@ const columnPlacement = computed(() => {
             <aside
               :class="[
                 { 'md:left-[45%]': checkIndex(value.id) },
-                'absolute left-0 top-0 -z-10 opacity-[8%] md:left-0 md:top-1/4 md:max-w-[600px] md:border-2 md:border-black-200 md:opacity-60 lg:top-[12.5%] dark:md:opacity-30',
+                'absolute left-0 top-0 -z-10 h-full max-h-[350px] w-full opacity-[8%] md:top-1/4 md:h-1/2 md:w-1/2 md:max-w-[600px] md:opacity-60 lg:top-[12.5%] lg:h-3/4 lg:w-1/2 dark:md:opacity-30',
               ]"
             >
               <NuxtPicture
-                fit="inside"
+                class="border- hidden md:inline-block md:rounded-md md:border-2 md:border-black-200"
+                fit="cover"
                 format="webp"
                 placeholder
                 quality="80"
