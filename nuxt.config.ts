@@ -56,6 +56,7 @@ export default defineNuxtConfig({
   experimental: {
     renderJsonPayloads: false,
     payloadExtraction: true,
+    componentIslands: true,
   },
   modules: [
     "@nuxt/image",

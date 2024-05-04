@@ -2,6 +2,7 @@
 import ExperienceJSON from "assets/animations/experience.json";
 import { workExperiences } from "~/constants/globalVariables";
 import type { TElement } from "~/constants/typeInference";
+import SkillLabels from "~/components/SkillLabels.server.vue";
 
 const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs");
@@ -10,7 +11,7 @@ const listRefs = useState<TElement[]>("listRefs");
 <template>
   <div class="dark-blue-section">
     <div
-      class="dark-blue-container mb-40 md:mb-72 md:mt-20 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-[22rem] xl:mb-80 2xl:mb-[26rem] 3xl:mb-[22rem]"
+      class="dark-blue-container mb-48 md:mb-72 md:mt-20 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-[22rem] xl:mb-80 2xl:mb-[26rem] 3xl:mb-[22rem] dark:mb-12 dark:xl:mb-24"
     >
       <div class="md:col-span-2 md:row-start-1 md:row-end-1 md:mb-0 md:mt-5">
         <h2
@@ -73,23 +74,11 @@ const listRefs = useState<TElement[]>("listRefs");
             {{ pointer }}
           </li>
         </ul>
-        <ul
+        <SkillLabels
           v-if="workExperience.skills"
-          :aria-label="`Technologies used in ${workExperience.company}`"
-          class="mt-2 flex flex-wrap"
-        >
-          <li
-            v-for="skill of workExperience.skills"
-            :key="`${workExperience.company} skill - ${skill}`"
-            class="mr-1.5 mt-2"
-          >
-            <div
-              class="leading-1.5 flex items-center rounded-full bg-aqua/50 px-3 py-1 text-sm transition-colors duration-300 ease-out dark:bg-light-orange/50"
-            >
-              {{ skill }}
-            </div>
-          </li>
-        </ul>
+          :label="`Technologies used in ${workExperience.company}`"
+          :skills="workExperience.skills"
+        />
       </div>
       <ClientOnly fallback-tag="span">
         <aside

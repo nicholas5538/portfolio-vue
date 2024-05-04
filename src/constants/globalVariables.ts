@@ -83,3 +83,98 @@ export const workExperiences = new Map([
     },
   ],
 ]);
+
+const voucherManagementProject = {
+  id: 0,
+  imageURL: "/images/voucher_management.webp",
+  links: [
+    {
+      name: "github",
+      text: "GitHub",
+      url: "https://github.com/nicholas5538/fp-voucher-FE",
+    },
+    {
+      name: "externalLink",
+      text: "Website",
+      url: "https://fp-voucher-portal.onrender.com",
+    },
+  ],
+  projectTitle: "Voucher Management",
+  projectDescription:
+    "This is a web-based program that enables users to carry out CRUD operations on vouchers. It also provides a data table for convenient access to all information related to the vouchers.",
+  techStack: [
+    "TypeScript",
+    "Node.js",
+    "Express.js",
+    "React",
+    "Tailwind CSS",
+    "Prisma ORM",
+    "PostgreSQL",
+    "Docker",
+  ],
+};
+
+const stocksProject = {
+  id: 1,
+  imageURL: "/images/stocks-portfolio.webp",
+  links: [
+    {
+      name: "github",
+      text: "GitHub",
+      url: "https://github.com/nicholas5538/StocksTracker",
+    },
+    {
+      name: "youtube",
+      text: "YouTube",
+      url: "https://youtu.be/T_cgG668pf4",
+    },
+  ],
+  projectTitle: "Stockstracker",
+  projectDescription:
+    "This is a web-based program that enables users to quickly analyze the performance of their stock portfolio. It also allows users to save and make changes to their transaction history, which can be easily accessed on a single page.",
+  techStack: ["Python", "Django", "HTML", "CSS", "Bootstrap", "PostgreSQL"],
+};
+
+const ioTProject = {
+  id: 2,
+  imageURL: "/images/handsanitizer.webp",
+  links: [
+    {
+      name: "github",
+      text: "GitHub",
+      url: "https://github.com/nicholas5538/sanitizer-IoT",
+    },
+    {
+      name: "mdi:youtube",
+      text: "YouTube",
+      url: "https://www.youtube.com/watch?v=G4GZ-QFubOY",
+    },
+  ],
+  projectTitle: "IoT Hand Sanitizer",
+  projectDescription:
+    "A hand sanitizer product that incorporates data analytics and simple machine learning techniques to forecast certain data points, such as the number of times the sanitizer dispenser needs to be used before it runs out.",
+  techStack: ["Python", "Jupyter Notebook", "Arduino"],
+};
+
+const pepsiProject = {
+  id: 3,
+  imageURL: "/images/pepsi-corporate.webp",
+  links: [
+    {
+      name: "github",
+      text: "GitHub",
+      url: "https://github.com/nicholas5538/fp-mini-project",
+    },
+  ],
+  projectTitle: "Pepsi corporate SPA",
+  projectDescription:
+    "Creating a new React-based single-page application from the beginning, in order to gain familiarity with various tools, including Typescript, React Router, framer motion, and the vitest unit testing framework.",
+  techStack: ["TypeScript", "React", "Framer Motion"],
+};
+
+export const projects = new Map([
+  ["Voucher Management", voucherManagementProject],
+  ["StocksTracker", stocksProject],
+  ["IoT Hand Sanitizer", ioTProject],
+  ["Pepsi SPA", pepsiProject],
+]);
