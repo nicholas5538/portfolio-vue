@@ -9,7 +9,7 @@ const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
 <template>
   <div class="dark-blue-section">
     <div
-      class="dark-blue-container dark-mode-container md:mb-40 md:grid-rows-5 md:gap-y-4 lg:mb-52 2xl:mb-[15.5rem] 3xl:mb-[17rem] dark:mb-12 dark:2xl:mb-24"
+      class="dark-blue-container dark-mode-container md:mb-40 md:grid-rows-5 md:gap-y-4 lg:mb-52 xl:mb-56 2xl:mb-72 3xl:mb-[17rem] dark:mb-12 dark:2xl:mb-24"
     >
       <div class="md:col-span-2 md:justify-self-start">
         <h2

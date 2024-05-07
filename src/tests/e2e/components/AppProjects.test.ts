@@ -24,7 +24,7 @@ test("App project section heading, and tooltip", async ({
   if (!isMobile) {
     await page
       .getByRole("listitem")
-      .filter({ hasText: "Project" })
+      .filter({ hasText: "Projects" })
       .click({ button: "left" });
 
     await expect(externalLink).toBeInViewport();
