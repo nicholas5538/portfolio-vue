@@ -103,4 +103,9 @@ export default defineNuxtConfig({
       },
     },
   },
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag === "iconify-icon",
+    },
+  },
 });
