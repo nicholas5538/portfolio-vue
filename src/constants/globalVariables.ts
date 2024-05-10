@@ -1,5 +1,23 @@
+import type { IconNames } from "~/constants/typeInference";
+
 const resumeLink =
   "https://drive.google.com/file/d/1qAhqlPGqBdURD958C8yNdTVteQZKCQBJ/view?usp=sharing";
+
+// TODO: make a map to store icons
+
+export const iconAlias = new Map<IconNames, string>([
+  ["externalLink", "mdi:external-link"],
+  ["github", "mdi:github"],
+  ["instagram", "mdi:instagram"],
+  ["linkedin", "mdi:linkedin"],
+  ["mail", "material-symbols:mail-outline"],
+  ["moon", "solar-moon-bold-duotone"],
+  ["location", "mdi:location"],
+  ["resume", "mdi:resume"],
+  ["profile", "iconamoon:profile"],
+  ["sun", "solar:sun-line-duotone"],
+  ["youtube", "mdi:youtube"],
+]);
 
 export const resumeButtonProps = {
   ariaLabel: "Resume PDF",
@@ -12,7 +30,7 @@ export const externalLinks = new Map([
   [
     "Resume",
     {
-      name: "resume",
+      icon: iconAlias.get("resume"),
       text: "Resume",
       url: resumeLink,
     },
@@ -20,7 +38,7 @@ export const externalLinks = new Map([
   [
     "LinkedIn",
     {
-      name: "linkedin",
+      icon: iconAlias.get("linkedin"),
       text: "LinkedIn Profile",
       url: "https://www.linkedin.com/in/nicholas-yjy",
     },
@@ -28,7 +46,7 @@ export const externalLinks = new Map([
   [
     "GitHub",
     {
-      name: "github",
+      icon: iconAlias.get("github"),
       text: "GitHub Profile",
       url: "https://github.com/nicholas5538",
     },
@@ -36,7 +54,7 @@ export const externalLinks = new Map([
   [
     "Instagram",
     {
-      name: "instagram",
+      icon: iconAlias.get("instagram"),
       text: "Instagram Profile",
       url: "https://www.instagram.com/frivolousnicholas",
     },
@@ -89,12 +107,12 @@ const voucherManagementProject = {
   imageURL: "/images/voucher_management.webp",
   links: [
     {
-      name: "github",
+      icon: iconAlias.get("github"),
       text: "GitHub",
       url: "https://github.com/nicholas5538/fp-voucher-FE",
     },
     {
-      name: "externalLink",
+      icon: iconAlias.get("externalLink"),
       text: "Website",
       url: "https://fp-voucher-portal.onrender.com",
     },
@@ -119,12 +137,12 @@ const stocksProject = {
   imageURL: "/images/stocks-portfolio.webp",
   links: [
     {
-      name: "github",
+      icon: iconAlias.get("github"),
       text: "GitHub",
       url: "https://github.com/nicholas5538/StocksTracker",
     },
     {
-      name: "youtube",
+      icon: iconAlias.get("youtube"),
       text: "YouTube",
       url: "https://youtu.be/T_cgG668pf4",
     },
@@ -140,12 +158,12 @@ const ioTProject = {
   imageURL: "/images/handsanitizer.webp",
   links: [
     {
-      name: "github",
+      icon: iconAlias.get("github"),
       text: "GitHub",
       url: "https://github.com/nicholas5538/sanitizer-IoT",
     },
     {
-      name: "mdi:youtube",
+      icon: iconAlias.get("youtube"),
       text: "YouTube",
       url: "https://www.youtube.com/watch?v=G4GZ-QFubOY",
     },
@@ -161,7 +179,7 @@ const pepsiProject = {
   imageURL: "/images/pepsi-corporate.webp",
   links: [
     {
-      name: "github",
+      icon: iconAlias.get("github"),
       text: "GitHub",
       url: "https://github.com/nicholas5538/fp-mini-project",
     },
