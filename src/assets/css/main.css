@@ -73,4 +73,8 @@
   .icon {
     @apply text-black-200 dark:text-white-500;
   }
+
+  .sectionHeading {
+    @apply flex items-center;
+  }
 }
