@@ -1,8 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ConfigProvider } from "radix-vue";
+
+const useIdFunction = () => useId();
+</script>
 
 <template>
-  <NuxtLoadingIndicator />
-  <NuxtLayout name="default">
-    <NuxtPage :page-key="(route) => route.fullPath" />
-  </NuxtLayout>
+  <ConfigProvider :use-id="useIdFunction">
+    <NuxtLoadingIndicator />
+    <NuxtLayout name="default">
+      <NuxtPage :page-key="(route) => route.fullPath" />
+    </NuxtLayout>
+  </ConfigProvider>
 </template>
