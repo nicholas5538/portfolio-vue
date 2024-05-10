@@ -23,22 +23,24 @@ test.describe("Hero icon buttons", () => {
   test.skip(({ isMobile }) => isMobile);
 
   test("Hero icon buttons' hover effect", async ({ page }) => {
-    const linkIcon = page.getByLabel(
+    const linkedinIcon = page.getByLabel(
       "Click to see more on my LinkedIn Profile",
       {
         exact: true,
       }
     );
+
     const gitIcon = page.getByLabel("Click to see more on my GitHub Profile", {
       exact: true,
     });
+
+    await expect(linkedinIcon).toBeVisible();
+    await expect(linkedinIcon).toHaveAttribute("data-state", "closed");
     await expect(gitIcon).toBeVisible();
     await expect(gitIcon).toHaveAttribute("data-state", "closed");
 
-    await linkIcon.hover();
-    await expect(
-      page.getByText("LinkedIn Profile", { exact: true })
-    ).toBeVisible();
+    await linkedinIcon.hover();
+    await expect(linkedinIcon).toHaveAttribute("data-state", "delayed-open");
 
     await gitIcon.hover();
     await expect(gitIcon).toHaveAttribute("data-state", "open");

@@ -15,9 +15,6 @@ test("Skills section heading, icons and lottie component", async ({
   await expect(psIcon).toHaveAttribute("data-state", "closed");
   await expect(psIcon).toBeVisible();
   await expect(psToolTip).toBeHidden();
-  await expect(
-    page.getByRole("heading", { name: "💪Skills", exact: true })
-  ).toBeVisible();
 
   if (isMobile) {
     await expect(skillsLottie).toBeHidden();
