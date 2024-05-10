@@ -12,8 +12,11 @@ const listRefs = useState<TElement[]>("listRefs");
     class="dark-mode-container relative mx-auto mb-12 flex w-11/12 max-w-7xl flex-col items-start justify-center gap-y-6 2xl:mb-24"
   >
     <div>
-      <h2 :ref="(el) => listRefs.push(el)" class="white-bg-heading mb-5">
-        <Icon name="💪" size="36" />
+      <h2
+        :ref="(el) => listRefs.push(el)"
+        class="sectionHeading white-bg-heading mb-5"
+      >
+        <IconifyIcon icon="fluent-emoji:wrench" :width="36" :height="36" />
         <span class="span-heading from-black-200 to-black-200">Skills</span>
       </h2>
       <h2 class="text-lg font-bold md:text-3xl xl:text-4xl dark:text-white-300">
@@ -40,9 +43,9 @@ const listRefs = useState<TElement[]>("listRefs");
           >
             <TooltipProvider :delay-duration="300">
               <Tooltip
-                v-for="[iconText, { name }] in icons"
+                v-for="[iconText, { icon }] in icons"
                 :key="iconText"
-                :name="name"
+                :icon="icon"
                 :text="iconText"
               />
             </TooltipProvider>

@@ -41,8 +41,8 @@ useSeoMeta({
             class="order-2 flex flex-row items-center gap-x-2 lg:order-first"
           >
             <h1 class="navbar-text">NICHOLAS</h1>
-            <IconCSS
-              name="arcticons:easy-coder"
+            <IconifyIcon
+              icon="arcticons:easy-coder"
               class="hidden text-black-200 sm:block dark:text-white-400"
             />
           </div>

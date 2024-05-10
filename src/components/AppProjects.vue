@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { TooltipProvider } from "radix-vue";
 import { computed } from "vue";
+import IconifyIcon from "~/components/IconifyIcon.vue";
+import SkillLabels from "~/components/SkillLabels.server.vue";
 import { projects } from "~/constants/globalVariables";
 import type { TElement } from "~/constants/typeInference";
-import SkillLabels from "~/components/SkillLabels.server.vue";
 
 function checkIndex(index: number) {
   return index % 2 === 0;
@@ -24,9 +25,13 @@ const columnPlacement = computed(() => {
     <div class="mx-auto mb-20 w-11/12 max-w-7xl sm:mb-28 2xl:mb-44">
       <h2
         :ref="(el) => listRefs.push(el)"
-        class="white-bg-heading mb-5 text-lg md:text-3xl xl:text-4xl"
+        class="sectionHeading white-bg-heading mb-5 text-lg md:text-3xl xl:text-4xl"
       >
-        <Icon name="👇" size="36" />
+        <IconifyIcon
+          icon="fluent-emoji:backhand-index-pointing-down"
+          :width="36"
+          :height="36"
+        />
         <span class="span-heading from-black-400 to-black-400">Projects</span>
       </h2>
       <h3 class="white-sub-heading text-lg font-bold md:text-3xl xl:text-4xl">
@@ -83,14 +88,14 @@ const columnPlacement = computed(() => {
               <div class="flex flex-row flex-wrap gap-x-4 md:justify-center">
                 <TooltipProvider :delay-duration="300">
                   <Tooltip
-                    v-for="{ name, text, url } in value.links"
+                    v-for="{ icon, text, url } in value.links"
                     :key="`${value.projectTitle}-${text}-link`"
-                    :name="name"
+                    :icon="icon!"
                     :text="text"
                     :url="url"
                   >
                     <template #link>
-                      <IconButton :name="name" />
+                      <IconButton :icon="icon!" />
                     </template>
                   </Tooltip>
                 </TooltipProvider>

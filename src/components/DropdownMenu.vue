@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from "~/components/Button.server.vue";
+import IconifyIcon from "~/components/IconifyIcon.vue";
 import { resumeButtonProps } from "~/constants/globalVariables";
 import {
   DropdownMenuContent,
@@ -35,9 +36,9 @@ const lastIndex = listElements.length - 1;
   <div class="lg:hidden">
     <DropdownMenuRoot v-model:open="toggleState">
       <DropdownMenuTrigger>
-        <IconCSS
+        <IconifyIcon
           class="text-black-200 dark:text-white-400"
-          name="mdi:hamburger-menu"
+          icon="mdi:hamburger-menu"
         />
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
