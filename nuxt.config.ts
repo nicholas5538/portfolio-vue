@@ -61,7 +61,6 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/image",
     "@nuxt/test-utils/module",
-    "nuxt-icon",
     [
       "@nuxtjs/google-fonts",
       {
