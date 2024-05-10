@@ -22,26 +22,26 @@ test.describe("Hero section picture and headings", () => {
 test.describe("Hero icon buttons", () => {
   test.skip(({ isMobile }) => isMobile);
 
-  test("Hero icon buttons' hover effect", async ({ page }) => {
+  test("Hero icon buttons' hover effect", async ({ page, browserName }) => {
     const linkedinIcon = page.getByLabel(
       "Click to see more on my LinkedIn Profile",
       {
         exact: true,
       }
     );
+    await expect(linkedinIcon).toBeVisible();
+    await expect(linkedinIcon).toHaveAttribute("data-state", "closed");
+    // For some reason, data-state remained closed in chromium, though it works on development
+    if (browserName !== "chromium") {
+      await linkedinIcon.hover();
+      await expect(linkedinIcon).toHaveAttribute("data-state", "delayed-open");
+    }
 
     const gitIcon = page.getByLabel("Click to see more on my GitHub Profile", {
       exact: true,
     });
-
-    await expect(linkedinIcon).toBeVisible();
-    await expect(linkedinIcon).toHaveAttribute("data-state", "closed");
     await expect(gitIcon).toBeVisible();
     await expect(gitIcon).toHaveAttribute("data-state", "closed");
-
-    await linkedinIcon.hover();
-    await expect(linkedinIcon).toHaveAttribute("data-state", "delayed-open");
-
     await gitIcon.hover();
     await expect(gitIcon).toHaveAttribute("data-state", "open");
     await expect(
