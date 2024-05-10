@@ -5,8 +5,14 @@ import {
   AvatarRoot,
   TooltipProvider,
 } from "radix-vue";
-import { externalLinks } from "~/constants/globalVariables";
+import IconifyIcon from "~/components/IconifyIcon.vue";
+import { externalLinks, iconAlias } from "~/constants/globalVariables";
 import type { gitUserSchema } from "~/constants/typeInference";
+
+const gitHubIcon = iconAlias.get("github")!;
+const profileIcon = iconAlias.get("profile")!;
+const mailIcon = iconAlias.get("mail")!;
+const locationIcon = iconAlias.get("location")!;
 
 const config = useRuntimeConfig();
 const { data } = await useFetch<gitUserSchema>("/user", {
@@ -62,8 +68,10 @@ const { data } = await useFetch<gitUserSchema>("/user", {
     <h1
       class="mb-4 md:col-span-2 md:row-start-1 md:row-end-2 md:mb-0 md:text-4xl xl:text-5xl"
     >
-      <span class="inline-block origin-wave animate-wave text-4xl xl:text-5xl">
-        <Icon name="👋" size="36" />
+      <span
+        class="inline-block origin-wave animate-wave align-middle text-4xl xl:text-5xl"
+      >
+        <IconifyIcon icon="fluent-emoji:waving-hand" :width="44" :height="44" />
       </span>
       Hi there! I&apos;m
       <span
@@ -94,7 +102,7 @@ const { data } = await useFetch<gitUserSchema>("/user", {
                 target="_blank"
                 :to="value.url"
               >
-                <IconButton name="github" />
+                <IconButton :icon="gitHubIcon" />
               </NuxtLink>
             </template>
             <template #cardContent>
@@ -131,19 +139,19 @@ const { data } = await useFetch<gitUserSchema>("/user", {
                       {{ data?.name }}
                     </div>
                     <div class="flex gap-1 font-semibold">
-                      <IconCSS name="iconamoon:profile" />
+                      <IconifyIcon :icon="profileIcon" />
                       <div class="m-0 text-[15px] leading-[1.5]">
                         {{ data?.login }}
                       </div>
                     </div>
                     <div class="flex gap-1 font-semibold">
-                      <IconCSS name="material-symbols:mail-outline" />
+                      <IconifyIcon :icon="mailIcon" />
                       <div class="m-0 text-[15px] leading-[1.5]">
                         {{ data?.email }}
                       </div>
                     </div>
                     <div class="flex gap-1 font-semibold">
-                      <IconCSS name="mdi:location" />
+                      <IconifyIcon :icon="locationIcon" />
                       <div class="m-0 text-[15px] leading-[1.5]">
                         {{ data?.location }}
                       </div>
@@ -173,9 +181,9 @@ const { data } = await useFetch<gitUserSchema>("/user", {
             </template>
           </LazyHoverCard>
           <TooltipProvider v-else :delay-duration="300">
-            <Tooltip :name="value.name" :text="value.text" :url="value.url">
+            <Tooltip :icon="value.icon!" :text="value.text" :url="value.url">
               <template #link>
-                <IconButton :name="value.name" />
+                <IconButton :icon="value.icon!" />
               </template>
             </Tooltip>
           </TooltipProvider>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { TElement } from "~/constants/typeInference";
-import { Button } from "#components";
+import Button from "~/components/Button.server.vue";
+import IconifyIcon from "~/components/IconifyIcon.vue";
 
 const listRefs = useState<TElement[]>("listRefs");
 const darkMode = useState<boolean>("darkMode");
@@ -21,9 +22,13 @@ const buttonProps = {
     >
       <h2
         :ref="(el) => listRefs.push(el)"
-        class="text-xl font-bold md:text-3xl xl:text-4xl"
+        class="sectionHeading text-xl font-bold md:text-3xl xl:text-4xl"
       >
-        <Icon name="🤙" size="36" />
+        <IconifyIcon
+          icon="fluent-emoji:man-tipping-hand"
+          :width="36"
+          :height="36"
+        />
         <span class="span-heading">What's next?</span>
       </h2>
       <h2

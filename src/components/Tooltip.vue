@@ -10,7 +10,7 @@ import IconButton from "~/components/IconButton.server.vue";
 
 const props = withDefaults(
   defineProps<{
-    name: string;
+    icon: string;
     sideOffset?: number;
     text: string;
     url?: string;
@@ -35,7 +35,7 @@ const props = withDefaults(
       >
         <slot name="link" />
       </NuxtLink>
-      <IconButton v-else :aria-label="props.text" :name="props.name" />
+      <IconButton v-else :aria-label="props.text" :icon="props.icon" />
     </TooltipTrigger>
     <TooltipPortal>
       <TooltipContent

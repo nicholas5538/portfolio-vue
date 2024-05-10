@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AboutMeJSON from "assets/animations/aboutme.json";
+import IconifyIcon from "~/components/IconifyIcon.vue";
 import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
@@ -14,9 +15,9 @@ const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
       <div class="md:col-span-2 md:justify-self-start">
         <h2
           :ref="(el) => listRefs.push(el)"
-          class="mb-5 text-xl font-bold md:text-3xl xl:text-4xl"
+          class="sectionHeading mb-5 text-xl font-bold md:text-3xl xl:text-4xl"
         >
-          <Icon name="👨" size="36" />
+          <IconifyIcon icon="fluent-emoji:boy" :width="36" :height="36" />
           <span class="span-heading">About Me</span>
         </h2>
         <h2

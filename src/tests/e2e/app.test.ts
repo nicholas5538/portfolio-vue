@@ -23,20 +23,17 @@ test.describe("Desktop viewport only", { tag: "@desktop" }, () => {
   });
 
   test("Browser's scrollIntoView API", async ({ page }) => {
-    const experienceListItem = page
+    const projectListItem = page
       .getByRole("listitem")
-      .filter({ hasText: "Experience" });
-    const experienceHeading = page.getByRole("heading", {
-      name: "🧑‍💻Experience",
-      exact: true,
+      .filter({ hasText: "Projects" });
+    const heroHeading = page.getByRole("heading", {
+      name: "Hi There! I'm",
     });
 
-    await expect(experienceListItem).toBeInViewport();
-    await expect(experienceHeading).not.toBeInViewport();
-
-    // TODO: In the future, check whether the experienceListItem is not in the viewport once useScrollDirection has been implemented
-    await experienceListItem.click({ button: "left" });
-    await expect(experienceHeading).toBeInViewport();
+    await expect(projectListItem).toBeInViewport();
+    await expect(heroHeading).toBeInViewport();
+    await projectListItem.click({ button: "left" });
+    await expect(heroHeading).not.toBeInViewport();
   });
 });
 

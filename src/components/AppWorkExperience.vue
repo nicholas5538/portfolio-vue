@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import ExperienceJSON from "assets/animations/experience.json";
+import IconifyIcon from "~/components/IconifyIcon.vue";
+import SkillLabels from "~/components/SkillLabels.server.vue";
 import { workExperiences } from "~/constants/globalVariables";
 import type { TElement } from "~/constants/typeInference";
-import SkillLabels from "~/components/SkillLabels.server.vue";
 
 const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs");
@@ -16,9 +17,13 @@ const listRefs = useState<TElement[]>("listRefs");
       <div class="md:col-span-2 md:row-start-1 md:row-end-1 md:mb-0 md:mt-5">
         <h2
           :ref="(el) => listRefs.push(el)"
-          class="mb-5 text-xl font-bold text-blue md:text-3xl xl:text-4xl"
+          class="sectionHeading mb-5 text-xl font-bold text-blue md:text-3xl xl:text-4xl"
         >
-          <Icon name="🧑‍💻" size="36" />
+          <IconifyIcon
+            icon="fluent-emoji:office-worker"
+            :width="36"
+            :height="36"
+          />
           <span class="span-heading">Experience</span>
         </h2>
         <h2

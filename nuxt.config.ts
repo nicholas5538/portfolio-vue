@@ -61,7 +61,6 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/image",
     "@nuxt/test-utils/module",
-    "nuxt-icon",
     [
       "@nuxtjs/google-fonts",
       {
@@ -101,6 +100,11 @@ export default defineNuxtConfig({
           },
         },
       },
+    },
+  },
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag === "iconify-icon",
     },
   },
 });

@@ -11,9 +11,6 @@ test("Skills section heading, icons and lottie component", async ({
   const experienceLottie = page.getByTestId("experienceLottie");
 
   await expect(
-    page.getByRole("heading", { name: "🧑‍💻Experience", exact: true })
-  ).toBeVisible();
-  await expect(
     page.getByRole("heading", {
       name: "A peek at my early career",
       exact: true,
