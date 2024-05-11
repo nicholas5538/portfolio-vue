@@ -41,6 +41,7 @@
     "@vitest/coverage-v8": "1.5.2",
     "@vue/test-utils": "2.4.5",
     "autoprefixer": "10.4.19",
+    "cssnano": "7.0.1",
     "eslint": "9.1.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.1.3",
