@@ -15,33 +15,37 @@ const mailIcon = iconAlias.get("mail")!;
 const locationIcon = iconAlias.get("location")!;
 
 const config = useRuntimeConfig();
-const { data } = await useFetch<gitUserSchema>("/user", {
-  baseURL: config.public.githubBaseUrl ?? "https://api.github.com",
-  getCachedData(key, nuxtApp) {
-    return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
-  },
-  headers: {
-    Accept: "application/vnd.github+json",
-    Authorization: `Bearer ${config.githubSecret}`,
-    "X-GitHub-Api-Version": "2022-11-28",
-  },
-  key: "user",
-  lazy: true,
-  method: "get",
-  timeout: 5000,
-  pick: [
-    "avatar_url",
-    "bio",
-    "email",
-    "following",
-    "followers",
-    "location",
-    "login",
-    "name",
-  ],
-  server: true,
-  watch: false,
-});
+const { data } = await useAsyncData<gitUserSchema>(
+  "user",
+  () =>
+    $fetch(`${config.public.githubBaseUrl}/user`, {
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${config.githubSecret}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+      method: "get",
+      timeout: 5000,
+    }),
+  {
+    deep: false,
+    getCachedData(key, nuxtApp) {
+      return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
+    },
+    lazy: true,
+    pick: [
+      "avatar_url",
+      "bio",
+      "email",
+      "following",
+      "followers",
+      "location",
+      "login",
+      "name",
+    ],
+    server: true,
+  }
+);
 </script>
 
 <template>
