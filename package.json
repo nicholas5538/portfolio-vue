@@ -61,6 +61,7 @@
     "vue-tsc": "1.8.27"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": "prettier --write --ignore-unknown",
+    "*/ts": "eslint"
   }
 }
