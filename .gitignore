@@ -22,6 +22,7 @@ logs
 .env
 .env.*
 !.env.example
+!.env.vault
 
 # Vitest
 ./coverage
@@ -37,3 +38,7 @@ test-results
 
 #Vitest
 src/coverage
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
