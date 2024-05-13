@@ -1,0 +1,27 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - GITHUB_SECRET=$(aws ssm get-parameter --name "/amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_GITHUB_SECRET" --with-decryption --output text --query Parameter.Value)
+        - RETURN_STATUS=$?
+          # Check if the command executed successfully
+        - if [ $RETURN_STATUS -eq 0 ]; then
+          echo "NUXT_GITHUB_SECRET=$GITHUB_SECRET" >> .env;
+          else
+          echo "Failed to retrieve the parameter from AWS SSM Parameter Store" >&2;
+          exit $RETURN_STATUS;
+          fi
+        - nvm install 21.5.0 && node --version
+        - corepack enable pnpm
+        - pnpm install --frozen-lockfile
+    build:
+      commands:
+        - pnpm run build
+  artifacts:
+    baseDirectory: .amplify-hosting
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
