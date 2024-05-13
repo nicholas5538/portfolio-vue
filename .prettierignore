@@ -3,3 +3,6 @@ build
 coverage
 pnpm-lock.yaml
 src/assets/animations/*
+
+# Ignore build configuration files:
+amplify.yml
