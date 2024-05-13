@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import {
-  AvatarFallback,
-  AvatarImage,
-  AvatarRoot,
-  TooltipProvider,
-} from "radix-vue";
+import { TooltipProvider } from "radix-vue";
 import IconifyIcon from "~/components/IconifyIcon.vue";
 import { externalLinks, iconAlias } from "~/constants/globalVariables";
 import type { gitUserSchema } from "~/constants/typeInference";
@@ -32,7 +27,6 @@ const { data } = await useAsyncData<gitUserSchema>(
     getCachedData(key, nuxtApp) {
       return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
     },
-    lazy: true,
     pick: [
       "avatar_url",
       "bio",
