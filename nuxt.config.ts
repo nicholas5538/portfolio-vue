@@ -72,6 +72,15 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  nitro: {
+    awsAmplify: {
+      catchAllStaticFallback: true,
+      imageOptimization: {
+        cacheControl: "public, max-age=3600, immutable",
+      },
+    },
+    preset: "aws-amplify",
+  },
   plugins: ["~/plugins/Lottie.client"],
   postcss: {
     plugins: {
@@ -83,7 +92,7 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    githubSecret: "",
+    githubSecret: process.env.NUXT_GITHUB_SECRET,
     public: {
       githubBaseUrl: "https://api.github.com",
     },
