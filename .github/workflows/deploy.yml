@@ -1,0 +1,23 @@
+name: "Deploy to AWS Amplify production branch"
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-to-production:
+    timeout-minutes: 2
+    runs-on: ubuntu-latest
+    env:
+      AWS_AMPLIFY_PROD_WEBHOOK: ${{ secrets.AWS_AMPLIFY_PROD_WEBHOOK }}
+
+    steps:
+      - name: Trigger AWS Amplify webhook
+        run: |
+          curl -X POST -d {} $AWS_AMPLIFY_PROD_WEBHOOK -H "Content-Type:application/json"
