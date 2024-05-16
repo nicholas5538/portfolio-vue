@@ -79,7 +79,8 @@ export default defineNuxtConfig({
         cacheControl: "public, max-age=3600, immutable",
       },
     },
-    preset: "aws-amplify",
+    preset:
+      process.env.NODE_ENV !== "production" ? "node-server" : "aws-amplify",
   },
   plugins: ["~/plugins/Lottie.client"],
   postcss: {

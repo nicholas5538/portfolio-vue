@@ -108,11 +108,11 @@ const columnPlacement = computed(() => {
               ]"
             >
               <NuxtPicture
-                class="border- hidden md:inline-block md:rounded-md md:border-2 md:border-black-200"
+                class="hidden md:inline-block md:rounded-md md:border-2 md:border-black-200"
                 fit="cover"
                 format="webp"
                 placeholder
-                quality="80"
+                quality="75"
                 :alt="`An image of ${value.projectTitle}`"
                 :src="value.imageURL"
               />
