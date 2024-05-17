@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import AppFooter from "~/components/AppFooter.vue";
 import AppNavBar from "~/components/AppNavBar.vue";
 
 useSeoMeta({
@@ -24,6 +23,6 @@ useSeoMeta({
   <div>
     <AppNavBar />
     <slot />
-    <AppFooter />
+    <LazyAppFooter />
   </div>
 </template>
