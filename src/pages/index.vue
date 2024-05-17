@@ -11,6 +11,9 @@ definePageMeta({
   <main>
     <AppHero />
     <AppAboutMe />
+    <ClientOnly>
+      <LazyScrollToTop />
+    </ClientOnly>
     <LazyAppSkills />
     <LazyAppWorkExperience />
     <LazyAppProjects />

@@ -62,7 +62,7 @@ const lastIndex = listElements.length - 1;
               'cursor-pointer rounded-none font-mont font-semibold tracking-widest text-black-200 transition duration-200 hover:bg-white-300 hover:text-aqua dark:text-white-200 dark:hover:bg-black-400 dark:hover:text-orange',
             ]"
             :value="list"
-            @click.left="scrollEmit(index, lastIndex)"
+            @click="scrollEmit(index, lastIndex)"
           >
             <NuxtLink
               v-if="index === lastIndex"
@@ -91,7 +91,7 @@ const lastIndex = listElements.length - 1;
         v-once
         :key="`${list}-navbar`"
         class="navbar-text cursor-pointer transition-all duration-300 ease-out hover:underline hover:decoration-black-200 hover:decoration-2 hover:underline-offset-8 dark:hover:decoration-white-400"
-        @click.left="scrollEmit(index, lastIndex)"
+        @click="scrollEmit(index, lastIndex)"
       >
         <Button
           v-if="index === lastIndex"
