@@ -95,7 +95,7 @@ const columnPlacement = computed(() => {
                     :url="url"
                   >
                     <template #link>
-                      <IconButton :icon="icon!" />
+                      <IconButton :label="text" :icon="icon!" />
                     </template>
                   </Tooltip>
                 </TooltipProvider>

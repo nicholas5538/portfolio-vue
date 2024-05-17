@@ -34,7 +34,10 @@ const hoverState = ref(false);
         target="_blank"
         :to="props.to"
       >
-        <IconButton :icon="props.applicationIcon" />
+        <IconButton
+          :label="`Click to see more on my ${props.application} Profile`"
+          :icon="props.applicationIcon"
+        />
       </NuxtLink>
     </HoverCardTrigger>
     <HoverCardPortal>
