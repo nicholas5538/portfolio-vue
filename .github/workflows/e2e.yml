@@ -25,7 +25,7 @@ jobs:
           echo "NUXT_GITHUB_SECRET=${NUXT_GITHUB_SECRET}" > .env
           cat .env
 
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4.1.6
 
       - name: Enable Corepack
         run: corepack enable pnpm
