@@ -1,75 +1,58 @@
-# Nuxt 3 Minimal Starter
+# [My Portfolio site](https://nicholasyong.dev "My portfolio page")
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+![NuxtJS](https://img.shields.io/badge/nuxt.js-000000?style=for-the-badge&logo=nuxtdotjs&logoColor=white)
 
-## Setup
+[![Node Version](https://img.shields.io/badge/Node-21.5.0-brightgreen.svg)](https://github.com/nicholas5538/portfolio/blob/main/.nvmrc)
 
-Make sure to install the dependencies:
+## 💪 Objective
 
-```bash
-# npm
-npm install
+It's a great opportunity to showcase my frontend skills, and to explore new frameworks and libraries such as **[Tailwind CSS](https://tailwindcss.com "tailwindcss homepage")** and **[Nuxt.js](https://nuxt.com/ "Nuxt.js homepage")**.
 
-# pnpm
-pnpm install
+## Getting Started
 
-# yarn
-yarn install
+### Repository Setup
 
-# bun
-bun install
-```
+1. Fork this repository
 
-## Development Server
+> 🚨 You can fork this repository and play around with it. But please give me proper credit by linking back to this [repo](https://github.com/nicholas5538/portfolio, "nicholas5538 portfolio repo") if you're planning to use it. _Plagiarism is bad_ after all.
 
-Start the development server on `http://localhost:3000`:
+2. Install [pnpm](https://pnpm.io/installation)
 
-```bash
-# npm
-npm run dev
+> 💁 `npm install -g pnpm`
+> 💁 `brew install pnpm`
 
-# pnpm
+## Developing
+
+Once you have [set up the repository](#repo-setup), you're ready to start developing. Starting the development environment is managed by the following command.
+
+- With **_pnpm_**
+
+```sh
 pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+The `dev` command will start the application in your local environment.
 
-Build the application for production:
+### Frequently Used Scripts
 
-```bash
-# npm
-npm run build
+In addition to the `pnpm run dev` command, there are other scripts available in the package.json. Some of the most common you might get to use are:
 
-# pnpm
-pnpm run build
+- `pnpm run test` - Runs unit tests.
 
-# yarn
-yarn build
+  > 💁 **Tip:** use `pnpm run test:watch` or `pnpm run test:cov` to explicitly specify the desired mode
 
-# bun
-bun run build
-```
+- `pnpm run test-e2e` - Runs E2E tests.
 
-Locally preview production build:
+  > 💁 **Tip:** use `pnpm run test-e2e:desktop` or `pnpm run test:mobile` to explicitly specify the desired viewport
 
-```bash
-# npm
-npm run preview
+- `pnpm run format` - Check prettier formatting through all the codes
 
-# pnpm
-pnpm run preview
+  > 💁 **Tip:** use `pnpm run format:fix` to run auto prettier formatting across all the codes
 
-# yarn
-yarn preview
+- `pnpm run lint` - Runs TS linter through all the codes
 
-# bun
-bun run preview
-```
+## Additional Documentation
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- [Nuxt.js documentation](https://nuxt.com/docs/getting-started/installation "Nuxt.js documentation")
+- [Tailwind CSS styling](https://tailwindcss.com/docs/installation "Tailwind CSS documentation")
+- [Vue.js documentation](https://vuejs.org/guide/introduction.html "Vue 3 documentation")
