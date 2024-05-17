@@ -11,8 +11,6 @@ const { label, icon } = withDefaults(
     css: "tooltip",
   }
 );
-
-// const buttonLabel = computed(() => props.ariaLabel || undefined);
 </script>
 
 <template>
