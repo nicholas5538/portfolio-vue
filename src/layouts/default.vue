@@ -11,7 +11,7 @@ useSeoMeta({
   ogDescription:
     "Hello, I'm Nicholas Yong and I love to build simple and beautiful things",
   contentSecurityPolicy: {
-    manifestSrc: "/site.webmanifest",
+    manifestSrc: "public/site.webmanifest",
   },
   themeColor: [
     { content: "#f8f8f8", media: "(prefers-color-scheme: light)" },
