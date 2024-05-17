@@ -88,7 +88,6 @@ const lastIndex = listElements.length - 1;
     >
       <li
         v-for="(list, index) in listElements"
-        v-once
         :key="`${list}-navbar`"
         class="navbar-text cursor-pointer transition-all duration-300 ease-out hover:underline hover:decoration-black-200 hover:decoration-2 hover:underline-offset-8 dark:hover:decoration-white-400"
         @click="scrollEmit(index, lastIndex)"

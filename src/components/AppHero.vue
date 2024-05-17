@@ -58,7 +58,7 @@ const { data } = await useAsyncData<gitUserSchema>(
           format="webp"
           fill="fill"
           placeholder
-          preload
+          :preload="{ fetchPriority: 'high' }"
           quality="75"
           src="/images/profile.webp"
         />
