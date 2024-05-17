@@ -104,7 +104,7 @@ const { data } = await useAsyncData<gitUserSchema>(
           <TooltipProvider v-else :delay-duration="300">
             <Tooltip :icon="value.icon!" :text="value.text" :url="value.url">
               <template #link>
-                <IconButton :icon="value.icon!" />
+                <IconButton :aria-label="value.text" :icon="value.icon!" />
               </template>
             </Tooltip>
           </TooltipProvider>
