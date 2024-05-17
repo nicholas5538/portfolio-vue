@@ -37,6 +37,7 @@ const handleError = () => clearError();
           alt="Error page picture"
           format="webp"
           fill="fill"
+          loading="lazy"
           placeholder
           quality="75"
           src="/images/error.webp"

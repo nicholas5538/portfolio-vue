@@ -111,6 +111,7 @@ const columnPlacement = computed(() => {
                 class="hidden md:inline-block md:rounded-md md:border-2 md:border-black-200"
                 fit="cover"
                 format="webp"
+                loading="lazy"
                 placeholder
                 quality="75"
                 :alt="`An image of ${value.projectTitle}`"

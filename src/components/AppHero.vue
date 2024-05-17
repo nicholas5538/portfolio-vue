@@ -58,6 +58,7 @@ const { data } = await useAsyncData<gitUserSchema>(
           format="webp"
           fill="fill"
           placeholder
+          preload
           quality="75"
           src="/images/profile.webp"
         />
