@@ -10,12 +10,14 @@ import IconButton from "~/components/IconButton.server.vue";
 
 const props = withDefaults(
   defineProps<{
+    css?: string;
     icon: string;
     sideOffset?: number;
     text: string;
     url?: string;
   }>(),
   {
+    css: "tooltip",
     sideOffset: 6,
     url: "#",
   }
@@ -28,14 +30,14 @@ const props = withDefaults(
       <NuxtLink
         v-if="$slots.link"
         :aria-label="`Click to see more on my ${props.text}`"
-        class="focus:shadow-black inline-flex h-[40px] w-[40px] items-center justify-center rounded-full bg-aqua text-white-400 shadow-[0_2px_10px] hover:bg-dark-aqua focus:shadow-[0_0_0_2px] dark:bg-light-orange dark:text-black-300 dark:hover:bg-orange-red"
+        :class="css"
         external
         target="_blank"
         :to="props.url"
       >
         <slot name="link" />
       </NuxtLink>
-      <IconButton v-else :label="props.text" :icon="props.icon" />
+      <IconButton v-else :css="css" :label="props.text" :icon="props.icon" />
     </TooltipTrigger>
     <TooltipPortal>
       <TooltipContent
