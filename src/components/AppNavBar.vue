@@ -12,7 +12,9 @@ function scrollToElement(index: number) {
 
 <template>
   <div class="z-0">
-    <div class="navbar-gradient" />
+    <div class="relative w-full">
+      <div class="navbar-gradient" />
+    </div>
     <header
       class="fixed z-50 grid h-16 w-screen place-items-center bg-white-400 shadow-xl transition-top duration-300 dark:bg-midnight-city"
     >

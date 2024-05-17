@@ -26,17 +26,17 @@ const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
           Never too late to learn
         </h2>
       </div>
-      <h3 class="about-me-text">
+      <h3 v-once class="about-me-text">
         I always thought my dream was to be a licensed aircraft engineer, it
         seemed like an appropriate dream given my education path, but I always
         felt mundane.
       </h3>
-      <h3 class="about-me-text">
+      <h3 v-once class="about-me-text">
         It all changed when I had my first and only programming module in
         university, the fascination it produced when I wrote my 1st Hello World
         program on Python.
       </h3>
-      <h3 class="about-me-text">
+      <h3 v-once class="about-me-text">
         Since then, I have taken a liking in web development which comprises of
         problem-solving skills and creativity.
       </h3>
