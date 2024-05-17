@@ -58,6 +58,7 @@ const { data } = await useAsyncData<gitUserSchema>(
           format="webp"
           fill="fill"
           placeholder
+          preload
           quality="75"
           src="/images/profile.webp"
         />
@@ -104,7 +105,7 @@ const { data } = await useAsyncData<gitUserSchema>(
           <TooltipProvider v-else :delay-duration="300">
             <Tooltip :icon="value.icon!" :text="value.text" :url="value.url">
               <template #link>
-                <IconButton :icon="value.icon!" />
+                <IconButton :label="value.text" :icon="value.icon!" />
               </template>
             </Tooltip>
           </TooltipProvider>

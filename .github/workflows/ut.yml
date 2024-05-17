@@ -2,7 +2,7 @@ name: "Unit testing"
 on:
   pull_request:
     branches:
-      - development
+      - main
     paths-ignore:
       - "**.md"
 

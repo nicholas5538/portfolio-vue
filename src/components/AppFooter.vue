@@ -31,7 +31,7 @@ footerLinks.delete("Resume");
             :url="mapPair[1].url"
           >
             <template #link>
-              <IconButton :icon="mapPair[1].icon!" />
+              <IconButton :label="mapPair[1].text" :icon="mapPair[1].icon!" />
             </template>
           </Tooltip>
         </TooltipProvider>

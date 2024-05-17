@@ -4,6 +4,9 @@ const largeModules = ["radix-vue", "vue3-lottie"];
 export default defineNuxtConfig({
   app: {
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
       link: [
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
         { rel: "preconnect", href: "https://fonts.gstatic.com" },
@@ -76,7 +79,7 @@ export default defineNuxtConfig({
     awsAmplify: {
       catchAllStaticFallback: true,
       imageOptimization: {
-        cacheControl: "public, max-age=3600, immutable",
+        cacheControl: "public, max-age=31536000, immutable",
       },
     },
     preset:
