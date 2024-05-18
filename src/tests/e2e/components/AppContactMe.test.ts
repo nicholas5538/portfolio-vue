@@ -18,23 +18,22 @@ test.describe("Contact me section testing", () => {
       }
     );
 
-    if (!isMobile) {
+    if (isMobile) {
+      await page.getByRole("button", { expanded: false }).tap();
+      await page.getByRole("menuitem").filter({ hasText: "Contact" }).tap();
+    } else {
       await page
         .getByRole("listitem")
         .filter({ hasText: "Contact" })
         .click({ button: "left" });
-
-      await expect(contactMeHeading).toBeInViewport();
-      await expect(contactMeButton).toBeInViewport();
-      await expect(contactMeButton).toHaveAttribute(
-        "href",
-        "mailto:nicholas8399@gmail.com"
-      );
-    } else {
-      await expect(contactMeHeading).toBeVisible();
-      await expect(contactMeButton).toBeVisible();
-      await expect(contactMeButton).toBeVisible();
     }
+
+    await expect(contactMeHeading).toBeInViewport();
+    await expect(contactMeButton).toBeInViewport();
+    await expect(contactMeButton).toHaveAttribute(
+      "href",
+      "mailto:nicholas8399@gmail.com"
+    );
   });
 
   test("Dark blue gradient dismount on dark mode", async ({ page }) => {

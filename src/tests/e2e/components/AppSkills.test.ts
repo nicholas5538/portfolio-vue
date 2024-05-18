@@ -11,17 +11,23 @@ test("Skills section heading, icons and lottie component", async ({
   const skillsLottie = page.getByTestId("skillLottie");
   const psIcon = page.getByLabel("Photoshop", { exact: true });
   const psToolTip = page.getByText("Photoshop", { exact: true });
-
   await expect(psIcon).toHaveAttribute("data-state", "closed");
-  await expect(psIcon).toBeVisible();
-  await expect(psToolTip).toBeHidden();
 
   if (isMobile) {
+    await page.getByRole("button", { expanded: false }).tap();
+    await page.getByRole("menuitem").filter({ hasText: "Skills" }).tap();
     await expect(skillsLottie).toBeHidden();
   } else {
+    await page
+      .getByRole("listitem")
+      .filter({ hasText: "Skills" })
+      .click({ button: "left" });
+    await expect(psToolTip).toBeHidden();
     await psIcon.hover();
     await expect(psIcon).toHaveAttribute("data-state", "delayed-open");
     await expect(psToolTip).toBeVisible();
-    await expect(skillsLottie).toBeVisible();
+    await expect(skillsLottie).toBeInViewport();
   }
+
+  await expect(psIcon).toBeInViewport();
 });

@@ -9,18 +9,29 @@ test("Skills section heading, icons and lottie component", async ({
   await expect(page).toHaveTitle("Nicholas Yong's Portfolio");
 
   const experienceLottie = page.getByTestId("experienceLottie");
+  if (isMobile) {
+    await page.getByRole("button", { expanded: false }).tap();
+    await page.getByRole("menuitem").filter({ hasText: "Experience" }).tap();
+    await expect(experienceLottie).toBeHidden();
+  } else {
+    await page
+      .getByRole("listitem")
+      .filter({ hasText: "Experience" })
+      .click({ button: "left" });
+    await expect(experienceLottie).toBeInViewport();
+  }
 
   await expect(
     page.getByRole("heading", {
       name: "A peek at my early career",
       exact: true,
     })
-  ).toBeVisible();
+  ).toBeInViewport();
   await expect(
     page.getByLabel("Click here to redirect to foodpanda website", {
       exact: true,
     })
-  ).toBeVisible();
+  ).toBeInViewport();
   await expect(
     page
       .getByLabel("Technologies used in foodpanda", {
@@ -28,10 +39,4 @@ test("Skills section heading, icons and lottie component", async ({
       })
       .getByRole("listitem")
   ).toHaveCount(5);
-
-  if (isMobile) {
-    await expect(experienceLottie).toBeHidden();
-  } else {
-    await expect(experienceLottie).toBeVisible();
-  }
 });

@@ -17,22 +17,21 @@ test("App project section heading, and tooltip", async ({
     exact: true,
   });
 
-  if (!isMobile) {
+  if (isMobile) {
+    await page.getByRole("button", { expanded: false }).tap();
+    await page.getByRole("menuitem").filter({ hasText: "Projects" }).tap();
+    await expect(projectImage).toBeHidden();
+  } else {
     await page
       .getByRole("listitem")
       .filter({ hasText: "Projects" })
       .click({ button: "left" });
-
-    await expect(externalLink).toBeInViewport();
     await expect(externalLink).toHaveAttribute("data-state", "closed");
     await externalLink.hover();
     await expect(externalLink).toHaveAttribute("data-state", "delayed-open");
-
-    await expect(projectSubHeading).toBeInViewport();
     await expect(projectImage).toBeInViewport();
-  } else {
-    await expect(externalLink).toBeVisible();
-    await expect(projectSubHeading).toBeVisible();
-    await expect(projectImage).toBeHidden();
   }
+
+  await expect(projectSubHeading).toBeInViewport();
+  await expect(externalLink).toBeInViewport();
 });
