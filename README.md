@@ -10,20 +10,66 @@ It's a great opportunity to showcase my frontend skills, and to explore new fram
 
 ## Getting Started
 
+### Environment Setup
+
+#### 2 ways to run the apps
+
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+2. With package manager **[pnpm](https://pnpm.io/installation)**
+
+- Install node version 21.5.0.
+
+> 💁 **Tip:** You can use [nvm](https://github.com/nvm-sh/nvm "nvm repo") to easily manage multiple versions of node.
+> Once installed, run `nvm use` in the project directory.
+
+- Install [pnpm](https://pnpm.io/installation)
+
+> 💁 `corepack enable pnpm` (Installed Node.js without Homebrew)
+
+> 💁 `brew install corepack` (Installed Node.js using Homebrew)
+
 ### Repository Setup
 
-1. Fork this repository
+Once you have your environment setup, you can clone the repository.
 
-> 🚨 You can fork this repository and play around with it. But please give me proper credit by linking back to this [repo](https://github.com/nicholas5538/portfolio, "nicholas5538 portfolio repo") if you're planning to use it. _Plagiarism is bad_ after all.
+```zsh
+git clone https://github.com/nicholas5538/fp-voucher-BE.git
+cd fp-voucher-BE
+```
 
-2. Install [pnpm](https://pnpm.io/installation)
+2 methods of obtaining environment variables
 
-> 💁 `npm install -g pnpm`
-> 💁 `brew install pnpm`
+1. Using [dotenv-vault](https://github.com/dotenv-org/dotenv-vault#pull "dotenv-vault GitHub repository"), please
+   request `vault_id` from [@nicholas5538](https://github.com/nicholas5538) (recommended)
+
+```zsh
+npx dotenv-vault@latest new <vault_id>
+npx dotenv-vault@latest pull development .env
+```
+
+2. Create a `.env` file to store environment variables, please request secret keys
+   from [@nicholas5538](https://github.com/nicholas5538 "nicholas5538 GitHub profile").
+
+```sh
+NUXT_GITHUB_SECRET=<Insert token here>
+```
 
 ## Developing
 
-Once you have [set up the repository](#repo-setup), you're ready to start developing. Starting the development environment is managed by the following command.
+Once you have [set up the repository](#repo-setup), you're ready to start developing. Starting the development environment is managed by the following command(s).
+
+- With **Docker Compose or Docker** (recommended)
+
+```sh
+# With Docker compose, you're able
+# to see live changes after refreshing
+docker compose up -d --build
+
+# Or build your own image
+docker build --build-args="NODE_VERSION=21.5.0" --compress -t <image name> --target dev .
+docker run -d --env-file ./env -p 5173:5173 -v .:/app -v /app/node_modules --name <container name> <image name>
+```
 
 - With **_pnpm_**
 
