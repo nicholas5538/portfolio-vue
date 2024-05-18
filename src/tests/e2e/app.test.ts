@@ -5,23 +5,22 @@ test.beforeEach(async ({ page, goto }) => {
   await expect(page).toHaveTitle("Nicholas Yong's Portfolio");
 });
 
+test("Test dark mode switch", async ({ page }) => {
+  const themeButton = page.getByLabel("Appearance");
+  const faSun = page.getByTestId("sun");
+  const faMoon = page.getByTestId("moon");
+
+  await expect(themeButton).toBeInViewport();
+  await expect(faSun).toBeInViewport();
+  await expect(faMoon).toBeHidden();
+
+  await themeButton.click();
+  await expect(faSun).toBeHidden();
+  await expect(faMoon).toBeInViewport();
+});
+
 test.describe("Desktop viewport only", { tag: "@desktop" }, () => {
   test.skip(({ isMobile }) => isMobile);
-
-  test("Test dark mode switch", async ({ page }) => {
-    const themeButton = page.getByLabel("Appearance");
-    const faSun = page.getByTestId("sun");
-    const faMoon = page.getByTestId("moon");
-
-    await expect(themeButton).toBeInViewport();
-    await expect(faSun).toBeVisible();
-    await expect(faMoon).not.toBeVisible();
-
-    await themeButton.click();
-    await expect(faSun).not.toBeVisible();
-    await expect(faMoon).toBeVisible();
-  });
-
   test("Browser's scrollIntoView API", async ({ page }) => {
     const projectListItem = page
       .getByRole("listitem")
@@ -42,9 +41,9 @@ test.describe("Mobile viewport only", { tag: "@mobile" }, () => {
 
   test("Test navigation bar dropdown menu", async ({ page }) => {
     const dropdownContent = page.getByRole("menu");
-    await expect(dropdownContent).not.toBeVisible();
+    await expect(dropdownContent).toBeHidden();
 
     await page.getByRole("button", { expanded: false }).click();
-    await expect(dropdownContent).toBeVisible();
+    await expect(dropdownContent).toBeInViewport();
   });
 });
