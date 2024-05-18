@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  devmode:
+    build:
+      args:
+        NODE_VERSION: 21.5.0
+      dockerfile: Dockerfile
+      target: dev
+    container_name: nuxt-dev
+    command: pnpm run dev
+    environment:
+      NODE_ENV: development
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.nuxt
