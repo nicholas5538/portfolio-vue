@@ -1,0 +1,7 @@
+.nuxt
+node_modules
+*.md
+.amplify-hosting
+.env*
+!.env.vault
+.gitignore
