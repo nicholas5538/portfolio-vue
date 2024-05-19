@@ -93,7 +93,7 @@ const { data } = await useAsyncData<gitUserSchema>(
       <div class="flex flex-row items-center justify-start gap-x-6">
         <div v-for="[key, value] in externalLinks" :key="key">
           <LazyHoverCard
-            v-if="key === 'GitHub'"
+            v-if="key === 'GitHub' && data"
             :application="key"
             :application-icon="gitHubIcon"
             :data="data!"
