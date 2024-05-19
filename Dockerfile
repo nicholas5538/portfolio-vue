@@ -23,7 +23,6 @@ FROM base AS build
 ENV NODE_ENV=production
 COPY --from=dev /app/node_modules ./node_modules
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm run build
 
 FROM base AS prod
