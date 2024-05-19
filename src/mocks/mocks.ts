@@ -16,7 +16,9 @@ const mockUserResponse: Readonly<Partial<gitUserSchema>> = {
 export const mockReturnValues = {
   data: mockUserResponse,
   pending: false,
-  error: undefined,
+  error: null,
+  execute: vi.fn(),
+  clear: vi.fn(),
   refresh: vi.fn(),
   status: "success",
 };
