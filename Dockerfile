@@ -27,7 +27,11 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm run build
 
 FROM base AS prod
+EXPOSE 3000
+ENV PORT 3000
+ENV HOST "0.0.0.0"
 ENV NODE_ENV=production
+
 RUN deluser --remove-home node \
   && addgroup -S node --gid 1001 \
   && adduser -S -g node -u 1001 node \
