@@ -35,7 +35,9 @@ const lastIndex = listElements.length - 1;
 <template>
   <div class="lg:hidden">
     <DropdownMenuRoot v-model:open="toggleState">
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        aria-label="Click to expand or collapse the dropdown menu"
+      >
         <IconifyIcon
           class="text-black-200 dark:text-white-400"
           icon="mdi:hamburger-menu"
