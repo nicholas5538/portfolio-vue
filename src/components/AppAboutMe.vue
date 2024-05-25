@@ -8,7 +8,7 @@ const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
 </script>
 
 <template>
-  <div class="dark-blue-section">
+  <section class="dark-blue-section">
     <div
       class="dark-blue-container dark-mode-container md:mb-40 md:grid-rows-5 md:gap-y-4 lg:mb-52 xl:mb-56 2xl:mb-72 3xl:mb-[17rem] dark:mb-12 dark:2xl:mb-24"
     >
@@ -62,5 +62,5 @@ const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
       </ClientOnly>
     </div>
     <div v-if="!darkMode" class="dark-blue-gradient" />
-  </div>
+  </section>
 </template>

@@ -24,14 +24,14 @@ footerLinks.delete("Resume");
       <div class="flex gap-x-4 md:order-last">
         <TooltipProvider :delay-duration="300">
           <Tooltip
-            v-for="mapPair in footerLinks"
-            :key="`Footer-${mapPair[1].text}`"
-            :icon="mapPair[1].icon!"
-            :text="mapPair[1].text"
-            :url="mapPair[1].url"
+            v-for="[key, { icon, text, url }] in footerLinks"
+            :key="`Footer-${key}`"
+            :icon="icon!"
+            :text="text"
+            :url="url"
           >
             <template #link>
-              <IconButton :label="mapPair[1].text" :icon="mapPair[1].icon!" />
+              <IconButton :label="text" :icon="icon!" />
             </template>
           </Tooltip>
         </TooltipProvider>
