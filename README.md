@@ -67,7 +67,7 @@ Once you have [set up the repository](#repo-setup), you're ready to start develo
 docker compose up -d --build
 
 # Or build your own image
-docker build --build-args="NODE_VERSION=21.5.0" --compress -t <image name> --target dev .
+docker build --build-args="NODE_VERSION=21.5.0-alpine" --compress -t <image name> --target dev .
 docker run -d --env-file ./env -p 5173:5173 -v .:/app -v /app/node_modules --name <container name> <image name>
 ```
 

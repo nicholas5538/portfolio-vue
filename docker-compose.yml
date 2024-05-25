@@ -3,7 +3,7 @@ services:
   devmode:
     build:
       args:
-        NODE_VERSION: 21.5.0
+        NODE_VERSION: 21.5.0-alpine
       dockerfile: Dockerfile
       target: dev
     container_name: nuxt-dev
