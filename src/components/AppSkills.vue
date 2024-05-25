@@ -8,7 +8,7 @@ const listRefs = useState<TElement[]>("listRefs");
 </script>
 
 <template>
-  <div
+  <section
     class="dark-mode-container relative mx-auto mb-12 flex w-11/12 max-w-7xl flex-col items-start justify-center gap-y-6 2xl:mb-24"
   >
     <div>
@@ -24,7 +24,7 @@ const listRefs = useState<TElement[]>("listRefs");
       </h2>
     </div>
     <div>
-      <div v-for="[type, { iconMap }] in averageGoodIcons" :key="type">
+      <template v-for="[type, { iconMap }] in averageGoodIcons" :key="type">
         <h3 class="white-sub-heading font-semibold dark:text-[#FFA54E]">
           {{
             type === "average"
@@ -32,7 +32,7 @@ const listRefs = useState<TElement[]>("listRefs");
               : "I am not that bad with"
           }}:
         </h3>
-        <div v-for="[key, { icons, text }] in iconMap" :key="key">
+        <template v-for="[key, { icons, text }] in iconMap" :key="key">
           <h3
             class="white-sub-heading font-medium opacity-80 dark:text-white-100 dark:opacity-100"
           >
@@ -50,8 +50,8 @@ const listRefs = useState<TElement[]>("listRefs");
               />
             </TooltipProvider>
           </div>
-        </div>
-      </div>
+        </template>
+      </template>
     </div>
     <ClientOnly>
       <aside
@@ -67,5 +67,5 @@ const listRefs = useState<TElement[]>("listRefs");
         <p>Loading Lottie animation</p>
       </template>
     </ClientOnly>
-  </div>
+  </section>
 </template>

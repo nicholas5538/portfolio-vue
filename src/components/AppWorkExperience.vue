@@ -10,7 +10,7 @@ const listRefs = useState<TElement[]>("listRefs");
 </script>
 
 <template>
-  <div class="dark-blue-section">
+  <section class="dark-blue-section">
     <div
       class="dark-blue-container mb-[13rem] md:mb-72 md:mt-20 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-[22rem] xl:mb-80 2xl:mb-[26rem] 3xl:mb-[22rem] dark:mb-12 dark:xl:mb-24"
     >
@@ -103,5 +103,5 @@ const listRefs = useState<TElement[]>("listRefs");
       v-if="!darkMode"
       class="dark-blue-gradient -left-[6rem] xl:h-[130%] 2xl:-left-40 2xl:h-[140%]"
     />
-  </div>
+  </section>
 </template>

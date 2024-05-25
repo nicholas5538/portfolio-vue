@@ -91,7 +91,7 @@ const { data } = await useAsyncData<gitUserSchema>(
         Always looking out for opportunities.
       </h2>
       <div class="flex flex-row items-center justify-start gap-x-6">
-        <div v-for="[key, value] in externalLinks" :key="key">
+        <template v-for="[key, value] in externalLinks" :key="key">
           <LazyHoverCard
             v-if="key === 'GitHub' && data"
             :application="key"
@@ -109,7 +109,7 @@ const { data } = await useAsyncData<gitUserSchema>(
               </template>
             </Tooltip>
           </TooltipProvider>
-        </div>
+        </template>
       </div>
     </section>
   </div>

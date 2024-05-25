@@ -16,7 +16,7 @@ const buttonProps = {
 </script>
 
 <template>
-  <div class="dark-blue-section">
+  <section class="dark-blue-section">
     <div
       class="relative mx-auto mb-20 flex h-full w-11/12 max-w-[450px] flex-col items-center justify-center gap-y-4 p-0 text-center ipad-mini:mb-28 md:mb-32 lg:mb-48 lg:gap-y-8 xl:mb-56 xl:max-w-[600px] 3xl:mb-72 dark:mb-12 dark:2xl:mb-24"
     >
@@ -49,5 +49,5 @@ const buttonProps = {
       data-testid="contact-me-dark-blue-gradient"
       class="dark-blue-gradient h-[145%] ipad-mini:h-[160%] lg:h-[170%] xl:h-[180%] 3xl:h-[200%]"
     />
-  </div>
+  </section>
 </template>
