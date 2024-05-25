@@ -1,4 +1,4 @@
-# [My Portfolio site](https://nicholasyong.dev "My portfolio page")
+# [My Portfolio site](https://www.nicholasyong.dev "My portfolio page")
 
 ![NuxtJS](https://img.shields.io/badge/nuxt.js-000000?style=for-the-badge&logo=nuxtdotjs&logoColor=white)
 
