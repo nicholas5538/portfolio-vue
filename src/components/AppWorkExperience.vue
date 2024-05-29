@@ -7,6 +7,8 @@ import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs");
+const asideClass =
+  "hidden h-44 w-44 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-5 lg:block lg:h-[14rem] lg:w-[14rem] lg:place-self-center xl:h-[18rem] xl:w-[18rem]";
 </script>
 
 <template>
@@ -85,17 +87,17 @@ const listRefs = useState<TElement[]>("listRefs");
           :skills="workExperience.skills"
         />
       </div>
-      <ClientOnly fallback-tag="span">
-        <aside
-          class="hidden h-44 w-44 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-5 lg:block lg:h-[14rem] lg:w-[14rem] lg:place-self-center xl:h-[18rem] xl:w-[18rem]"
-        >
+      <ClientOnly fallback-tag="div">
+        <aside :class="asideClass">
           <Lottie
             :animation-data="ExperienceJSON"
             data-testid="experienceLottie"
           />
         </aside>
         <template #fallback>
-          <p>Loading Lottie animation</p>
+          <div :class="asideClass">
+            <div class="animate-pulse rounded-2xl p-4" />
+          </div>
         </template>
       </ClientOnly>
     </div>

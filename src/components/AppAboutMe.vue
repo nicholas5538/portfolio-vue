@@ -52,12 +52,14 @@ const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
           SIT</NuxtLink
         >.
       </h3>
-      <ClientOnly fallback-tag="span">
+      <ClientOnly fallback-tag="div">
         <aside class="about-me-animation">
           <Lottie :animation-data="AboutMeJSON" />
         </aside>
         <template #fallback>
-          <p>Loading Lottie animation</p>
+          <div class="about-me-animation">
+            <div class="animate-pulse rounded-2xl p-4" />
+          </div>
         </template>
       </ClientOnly>
     </div>
