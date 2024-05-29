@@ -5,6 +5,8 @@ import averageGoodIcons from "~/constants/skill-icons";
 import type { TElement } from "~/constants/typeInference";
 
 const listRefs = useState<TElement[]>("listRefs");
+const asideClass =
+  "hidden h-56 w-56 lg:absolute lg:bottom-40 lg:right-5 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]";
 </script>
 
 <template>
@@ -53,10 +55,8 @@ const listRefs = useState<TElement[]>("listRefs");
         </template>
       </template>
     </div>
-    <ClientOnly>
-      <aside
-        class="hidden h-56 w-56 lg:absolute lg:bottom-40 lg:right-5 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]"
-      >
+    <ClientOnly fallback-tag="div">
+      <aside :class="asideClass">
         <Lottie
           :animation-data="SkillsJSON"
           :speed="0.75"
@@ -64,7 +64,9 @@ const listRefs = useState<TElement[]>("listRefs");
         />
       </aside>
       <template #fallback>
-        <p>Loading Lottie animation</p>
+        <div :class="asideClass">
+          <div class="animate-pulse rounded-2xl p-4" />
+        </div>
       </template>
     </ClientOnly>
   </section>
