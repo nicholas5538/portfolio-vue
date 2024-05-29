@@ -11,11 +11,11 @@ function scrollToElement(index: number) {
 </script>
 
 <template>
-  <div class="z-0">
+  <header class="z-0">
     <div class="relative w-full">
       <div class="navbar-gradient" />
     </div>
-    <header
+    <div
       class="fixed z-50 grid h-16 w-screen place-items-center bg-white-400 shadow-xl transition-top duration-300 dark:bg-midnight-city"
     >
       <nav
@@ -71,6 +71,6 @@ function scrollToElement(index: number) {
           </ClientOnly>
         </div>
       </nav>
-    </header>
-  </div>
+    </div>
+  </header>
 </template>
