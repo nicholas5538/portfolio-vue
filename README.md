@@ -52,6 +52,10 @@ npx dotenv-vault@latest pull development .env
    from [@nicholas5538](https://github.com/nicholas5538 "nicholas5538 GitHub profile").
 
 ```sh
+NUXT_CLOUDFLARE_R2_ACCESS_KEY=<Insert access key here>
+NUXT_CLOUDFLARE_R2_ACCOUNT_ID=<Insert account ID here>
+NUXT_CLOUDFLARE_R2_REGION=<Insert region here>
+NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY=<Insert secret access key here>
 NUXT_GITHUB_SECRET=<Insert token here>
 ```
 
