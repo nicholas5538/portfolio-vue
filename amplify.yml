@@ -3,13 +3,26 @@ frontend:
   phases:
     preBuild:
       commands:
+        - sudo yum install -y jq
         - nvm install 21.5.0 && node --version
         - corepack enable pnpm
         - pnpm install --frozen-lockfile
     build:
       commands:
-        - export NUXT_GITHUB_SECRET=$(aws ssm get-parameter --name /amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_GITHUB_SECRET --with-decryption --query Parameter.Value --output text)
-        - echo "NUXT_GITHUB_SECRET=$NUXT_GITHUB_SECRET" >> .env
+        - PARAMETERS=$(aws ssm get-parameters --names /amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_CLOUDFLARE_R2_ACCESS_KEY /amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_CLOUDFLARE_R2_ACCOUNT_ID /amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_CLOUDFLARE_R2_REGION /amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_CLOUDFLARE_R2_SECRET_ACCESS_KEY /amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_GITHUB_SECRET --with-decryption --query "Parameters[*].{Name:Name,Value:Value}")
+        - export NUXT_CLOUDFLARE_R2_ACCESS_KEY=$(echo $PARAMETERS | jq -r '.[] | select(.Name=="/amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_CLOUDFLARE_R2_ACCESS_KEY").Value')
+        - export NUXT_CLOUDFLARE_R2_ACCOUNT_ID=$(echo $PARAMETERS | jq -r '.[] | select(.Name=="/amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_CLOUDFLARE_R2_ACCOUNT_ID").Value')
+        - export NUXT_CLOUDFLARE_R2_REGION=$(echo $PARAMETERS | jq -r '.[] | select(.Name=="/amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_CLOUDFLARE_R2_REGION").Value')
+        - export NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY=$(echo $PARAMETERS | jq -r '.[] | select(.Name=="/amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_CLOUDFLARE_R2_SECRET_ACCESS_KEY").Value')
+        - export NUXT_GITHUB_SECRET=$(echo $PARAMETERS | jq -r '.[] | select(.Name=="/amplify/d2zk1p9qtbvjcd/main/AMPLIFY_secrets_nuxt_GITHUB_SECRET").Value')
+        - |
+          cat <<EOF >> .env
+          NUXT_CLOUDFLARE_R2_ACCESS_KEY=$NUXT_CLOUDFLARE_R2_ACCESS_KEY
+          NUXT_CLOUDFLARE_R2_ACCOUNT_ID=$NUXT_CLOUDFLARE_R2_ACCOUNT_ID
+          NUXT_CLOUDFLARE_R2_REGION=$NUXT_CLOUDFLARE_R2_REGION
+          NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY=$NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY
+          NUXT_GITHUB_SECRET=$NUXT_GITHUB_SECRET
+          EOF
         - pnpm run build
   artifacts:
     baseDirectory: .amplify-hosting
