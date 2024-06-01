@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ExperienceJSON from "assets/animations/experience.json";
 import IconifyIcon from "~/components/IconifyIcon.vue";
 import SkillLabels from "~/components/SkillLabels.server.vue";
+import useGetCloudflareR2Object from "~/composables/getCloudflareR2Object";
 import { workExperiences } from "~/constants/globalVariables";
 import type { TElement } from "~/constants/typeInference";
 
@@ -9,6 +9,10 @@ const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs");
 const asideClass =
   "hidden h-44 w-44 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-5 lg:block lg:h-[14rem] lg:w-[14rem] lg:place-self-center xl:h-[18rem] xl:w-[18rem]";
+const animationLink = await useGetCloudflareR2Object(
+  "experienceJSON",
+  "animations/experience.json"
+);
 </script>
 
 <template>
@@ -90,7 +94,7 @@ const asideClass =
       <ClientOnly fallback-tag="div">
         <aside :class="asideClass">
           <Lottie
-            :animation-data="ExperienceJSON"
+            :animation-link="animationLink"
             data-testid="experienceLottie"
           />
         </aside>

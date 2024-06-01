@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import AboutMeJSON from "assets/animations/aboutme.json";
+import useGetCloudflareR2Object from "~/composables/getCloudflareR2Object";
 import IconifyIcon from "~/components/IconifyIcon.vue";
 import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
+const animationLink = await useGetCloudflareR2Object(
+  "aboutMeJSON",
+  "animations/aboutme.json"
+);
 </script>
 
 <template>
@@ -54,7 +58,7 @@ const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
       </h3>
       <ClientOnly fallback-tag="div">
         <aside class="about-me-animation">
-          <Lottie :animation-data="AboutMeJSON" />
+          <Lottie :animation-link="animationLink" />
         </aside>
         <template #fallback>
           <div class="about-me-animation">
