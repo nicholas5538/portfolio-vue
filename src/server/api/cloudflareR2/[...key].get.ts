@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
   });
 
   const options = {
-    expiresIn: 3600,
+    expiresIn: 604800,
   };
 
   // Expires in 7 days
