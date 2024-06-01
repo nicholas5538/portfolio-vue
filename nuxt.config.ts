@@ -96,6 +96,11 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
+    cloudflareR2Region: process.env.NUXT_CLOUDFLARE_R2_REGION,
+    cloudflareR2AccountID: process.env.NUXT_CLOUDFLARE_R2_ACCOUNT_ID,
+    cloudflareR2AccessKey: process.env.NUXT_CLOUDFLARE_R2_ACCESS_KEY,
+    cloudflareR2SecretAccessKey:
+      process.env.NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY,
     githubSecret: process.env.NUXT_GITHUB_SECRET,
     public: {
       githubBaseUrl: "https://api.github.com",
