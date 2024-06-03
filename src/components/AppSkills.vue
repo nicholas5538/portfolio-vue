@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import { TooltipProvider } from "radix-vue";
-import useGetCloudflareR2Object from "~/composables/getCloudflareR2Object";
 import averageGoodIcons from "~/constants/skill-icons";
 import type { TElement } from "~/constants/typeInference";
 
 const listRefs = useState<TElement[]>("listRefs");
 const asideClass =
   "hidden h-56 w-56 lg:absolute lg:bottom-40 lg:right-5 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]";
-const animationLink = await useGetCloudflareR2Object(
-  "skillsJSON",
-  "animations/skills.json"
+const { skillsLink: animationLink } = withDefaults(
+  defineProps<{ skillsLink: string }>(),
+  {
+    skillsLink: "",
+  }
 );
 </script>
 
