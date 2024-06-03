@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import useGetCloudflareR2Object from "~/composables/getCloudflareR2Object";
 import IconifyIcon from "~/components/IconifyIcon.vue";
 import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
-const animationLink = await useGetCloudflareR2Object(
-  "aboutMeJSON",
-  "animations/aboutme.json"
+
+const { aboutMeLink: animationLink } = withDefaults(
+  defineProps<{ aboutMeLink: string }>(),
+  {
+    aboutMeLink: "",
+  }
 );
 </script>
 
@@ -56,7 +58,7 @@ const animationLink = await useGetCloudflareR2Object(
           SIT</NuxtLink
         >.
       </h3>
-      <ClientOnly fallback-tag="div">
+      <ClientOnly fallback-tag="aside">
         <aside class="about-me-animation">
           <Lottie :animation-link="animationLink" />
         </aside>
