@@ -43,7 +43,7 @@ export default defineNuxtConfig({
           href: "/safari-pinned-tab.svg",
         },
       ],
-      noscript: [{ children: "JavaScript is required" }],
+      noscript: [{ innerHTML: "JavaScript is required" }],
     },
   },
   build: { analyze: true },
@@ -51,7 +51,6 @@ export default defineNuxtConfig({
   devServer: { port: 5173 },
   devtools: {
     enabled: true,
-
     timeline: {
       enabled: true,
     },
