@@ -19,7 +19,6 @@ ENV PORT 5173
 CMD ["pnpm", "run", "dev"]
 
 FROM base AS build
-FROM base AS build
 ENV NODE_ENV=production
 COPY --from=dev /app/node_modules ./node_modules
 
