@@ -116,6 +116,8 @@ const columnPlacement = computed(() => {
               quality="75"
               :alt="`An image of ${value.projectTitle}`"
               :src="value.imageURL"
+              width="596"
+              height="409"
             />
           </aside>
         </div>

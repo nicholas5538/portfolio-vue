@@ -46,7 +46,7 @@ test.describe("Hero icon buttons", () => {
     await gitIcon.hover();
     await expect(gitIcon).toHaveAttribute("data-state", "open");
     await expect(
-      page.getByAltText("GitHub Avatar image", {
+      page.getByAltText("GitHub profile picture", {
         exact: true,
       })
     ).toBeVisible();

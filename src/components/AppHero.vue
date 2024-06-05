@@ -51,7 +51,7 @@ const { data } = await useAsyncData<gitUserSchema>(
       class="z-10 mx-auto mb-8 h-72 w-48 overflow-hidden rounded-3xl shadow-dropdown md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:mb-0 md:mr-0 md:h-min md:w-full xl:col-span-2 xl:w-9/12 dark:shadow-none"
     >
       <div
-        class="z-20 scale-110 bg-contain transition-transform duration-300 ease-in-out hover:scale-125"
+        class="z-20 bg-contain transition-transform duration-300 ease-in-out hover:scale-110"
       >
         <NuxtPicture
           alt="Profile picture"
@@ -61,6 +61,9 @@ const { data } = await useAsyncData<gitUserSchema>(
           :preload="{ fetchPriority: 'high' }"
           quality="75"
           src="/images/profile.webp"
+          sizes="240px md:400px lg:500px xl:100vw"
+          width="468"
+          height="702"
         />
       </div>
     </aside>
