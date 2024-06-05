@@ -55,21 +55,25 @@ const hoverState = ref(false);
             <AvatarImage as-child :src="data.avatar_url">
               <NuxtImg
                 class="h-full w-full rounded-[inherit] object-cover"
-                alt="GitHub Avatar image"
-                placeholder
+                alt="GitHub profile picture"
+                :placeholder="[45, 45, 75, 5]"
                 format="webp"
                 loading="lazy"
                 :src="data.avatar_url"
+                width="45"
+                height="45"
               />
             </AvatarImage>
             <AvatarFallback as-child :delay-ms="600">
               <NuxtImg
                 class="h-full w-full rounded-[inherit] object-cover"
-                alt="Avatar photo"
-                placeholder
+                alt="Alternative profile picture"
+                :placeholder="[45, 45, 75, 5]"
                 format="webp"
                 loading="lazy"
                 src="/images/avatarphoto.jpg"
+                width="45"
+                height="45"
               />
             </AvatarFallback>
           </AvatarRoot>
