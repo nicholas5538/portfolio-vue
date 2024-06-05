@@ -13,7 +13,7 @@ const props = defineProps<{
       class="mr-1.5 mt-2"
     >
       <div
-        class="leading-1.5 flex items-center rounded-full bg-aqua/50 px-3 py-1 text-sm transition-colors duration-300 ease-out dark:bg-light-orange/40 dark:text-white-100"
+        class="leading-1.5 flex items-center rounded-full bg-aqua/50 px-3 py-1 text-sm font-semibold transition-colors duration-300 ease-out dark:bg-light-orange/30 dark:text-white-300"
       >
         {{ skill }}
       </div>
