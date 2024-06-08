@@ -48,10 +48,10 @@ const { data } = await useAsyncData<gitUserSchema>(
     class="mx-auto mb-28 grid w-11/12 max-w-7xl grid-cols-1 pt-32 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-evenly md:gap-x-8 md:pt-60 lg:mb-60 xl:grid-cols-4 dark:mb-12 dark:2xl:mb-24"
   >
     <aside
-      class="z-10 mx-auto mb-8 h-72 w-48 overflow-hidden rounded-3xl shadow-dropdown md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:mb-0 md:mr-0 md:h-min md:w-full xl:col-span-2 xl:w-9/12 dark:shadow-none"
+      class="group z-10 mx-auto mb-8 h-72 w-48 overflow-hidden rounded-3xl shadow-dropdown md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:mb-0 md:mr-0 md:h-min md:w-full xl:col-span-2 xl:w-9/12 dark:shadow-none"
     >
       <div
-        class="z-20 bg-contain transition-transform duration-300 ease-in-out hover:scale-110"
+        class="z-20 bg-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
       >
         <NuxtPicture
           alt="Profile picture"

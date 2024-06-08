@@ -8,14 +8,16 @@ import {
 } from "radix-vue";
 import IconButton from "~/components/IconButton.server.vue";
 
-const props = withDefaults(
-  defineProps<{
-    css?: string;
-    icon: string;
-    sideOffset?: number;
-    text: string;
-    url?: string;
-  }>(),
+type ToolTipProps = {
+  css?: string;
+  icon: string;
+  sideOffset?: number;
+  text: string;
+  url?: string;
+};
+
+const { css, icon, sideOffset, text, url } = withDefaults(
+  defineProps<ToolTipProps>(),
   {
     css: "tooltip",
     sideOffset: 6,
@@ -29,22 +31,22 @@ const props = withDefaults(
     <TooltipTrigger as-child>
       <NuxtLink
         v-if="$slots.link"
-        :aria-label="`Click to see more on my ${props.text}`"
+        :aria-label="`Click to see more on my ${text}`"
         :class="css"
         external
         target="_blank"
-        :to="props.url"
+        :to="url"
       >
         <slot name="link" />
       </NuxtLink>
-      <IconButton v-else :css="css" :label="props.text" :icon="props.icon" />
+      <IconButton v-else :css="css" :label="text" :icon="icon" />
     </TooltipTrigger>
     <TooltipPortal>
       <TooltipContent
         avoid-collisions
         class="select-none rounded-md bg-white-200 p-3 text-sm font-bold leading-none text-black-400 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity] data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade dark:bg-black-100 dark:text-white-100"
         hide-when-detached
-        :side-offset="props.sideOffset"
+        :side-offset="sideOffset"
       >
         {{ text }}
         <TooltipArrow class="fill-aqua dark:fill-light-orange" />

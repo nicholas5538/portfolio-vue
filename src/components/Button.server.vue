@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { twMerge } from "tailwind-merge";
 
-type Props = {
+type ButtonProps = {
   ariaLabel?: string;
   buttonClass?: string;
   link: string;
@@ -10,7 +10,7 @@ type Props = {
   text: string;
 };
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<ButtonProps>(), {
   ariaLabel: "",
   buttonClass: "",
   linkClass: "",
@@ -34,10 +34,10 @@ const computedLinkClass = computed(() =>
 
 <template>
   <NuxtLink
-    :aria-label="props.ariaLabel"
+    :aria-label="ariaLabel"
     :class="computedLinkClass"
-    :target="props.target"
-    :to="props.link"
+    :target="target"
+    :to="link"
   >
     <button :class="computedButtonClass" type="button">
       {{ text }}
