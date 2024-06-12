@@ -28,19 +28,14 @@ export default defineNuxtConfig({
         },
         {
           rel: "icon",
-          type: "image/png",
-          sizes: "192x192",
-          href: "/android-chrome-192x192.png",
+          type: "image/svg+xml",
+          href: "/safari-pinned-tab.svg",
         },
         {
           rel: "apple-touch-icon",
           type: "image/png",
+          sizes: "180x180",
           href: "/apple-touch-icon.png",
-        },
-        {
-          rel: "mask-icon",
-          type: "image/svg+xml",
-          href: "/safari-pinned-tab.svg",
         },
       ],
       noscript: [{ innerHTML: "JavaScript is required" }],
