@@ -41,7 +41,9 @@ export default defineNuxtConfig({
       noscript: [{ innerHTML: "JavaScript is required" }],
     },
   },
-  build: { analyze: true },
+  build: {
+    analyze: true,
+  },
   css: ["~/assets/css/fonts.css", "~/assets/css/main.css"],
   devServer: { port: 5173 },
   devtools: {
@@ -54,6 +56,9 @@ export default defineNuxtConfig({
     renderJsonPayloads: false,
     payloadExtraction: true,
     componentIslands: true,
+  },
+  future: {
+    compatibilityVersion: 4,
   },
   modules: [
     "@nuxt/image",

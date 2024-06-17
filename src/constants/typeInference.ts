@@ -35,7 +35,7 @@ export interface gitUserSchema {
   updated_at: string;
 }
 
-export type TElement = Element | ComponentPublicInstance | null;
+export type TElement = Element | ComponentPublicInstance | null | undefined;
 
 export type TIcon = {
   icon: string;
