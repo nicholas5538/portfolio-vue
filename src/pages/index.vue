@@ -12,7 +12,7 @@ definePageMeta({
   layout: "default",
 });
 
-const { data: animationLinks } = await useAsyncData<DataT>(
+const { data: animationLinks, status } = await useLazyAsyncData<DataT>(
   "lottie-json",
   async () => {
     const [aboutMeLink, skillsLink, workExperienceLink] = await Promise.all([
@@ -35,13 +35,14 @@ const { data: animationLinks } = await useAsyncData<DataT>(
 <template>
   <main>
     <AppHero />
-    <AppAboutMe :about-me-link="animationLinks?.aboutMeLink" />
+    <AppAboutMe :about-me-link="animationLinks?.aboutMeLink" :status="status" />
     <ClientOnly>
       <LazyScrollToTop />
     </ClientOnly>
-    <LazyAppSkills :skills-link="animationLinks?.skillsLink" />
+    <LazyAppSkills :skills-link="animationLinks?.skillsLink" :status="status" />
     <LazyAppWorkExperience
       :work-experience-link="animationLinks?.workExperienceLink"
+      :status="status"
     />
     <LazyAppProjects />
     <LazyAppContactMe />

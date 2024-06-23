@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { AsyncDataRequestStatus } from "#app";
 import IconifyIcon from "~/components/IconifyIcon.vue";
 import SkillLabels from "~/components/SkillLabels.server.vue";
 import { workExperiences } from "~/constants/globalVariables";
@@ -6,10 +7,8 @@ import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs");
-const asideClass =
-  "hidden h-44 w-44 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-5 lg:block lg:h-[14rem] lg:w-[14rem] lg:place-self-center xl:h-[18rem] xl:w-[18rem]";
-const { workExperienceLink: animationLink } = withDefaults(
-  defineProps<{ workExperienceLink: string }>(),
+const { workExperienceLink: animationLink, status } = withDefaults(
+  defineProps<{ workExperienceLink: string; status: AsyncDataRequestStatus }>(),
   {
     workExperienceLink: "",
   }
@@ -92,18 +91,20 @@ const { workExperienceLink: animationLink } = withDefaults(
           :skills="workExperience.skills"
         />
       </div>
-      <ClientOnly fallback-tag="div">
-        <aside :class="asideClass">
+      <ClientOnly>
+        <aside
+          class="hidden h-44 w-44 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-5 lg:block lg:h-[14rem] lg:w-[14rem] lg:place-self-center xl:h-[18rem] xl:w-[18rem]"
+        >
+          <div
+            v-if="status === 'pending'"
+            class="animate-pulse rounded-2xl p-4"
+          />
           <Lottie
+            v-else
             :animation-link="animationLink"
             data-testid="experienceLottie"
           />
         </aside>
-        <template #fallback>
-          <div :class="asideClass">
-            <div class="animate-pulse rounded-2xl p-4" />
-          </div>
-        </template>
       </ClientOnly>
     </div>
     <div

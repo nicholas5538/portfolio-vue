@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import type { AsyncDataRequestStatus } from "#app";
 import IconifyIcon from "~/components/IconifyIcon.vue";
 import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
 
-const { aboutMeLink: animationLink } = withDefaults(
-  defineProps<{ aboutMeLink: string }>(),
+const { aboutMeLink: animationLink, status } = withDefaults(
+  defineProps<{ aboutMeLink: string; status: AsyncDataRequestStatus }>(),
   {
     aboutMeLink: "",
   }
@@ -58,15 +59,14 @@ const { aboutMeLink: animationLink } = withDefaults(
           SIT</NuxtLink
         >.
       </h3>
-      <ClientOnly fallback-tag="aside">
+      <ClientOnly>
         <aside class="about-me-animation">
-          <Lottie :animation-link="animationLink" />
+          <div
+            v-if="status === 'pending'"
+            class="animate-pulse rounded-2xl p-4"
+          />
+          <Lottie v-else :animation-link="animationLink" />
         </aside>
-        <template #fallback>
-          <div class="about-me-animation">
-            <div class="animate-pulse rounded-2xl p-4" />
-          </div>
-        </template>
       </ClientOnly>
     </div>
     <div v-if="!darkMode" class="dark-blue-gradient" />

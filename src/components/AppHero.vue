@@ -10,7 +10,7 @@ const mailIcon = iconAlias.get("mail")!;
 const locationIcon = iconAlias.get("location")!;
 
 const config = useRuntimeConfig();
-const { data } = await useAsyncData<gitUserSchema>(
+const { data, status } = await useLazyAsyncData<gitUserSchema>(
   "user",
   () =>
     $fetch(`${config.public.githubBaseUrl}/user`, {
@@ -37,7 +37,6 @@ const { data } = await useAsyncData<gitUserSchema>(
       "login",
       "name",
     ],
-    server: true,
   }
 );
 </script>
@@ -96,7 +95,7 @@ const { data } = await useAsyncData<gitUserSchema>(
       <div class="flex flex-row items-center justify-start gap-x-6">
         <template v-for="[key, value] in externalLinks" :key="key">
           <LazyHoverCard
-            v-if="key === 'GitHub' && data"
+            v-if="key === 'GitHub' && status === 'success'"
             :application="key"
             :application-icon="gitHubIcon"
             :data="data!"
