@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { TooltipProvider } from "radix-vue";
+import type { AsyncDataRequestStatus } from "#app";
 import averageGoodIcons from "~/constants/skill-icons";
 import type { TElement } from "~/constants/typeInference";
 
 const listRefs = useState<TElement[]>("listRefs");
-const asideClass =
-  "hidden h-56 w-56 lg:absolute lg:bottom-40 lg:right-5 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]";
-const { skillsLink: animationLink } = withDefaults(
-  defineProps<{ skillsLink: string }>(),
+const { skillsLink: animationLink, status } = withDefaults(
+  defineProps<{ skillsLink: string; status: AsyncDataRequestStatus }>(),
   {
     skillsLink: "",
   }
@@ -60,19 +59,20 @@ const { skillsLink: animationLink } = withDefaults(
         </template>
       </template>
     </div>
-    <ClientOnly fallback-tag="div">
-      <aside :class="asideClass">
+    <ClientOnly>
+      <aside
+        class="hidden h-56 w-56 lg:absolute lg:bottom-40 lg:right-5 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]"
+      >
+        <div
+          v-if="status === 'pending'"
+          class="animate-pulse rounded-2xl p-4"
+        />
         <Lottie
           :animation-link="animationLink"
           :speed="0.75"
           data-testid="skillLottie"
         />
       </aside>
-      <template #fallback>
-        <div :class="asideClass">
-          <div class="animate-pulse rounded-2xl p-4" />
-        </div>
-      </template>
     </ClientOnly>
   </section>
 </template>

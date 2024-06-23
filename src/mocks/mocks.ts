@@ -13,6 +13,7 @@ const mockUserResponse: Readonly<Partial<gitUserSchema>> = {
   name: "Nick Young",
 };
 
+// pending field will be depreciated in Nuxt V4.x
 export const mockReturnValues = {
   data: mockUserResponse,
   pending: false,
