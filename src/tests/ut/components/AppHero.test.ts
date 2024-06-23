@@ -4,24 +4,24 @@ import { mockNuxtImport, mountSuspended } from "@nuxt/test-utils/runtime";
 import AppHero from "~/components/AppHero.vue";
 import { mockReturnValues } from "~/mocks/mocks";
 
-const { useAsyncDataMock } = vi.hoisted(() => {
+const { useLazyAsyncDataMock } = vi.hoisted(() => {
   return {
-    useAsyncDataMock: vi.fn().mockImplementation(async () => {
+    useLazyAsyncDataMock: vi.fn().mockImplementation(async () => {
       return mockReturnValues;
     }),
   };
 });
 
-mockNuxtImport("useAsyncData", () => useAsyncDataMock);
+mockNuxtImport("useLazyAsyncData", () => useLazyAsyncDataMock);
 
-afterAll(() => useAsyncDataMock.mockRestore());
+afterAll(() => useLazyAsyncDataMock.mockRestore());
 
 test("Hero section is rendered correctly", async () => {
-  useAsyncDataMock.getMockImplementation();
+  useLazyAsyncDataMock.getMockImplementation();
   const component = await mountSuspended(AppHero);
 
-  expect(useAsyncDataMock).toHaveBeenCalledOnce();
-  expect(useAsyncDataMock).toHaveReturnedWith(mockReturnValues);
+  expect(useLazyAsyncDataMock).toHaveBeenCalledOnce();
+  expect(useLazyAsyncDataMock).toHaveReturnedWith(mockReturnValues);
   // Server component breaks unit test, so it is 0 for now
   // TODO: Fix this unit test once server component is no longer an experimental feature
   expect(component.findAll("button").length).toEqual(0);
