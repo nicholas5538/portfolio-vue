@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   deploy-to-production:
-    timeout-minutes: 2
+    timeout-minutes: 1
     runs-on: ubuntu-latest
     env:
       AWS_AMPLIFY_PROD_WEBHOOK: ${{ secrets.AWS_AMPLIFY_PROD_WEBHOOK }}
