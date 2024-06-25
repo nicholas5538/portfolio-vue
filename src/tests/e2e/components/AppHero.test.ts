@@ -30,11 +30,6 @@ test.describe("Hero icon buttons", () => {
       .first();
     await expect(linkedinIcon).toBeVisible();
     await expect(linkedinIcon).toHaveAttribute("data-state", "closed");
-    // For some reason, data-state remained closed in chromium, though it works on development
-    if (browserName !== "chromium") {
-      await linkedinIcon.hover();
-      await expect(linkedinIcon).toHaveAttribute("data-state", "delayed-open");
-    }
 
     const gitIcon = page
       .getByLabel("Click to see more on my GitHub Profile", {
@@ -43,15 +38,21 @@ test.describe("Hero icon buttons", () => {
       .first();
     await expect(gitIcon).toBeVisible();
     await expect(gitIcon).toHaveAttribute("data-state", "closed");
-    await gitIcon.hover();
-    await expect(gitIcon).toHaveAttribute("data-state", "open");
-    await expect(
-      page.getByAltText("GitHub profile picture", {
-        exact: true,
-      })
-    ).toBeVisible();
-    await expect(
-      page.getByText("Whatever happens, happens", { exact: true })
-    ).toBeVisible();
+
+    // For some reason, data-state remained closed in chromium, though it works on development
+    if (browserName !== "chromium") {
+      await linkedinIcon.hover();
+      await expect(linkedinIcon).toHaveAttribute("data-state", "delayed-open");
+      await gitIcon.hover();
+      await expect(gitIcon).toHaveAttribute("data-state", "open");
+      await expect(
+        page.getByAltText("GitHub profile picture", {
+          exact: true,
+        })
+      ).toBeVisible();
+      await expect(
+        page.getByText("Whatever happens, happens", { exact: true })
+      ).toBeVisible();
+    }
   });
 });
