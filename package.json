@@ -31,7 +31,7 @@
     "nuxt": "3.12.2",
     "radix-vue": "1.8.5",
     "tailwind-merge": "2.3.0",
-    "vue": "3.4.30",
+    "vue": "3.4.31",
     "vue-router": "4.4.0",
     "vue3-lottie": "3.3.0"
   },
