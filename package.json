@@ -25,7 +25,7 @@
     "test-e2e:ui": "playwright test --ui"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "3.600.0",
+    "@aws-sdk/client-s3": "3.606.0",
     "@aws-sdk/s3-request-presigner": "3.606.0",
     "@nuxt/image": "1.7.0",
     "nuxt": "3.12.2",
