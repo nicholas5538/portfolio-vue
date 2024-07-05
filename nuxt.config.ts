@@ -44,6 +44,7 @@ export default defineNuxtConfig({
   build: {
     analyze: true,
   },
+  compatibilityDate: "2024-07-05",
   css: ["~/assets/css/fonts.css", "~/assets/css/main.css"],
   devServer: { port: 5173 },
   devtools: {
