@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "analyze": "nuxi analyze",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "format": "prettier . --check",

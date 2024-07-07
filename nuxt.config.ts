@@ -42,7 +42,11 @@ export default defineNuxtConfig({
     },
   },
   build: {
-    analyze: true,
+    analyze: {
+      brotliSize: true,
+      gzipSize: true,
+      template: "treemap",
+    },
   },
   compatibilityDate: "2024-07-05",
   css: ["~/assets/css/fonts.css", "~/assets/css/main.css"],
