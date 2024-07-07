@@ -4,7 +4,8 @@ frontend:
     preBuild:
       commands:
         - sudo yum install -y jq
-        - nvm install 21.5.0 && node --version
+        - nvm install
+        - node -v
         - corepack enable pnpm
         - pnpm install --frozen-lockfile
     build:
