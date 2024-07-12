@@ -17,13 +17,16 @@ mockNuxtImport("useLazyAsyncData", () => useLazyAsyncDataMock);
 afterAll(() => useLazyAsyncDataMock.mockRestore());
 
 test("Hero section is rendered correctly", async () => {
-  useLazyAsyncDataMock.getMockImplementation();
   const component = await mountSuspended(AppHero);
+  const result = useLazyAsyncDataMock.mock.settledResults;
 
-  expect(useLazyAsyncDataMock).toHaveBeenCalledOnce();
-  expect(useLazyAsyncDataMock).toHaveReturnedWith(mockReturnValues);
-  // Server component breaks unit test, so it is 0 for now
-  // TODO: Fix this unit test once server component is no longer an experimental feature
+  expect(result[0]?.value).toBe(mockReturnValues);
+  expect(result[0]?.type).toBe("fulfilled");
+  expect(useLazyAsyncDataMock).toHaveResolvedWith(mockReturnValues);
+  /*
+  Server component breaks unit test, so it is 0 for now
+  TODO: Fix this unit test once server component is no longer an experimental feature
+   */
   expect(component.findAll("button").length).toEqual(0);
   expect(
     component

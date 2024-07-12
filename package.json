@@ -26,12 +26,12 @@
     "test-e2e:ui": "playwright test --ui"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "3.609.0",
-    "@aws-sdk/s3-request-presigner": "3.609.0",
+    "@aws-sdk/client-s3": "3.614.0",
+    "@aws-sdk/s3-request-presigner": "3.614.0",
     "@nuxt/image": "1.7.0",
     "nuxt": "3.12.3",
-    "radix-vue": "1.9.0",
-    "tailwind-merge": "2.3.0",
+    "radix-vue": "1.9.1",
+    "tailwind-merge": "2.4.0",
     "vue": "3.4.31",
     "vue-router": "4.4.0",
     "vue3-lottie": "3.3.0"
@@ -42,7 +42,7 @@
     "@nuxt/test-utils": "3.13.1",
     "@nuxtjs/google-fonts": "3.2.0",
     "@playwright/test": "1.45.1",
-    "@vitest/coverage-v8": "1.6.0",
+    "@vitest/coverage-v8": "2.0.2",
     "@vue/test-utils": "2.4.6",
     "autoprefixer": "10.4.19",
     "cssnano": "7.0.4",
@@ -60,7 +60,7 @@
     "prettier-plugin-tailwindcss": "0.6.5",
     "tailwindcss": "3.4.4",
     "typescript": "5.5.3",
-    "vitest": "1.6.0",
+    "vitest": "2.0.2",
     "vitest-canvas-mock": "0.3.3",
     "vue-tsc": "2.0.26"
   },
@@ -68,5 +68,5 @@
     "**/*": "prettier --write --ignore-unknown",
     "*/ts": "eslint"
   },
-  "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74"
+  "packageManager": "pnpm@9.5.0+sha256.dbdf5961c32909fb030595a9daa1dae720162e658609a8f92f2fa99835510ca5"
 }
