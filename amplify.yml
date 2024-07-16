@@ -7,6 +7,7 @@ frontend:
         - nvm install
         - node -v
         - corepack enable pnpm
+        - pnpm config set store-dir .pnpm-store
         - pnpm install --frozen-lockfile
     build:
       commands:
@@ -29,3 +30,6 @@ frontend:
     baseDirectory: .amplify-hosting
     files:
       - "**/*"
+  cache:
+    paths:
+      - .pnpm-store
