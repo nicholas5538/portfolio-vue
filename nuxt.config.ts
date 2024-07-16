@@ -84,6 +84,19 @@ export default defineNuxtConfig({
       catchAllStaticFallback: true,
       imageOptimization: {
         cacheControl: "public, max-age=31536000, immutable",
+        path: "/_amplify/image",
+      },
+      imageSettings: {
+        dangerouslyAllowSVG: false,
+        formats: ["image/webp", "image/jpeg"],
+        minimumCacheTTL: 31536000,
+        remotePatterns: [
+          {
+            protocol: "https",
+            hostname: "www.nicholasyong.dev",
+            pathname: "/_amplify/image/**",
+          },
+        ],
       },
     },
     preset:
