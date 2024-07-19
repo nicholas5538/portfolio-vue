@@ -23,11 +23,7 @@ test("Hero section is rendered correctly", async () => {
   expect(result[0]?.value).toBe(mockReturnValues);
   expect(result[0]?.type).toBe("fulfilled");
   expect(useLazyAsyncDataMock).toHaveResolvedWith(mockReturnValues);
-  /*
-  Server component breaks unit test, so it is 0 for now
-  TODO: Fix this unit test once server component is no longer an experimental feature
-   */
-  expect(component.findAll("button").length).toEqual(0);
+  expect(component.findAll("button").length).toEqual(1);
   expect(
     component
       .get('[aria-label="Click to see more on my GitHub Profile"]')
