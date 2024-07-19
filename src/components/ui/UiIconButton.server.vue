@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IconifyIcon from "~/components/IconifyIcon.vue";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 
 const { label, icon } = withDefaults(
   defineProps<{
@@ -20,6 +20,6 @@ const { label, icon } = withDefaults(
     :class="css"
     type="button"
   >
-    <IconifyIcon :icon="icon" />
+    <UiIconifyIcon :icon="icon" />
   </button>
 </template>

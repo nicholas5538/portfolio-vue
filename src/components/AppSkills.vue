@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { TooltipProvider } from "radix-vue";
 import type { AsyncDataRequestStatus } from "#app";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
+import UiTooltip from "~/components/ui/UiTooltip.vue";
 import averageGoodIcons from "~/constants/skill-icons";
 import type { TElement } from "~/constants/typeInference";
 
@@ -22,7 +24,7 @@ const { skillsLink: animationLink, status } = withDefaults(
         :ref="(el) => listRefs.push(el)"
         class="sectionHeading white-bg-heading mb-5"
       >
-        <IconifyIcon icon="fluent-emoji:wrench" :width="36" :height="36" />
+        <UiIconifyIcon icon="fluent-emoji:wrench" :width="36" :height="36" />
         <span class="span-heading from-black-200 to-black-200">Skills</span>
       </h2>
       <h2 class="text-lg font-bold md:text-3xl xl:text-4xl dark:text-white-300">
@@ -48,7 +50,7 @@ const { skillsLink: animationLink, status } = withDefaults(
             class="mb-2 flex flex-row flex-wrap gap-x-4 gap-y-4 ipad-mini:gap-y-0 lg:mb-4"
           >
             <TooltipProvider :delay-duration="300">
-              <Tooltip
+              <UiTooltip
                 v-for="[iconText, { icon }] in icons"
                 :key="iconText"
                 :icon="icon"

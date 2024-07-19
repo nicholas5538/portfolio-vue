@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import UiIconButton from "~/components/ui/UiIconButton.server.vue";
+import UiTooltip from "~/components/ui/UiTooltip.vue";
 import { externalLinks } from "~/constants/globalVariables";
 import { TooltipProvider } from "radix-vue";
 
@@ -23,7 +25,7 @@ footerLinks.delete("Resume");
       </h4>
       <div class="flex gap-x-4 md:order-last">
         <TooltipProvider :delay-duration="300">
-          <Tooltip
+          <UiTooltip
             v-for="[key, { icon, text, url }] in footerLinks"
             :key="`Footer-${key}`"
             :icon="icon!"
@@ -31,9 +33,9 @@ footerLinks.delete("Resume");
             :url="url"
           >
             <template #link>
-              <IconButton :label="text" :icon="icon!" />
+              <UiIconButton :label="text" :icon="icon!" />
             </template>
-          </Tooltip>
+          </UiTooltip>
         </TooltipProvider>
       </div>
     </div>

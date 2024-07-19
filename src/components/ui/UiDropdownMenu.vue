@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Button from "~/components/Button.server.vue";
-import IconifyIcon from "~/components/IconifyIcon.vue";
+import UiButton from "~/components/ui/UiButton.server.vue";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import { resumeButtonProps } from "~/constants/globalVariables";
 import {
   DropdownMenuContent,
@@ -38,7 +38,7 @@ const lastIndex = listElements.length - 1;
       <DropdownMenuTrigger
         aria-label="Click to expand or collapse the dropdown menu"
       >
-        <IconifyIcon
+        <UiIconifyIcon
           class="text-black-200 dark:text-white-400"
           icon="mdi:hamburger-menu"
         />
@@ -94,7 +94,7 @@ const lastIndex = listElements.length - 1;
         class="navbar-text cursor-pointer transition-all duration-300 ease-out hover:underline hover:decoration-black-200 hover:decoration-2 hover:underline-offset-8 dark:hover:decoration-white-400"
         @click="scrollEmit(index, lastIndex)"
       >
-        <Button
+        <UiButton
           v-if="index === lastIndex"
           v-bind="resumeButtonProps"
           link-class="xl:text-xl"

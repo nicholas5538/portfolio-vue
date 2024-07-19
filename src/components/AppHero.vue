@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TooltipProvider } from "radix-vue";
-import IconifyIcon from "~/components/IconifyIcon.vue";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import { externalLinks, iconAlias } from "~/constants/globalVariables";
 import type { gitUserSchema } from "~/constants/typeInference";
 
@@ -72,7 +72,11 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
       <span
         class="inline-block origin-wave animate-wave align-middle text-4xl xl:text-5xl"
       >
-        <IconifyIcon icon="fluent-emoji:waving-hand" :width="44" :height="44" />
+        <UiIconifyIcon
+          icon="fluent-emoji:waving-hand"
+          :width="44"
+          :height="44"
+        />
       </span>
       Hi there! I&apos;m
       <span
@@ -94,7 +98,7 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
       </h2>
       <div class="flex flex-row items-center justify-start gap-x-6">
         <template v-for="[key, value] in externalLinks" :key="key">
-          <LazyHoverCard
+          <LazyUiHoverCard
             v-if="key === 'GitHub' && status === 'success'"
             :application="key"
             :application-icon="gitHubIcon"
@@ -105,11 +109,11 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
             :to="value.url"
           />
           <TooltipProvider v-else :delay-duration="300">
-            <Tooltip :icon="value.icon!" :text="value.text" :url="value.url">
+            <UiTooltip :icon="value.icon!" :text="value.text" :url="value.url">
               <template #link>
-                <IconButton :label="value.text" :icon="value.icon!" />
+                <UiIconButton :label="value.text" :icon="value.icon!" />
               </template>
-            </Tooltip>
+            </UiTooltip>
           </TooltipProvider>
         </template>
       </div>

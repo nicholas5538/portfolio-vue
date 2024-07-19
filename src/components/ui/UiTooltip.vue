@@ -6,7 +6,7 @@ import {
   TooltipRoot,
   TooltipTrigger,
 } from "radix-vue";
-import IconButton from "~/components/IconButton.server.vue";
+import UiIconButton from "~/components/ui/UiIconButton.server.vue";
 
 type ToolTipProps = {
   css?: string;
@@ -39,7 +39,7 @@ const { css, icon, sideOffset, text, url } = withDefaults(
       >
         <slot name="link" />
       </NuxtLink>
-      <IconButton v-else :css="css" :label="text" :icon="icon" />
+      <UiIconButton v-else :css="css" :label="text" :icon="icon" />
     </TooltipTrigger>
     <TooltipPortal>
       <TooltipContent

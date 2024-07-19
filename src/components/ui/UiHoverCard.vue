@@ -9,7 +9,8 @@ import {
   HoverCardRoot,
   HoverCardTrigger,
 } from "radix-vue";
-import IconifyIcon from "~/components/IconifyIcon.vue";
+import UiIconButton from "~/components/ui/UiIconButton.server.vue";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import type { gitUserSchema } from "~/constants/typeInference";
 
 const props = defineProps<{
@@ -34,7 +35,7 @@ const hoverState = ref(false);
         target="_blank"
         :to="props.to"
       >
-        <IconButton
+        <UiIconButton
           :label="`Click to see more on my ${props.application} Profile`"
           :icon="props.applicationIcon"
         />
@@ -83,19 +84,19 @@ const hoverState = ref(false);
                 {{ data.name }}
               </div>
               <div class="flex gap-1 font-semibold">
-                <IconifyIcon :icon="profileIcon" />
+                <UiIconifyIcon :icon="profileIcon" />
                 <div class="m-0 text-[15px] leading-[1.5]">
                   {{ data.login }}
                 </div>
               </div>
               <div class="flex gap-1 font-semibold">
-                <IconifyIcon :icon="mailIcon" />
+                <UiIconifyIcon :icon="mailIcon" />
                 <div class="m-0 text-[15px] leading-[1.5]">
                   {{ data.email }}
                 </div>
               </div>
               <div class="flex gap-1 font-semibold">
-                <IconifyIcon :icon="locationIcon" />
+                <UiIconifyIcon :icon="locationIcon" />
                 <div class="m-0 text-[15px] leading-[1.5]">
                   {{ data.location }}
                 </div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SwitchRoot, SwitchThumb } from "radix-vue";
-import IconifyIcon from "~/components/IconifyIcon.vue";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import useToggleTheme from "~/composables/toggleTheme";
 import { iconAlias } from "~/constants/globalVariables";
 
@@ -23,13 +23,13 @@ const moonIcon = iconAlias.get("moon")!;
       <span
         class="my-auto block translate-x-1 rounded-full bg-transparent shadow-sm transition-transform duration-200 will-change-transform data-[state=checked]:translate-x-5"
       >
-        <IconifyIcon
+        <UiIconifyIcon
           v-show="!darkMode"
           :icon="sunIcon"
           :class="toggleIconClass"
           data-testid="sun"
         />
-        <IconifyIcon
+        <UiIconifyIcon
           v-show="darkMode"
           class="text-white-200"
           :icon="moonIcon"

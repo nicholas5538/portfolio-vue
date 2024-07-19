@@ -9,7 +9,7 @@ import {
   test,
   vi,
 } from "vitest";
-import ThemeSwitch from "~/components/ThemeSwitch.vue";
+import ThemeSwitch from "~/components/ui/UiThemeSwitch.vue";
 
 const getItemSpy = vi.spyOn(window.localStorage, "getItem");
 const setItemSpy = vi.spyOn(window.localStorage, "setItem");
