@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { TooltipProvider } from "radix-vue";
 import { computed } from "vue";
-import IconifyIcon from "~/components/IconifyIcon.vue";
-import SkillLabels from "~/components/SkillLabels.server.vue";
+import UiIconButton from "~/components/ui/UiIconButton.server.vue";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
+import UiSkillLabels from "~/components/ui/UiSkillLabels.server.vue";
+import UiTooltip from "~/components/ui/UiTooltip.vue";
 import { projects } from "~/constants/globalVariables";
 import type { TElement } from "~/constants/typeInference";
 
@@ -27,7 +29,7 @@ const columnPlacement = computed(() => {
       :ref="(el) => listRefs.push(el)"
       class="sectionHeading white-bg-heading mb-5 text-lg md:text-3xl xl:text-4xl"
     >
-      <IconifyIcon
+      <UiIconifyIcon
         icon="fluent-emoji:backhand-index-pointing-down"
         :width="36"
         :height="36"
@@ -67,7 +69,7 @@ const columnPlacement = computed(() => {
           >
             {{ value.projectDescription }}
           </p>
-          <SkillLabels
+          <UiSkillLabels
             :label="`Technologies used in ${value.projectTitle}`"
             :skills="value.techStack"
             class="gap-x-4 gap-y-2"
@@ -87,7 +89,7 @@ const columnPlacement = computed(() => {
             </h4>
             <div class="flex flex-row flex-wrap gap-x-4 md:justify-center">
               <TooltipProvider :delay-duration="300">
-                <Tooltip
+                <UiTooltip
                   v-for="{ icon, text, url } in value.links"
                   :key="`${value.projectTitle}-${text}-link`"
                   :icon="icon!"
@@ -95,9 +97,9 @@ const columnPlacement = computed(() => {
                   :url="url"
                 >
                   <template #link>
-                    <IconButton :label="text" :icon="icon!" />
+                    <UiIconButton :label="text" :icon="icon!" />
                   </template>
-                </Tooltip>
+                </UiTooltip>
               </TooltipProvider>
             </div>
           </div>

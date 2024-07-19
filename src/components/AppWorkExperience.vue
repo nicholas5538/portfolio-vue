@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { AsyncDataRequestStatus } from "#app";
-import IconifyIcon from "~/components/IconifyIcon.vue";
-import SkillLabels from "~/components/SkillLabels.server.vue";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
+import UiSkillLabels from "~/components/ui/UiSkillLabels.server.vue";
 import { workExperiences } from "~/constants/globalVariables";
 import type { TElement } from "~/constants/typeInference";
 
@@ -25,7 +25,7 @@ const { workExperienceLink: animationLink, status } = withDefaults(
           :ref="(el) => listRefs.push(el)"
           class="sectionHeading mb-5 text-xl font-bold text-blue md:text-3xl xl:text-4xl"
         >
-          <IconifyIcon
+          <UiIconifyIcon
             icon="fluent-emoji:office-worker"
             :width="36"
             :height="36"
@@ -85,7 +85,7 @@ const { workExperienceLink: animationLink, status } = withDefaults(
             {{ pointer }}
           </li>
         </ul>
-        <SkillLabels
+        <UiSkillLabels
           v-if="workExperience.skills"
           :label="`Technologies used in ${workExperience.company}`"
           :skills="workExperience.skills"

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import UiButton from "~/components/ui/UiButton.server.vue";
+
 useServerSeoMeta({
   title: "Page not found",
   ogTitle: "Page not found",
@@ -44,7 +46,7 @@ const handleError = () => clearError();
         />
       </div>
       <div class="flex items-center p-6 pt-0">
-        <Button
+        <UiButton
           aria-label="Click here to redirect back to homepage"
           button-class="text-black-300"
           link="/"

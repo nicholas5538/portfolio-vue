@@ -37,7 +37,7 @@ const { data: animationLinks, status } = await useLazyAsyncData<DataT>(
     <AppHero />
     <AppAboutMe :about-me-link="animationLinks?.aboutMeLink" :status="status" />
     <ClientOnly>
-      <LazyScrollToTop />
+      <LazyUiScrollToTop />
     </ClientOnly>
     <LazyAppSkills :skills-link="animationLinks?.skillsLink" :status="status" />
     <LazyAppWorkExperience

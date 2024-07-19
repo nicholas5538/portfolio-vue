@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import ThemeSwitch from "~/components/ThemeSwitch.vue";
+import UiDropdownMenu from "~/components/ui/UiDropdownMenu.vue";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
+import UiThemeSwitch from "~/components/ui/UiThemeSwitch.vue";
 import type { TElement } from "~/constants/typeInference";
 import useScrollElementIntoView from "~/composables/scrollElementIntoView";
 
@@ -23,13 +25,13 @@ function scrollToElement(index: number) {
       >
         <div class="order-2 flex flex-row items-center gap-x-2 lg:order-first">
           <h1 class="navbar-text">NICHOLAS</h1>
-          <IconifyIcon
+          <UiIconifyIcon
             icon="arcticons:easy-coder"
             class="hidden text-black-200 sm:block dark:text-white-400"
           />
         </div>
         <div class="order-first lg:order-2">
-          <DropdownMenu @execute-scroll="scrollToElement" />
+          <UiDropdownMenu @execute-scroll="scrollToElement" />
         </div>
         <div class="order-last flex items-center gap-2">
           <label
@@ -39,7 +41,7 @@ function scrollToElement(index: number) {
             Appearance
           </label>
           <ClientOnly fallback-tag="div">
-            <ThemeSwitch />
+            <UiThemeSwitch />
             <template #fallback>
               <button
                 class="bg-black/50 data-[state=checked]:bg-black relative flex h-[25px] w-[42px] cursor-pointer rounded-full shadow-sm outline dark:outline-light-orange"

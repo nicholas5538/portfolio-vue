@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { AsyncDataRequestStatus } from "#app";
-import IconifyIcon from "~/components/IconifyIcon.vue";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
@@ -24,7 +24,7 @@ const { aboutMeLink: animationLink, status } = withDefaults(
           :ref="(el) => listRefs.push(el)"
           class="sectionHeading mb-5 text-xl font-bold md:text-3xl xl:text-4xl"
         >
-          <IconifyIcon icon="fluent-emoji:boy" :width="36" :height="36" />
+          <UiIconifyIcon icon="fluent-emoji:boy" :width="36" :height="36" />
           <span class="span-heading">About Me</span>
         </h2>
         <h2
