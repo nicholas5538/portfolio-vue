@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  Test:
+  playwright-tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
@@ -21,6 +21,11 @@ jobs:
       NUXT_CLOUDFLARE_R2_REGION: ${{ secrets.NUXT_CLOUDFLARE_R2_REGION }}
       NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
       NUXT_GITHUB_SECRET: ${{ secrets.NUXT_GITHUB_SECRET }}
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4, 5]
+        shardTotal: [5]
 
     steps:
       - name: Create env file
@@ -71,12 +76,53 @@ jobs:
         run: pnpm playwright install --with-deps
 
       - name: Run E2E tests
-        run: pnpm run test-e2e:ci
+        run: pnpm playwright test --shard=${{ matrix.shardIndex}}/${{ matrix.shardTotal }}
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v4.3.3
-        if: always()
+      - name: Upload blob report to Artifacts
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4.3.4
         with:
-          name: playwright-report
-          path: playwright-report/
+          name: blob-report-${{ matrix.shardIndex }}
+          path: blob-report
+          retention-days: 1
+  merge-reports:
+    if: ${{ !cancelled() }}
+    needs: [playwright-tests]
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.7
+
+      - name: Enable Corepack
+        run: corepack enable pnpm
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - uses: actions/setup-node@v4.0.2
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Download blob reports from GitHub Actions Artifacts
+        uses: actions/download-artifact@v4.1.8
+        with:
+          path: all-blob-reports
+          pattern: blob-report-*
+          merge-multiple: true
+
+      - name: Merge into HTML Report
+        run: pnpm playwright merge-reports --reporter html ./all-blob-reports
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4.3.4
+        with:
+          name: html-report--attempt-${{ github.run_attempt }}
+          path: playwright-report
           retention-days: 7
