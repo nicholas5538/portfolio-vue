@@ -33,7 +33,7 @@
     "radix-vue": "1.9.2",
     "tailwind-merge": "2.4.0",
     "vue": "3.4.34",
-    "vue-router": "4.4.0",
+    "vue-router": "4.4.2",
     "vue3-lottie": "3.3.0"
   },
   "devDependencies": {
