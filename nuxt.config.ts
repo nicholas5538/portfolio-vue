@@ -106,7 +106,7 @@ export default defineNuxtConfig({
   postcss: {
     plugins: {
       tailwindcss: {},
-      autoprefixer: { flexbox: "no-2009", grid: "autoplace" },
+      autoprefixer: { grid: "autoplace" },
       ...(process.env.NODE_ENV === "production"
         ? { cssnano: { preset: ["default", { discardUnused: true }] } }
         : {}),
