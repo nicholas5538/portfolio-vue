@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import AppHero from "~/components/AppHero.vue";
 import AppAboutMe from "~/components/AppAboutMe.vue";
+import AppContactMe from "~/components/AppContactMe.vue";
+import AppProjects from "~/components/AppProjects.vue";
+import AppSkills from "~/components/AppSkills.vue";
+import AppWorkExperience from "~/components/AppWorkExperience.vue";
 import useGetCloudflareR2Object from "~/composables/getCloudflareR2Object";
 type DataT = {
   aboutMeLink: string;
@@ -39,12 +43,12 @@ const { data: animationLinks, status } = await useLazyAsyncData<DataT>(
     <ClientOnly>
       <LazyUiScrollToTop />
     </ClientOnly>
-    <LazyAppSkills :skills-link="animationLinks?.skillsLink" :status="status" />
-    <LazyAppWorkExperience
+    <AppSkills :skills-link="animationLinks?.skillsLink" :status="status" />
+    <AppWorkExperience
       :work-experience-link="animationLinks?.workExperienceLink"
       :status="status"
     />
-    <LazyAppProjects />
-    <LazyAppContactMe />
+    <AppProjects />
+    <AppContactMe />
   </main>
 </template>
