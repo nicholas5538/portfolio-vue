@@ -30,7 +30,7 @@
     "@aws-sdk/s3-request-presigner": "3.622.0",
     "@nuxt/image": "1.7.0",
     "nuxt": "3.12.4",
-    "radix-vue": "1.9.2",
+    "radix-vue": "1.9.5",
     "tailwind-merge": "2.4.0",
     "vue": "3.4.34",
     "vue-router": "4.4.2",
