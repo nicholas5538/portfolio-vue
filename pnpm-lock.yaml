@@ -21,8 +21,8 @@ importers:
         specifier: 3.12.4
         version: 3.12.4(@parcel/watcher@2.4.1)(@types/node@20.14.12)(encoding@0.1.13)(eslint@9.8.0)(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.19.1)(terser@5.31.3)(typescript@5.5.4)(vite@5.3.5(@types/node@20.14.12)(terser@5.31.3))(vue-tsc@2.0.29(typescript@5.5.4))
       radix-vue:
-        specifier: 1.9.2
-        version: 1.9.2(vue@3.4.34(typescript@5.5.4))
+        specifier: 1.9.5
+        version: 1.9.5(vue@3.4.34(typescript@5.5.4))
       tailwind-merge:
         specifier: 2.4.0
         version: 2.4.0
@@ -4129,8 +4129,8 @@ packages:
   queue-tick@1.0.1:
     resolution: {integrity: sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==}
 
-  radix-vue@1.9.2:
-    resolution: {integrity: sha512-XXwEMmXJmzcy9SebywbQdrZg8UE1jueqPMpxKK6NoquRC0CP4dvlBcuzp4lDWNSsqOgmkXa6CNbwEzdCX96umg==}
+  radix-vue@1.9.5:
+    resolution: {integrity: sha512-vtCq+WDAZj5BQtJiChGf/oC7w3y7jaod3agcntgph7fD6aqdcghLZYcUWdgT/XNJs2bEsk+3cjK3ONPRNeFcuQ==}
     peerDependencies:
       vue: '>= 3.2.0'
 
@@ -10005,7 +10005,7 @@ snapshots:
 
   queue-tick@1.0.1: {}
 
-  radix-vue@1.9.2(vue@3.4.34(typescript@5.5.4)):
+  radix-vue@1.9.5(vue@3.4.34(typescript@5.5.4)):
     dependencies:
       '@floating-ui/dom': 1.6.8
       '@floating-ui/vue': 1.1.2(vue@3.4.34(typescript@5.5.4))
