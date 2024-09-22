@@ -6,12 +6,10 @@ import type { TElement } from "~/constants/typeInference";
 const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
 
-const { aboutMeLink: animationLink, status } = withDefaults(
-  defineProps<{ aboutMeLink: string; status: AsyncDataRequestStatus }>(),
-  {
-    aboutMeLink: "",
-  }
-);
+const { aboutMeLink: animationLink = "", status } = defineProps<{
+  aboutMeLink?: string;
+  status: AsyncDataRequestStatus;
+}>();
 </script>
 
 <template>

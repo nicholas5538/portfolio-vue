@@ -2,10 +2,7 @@
 import "iconify-icon";
 import type { TIcon } from "~/constants/typeInference";
 
-const { icon, width, height } = withDefaults(defineProps<TIcon>(), {
-  width: 24,
-  height: 24,
-});
+const { icon, width = 24, height = 24 } = defineProps<TIcon>();
 </script>
 
 <template>

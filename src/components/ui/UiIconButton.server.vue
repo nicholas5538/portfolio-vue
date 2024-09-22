@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 
-const { label, icon } = withDefaults(
-  defineProps<{
-    css?: string;
-    label: string;
-    icon: string;
-  }>(),
-  {
-    css: "tooltip",
-  }
-);
+const {
+  css = "tooltip",
+  label,
+  icon,
+} = defineProps<{
+  css?: string;
+  label: string;
+  icon: string;
+}>();
 </script>
 
 <template>
