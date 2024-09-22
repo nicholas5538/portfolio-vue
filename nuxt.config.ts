@@ -65,20 +65,15 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  modules: [
-    "@nuxt/image",
-    "@nuxt/test-utils/module",
-    [
-      "@nuxtjs/google-fonts",
-      {
-        families: {
-          Montserrat: {
-            wght: "100..900",
-          },
-        },
+  googleFonts: {
+    display: "swap",
+    families: {
+      Montserrat: {
+        wght: "400..700",
       },
-    ],
-  ],
+    },
+  },
+  modules: ["@nuxt/image", "@nuxt/test-utils/module", "@nuxtjs/google-fonts"],
   nitro: {
     awsAmplify: {
       catchAllStaticFallback: true,
