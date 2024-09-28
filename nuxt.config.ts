@@ -48,10 +48,11 @@ export default defineNuxtConfig({
       template: "treemap",
     },
   },
-  compatibilityDate: "2024-07-05",
+  compatibilityDate: "2024-09-28",
   css: ["~/assets/css/fonts.css", "~/assets/css/main.css"],
   devServer: { port: 5173 },
   devtools: {
+    componentInspector: false,
     enabled: true,
     timeline: {
       enabled: true,
