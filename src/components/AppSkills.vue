@@ -7,12 +7,10 @@ import averageGoodIcons from "~/constants/skill-icons";
 import type { TElement } from "~/constants/typeInference";
 
 const listRefs = useState<TElement[]>("listRefs");
-const { skillsLink: animationLink, status } = withDefaults(
-  defineProps<{ skillsLink: string; status: AsyncDataRequestStatus }>(),
-  {
-    skillsLink: "",
-  }
-);
+const { skillsLink: animationLink = "", status } = defineProps<{
+  skillsLink?: string;
+  status: AsyncDataRequestStatus;
+}>();
 </script>
 
 <template>

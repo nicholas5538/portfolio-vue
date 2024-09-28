@@ -7,12 +7,10 @@ import type { TElement } from "~/constants/typeInference";
 
 const darkMode = useState<boolean>("darkMode");
 const listRefs = useState<TElement[]>("listRefs");
-const { workExperienceLink: animationLink, status } = withDefaults(
-  defineProps<{ workExperienceLink: string; status: AsyncDataRequestStatus }>(),
-  {
-    workExperienceLink: "",
-  }
-);
+const { workExperienceLink: animationLink = "", status } = defineProps<{
+  workExperienceLink?: string;
+  status: AsyncDataRequestStatus;
+}>();
 </script>
 
 <template>

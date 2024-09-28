@@ -16,14 +16,13 @@ type ToolTipProps = {
   url?: string;
 };
 
-const { css, icon, sideOffset, text, url } = withDefaults(
-  defineProps<ToolTipProps>(),
-  {
-    css: "tooltip",
-    sideOffset: 6,
-    url: "#",
-  }
-);
+const {
+  css = "tooltip",
+  icon,
+  sideOffset = 6,
+  text,
+  url = "#",
+} = defineProps<ToolTipProps>();
 </script>
 
 <template>
