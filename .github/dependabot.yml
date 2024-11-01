@@ -8,6 +8,8 @@ updates:
       day: monday
       time: "10:00"
       timezone: Asia/Singapore
+    reviewers:
+      - "nicholas5538"
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -15,12 +17,7 @@ updates:
       day: monday
       time: "10:00"
       timezone: Asia/Singapore
-    commit-message:
-      prefix: "pnpm dep"
-      prefix-development: "pnpm devDep"
-      include: "scope"
-    ignore:
-      - dependency-name: "vue-tsc"
-        versions: ["2.x"]
+    reviewers:
+      - "nicholas5538"
     pull-request-branch-name:
       separator: "-"
