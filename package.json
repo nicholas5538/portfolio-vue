@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.658.1",
-    "@aws-sdk/s3-request-presigner": "3.658.1",
+    "@aws-sdk/s3-request-presigner": "3.682.0",
     "@nuxt/image": "1.8.0",
     "nuxt": "3.13.2",
     "radix-vue": "1.9.6",
