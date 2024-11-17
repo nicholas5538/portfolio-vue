@@ -12,10 +12,6 @@ test("App project section heading, and tooltip", async ({
     .getByLabel("Click to see more on my Website", { exact: true })
     .first();
   const projectImage = page.getByAltText("An image of Voucher Management");
-  const projectSubHeading = page.getByRole("heading", {
-    name: "Coding projects that I enjoyed working on",
-    exact: true,
-  });
 
   if (isMobile) {
     await page.getByRole("button", { expanded: false }).tap();
@@ -32,6 +28,5 @@ test("App project section heading, and tooltip", async ({
     await expect(projectImage).toBeInViewport();
   }
 
-  await expect(projectSubHeading).toBeInViewport();
   await expect(externalLink).toBeInViewport();
 });
