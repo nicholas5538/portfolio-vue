@@ -18,7 +18,7 @@ function goToTop() {
   <div v-if="visible" class="relative" @click="goToTop">
     <TooltipProvider :delay-duration="300">
       <UiTooltip
-        css="tooltip fixed top-[90%] z-50 ml-[85%] cursor-pointer md:ml-[94%] h-[40px] w-[40px]"
+        css="tooltip fixed top-[90%] z-50 ml-[85%] cursor-pointer md:ml-[94%] size-10"
         icon="mdi:arrow-up"
         text="Click to scroll to the top"
       />

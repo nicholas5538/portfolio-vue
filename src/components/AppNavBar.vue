@@ -35,7 +35,7 @@ function scrollToElement(index: number) {
         </div>
         <div class="order-last flex items-center gap-2">
           <label
-            class="hidden cursor-pointer select-none pr-2 text-[15px] leading-none text-black-200 xl:inline-block dark:text-white-200"
+            class="hidden cursor-pointer select-none pr-2 text-[0.9375rem] leading-none text-black-200 xl:inline-block dark:text-white-200"
             for="appearance"
           >
             Appearance
@@ -44,7 +44,7 @@ function scrollToElement(index: number) {
             <UiThemeSwitch />
             <template #fallback>
               <button
-                class="bg-black/50 data-[state=checked]:bg-black relative flex h-[25px] w-[42px] cursor-pointer rounded-full shadow-sm outline dark:outline-light-orange"
+                class="bg-black/50 data-[state=checked]:bg-black relative flex h-[1.5625rem] w-[2.625rem] cursor-pointer rounded-full shadow-sm outline dark:outline-light-orange"
                 type="button"
                 disabled
               >
