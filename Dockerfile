@@ -1,10 +1,11 @@
-ARG NODE_VERSION
+ARG NODE_VERSION=lts-alpine
 FROM node:${NODE_VERSION} AS base
 LABEL authors="nicholas5538"
 LABEL version="1.0"
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+ENV HUSKY="0"
 RUN corepack enable pnpm
 COPY . /app
 WORKDIR /app
@@ -26,8 +27,8 @@ RUN pnpm run build
 
 FROM base AS prod
 EXPOSE 3000
-ENV PORT 3000
-ENV HOST "0.0.0.0"
+ENV PORT=3000
+ENV HOST="0.0.0.0"
 ENV NODE_ENV=production
 
 RUN deluser --remove-home node \

@@ -106,7 +106,7 @@ const columnPlacement = computed(() => {
           <aside
             :class="[
               { 'md:left-[45%]': checkIndex(value.id) },
-              'absolute left-0 top-0 -z-10 h-full max-h-[350px] w-full opacity-[8%] md:top-1/4 md:h-1/2 md:w-1/2 md:max-w-[600px] md:opacity-60 lg:top-[12.5%] lg:h-3/4 lg:w-1/2 dark:md:opacity-30',
+              'absolute left-0 top-0 -z-10 h-full max-h-[21.875rem] w-full opacity-[8%] md:top-1/4 md:h-1/2 md:w-1/2 md:max-w-[37.5rem] md:opacity-60 lg:top-[12.5%] lg:h-3/4 lg:w-1/2 dark:md:opacity-30',
             ]"
           >
             <NuxtPicture

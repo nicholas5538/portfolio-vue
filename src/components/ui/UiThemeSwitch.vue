@@ -16,7 +16,7 @@ const moonIcon = iconAlias.get("moon")!;
   <SwitchRoot
     id="appearance"
     v-model:checked="darkMode"
-    class="bg-black/50 data-[state=checked]:bg-black relative flex h-[26px] w-[48px] cursor-pointer rounded-full shadow-sm outline dark:outline-white-100"
+    class="bg-black/50 data-[state=checked]:bg-black relative flex h-[1.625rem] w-12 cursor-pointer rounded-full shadow-sm outline dark:outline-white-100"
     @update:checked="toggleTheme"
   >
     <SwitchThumb as-child>

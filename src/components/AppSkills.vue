@@ -61,15 +61,17 @@ const { skillsLink: animationLink = "", status } = defineProps<{
     </div>
     <ClientOnly>
       <aside
-        class="hidden h-56 w-56 lg:absolute lg:bottom-40 lg:right-5 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]"
+        class="hidden size-56 lg:absolute lg:bottom-40 lg:right-5 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]"
       >
         <div
           v-if="status === 'pending'"
           class="animate-pulse rounded-2xl p-4"
         />
         <Lottie
-          :animation-link="animationLink"
-          :speed="0.75"
+          class="h-full w-auto"
+          autoplay
+          loop
+          :src="animationLink"
           data-testid="skillLottie"
         />
       </aside>

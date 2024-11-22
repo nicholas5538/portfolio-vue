@@ -63,7 +63,13 @@ const { aboutMeLink: animationLink = "", status } = defineProps<{
             v-if="status === 'pending'"
             class="animate-pulse rounded-2xl p-4"
           />
-          <Lottie v-else :animation-link="animationLink" />
+          <Lottie
+            v-else
+            class="h-full w-auto"
+            autoplay
+            loop
+            :src="animationLink"
+          />
         </aside>
       </ClientOnly>
     </div>

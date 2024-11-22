@@ -16,7 +16,5 @@ test("About Me section heading, link and Lottie component", async ({
         "        problem-solving skills and creativity.",
     })
   ).toBeVisible();
-  await expect(
-    page.locator(".lottie-animation-container").first()
-  ).toBeVisible();
+  await expect(page.locator(".about-me-animation").first()).toBeVisible();
 });
