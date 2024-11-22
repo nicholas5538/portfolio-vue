@@ -2,7 +2,7 @@
 
 ![NuxtJS](https://img.shields.io/badge/nuxt.js-000000?style=for-the-badge&logo=nuxtdotjs&logoColor=white)
 
-[![Node Version](https://img.shields.io/badge/Node-21.5.0-brightgreen.svg)](https://github.com/nicholas5538/portfolio/blob/main/.nvmrc)
+[![Node Version](https://img.shields.io/badge/Node-LTS-brightgreen.svg)](https://github.com/nicholas5538/portfolio/blob/main/.nvmrc)
 
 ## 💪 Objective
 
@@ -18,7 +18,7 @@ It's a great opportunity to showcase my frontend skills, and to explore new fram
 
 2. With package manager **[pnpm](https://pnpm.io/installation)**
 
-- Install node version 21.5.0.
+- Install LTS node version.
 
 > 💁 **Tip:** You can use [nvm](https://github.com/nvm-sh/nvm "nvm repo") to easily manage multiple versions of node.
 > Once installed, run `nvm use` in the project directory.
@@ -71,7 +71,7 @@ Once you have [set up the repository](#repo-setup), you're ready to start develo
 docker compose up -d --build
 
 # Or build your own image
-docker build --build-args="NODE_VERSION=21.5.0-alpine" --compress -t <image name> --target dev .
+docker build --build-args="NODE_VERSION=lts-alpine" --compress -t <image name> --target dev .
 docker run -d --env-file ./env -p 5173:5173 -v .:/app -v /app/node_modules --name <container name> <image name>
 ```
 
