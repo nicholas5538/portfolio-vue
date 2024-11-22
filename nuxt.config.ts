@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const largeModules = ["radix-vue", "vue3-lottie"];
+const largeModules = ["radix-vue", "@lottiefiles/dotlottie-vue"];
 
 export default defineNuxtConfig({
   app: {

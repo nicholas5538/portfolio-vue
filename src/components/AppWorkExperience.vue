@@ -91,7 +91,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
       </div>
       <ClientOnly>
         <aside
-          class="hidden h-44 w-44 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-5 lg:block lg:h-[14rem] lg:w-[14rem] lg:place-self-center xl:h-[18rem] xl:w-[18rem]"
+          class="hidden size-44 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-5 lg:block lg:h-[14rem] lg:w-[14rem] lg:place-self-center xl:h-[18rem] xl:w-[18rem]"
         >
           <div
             v-if="status === 'pending'"
@@ -99,7 +99,10 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
           />
           <Lottie
             v-else
-            :animation-link="animationLink"
+            class="h-full w-auto"
+            autoplay
+            loop
+            :src="animationLink"
             data-testid="experienceLottie"
           />
         </aside>

@@ -1,11 +1,11 @@
-import { Vue3Lottie } from "vue3-lottie";
+import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 
 declare module "vue" {
   interface GlobalComponents {
-    Lottie: typeof Vue3Lottie;
+    Lottie: typeof DotLottieVue;
   }
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.component("Lottie", Vue3Lottie);
+  nuxtApp.vueApp.component("Lottie", DotLottieVue);
 });
