@@ -28,7 +28,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "3.698.0",
     "@aws-sdk/s3-request-presigner": "3.698.0",
-    "@lottiefiles/dotlottie-vue": "0.5.0",
+    "@lottiefiles/dotlottie-vue": "0.5.1",
     "@nuxt/image": "1.8.1",
     "nuxt": "3.14.1592",
     "radix-vue": "1.9.10",
