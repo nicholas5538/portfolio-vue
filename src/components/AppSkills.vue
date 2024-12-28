@@ -3,7 +3,7 @@ import { TooltipProvider } from "radix-vue";
 import type { AsyncDataRequestStatus } from "#app";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import UiTooltip from "~/components/ui/UiTooltip.vue";
-import averageGoodIcons from "~/constants/skill-icons";
+import skillsIcons from "~/constants/skill-icons";
 import type { TElement } from "~/constants/typeInference";
 
 const listRefs = useState<TElement[]>("listRefs");
@@ -30,7 +30,7 @@ const { skillsLink: animationLink = "", status } = defineProps<{
       </h2>
     </div>
     <div>
-      <template v-for="[type, { iconMap }] in averageGoodIcons" :key="type">
+      <template v-for="[type, { iconMap }] in skillsIcons" :key="type">
         <h3 class="white-sub-heading font-semibold dark:text-[#FFA54E]">
           {{
             type === "average"

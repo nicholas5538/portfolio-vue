@@ -92,10 +92,25 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
       Nothing excites me more than learning something new and starting a new
       adventure.
     </h2>
-    <section class="md:col-span-2 md:row-start-3 md:row-end-4 xl:gap-y-10">
-      <h2 class="mb-4 md:mb-8 md:text-2xl xl:text-3xl">
-        Always looking out for opportunities.
-      </h2>
+    <section
+      class="space-y-4 md:col-span-2 md:row-start-3 md:row-end-4 md:space-y-8 xl:gap-y-10"
+    >
+      <hgroup class="space-y-2">
+        <h2 class="md:text-2xl xl:text-3xl">
+          Always looking out for opportunities.
+        </h2>
+        <p class="transition-colors duration-300 ease-out dark:text-white-100">
+          Currently working at
+          <span
+            ><a
+              href="https://www.bandlab.com"
+              rel="noopener noreferrer"
+              target="_blank"
+              >BandLab Technologies</a
+            ></span
+          >.
+        </p>
+      </hgroup>
       <div class="flex flex-row items-center justify-start gap-x-6">
         <template v-for="[key, value] in externalLinks" :key="key">
           <LazyUiHoverCard
