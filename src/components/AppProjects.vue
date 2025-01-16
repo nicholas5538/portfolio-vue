@@ -39,91 +39,82 @@ const columnPlacement = computed(() => {
     <h3 class="white-sub-heading text-lg font-bold md:text-3xl xl:text-4xl">
       Coding projects that I enjoyed working on
     </h3>
-    <ul
-      v-for="[key, value] in projects"
-      :key="key"
-      class="relative z-0 mb-5 list-none"
-    >
-      <li
-        class="grid grid-rows-1 rounded-lg px-5 py-4 shadow-project transition-transform duration-300 ease-out hover:-translate-y-2 md:grid-cols-12 md:grid-rows-4 md:items-center md:justify-items-center md:rounded-none md:shadow-none md:transition-none md:hover:translate-y-0 lg:gap-y-2 dark:shadow-project-dark dark:md:shadow-none"
-      >
-        <h3
-          :class="[
-            columnPlacement(value.id),
-            'white-sub-heading select-none font-bold tracking-wide md:row-start-1 md:row-end-2 md:mb-0 dark:text-[#FFA54E]',
-          ]"
-        >
-          {{ value.projectTitle }}
-        </h3>
+    <article class="space-y-5 lg:space-y-20">
+      <article v-for="[key, value] in projects" :key="key" class="relative">
         <div
-          :class="[
-            columnPlacement(value.id),
-            'mb-2 transition-colors duration-300 ease-out md:row-start-2 md:row-end-4 md:bg-white-400 md:p-4 md:shadow-project dark:bg-none dark:md:bg-black-500 dark:md:shadow-xl',
-          ]"
+          class="grid grid-rows-1 rounded-lg px-4 py-4 shadow-project transition-transform duration-300 ease-out hover:-translate-y-2 md:grid-cols-12 md:items-center md:justify-items-center md:rounded-none md:px-0 md:shadow-none md:transition-none md:hover:translate-y-0 lg:gap-y-2 dark:shadow-project-dark dark:md:shadow-none"
         >
-          <p
+          <div
             :class="[
               columnPlacement(value.id),
-              'text-sm xl:text-xl dark:text-white-100',
+              'flex flex-col justify-center space-y-4 md:items-center',
             ]"
           >
-            {{ value.projectDescription }}
-          </p>
-          <UiSkillLabels
-            :label="`Technologies used in ${value.projectTitle}`"
-            :skills="value.techStack"
-            class="gap-x-4 gap-y-2"
-          />
-        </div>
-        <div
-          :class="[
-            columnPlacement(value.id),
-            'row-span-1 mb-2 md:row-start-4 md:row-end-5',
-          ]"
-        >
-          <div>
-            <h4
-              class="mb-2 select-none font-semibold text-black-200 transition-colors duration-300 ease-out md:text-center md:text-lg lg:text-xl xl:text-2xl dark:text-white-500"
+            <h3
+              :class="[
+                'white-sub-heading select-none font-bold tracking-wide md:mb-0 dark:text-[#FFA54E]',
+              ]"
             >
-              Links
-            </h4>
-            <div class="flex flex-row flex-wrap gap-x-4 md:justify-center">
-              <TooltipProvider :delay-duration="300">
-                <UiTooltip
-                  v-for="{ icon, text, url } in value.links"
-                  :key="`${value.projectTitle}-${text}-link`"
-                  :icon="icon!"
-                  :text="text"
-                  :url="url"
-                >
-                  <template #link>
-                    <UiIconButton :label="text" :icon="icon!" />
-                  </template>
-                </UiTooltip>
-              </TooltipProvider>
+              {{ value.projectTitle }}
+            </h3>
+            <div
+              :class="[
+                'mb-2 transition-colors duration-300 ease-out md:bg-white-400 md:p-4 md:shadow-project dark:bg-none dark:md:bg-black-500 dark:md:shadow-xl',
+              ]"
+            >
+              <p :class="['text-sm xl:text-xl dark:text-white-100']">
+                {{ value.projectDescription }}
+              </p>
+              <UiSkillLabels
+                :label="`Technologies used in ${value.projectTitle}`"
+                :skills="value.techStack"
+                class="gap-x-4 gap-y-2"
+              />
+            </div>
+            <div>
+              <h4
+                class="mb-2 select-none font-semibold text-black-200 transition-colors duration-300 ease-out md:text-center md:text-lg lg:text-xl xl:text-2xl dark:text-white-500"
+              >
+                Links
+              </h4>
+              <div class="flex flex-row flex-wrap gap-x-4 md:justify-center">
+                <TooltipProvider :delay-duration="300">
+                  <UiTooltip
+                    v-for="{ icon, text, url } in value.links"
+                    :key="`${value.projectTitle}-${text}-link`"
+                    :icon="icon!"
+                    :text="text"
+                    :url="url"
+                  >
+                    <template #link>
+                      <UiIconButton :label="text" :icon="icon!" />
+                    </template>
+                  </UiTooltip>
+                </TooltipProvider>
+              </div>
             </div>
           </div>
-          <aside
+          <div
             :class="[
               { 'md:left-[45%]': checkIndex(value.id) },
-              'absolute left-0 top-0 -z-10 h-full max-h-[21.875rem] w-full overflow-y-clip opacity-[8%] md:top-1/4 md:h-1/2 md:w-1/2 md:max-w-[37.5rem] md:rounded-md md:border-2 md:border-black-200 md:opacity-60 lg:top-[12.5%] lg:h-3/4 lg:w-1/2 dark:md:opacity-30',
+              'absolute left-0 top-0 -z-10 hidden aspect-[276/175] h-auto w-fit max-w-[55%] overflow-y-clip opacity-[8%] md:top-[10%] md:block md:rounded-md md:border-2 md:border-black-200 md:opacity-60 xl:top-0 dark:md:opacity-30',
             ]"
           >
             <NuxtPicture
-              class="hidden object-cover md:block"
               fit="cover"
-              format="webp"
+              format="avif,webp"
               loading="lazy"
               placeholder
               quality="75"
               :alt="`An image of ${value.projectTitle}`"
               :src="value.imageURL"
-              width="596"
-              height="409"
+              sizes="0 md:50vw xl:552px"
+              width="552"
+              height="350"
             />
-          </aside>
+          </div>
         </div>
-      </li>
-    </ul>
+      </article>
+    </article>
   </section>
 </template>
