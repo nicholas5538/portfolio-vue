@@ -25,7 +25,7 @@ const handleError = () => clearError();
     aria-label="error-content"
   >
     <div
-      class="text-card-foreground w-11/12 max-w-sm rounded-lg border-4 border-black-500 bg-black-400 shadow-sm"
+      class="text-card-foreground w-full max-w-sm rounded-lg border-4 border-black-500 bg-black-400 px-4 shadow-sm"
     >
       <div class="flex flex-col space-y-1.5 p-6">
         <h3

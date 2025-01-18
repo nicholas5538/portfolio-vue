@@ -44,7 +44,7 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
 <template>
   <div
     v-once
-    class="mx-auto mb-28 grid w-11/12 max-w-7xl grid-cols-1 pt-32 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-evenly md:gap-x-8 md:pt-60 lg:mb-60 xl:grid-cols-4 dark:mb-12 dark:2xl:mb-24"
+    class="mx-auto mb-28 grid w-full max-w-7xl grid-cols-1 px-4 pt-32 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-evenly md:gap-x-8 md:pt-60 lg:mb-60 xl:grid-cols-4 dark:mb-12 dark:2xl:mb-24"
   >
     <aside
       class="group z-10 mx-auto mb-8 h-72 w-48 overflow-hidden rounded-3xl shadow-dropdown md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:mb-0 md:mr-0 md:h-min md:w-full xl:col-span-2 xl:w-9/12 dark:shadow-none"
@@ -82,9 +82,8 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
       <span
         class="bg-transparent bg-gradient-to-b from-aqua to-aqua bg-clip-text font-bold text-transparent transition-bgi duration-300 ease-out md:text-black-200 dark:bg-orange-gradient dark:text-transparent"
       >
-        Nicholas
-      </span>
-      , I love to design and code beautifully simple things.
+        Nicholas </span
+      >, I love to design and code beautifully simple things.
     </h1>
     <h2
       class="mb-4 md:col-span-2 md:row-start-2 md:row-end-2 md:mb-0 md:text-2xl xl:text-3xl"

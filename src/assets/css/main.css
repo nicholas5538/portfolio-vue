@@ -26,12 +26,16 @@
 }
 
 @layer components {
-  .navbar-gradient {
-    @apply absolute -left-20 -top-64 -z-20 h-[20rem] w-[250rem] -rotate-6 bg-gradient-to-b from-blue-gradient-1 to-blue-gradient-2 transition-bgi duration-300 ease-out md:-left-40 md:h-[31.25rem] xl:-top-80 xl:h-[37.5rem] 2xl:h-[43.75rem] 3xl:h-[50rem] dark:from-black-300 dark:to-black-300;
+  .about-me-text {
+    @apply text-base font-normal transition-colors duration-300 ease-out md:col-span-2 md:mb-0 md:text-lg xl:text-xl dark:text-white-100;
   }
 
   .dark-mode-container {
     @apply dark:mb-24 dark:md:mb-10;
+  }
+
+  .dark-blue-container {
+    @apply relative mx-auto mb-32 size-full max-w-7xl px-4 pr-20 pt-8 text-white-300 sm:pr-36 md:grid md:grid-cols-3 md:place-items-start md:pr-0;
   }
 
   .dark-blue-gradient {
@@ -42,24 +46,24 @@
     @apply relative z-0 dark:bg-black-300;
   }
 
+  .icon {
+    @apply text-black-200 dark:text-white-500;
+  }
+
   .navbar-text {
     @apply font-mont text-base font-bold tracking-widest text-black-200 xl:text-xl dark:text-white-400;
+  }
+
+  .sectionHeading {
+    @apply flex items-center;
   }
 
   .span-heading {
     @apply ml-3 bg-transparent bg-gradient-to-r from-blue to-blue bg-clip-text text-transparent transition-bgi duration-300 ease-out dark:bg-dance-to-forget;
   }
 
-  .dark-blue-container {
-    @apply relative mx-auto mb-32 h-full w-11/12 max-w-7xl pr-20 pt-8 text-white-300 sm:pr-36 md:grid md:grid-cols-3 md:place-items-start md:pr-0;
-  }
-
-  .about-me-text {
-    @apply text-base font-normal transition-colors duration-300 ease-out md:col-span-2 md:mb-0 md:text-lg xl:text-xl dark:text-white-100;
-  }
-
-  .about-me-animation {
-    @apply absolute right-0 top-0 h-[7rem] w-[7rem] md:static md:-top-16 md:right-12 md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-6 md:h-[10rem] md:w-[10rem] md:place-self-center lg:col-start-3 lg:h-[13rem] lg:w-[13rem];
+  .tooltip {
+    @apply inline-flex size-10 items-center justify-center rounded-full bg-aqua text-white-400 hover:bg-dark-aqua dark:bg-light-orange dark:text-black-300 dark:hover:bg-orange-red;
   }
 
   .white-bg-heading {
@@ -69,16 +73,14 @@
   .white-sub-heading {
     @apply mb-2 transition-colors duration-300 ease-out md:text-2xl xl:mb-4 xl:text-3xl dark:text-white-300;
   }
+}
 
-  .icon {
-    @apply text-black-200 dark:text-white-500;
+@layer utilities {
+  .about-me-animation {
+    @apply absolute right-0 top-0 h-[7rem] w-[7rem] md:static md:-top-16 md:right-12 md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-6 md:h-[10rem] md:w-[10rem] md:place-self-center lg:col-start-3 lg:h-[13rem] lg:w-[13rem];
   }
 
-  .sectionHeading {
-    @apply flex items-center;
-  }
-
-  .tooltip {
-    @apply inline-flex size-10 items-center justify-center rounded-full bg-aqua text-white-400 hover:bg-dark-aqua dark:bg-light-orange dark:text-black-300 dark:hover:bg-orange-red;
+  .navbar-gradient {
+    @apply absolute -left-20 -top-64 -z-20 h-[20rem] w-[250rem] -rotate-6 bg-gradient-to-b from-blue-gradient-1 to-blue-gradient-2 transition-bgi duration-300 ease-out md:-left-40 md:h-[31.25rem] xl:-top-80 xl:h-[37.5rem] 2xl:h-[43.75rem] 3xl:h-[50rem] dark:from-black-300 dark:to-black-300;
   }
 }
