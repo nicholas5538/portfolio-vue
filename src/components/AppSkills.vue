@@ -15,7 +15,7 @@ const { skillsLink: animationLink = "", status } = defineProps<{
 
 <template>
   <section
-    class="dark-mode-container relative mx-auto mb-12 flex w-11/12 max-w-7xl flex-col items-start justify-center gap-y-6 2xl:mb-24"
+    class="dark-mode-container relative mx-auto mb-12 flex w-full max-w-7xl flex-col items-start justify-center gap-y-6 px-4 2xl:mb-24"
   >
     <div>
       <h2

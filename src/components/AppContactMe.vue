@@ -18,7 +18,7 @@ const buttonProps = {
 <template>
   <section class="dark-blue-section">
     <div
-      class="relative mx-auto mb-20 flex h-full w-11/12 max-w-[28.125rem] flex-col items-center justify-center gap-y-4 p-0 text-center ipad-mini:mb-28 md:mb-32 lg:mb-48 lg:gap-y-8 xl:mb-56 xl:max-w-[37.5rem] 3xl:mb-72 dark:mb-12 dark:2xl:mb-24"
+      class="relative mx-auto mb-20 flex size-full max-w-[28.125rem] flex-col items-center justify-center gap-y-4 p-0 px-4 text-center ipad-mini:mb-28 md:mb-32 lg:mb-48 lg:gap-y-8 xl:mb-56 xl:max-w-[37.5rem] 3xl:mb-72 dark:mb-12 dark:2xl:mb-24"
     >
       <h2
         :ref="(el) => listRefs.push(el)"

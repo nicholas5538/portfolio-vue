@@ -21,7 +21,7 @@ function scrollToElement(index: number) {
       class="fixed z-50 grid h-16 w-screen place-items-center bg-white-400 shadow-xl transition-top duration-300 dark:bg-midnight-city"
     >
       <nav
-        class="relative mx-auto my-auto flex w-11/12 max-w-7xl flex-row items-center justify-between"
+        class="relative mx-auto my-auto flex w-full max-w-7xl flex-row items-center justify-between px-4"
       >
         <div class="order-2 flex flex-row items-center gap-x-2 lg:order-first">
           <h1 class="navbar-text">NICHOLAS</h1>
