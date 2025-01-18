@@ -60,7 +60,7 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
           :preload="{ fetchPriority: 'high' }"
           quality="75"
           src="/images/profile.webp"
-          sizes="240px md:400px lg:500px xl:100vw"
+          sizes="192px md:300px lg:368px xl:456px"
         />
       </div>
     </aside>
