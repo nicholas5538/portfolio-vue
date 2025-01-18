@@ -24,7 +24,7 @@ const columnPlacement = computed(() => {
 </script>
 
 <template>
-  <section class="mx-auto mb-20 w-11/12 max-w-7xl sm:mb-28 2xl:mb-44">
+  <section class="mx-auto mb-20 w-full max-w-7xl px-4 sm:mb-36 2xl:mb-44">
     <h2
       :ref="(el) => listRefs.push(el)"
       class="sectionHeading white-bg-heading mb-5 text-lg md:text-3xl xl:text-4xl"
@@ -40,7 +40,11 @@ const columnPlacement = computed(() => {
       Coding projects that I enjoyed working on
     </h3>
     <article class="space-y-5 lg:space-y-20">
-      <article v-for="[key, value] in projects" :key="key" class="relative">
+      <article
+        v-for="[key, value] in projects"
+        :key="key"
+        class="relative z-10"
+      >
         <div
           class="grid grid-rows-1 rounded-lg px-4 py-4 shadow-project transition-transform duration-300 ease-out hover:-translate-y-2 md:grid-cols-12 md:items-center md:justify-items-center md:rounded-none md:px-0 md:shadow-none md:transition-none md:hover:translate-y-0 lg:gap-y-2 dark:shadow-project-dark dark:md:shadow-none"
         >
@@ -97,7 +101,7 @@ const columnPlacement = computed(() => {
           <div
             :class="[
               { 'md:left-[45%]': checkIndex(value.id) },
-              'absolute left-0 top-0 -z-10 hidden aspect-[276/175] h-auto w-fit max-w-[55%] overflow-y-clip opacity-[8%] md:top-[10%] md:block md:rounded-md md:border-2 md:border-black-200 md:opacity-60 xl:top-0 dark:md:opacity-30',
+              'absolute left-0 top-0 -z-10 hidden aspect-[276/175] h-auto w-fit max-w-[55%] overflow-y-clip md:top-[10%] md:block md:rounded-md md:border-2 md:border-black-200 lg:top-0 xl:top-0 dark:md:opacity-30',
             ]"
           >
             <NuxtPicture
