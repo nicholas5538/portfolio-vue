@@ -33,7 +33,6 @@ export default {
         },
         aqua: "#008DAA",
         "dark-aqua": "#00697f",
-        "light-blue": "#A9F0FF",
         "dark-blue": "#0C2E4E",
         blue: "#00D4FF",
         "blue-gradient-1": "#000046",

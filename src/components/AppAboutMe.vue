@@ -49,7 +49,7 @@ const { aboutMeLink: animationLink = "", status } = defineProps<{
         Graduated B.Eng. with Honours in Aircraft Systems Engineering, from
         <NuxtLink
           aria-label="SIT ASE program external link"
-          class="cursor-pointer text-light-blue no-underline hover:underline hover:underline-offset-4 dark:text-orange"
+          class="cursor-pointer text-blue no-underline hover:underline hover:underline-offset-4 dark:text-orange"
           external
           target="_blank"
           to="https://www.singaporetech.edu.sg/undergraduate-programmes/aircraft-systems-engineering"
