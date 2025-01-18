@@ -54,15 +54,13 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
       >
         <NuxtPicture
           alt="Profile picture"
-          format="webp"
+          format="avif,webp"
           fill="fill"
           placeholder
           :preload="{ fetchPriority: 'high' }"
           quality="75"
           src="/images/profile.webp"
           sizes="240px md:400px lg:500px xl:100vw"
-          width="468"
-          height="702"
         />
       </div>
     </aside>
