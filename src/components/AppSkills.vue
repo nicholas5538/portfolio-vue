@@ -25,13 +25,13 @@ const { skillsLink: animationLink = "", status } = defineProps<{
         <UiIconifyIcon icon="fluent-emoji:wrench" :width="36" :height="36" />
         <span class="span-heading from-black-200 to-black-200">Skills</span>
       </h2>
-      <h2 class="text-lg font-bold md:text-3xl xl:text-4xl dark:text-white-300">
+      <h2 class="dark:text-white-300 text-lg font-bold md:text-3xl xl:text-4xl">
         Some technologies and tools I have used
       </h2>
     </div>
     <div>
       <template v-for="[type, { iconMap }] in skillsIcons" :key="type">
-        <h3 class="white-sub-heading font-semibold dark:text-[#FFA54E]">
+        <h3 class="white-sub-heading dark:text-dark-orange font-semibold">
           {{
             type === "average"
               ? "I have played around with"
@@ -40,12 +40,12 @@ const { skillsLink: animationLink = "", status } = defineProps<{
         </h3>
         <template v-for="[key, { icons, text }] in iconMap" :key="key">
           <h3
-            class="white-sub-heading font-medium opacity-80 dark:text-white-100 dark:opacity-100"
+            class="white-sub-heading dark:text-white-100 font-medium opacity-80 dark:opacity-100"
           >
             {{ text }}
           </h3>
           <div
-            class="mb-2 flex flex-row flex-wrap gap-x-4 gap-y-4 ipad-mini:gap-y-0 lg:mb-4"
+            class="ipad-mini:space-y-0 mb-2 flex flex-wrap space-y-4 space-x-4 lg:mb-4"
           >
             <TooltipProvider :delay-duration="300">
               <UiTooltip
@@ -61,7 +61,7 @@ const { skillsLink: animationLink = "", status } = defineProps<{
     </div>
     <ClientOnly>
       <aside
-        class="hidden size-56 lg:absolute lg:bottom-40 lg:right-5 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]"
+        class="hidden size-56 lg:absolute lg:right-5 lg:bottom-40 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]"
       >
         <div
           v-if="status === 'pending'"

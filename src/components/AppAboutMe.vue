@@ -15,7 +15,7 @@ const { aboutMeLink: animationLink = "", status } = defineProps<{
 <template>
   <section class="dark-blue-section">
     <div
-      class="dark-blue-container dark-mode-container md:mb-40 md:grid-rows-5 md:gap-y-4 lg:mb-52 xl:mb-56 2xl:mb-72 3xl:mb-[17rem] dark:mb-12 dark:2xl:mb-24"
+      class="dark-blue-container dark-mode-container 3xl:mb-[17rem] md:mb-40 md:grid-rows-5 md:gap-y-4 lg:mb-52 xl:mb-56 2xl:mb-72 dark:mb-12 dark:2xl:mb-24"
     >
       <div class="md:col-span-2 md:justify-self-start">
         <h2
@@ -26,7 +26,7 @@ const { aboutMeLink: animationLink = "", status } = defineProps<{
           <span class="span-heading">About Me</span>
         </h2>
         <h2
-          class="mb-5 text-lg font-bold text-white-400 md:mb-0 md:text-3xl xl:text-4xl dark:text-white-300"
+          class="text-white-400 dark:text-white-300 mb-5 text-lg font-bold md:mb-0 md:text-3xl xl:text-4xl"
         >
           Never too late to learn
         </h2>
@@ -45,11 +45,11 @@ const { aboutMeLink: animationLink = "", status } = defineProps<{
         Since then, I have taken a liking in web development which comprises of
         problem-solving skills and creativity.
       </h3>
-      <h3 class="about-me-text m-0 font-semibold text-white-300">
+      <h3 class="about-me-text text-white-300 m-0 font-semibold">
         Graduated B.Eng. with Honours in Aircraft Systems Engineering, from
         <NuxtLink
           aria-label="SIT ASE program external link"
-          class="cursor-pointer text-blue no-underline hover:underline hover:underline-offset-4 dark:text-orange"
+          class="text-blue dark:text-orange cursor-pointer no-underline hover:underline hover:underline-offset-4"
           external
           target="_blank"
           to="https://www.singaporetech.edu.sg/undergraduate-programmes/aircraft-systems-engineering"

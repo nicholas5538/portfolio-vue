@@ -46,7 +46,7 @@ const columnPlacement = computed(() => {
         class="relative z-10"
       >
         <div
-          class="grid grid-rows-1 rounded-lg px-4 py-4 shadow-project transition-transform duration-300 ease-out hover:-translate-y-2 md:grid-cols-12 md:items-center md:justify-items-center md:rounded-none md:px-0 md:shadow-none md:transition-none md:hover:translate-y-0 lg:gap-y-2 dark:shadow-project-dark dark:md:shadow-none"
+          class="shadow-project dark:shadow-project-dark grid grid-rows-1 rounded-lg px-4 py-4 transition-transform duration-300 ease-out hover:-translate-y-2 md:grid-cols-12 md:items-center md:justify-items-center md:rounded-none md:px-0 md:shadow-none md:transition-none md:hover:translate-y-0 lg:gap-y-2 dark:md:shadow-none"
         >
           <div
             :class="[
@@ -56,17 +56,17 @@ const columnPlacement = computed(() => {
           >
             <h3
               :class="[
-                'white-sub-heading select-none font-bold tracking-wide md:mb-0 dark:text-[#FFA54E]',
+                'white-sub-heading dark:text-dark-orange font-bold tracking-wide select-none md:mb-0',
               ]"
             >
               {{ value.projectTitle }}
             </h3>
             <div
               :class="[
-                'mb-2 transition-colors duration-300 ease-out md:bg-white-400 md:p-4 md:shadow-project dark:bg-none dark:md:bg-black-500 dark:md:shadow-xl',
+                'md:bg-white-400 md:shadow-project dark:md:bg-black-500 mb-2 transition-colors duration-300 ease-out md:p-4 dark:bg-none dark:md:shadow-xl',
               ]"
             >
-              <p :class="['text-sm xl:text-xl dark:text-white-100']">
+              <p :class="['dark:text-white-100 text-sm xl:text-xl']">
                 {{ value.projectDescription }}
               </p>
               <UiSkillLabels
@@ -77,11 +77,11 @@ const columnPlacement = computed(() => {
             </div>
             <div>
               <h4
-                class="mb-2 select-none font-semibold text-black-200 transition-colors duration-300 ease-out md:text-center md:text-lg lg:text-xl xl:text-2xl dark:text-white-500"
+                class="text-black-200 dark:text-white-500 mb-2 font-semibold transition-colors duration-300 ease-out select-none md:text-center md:text-lg lg:text-xl xl:text-2xl"
               >
                 Links
               </h4>
-              <div class="flex flex-row flex-wrap gap-x-4 md:justify-center">
+              <div class="flex flex-wrap space-x-4 md:justify-center">
                 <TooltipProvider :delay-duration="300">
                   <UiTooltip
                     v-for="{ icon, text, url } in value.links"
@@ -101,7 +101,7 @@ const columnPlacement = computed(() => {
           <div
             :class="[
               { 'md:left-[45%]': checkIndex(value.id) },
-              'absolute left-0 top-0 -z-10 hidden aspect-[276/175] h-auto w-fit max-w-[55%] overflow-y-clip md:top-[10%] md:block md:rounded-md md:border-2 md:border-black-200 lg:top-0 xl:top-0 dark:md:opacity-30',
+              'md:border-black-200 absolute top-0 left-0 -z-10 hidden aspect-276/175 h-auto w-fit max-w-[55%] overflow-y-clip md:top-[10%] md:block md:rounded-md md:border-2 lg:top-0 xl:top-0 dark:md:opacity-30',
             ]"
           >
             <NuxtPicture

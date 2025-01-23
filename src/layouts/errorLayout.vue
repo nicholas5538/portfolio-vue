@@ -21,15 +21,15 @@ const handleError = () => clearError();
 
 <template>
   <div
-    class="grid h-screen w-screen place-items-center bg-black-300"
+    class="bg-black-300 grid h-screen w-screen place-items-center"
     aria-label="error-content"
   >
     <div
-      class="text-card-foreground w-full max-w-sm rounded-lg border-4 border-black-500 bg-black-400 px-4 shadow-sm"
+      class="text-card-foreground border-black-500 bg-black-400 w-full max-w-sm rounded-lg border-4 px-4 shadow-xs"
     >
       <div class="flex flex-col space-y-1.5 p-6">
         <h3
-          class="text-xl font-semibold tracking-wider text-white-300 md:text-2xl"
+          class="text-white-300 text-xl font-semibold tracking-wider md:text-2xl"
         >
           Uh oh, looks like you're lost.
         </h3>

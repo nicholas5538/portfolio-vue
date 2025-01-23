@@ -14,14 +14,14 @@ const moonIcon = iconAlias.get("moon")!;
 
 <template>
   <SwitchRoot
-    id="appearance"
+    id="theme"
     v-model:checked="darkMode"
-    class="bg-black/50 data-[state=checked]:bg-black relative flex h-[1.625rem] w-12 cursor-pointer rounded-full shadow-sm outline dark:outline-white-100"
+    class="dark:outline-white-100 relative flex h-[1.625rem] w-12 cursor-pointer rounded-full bg-transparent shadow-xs outline data-[state=checked]:bg-black"
     @update:checked="toggleTheme"
   >
     <SwitchThumb as-child>
       <span
-        class="my-auto block translate-x-1 rounded-full bg-transparent shadow-sm transition-transform duration-200 will-change-transform data-[state=checked]:translate-x-5"
+        class="my-auto block translate-x-1 rounded-full bg-transparent shadow-xs transition-transform duration-200 will-change-transform data-[state=checked]:translate-x-5"
       >
         <UiIconifyIcon
           v-show="!darkMode"

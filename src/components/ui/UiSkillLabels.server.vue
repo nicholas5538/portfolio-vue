@@ -7,9 +7,9 @@ const { label, skills } = defineProps<{
 
 <template>
   <ul :aria-label="label" class="mt-2 flex flex-wrap">
-    <li v-for="skill of skills" :key="`${skill}'s label`" class="mr-1.5 mt-2">
+    <li v-for="skill of skills" :key="`${skill}'s label`" class="mt-2 mr-1.5">
       <div
-        class="leading-1.5 flex items-center rounded-full bg-aqua/50 px-3 py-1 text-sm font-semibold transition-colors duration-300 ease-out dark:bg-light-orange/30 dark:text-white-300"
+        class="bg-aqua/50 dark:bg-light-orange/30 dark:text-white-300 flex items-center rounded-full p-3 text-sm leading-1.5 font-semibold transition-colors duration-300 ease-out"
       >
         {{ skill }}
       </div>

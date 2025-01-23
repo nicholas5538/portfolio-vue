@@ -18,7 +18,7 @@ const buttonProps = {
 <template>
   <section class="dark-blue-section">
     <div
-      class="relative mx-auto mb-20 flex size-full max-w-[28.125rem] flex-col items-center justify-center gap-y-4 p-0 px-4 text-center ipad-mini:mb-28 md:mb-32 lg:mb-48 lg:gap-y-8 xl:mb-56 xl:max-w-[37.5rem] 3xl:mb-72 dark:mb-12 dark:2xl:mb-24"
+      class="ipad-mini:mb-28 3xl:mb-72 relative mx-auto mb-20 flex size-full max-w-[28.125rem] flex-col items-center justify-center gap-y-4 p-0 px-4 text-center md:mb-32 lg:mb-48 lg:gap-y-8 xl:mb-56 xl:max-w-[37.5rem] dark:mb-12 dark:2xl:mb-24"
     >
       <h2
         :ref="(el) => listRefs.push(el)"
@@ -32,12 +32,12 @@ const buttonProps = {
         <span class="span-heading">What's next?</span>
       </h2>
       <h2
-        class="text-lg font-bold text-white-400 transition-colors duration-300 ease-out md:text-3xl xl:text-4xl dark:text-white-300"
+        class="text-white-400 dark:text-white-300 text-lg font-bold transition-colors duration-300 ease-out md:text-3xl xl:text-4xl"
       >
         Get in touch
       </h2>
       <h3
-        class="text-base font-normal text-white-400 transition-colors duration-300 ease-out md:text-lg xl:text-xl dark:text-white-100"
+        class="text-white-400 dark:text-white-100 text-base font-normal transition-colors duration-300 ease-out md:text-lg xl:text-xl"
       >
         I'm always on the lookout for new opportunities. Whether you have a
         question or just want to say hi, I'll try my best to get back to you!
@@ -47,7 +47,7 @@ const buttonProps = {
     <div
       v-if="!darkMode"
       data-testid="contact-me-dark-blue-gradient"
-      class="dark-blue-gradient h-[145%] ipad-mini:h-[160%] lg:h-[170%] xl:h-[180%] 3xl:h-[200%]"
+      class="dark-blue-gradient ipad-mini:h-[160%] 3xl:h-[200%] h-[145%] lg:h-[170%] xl:h-[180%]"
     />
   </section>
 </template>

@@ -18,16 +18,16 @@ function scrollToElement(index: number) {
       <div class="navbar-gradient" />
     </div>
     <div
-      class="fixed z-50 grid h-16 w-screen place-items-center bg-white-400 shadow-xl transition-top duration-300 dark:bg-midnight-city"
+      class="bg-white-400 transition-top dark:bg-midnight-city fixed z-50 grid h-16 w-screen place-items-center shadow-xl duration-300"
     >
       <nav
-        class="relative mx-auto my-auto flex w-full max-w-7xl flex-row items-center justify-between px-4"
+        class="relative mx-auto my-auto flex w-full max-w-7xl items-center justify-between px-4"
       >
-        <div class="order-2 flex flex-row items-center gap-x-2 lg:order-first">
+        <div class="flex items-center gap-x-2 lg:order-first">
           <h1 class="navbar-text">NICHOLAS</h1>
           <UiIconifyIcon
             icon="arcticons:easy-coder"
-            class="hidden text-black-200 sm:block dark:text-white-400"
+            class="text-black-200 dark:text-white-400 hidden sm:block"
           />
         </div>
         <div class="order-first lg:order-2">
@@ -35,21 +35,21 @@ function scrollToElement(index: number) {
         </div>
         <div class="order-last flex items-center gap-2">
           <label
-            class="hidden cursor-pointer select-none pr-2 text-[0.9375rem] leading-none text-black-200 xl:inline-block dark:text-white-200"
+            class="text-black-200 dark:text-white-200 hidden cursor-pointer pr-2 text-[0.9375rem] leading-none select-none xl:inline-block"
             for="appearance"
           >
-            Appearance
+            Theme
           </label>
           <ClientOnly fallback-tag="div">
             <UiThemeSwitch />
             <template #fallback>
               <button
-                class="bg-black/50 data-[state=checked]:bg-black relative flex h-[1.5625rem] w-[2.625rem] cursor-pointer rounded-full shadow-sm outline dark:outline-light-orange"
+                class="dark:outline-light-orange relative flex h-[1.5625rem] w-fit rounded-full bg-black/50 shadow-xs outline data-[state=checked]:bg-black"
                 type="button"
                 disabled
               >
                 <svg
-                  class="text-white mx-auto animate-spin dark:text-light-orange"
+                  class="dark:text-light-orange mx-auto animate-spin text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
