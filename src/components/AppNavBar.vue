@@ -38,7 +38,7 @@ function scrollToElement(index: number) {
             class="text-black-200 dark:text-white-200 hidden cursor-pointer pr-2 text-[0.9375rem] leading-none select-none xl:inline-block"
             for="appearance"
           >
-            Theme
+            Appearance
           </label>
           <ClientOnly fallback-tag="div">
             <UiThemeSwitch />

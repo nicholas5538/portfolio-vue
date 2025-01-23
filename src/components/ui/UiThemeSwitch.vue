@@ -14,7 +14,7 @@ const moonIcon = iconAlias.get("moon")!;
 
 <template>
   <SwitchRoot
-    id="theme"
+    id="appearance"
     v-model:checked="darkMode"
     class="dark:outline-white-100 relative flex h-[1.625rem] w-12 cursor-pointer rounded-full bg-transparent shadow-xs outline data-[state=checked]:bg-black"
     @update:checked="toggleTheme"
