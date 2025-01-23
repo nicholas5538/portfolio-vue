@@ -1,6 +1,6 @@
 import js from "@eslint/js";
 import { createConfigForNuxt } from "@nuxt/eslint-config/flat";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import eslintConfigPrettier from "eslint-config-prettier";
 import pluginVue from "eslint-plugin-vue";
 
 export default createConfigForNuxt({})
@@ -15,7 +15,7 @@ export default createConfigForNuxt({})
         },
       },
     ],
-    eslintPluginPrettierRecommended
+    eslintConfigPrettier
   )
   .prepend(
     [

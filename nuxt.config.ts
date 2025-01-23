@@ -101,8 +101,7 @@ export default defineNuxtConfig({
   plugins: ["~/plugins/Lottie.client"],
   postcss: {
     plugins: {
-      tailwindcss: {},
-      autoprefixer: { flexbox: "no-2009", grid: "autoplace" },
+      "@tailwindcss/postcss": {},
       ...(process.env.NODE_ENV === "production"
         ? { cssnano: { preset: ["default", { discardUnused: true }] } }
         : {}),
