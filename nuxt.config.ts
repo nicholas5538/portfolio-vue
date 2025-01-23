@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from "@tailwindcss/vite";
+
 const largeModules = ["radix-vue", "@lottiefiles/dotlottie-vue"];
 
 export default defineNuxtConfig({
@@ -99,14 +101,6 @@ export default defineNuxtConfig({
       process.env.NODE_ENV !== "production" ? "node-server" : "aws-amplify",
   },
   plugins: ["~/plugins/Lottie.client"],
-  postcss: {
-    plugins: {
-      "@tailwindcss/postcss": {},
-      ...(process.env.NODE_ENV === "production"
-        ? { cssnano: { preset: ["default", { discardUnused: true }] } }
-        : {}),
-    },
-  },
   runtimeConfig: {
     cloudflareR2Region: process.env.NUXT_CLOUDFLARE_R2_REGION,
     cloudflareR2AccountID: process.env.NUXT_CLOUDFLARE_R2_ACCOUNT_ID,
@@ -122,7 +116,11 @@ export default defineNuxtConfig({
   telemetry: false,
   typescript: { typeCheck: true },
   vite: {
+    css: {
+      transformer: "lightningcss",
+    },
     build: {
+      cssMinify: "lightningcss",
       rollupOptions: {
         output: {
           manualChunks(id) {
@@ -134,6 +132,7 @@ export default defineNuxtConfig({
         },
       },
     },
+    plugins: [tailwindcss()],
   },
   vue: {
     compilerOptions: {
