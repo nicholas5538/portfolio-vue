@@ -29,7 +29,6 @@ export default createConfigForNuxt({})
         rules: {
           "no-unused-vars": "error",
           "no-undef": "error",
-          camelcase: "error",
           "default-case": "error",
           eqeqeq: "error",
           quotes: ["error", "double", { avoidEscape: true }],
