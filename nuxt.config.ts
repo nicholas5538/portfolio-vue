@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
+import browserslist from "browserslist";
+import { browserslistToTargets } from "lightningcss";
 
 const largeModules = ["radix-vue", "@lottiefiles/dotlottie-vue"];
 
@@ -118,9 +120,21 @@ export default defineNuxtConfig({
   vite: {
     css: {
       transformer: "lightningcss",
+      lightningcss: {
+        targets: browserslistToTargets(browserslist(">= 0.25%")),
+      },
     },
     build: {
+      chunkSizeWarningLimit: 550,
       cssMinify: "lightningcss",
+      emptyOutDir: true,
+      minify: "terser",
+      terserOptions: {
+        compress: {
+          drop_console: true,
+        },
+      },
+      reportCompressedSize: true,
       rollupOptions: {
         output: {
           manualChunks(id) {
@@ -131,8 +145,9 @@ export default defineNuxtConfig({
           },
         },
       },
+      ssrManifest: true,
     },
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss() as Plugin[]],
   },
   vue: {
     compilerOptions: {
