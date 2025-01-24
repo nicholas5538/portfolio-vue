@@ -2,39 +2,39 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
+@theme inline {
   --font-mont: Montserrat, sans-serif;
 
-  --color-black-100: #3f3f46;
-  --color-black-200: #343434;
-  --color-black-300: #212529;
-  --color-black-400: #343a40;
-  --color-black-500: #495057;
+  --color-black-100: oklch(0.3703 0.0119 285.81);
+  --color-black-200: oklch(0.325 0 0);
+  --color-black-300: oklch(0.2621 0.0095 248.19);
+  --color-black-400: oklch(0.3451 0.0133 248.21);
+  --color-black-500: oklch(0.4276 0.0147 248.17);
 
-  --color-white-100: #ced4da;
-  --color-white-200: #f8f9fa;
-  --color-white-300: #e9ecef;
-  --color-white-400: #f8f8f8;
-  --color-white-500: #dee2e6;
+  --color-white-100: oklch(0.8671 0.0106 247.95);
+  --color-white-200: oklch(0.9816 0.0017 247.84);
+  --color-white-300: oklch(0.9417 0.0052 247.88);
+  --color-white-400: oklch(0.9791 0 0);
+  --color-white-500: oklch(0.9109 0.007 247.9);
 
-  --color-aqua: #008daa;
-  --color-dark-aqua: #00697f;
-  --color-dark-blue: #0c2e4e;
-  --color-blue: #00d4ff;
-  --color-blue-gradient-1: #000046;
-  --color-blue-gradient-2: #1cb5e0;
-  --color-orange: #ffb26b;
-  --color-dark-orange: #ffa54e;
-  --color-light-orange: #ffb26b;
-  --color-orange-red: #ff7b54;
+  --color-aqua: oklch(0.5946 0.1076 219.15);
+  --color-dark-aqua: oklch(0.4812 0.0869 218.89);
+  --color-dark-blue: oklch(0.2954 0.07 250.41);
+  --color-blue: oklch(0.8043 0.14587145386856376 219.51511934663645);
+  --color-blue-gradient-1: oklch(0.1782 0.12340072705837636 264.0539924365888);
+  --color-blue-gradient-2: oklch(0.7193 0.1301 223.69);
+  --color-orange: oklch(0.8229 0.12555053662670881 62.29665318385213);
+  --color-dark-orange: oklch(0.7965 0.1465 61.83);
+  --color-light-orange: oklch(0.8229 0.12555053662670881 62.29665318385213);
+  --color-orange-red: oklch(0.7298 0.17016035097045135 37.208185857800544);
 
-  --breakpoint-sm: 500px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-2xl: 1536px;
-  --breakpoint-3xl: 2000px;
-  --breakpoint-ipad-mini: 650px;
+  --breakpoint-sm: 31.25rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 62rem;
+  --breakpoint-xl: 75rem;
+  --breakpoint-2xl: 96rem;
+  --breakpoint-3xl: 125rem;
+  --breakpoint-ipad-mini: 40.625rem;
 
   --animate-wave: wave 2.1s 0.6s infinite;
   --animate-slide-down-and-fade: slideDownAndFade 0.3s linear 1;
@@ -42,31 +42,31 @@
   --animate-slide-up-and-fade: slideUpAndFade 0.3s linear 1;
   --animate-slide-right-and-fade: slideRightAndFade 0.3s linear 1;
 
-  --shadow-dropdown: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  --shadow-project: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  --shadow-project-dark: rgba(20, 20, 20, 0.4) 0px 0px 0px 2px,
-    rgba(20, 20, 20, 0.65) 0px 4px 6px -1px,
-    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  --shadow-tooltip: hsl(206 22% 7% / 35%) 0 10px 38px -10px,
-    hsl(206 22% 7% / 20%) 0 10px 20px -15px;
+  --shadow-dropdown: oklch(0.3396 0.0743 281.7 / 0.25) 0px 50px 100px -20px,
+    oklch(0% 0 0 / 0.3) 0px 30px 60px -30px;
+  --shadow-project: oklch(0.206 0.0468 252.49 / 0.4) 0px 0px 0px 2px,
+    oklch(0.206 0.0468 252.49 / 0.65) 0px 4px 6px -1px,
+    oklch(1 0 0 / 0.08) 0px 1px 0px inset;
+  --shadow-project-dark: oklch(0.1913 0 0 / 0.4) 0px 0px 0px 2px,
+    oklch(0.1913 0 0 / 0.65) 0px 4px 6px -1px,
+    oklch(1 0 0 / 0.08) 0px 1px 0px inset;
+  --shadow-tooltip: oklch(0.1807 0.0099 241.08 / 0.35) 0 10px 38px -10px,
+    oklch(0.1807 0.0099 241.08 / 0.2) 0 10px 20px -15px;
 
   --background-image-orange-gradient: linear-gradient(
     to right,
-    #f46b45,
-    #eea849
+    oklch(0.6898 0.1771 36.33),
+    oklch(0.7819 0.1367 71.44)
   );
   --background-image-dance-to-forget: linear-gradient(
     to left,
-    #ff4e50,
-    #f9d423
+    oklch(0.6744 0.2133 24.38),
+    oklch(0.8758 0.1738 95.65)
   );
   --background-image-midnight-city: linear-gradient(
     to bottom,
-    #343434,
-    #212529
+    var(--color-black-200),
+    var(--color-black-300)
   );
 
   --transition-property-background-image: background-image;
