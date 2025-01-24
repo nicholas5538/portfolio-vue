@@ -16,12 +16,12 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
 <template>
   <section class="dark-blue-section">
     <div
-      class="dark-blue-container mb-[13rem] md:mb-72 md:mt-20 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-[22rem] xl:mb-80 2xl:mb-[26rem] 3xl:mb-[22rem] dark:mb-12 dark:xl:mb-24"
+      class="dark-blue-container 3xl:mb-[22rem] mb-[13rem] md:mt-20 md:mb-72 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-[22rem] xl:mb-80 2xl:mb-[26rem] dark:mb-12 dark:xl:mb-24"
     >
-      <div class="md:col-span-2 md:row-start-1 md:row-end-1 md:mb-0 md:mt-5">
+      <div class="md:col-span-2 md:row-start-1 md:row-end-1 md:mt-5 md:mb-0">
         <h2
           :ref="(el) => listRefs.push(el)"
-          class="sectionHeading mb-5 text-xl font-bold text-blue md:text-3xl xl:text-4xl"
+          class="sectionHeading text-blue mb-5 text-xl font-bold md:text-3xl xl:text-4xl"
         >
           <UiIconifyIcon
             icon="fluent-emoji:office-worker"
@@ -31,7 +31,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
           <span class="span-heading">Experience</span>
         </h2>
         <h2
-          class="mb-5 text-lg font-bold text-white-400 md:mb-0 md:text-3xl xl:text-4xl dark:text-white-300"
+          class="text-white-400 dark:text-white-300 mb-5 text-lg font-bold md:mb-0 md:text-3xl xl:text-4xl"
         >
           A peek at my early career
         </h2>
@@ -46,17 +46,17 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
         class="mb-10 md:col-span-2 md:mb-5"
       >
         <h3
-          class="mb-2 border-l-2 border-l-blue pl-4 font-semibold text-white-400 transition-colors duration-300 ease-out md:text-xl lg:text-2xl xl:text-3xl dark:border-l-orange-red dark:text-white-300"
+          class="border-l-blue text-white-400 dark:border-l-orange-red dark:text-white-300 mb-2 border-l-2 pl-4 font-semibold transition-colors duration-300 ease-out md:text-xl lg:text-2xl xl:text-3xl"
         >
           {{ `${workExperience.startDate} - ${workExperience.endDate}` }}
         </h3>
         <h4
-          class="font-semibold text-white-400 transition-colors duration-300 ease-out md:text-lg lg:text-xl xl:text-2xl dark:text-white-300"
+          class="text-white-400 dark:text-white-300 font-semibold transition-colors duration-300 ease-out md:text-lg lg:text-xl xl:text-2xl"
         >
           {{ workExperience.title }}
         </h4>
         <h5
-          class="mb-2 font-semibold text-white-400 transition-colors duration-300 ease-out md:text-lg lg:text-xl xl:text-2xl dark:text-white-300"
+          class="text-white-400 dark:text-white-300 mb-2 font-semibold transition-colors duration-300 ease-out md:text-lg lg:text-xl xl:text-2xl"
         >
           @
           <NuxtLink
@@ -70,7 +70,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
           </NuxtLink>
         </h5>
         <ul
-          class="list-inside list-disc text-sm text-white-300 opacity-80 transition-colors duration-300 ease-out md:text-lg xl:text-xl dark:text-white-100"
+          class="text-white-300 dark:text-white-100 list-inside list-disc text-sm opacity-80 transition-colors duration-300 ease-out md:text-lg xl:text-xl"
         >
           <li
             v-for="(pointer, index) in workExperience.jobPointers"

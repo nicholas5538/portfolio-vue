@@ -47,12 +47,12 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
     class="mx-auto mb-28 grid w-full max-w-7xl grid-cols-1 px-4 pt-32 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-evenly md:gap-x-8 md:pt-60 lg:mb-60 xl:grid-cols-4 dark:mb-12 dark:2xl:mb-24"
   >
     <aside
-      class="group z-10 mx-auto mb-8 h-72 w-48 overflow-hidden rounded-3xl shadow-dropdown md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:mb-0 md:mr-0 md:h-min md:w-full xl:col-span-2 xl:w-9/12 dark:shadow-none"
+      class="group shadow-dropdown z-10 mx-auto mb-8 h-72 w-48 overflow-hidden rounded-3xl md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:mr-0 md:mb-0 md:h-min md:w-full xl:col-span-2 xl:w-9/12 dark:shadow-none"
     >
       <div
         class="z-20 bg-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
       >
-        <NuxtPicture
+        <NuxtImg
           alt="Profile picture"
           format="avif,webp"
           fill="fill"
@@ -68,7 +68,7 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
       class="mb-4 md:col-span-2 md:row-start-1 md:row-end-2 md:mb-0 md:text-4xl xl:text-5xl"
     >
       <span
-        class="inline-block origin-wave animate-wave align-middle text-4xl xl:text-5xl"
+        class="origin-wave animate-wave inline-block align-middle text-4xl xl:text-5xl"
       >
         <UiIconifyIcon
           icon="fluent-emoji:waving-hand"
@@ -78,9 +78,9 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
       </span>
       Hi there! I&apos;m
       <span
-        class="bg-transparent bg-gradient-to-b from-aqua to-aqua bg-clip-text font-bold text-transparent transition-bgi duration-300 ease-out md:text-black-200 dark:bg-orange-gradient dark:text-transparent"
+        class="from-aqua to-aqua transition-bgi md:text-black-200 dark:bg-orange-gradient bg-transparent bg-linear-to-b bg-clip-text font-bold text-transparent duration-300 ease-out dark:text-transparent"
       >
-        Nicholas </span
+        Nicholas</span
       >, I love to design and code beautifully simple things.
     </h1>
     <h2
@@ -96,7 +96,7 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
         <h2 class="md:text-2xl xl:text-3xl">
           Always looking out for opportunities.
         </h2>
-        <p class="transition-colors duration-300 ease-out dark:text-white-100">
+        <p class="dark:text-white-100 transition-colors duration-300 ease-out">
           Currently working at
           <span
             ><a
@@ -108,7 +108,7 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
           >.
         </p>
       </hgroup>
-      <div class="flex flex-row items-center justify-start gap-x-6">
+      <div class="flex items-center justify-start space-x-6">
         <template v-for="[key, value] in externalLinks" :key="key">
           <LazyUiHoverCard
             v-if="key === 'GitHub' && status === 'success'"
