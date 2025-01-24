@@ -52,7 +52,7 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
       <div
         class="z-20 bg-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
       >
-        <NuxtPicture
+        <NuxtImg
           alt="Profile picture"
           format="avif,webp"
           fill="fill"

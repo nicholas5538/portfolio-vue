@@ -104,7 +104,7 @@ const columnPlacement = computed(() => {
               'md:border-black-200 absolute top-0 left-0 -z-10 hidden aspect-276/175 h-auto w-fit max-w-[55%] overflow-y-clip md:top-[10%] md:block md:rounded-md md:border-2 md:opacity-100 lg:top-0 xl:top-0 dark:md:opacity-30',
             ]"
           >
-            <NuxtPicture
+            <NuxtImg
               class="size-full"
               fit="cover"
               format="avif,webp"
