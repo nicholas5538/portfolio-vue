@@ -25,6 +25,7 @@ frontend:
           NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY=$NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY
           NUXT_GITHUB_SECRET=$NUXT_GITHUB_SECRET
           EOF
+        - bash generate-graphql-schema.sh
         - pnpm run build
   artifacts:
     baseDirectory: .amplify-hosting
