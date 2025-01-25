@@ -8,11 +8,21 @@
 
 It's a great opportunity to showcase my frontend skills, and to explore new frameworks and libraries such as **[Tailwind CSS](https://tailwindcss.com "tailwindcss homepage")** and **[Nuxt.js](https://nuxt.com/ "Nuxt.js homepage")**.
 
-## Getting Started
+## Table Of Contents
 
-### Environment Setup
+- [Getting Started](#getting-started)
+  - [Environment Setup](#environment-setup)
+    - [2 ways to run the app](#2-ways-to-run-the-app)
+  - [Repository Setup](#repository-setup)
+- [Developing](#developing)
+- [Frequently Used Scripts](#frequently-used-scripts)
+- [Additional Documentations](#additional-documentations)
 
-#### 2 ways to run the apps
+### Getting Started
+
+#### Environment Setup
+
+##### 2 ways to run the app
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
@@ -59,7 +69,20 @@ NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY=<Insert secret access key here>
 NUXT_GITHUB_SECRET=<Insert token here>
 ```
 
-## Developing
+3. Install the GraphQL plugins for your preferred IDE
+
+- [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql "VSCode GraphQL feature support")
+- [JetBrains IDE](https://plugins.jetbrains.com/plugin/8097-graphql "JetBrains IDE GraphQL feature support")
+
+4. Generate the GraphQL schema and its relevant type files for GraphQL TypeScript support with the following command(s):
+
+```
+pnpm run generate-schema
+# OR
+bash generate-graphql-schema.sh
+```
+
+### Developing
 
 Once you have [set up the repository](#repo-setup), you're ready to start developing. Starting the development environment is managed by the following command(s).
 
@@ -85,7 +108,7 @@ The `dev` command will start the application in your local environment.
 
 ### Frequently Used Scripts
 
-In addition to the `pnpm run dev` command, there are other scripts available in the package.json. Some of the most common you might get to use are:
+In addition to the `pnpm run dev` command, there are other scripts available in the [package.json](https://github.com/nicholas5538/portfolio-vue/blob/main/package.json#L6-L28). Some of the most common you might get to use are:
 
 - `pnpm run test` - Runs unit tests.
 
@@ -101,7 +124,7 @@ In addition to the `pnpm run dev` command, there are other scripts available in 
 
 - `pnpm run lint` - Runs TS linter through all the codes
 
-## Additional Documentation
+## Additional Documentations
 
 - [Nuxt.js documentation](https://nuxt.com/docs/getting-started/installation "Nuxt.js documentation")
 - [Tailwind CSS styling](https://tailwindcss.com/docs/installation "Tailwind CSS documentation")
