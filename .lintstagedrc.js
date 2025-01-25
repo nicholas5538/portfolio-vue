@@ -15,5 +15,5 @@ const buildPrettierWriteCommand = (filenames) =>
 
 export default {
   "*.{mjs,js,ts,vue}": [buildPrettierWriteCommand, buildEslintCommand],
-  "*.{css,md}": [buildPrettierWriteCommand],
+  "*.{css,md,yml}": [buildPrettierWriteCommand],
 };

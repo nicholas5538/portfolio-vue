@@ -1,17 +1,16 @@
 name: "Deploy to AWS Amplify production branch"
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - "**.md"
+  workflow_run:
+    workflows: ["Login to Docker Hub and push container"]
+    types: [completed]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  deploy-to-production:
+  deploy-to-aws:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     timeout-minutes: 1
     runs-on: ubuntu-latest
     env:
