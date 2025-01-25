@@ -11,16 +11,16 @@ import {
 } from "radix-vue";
 import UiIconButton from "~/components/ui/UiIconButton.server.vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
-import type { gitUserSchema } from "~/constants/typeInference";
+import type { ResultOf } from "gql.tada";
+import type { GithubViewerQuery } from "~/data/query";
 
 const props = defineProps<{
   application: string;
   applicationIcon: string;
-  data: gitUserSchema;
+  data: ResultOf<typeof GithubViewerQuery>["viewer"];
   profileIcon: string;
   mailIcon: string;
   locationIcon: string;
-  to: string;
 }>();
 const hoverState = ref(false);
 </script>
@@ -33,7 +33,7 @@ const hoverState = ref(false);
         class="bg-aqua text-white-400 hover:bg-dark-aqua dark:bg-light-orange dark:text-black-300 dark:hover:bg-orange-red inline-flex size-10 items-center justify-center rounded-full shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black"
         external
         target="_blank"
-        :to="props.to"
+        :href="data.url as string"
       >
         <UiIconButton
           :label="`Click to see more on my ${props.application} Profile`"
@@ -53,14 +53,14 @@ const hoverState = ref(false);
           <AvatarRoot
             class="bg-dark-blue dark:bg-orange-red inline-flex size-[2.8125rem] items-center justify-center overflow-hidden rounded-full align-middle select-none"
           >
-            <AvatarImage as-child :src="data.avatar_url">
+            <AvatarImage as-child :src="data.avatarUrl as string">
               <NuxtImg
                 class="h-full w-full rounded-[inherit] object-cover"
                 alt="GitHub profile picture"
                 :placeholder="[45, 45, 75, 5]"
                 format="webp"
                 loading="lazy"
-                :src="data.avatar_url"
+                :src="data.avatarUrl as string"
                 width="45"
                 height="45"
               />
@@ -108,13 +108,13 @@ const hoverState = ref(false);
             <div class="flex gap-4">
               <div class="flex gap-1">
                 <div class="m-0 leading-[1.5] font-medium">
-                  {{ data.following }}
+                  {{ data.following.totalCount }}
                 </div>
                 <div class="m-0 leading-[1.5]">Following</div>
               </div>
               <div class="flex gap-1">
                 <div class="m-0 leading-[1.5] font-medium">
-                  {{ data.followers }}
+                  {{ data.followers.totalCount }}
                 </div>
                 <div class="text-mauve10 m-0 leading-[1.5]">Follower(s)</div>
               </div>
