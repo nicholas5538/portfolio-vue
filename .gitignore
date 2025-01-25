@@ -37,9 +37,12 @@ logs
 playwright-report
 test-results
 
-#Vitest
+# Vitest
 src/coverage
 .env*
 .flaskenv*
 !.env.project
 !.env.vault
+
+# GraphQL generated files
+src/data/types
