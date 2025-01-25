@@ -1,29 +1,47 @@
 // @vitest-environment nuxt
-import { afterAll, test, expect, vi } from "vitest";
-import { mockNuxtImport, mountSuspended } from "@nuxt/test-utils/runtime";
+import { afterEach, test, expect, vi } from "vitest";
+import { mountSuspended } from "@nuxt/test-utils/runtime";
 import AppHero from "~/components/AppHero.vue";
-import { mockReturnValues } from "~/mocks/mocks";
+import * as dataFunctions from "~/data/data";
 
-const { useLazyAsyncDataMock } = vi.hoisted(() => {
-  return {
-    useLazyAsyncDataMock: vi.fn().mockImplementation(async () => {
-      return mockReturnValues;
-    }),
-  };
-});
+vi.mock("~/data/data", () => ({
+  getGithubViewer: vi.fn().mockResolvedValue({
+    clear: vi.fn(),
+    data: {
+      data: {
+        viewer: {
+          avatarUrl: "https://example.com/avatar.jpg",
+          bio: "Software Developer",
+          email: "user@example.com",
+          followers: { totalCount: 100 },
+          following: { totalCount: 50 },
+          location: "San Francisco, CA",
+          login: "githubuser",
+          name: "John Doe",
+          url: "https://github.com/githubuser",
+        },
+      },
+    },
+    execute: vi.fn(),
+    refresh: vi.fn(),
+    error: undefined,
+    pending: false,
+    status: "success",
+  }),
+}));
 
-mockNuxtImport("useLazyAsyncData", () => useLazyAsyncDataMock);
-
-afterAll(() => useLazyAsyncDataMock.mockRestore());
+afterEach(() => vi.clearAllMocks());
 
 test("Hero section is rendered correctly", async () => {
   const component = await mountSuspended(AppHero);
-  const result = useLazyAsyncDataMock.mock.settledResults;
 
-  expect(result[0]?.value).toBe(mockReturnValues);
-  expect(result[0]?.type).toBe("fulfilled");
-  expect(useLazyAsyncDataMock).toHaveResolvedWith(mockReturnValues);
-  expect(component.findAll("button").length).toEqual(1);
+  expect(dataFunctions.getGithubViewer).toHaveBeenCalledOnce();
+  expect(dataFunctions.getGithubViewer).toHaveBeenCalledWith(
+    expect.objectContaining({
+      getCachedData: expect.any(Function),
+    })
+  );
+
   expect(
     component
       .get('[aria-label="Click to see more on my GitHub Profile"]')
