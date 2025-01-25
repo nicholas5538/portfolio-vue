@@ -11,7 +11,7 @@ const buildEslintCommand = (filenames) => {
 };
 
 const buildPrettierWriteCommand = (filenames) =>
-  filenames.map((filename) => `prettier --write ${filename} --ignore-unknown`);
+  `prettier --write --ignore-unknown ${filenames.join(" ")}`;
 
 export default {
   "*.{mjs,js,ts,vue}": [buildPrettierWriteCommand, buildEslintCommand],
