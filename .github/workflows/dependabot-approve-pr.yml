@@ -1,8 +1,5 @@
 name: "Approve Dependabot pull request"
 on:
-  pull_request:
-    branches:
-      - main
   workflow_run:
     workflows: ["End-to-end testing"]
     types: [completed]
