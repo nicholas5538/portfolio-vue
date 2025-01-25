@@ -39,10 +39,12 @@ test-results
 
 # Vitest
 src/coverage
+
+# Environment variables
 .env*
 .flaskenv*
 !.env.project
 !.env.vault
 
-# GraphQL generated files
-src/data/types
+# GraphQL
+/src/data/types/github-schema.graphql
