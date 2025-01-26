@@ -1,0 +1,49 @@
+name: "GraphQL type check"
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gql-tada:
+    runs-on: ubuntu-latest
+    env:
+      HUSKY: 0
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - uses: actions/setup-node@v4.1.0
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Generate GraphQL schema
+        env:
+          TOKEN: ${{ secrets.NUXT_GITHUB_SECRET }}
+        run: |
+          pnpm exec gql-tada generate-schema \
+            "https://api.github.com/graphql" \
+            --header "Authorization: Bearer $TOKEN" \
+            -o ./src/data/types/github-schema.graphql
+
+      - name: gql-tada Checks
+        run: |
+          pnpm exec gql-tada generate output
+          pnpm exec gql-tada generate turbo
+          git diff --name-status --exit-code .
