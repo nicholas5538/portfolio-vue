@@ -13,10 +13,10 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     timeout-minutes: 1
     runs-on: ubuntu-latest
-    env:
-      AWS_AMPLIFY_PROD_WEBHOOK: ${{ secrets.AWS_AMPLIFY_PROD_WEBHOOK }}
 
     steps:
       - name: Trigger AWS Amplify webhook
+        env:
+          WEBHOOK: ${{ secrets.AWS_AMPLIFY_PROD_WEBHOOK }}
         run: |
-          curl -X POST -d {} $AWS_AMPLIFY_PROD_WEBHOOK -H "Content-Type:application/json"
+          curl -X POST -d {} $WEBHOOK -H "Content-Type:application/json"
