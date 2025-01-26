@@ -9,7 +9,7 @@ test.describe("Test ScrollToTop component", () => {
     await goto("/", { waitUntil: "hydration" });
     await expect(page).toHaveTitle("Nicholas Yong's Portfolio");
 
-    const profilePicture = page.getByAltText("Profile picture", {
+    const profilePicture = page.getByAltText("My profile picture", {
       exact: true,
     });
     await expect(profilePicture).toBeInViewport();
@@ -38,9 +38,7 @@ test.describe("Test ScrollToTop component", () => {
       await scrollToTopButton.click({ button: "left" });
     }
 
-    await expect(
-      page.getByAltText("Profile picture", { exact: true })
-    ).toBeInViewport();
+    await expect(profilePicture).toBeInViewport();
     await expect(scrollToTopButton).toBeHidden();
   });
 });
