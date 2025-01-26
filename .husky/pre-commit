@@ -1,2 +1,3 @@
+gql-tada turbo
 vitest --watch=false
 pnpm exec lint-staged
