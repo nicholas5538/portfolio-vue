@@ -19,26 +19,25 @@ const { data, status } = await getGithubViewer({
 <template>
   <div
     v-once
-    class="mx-auto mb-28 grid w-full max-w-7xl grid-cols-1 px-4 pt-32 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-evenly md:gap-x-8 md:pt-60 lg:mb-60 xl:grid-cols-4 dark:mb-12 dark:2xl:mb-24"
+    class="mx-auto mb-28 grid w-full max-w-7xl grid-cols-1 px-4 pt-32 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-between md:gap-x-8 md:pt-60 lg:mb-60 xl:grid-cols-4 dark:mb-12 dark:2xl:mb-24"
   >
-    <aside
-      class="group shadow-dropdown z-10 mx-auto mb-8 h-72 w-48 overflow-hidden rounded-3xl md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:mr-0 md:mb-0 md:h-min md:w-full xl:col-span-2 xl:w-9/12 dark:shadow-none"
+    <div
+      class="group shadow-dropdown z-10 mx-auto mb-8 aspect-[2/3] max-h-110 min-h-110 overflow-hidden rounded-3xl md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:m-0 md:aspect-auto md:max-h-full md:min-h-84 md:w-fit md:justify-self-end lg:min-h-112 xl:col-span-2 xl:min-h-[42.65625rem] dark:shadow-none"
     >
       <div
-        class="z-20 bg-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
+        class="z-20 size-full bg-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
       >
         <NuxtImg
-          alt="Profile picture"
+          alt="My profile picture"
           format="avif,webp"
-          fill="fill"
-          placeholder
-          :preload="{ fetchPriority: 'high' }"
+          :placeholder="[455, 683, 75, 5]"
+          preload
           quality="75"
+          sizes="294px md:455px"
           src="/images/profile.webp"
-          sizes="192px md:300px lg:368px xl:456px"
         />
       </div>
-    </aside>
+    </div>
     <h1
       class="mb-4 md:col-span-2 md:row-start-1 md:row-end-2 md:mb-0 md:text-4xl xl:text-5xl"
     >
@@ -74,11 +73,12 @@ const { data, status } = await getGithubViewer({
         <p class="dark:text-white-100 transition-colors duration-300 ease-out">
           Currently working at
           <span
-            ><a
-              href="https://www.bandlab.com"
+            ><NuxtLink
+              external
+              to="https://www.bandlab.com"
               rel="noopener noreferrer"
               target="_blank"
-              >BandLab Technologies</a
+              >BandLab Technologies</NuxtLink
             ></span
           >.
         </p>
@@ -95,9 +95,13 @@ const { data, status } = await getGithubViewer({
             :location-icon="locationIcon"
           />
           <TooltipProvider v-else :delay-duration="300">
-            <UiTooltip :icon="value.icon!" :text="value.text" :url="value.url">
+            <UiTooltip
+              :icon="value.icon ?? ''"
+              :text="value.text"
+              :url="value.url"
+            >
               <template #link>
-                <UiIconButton :label="value.text" :icon="value.icon!" />
+                <UiIconButton :label="value.text" :icon="value.icon ?? ''" />
               </template>
             </UiTooltip>
           </TooltipProvider>
