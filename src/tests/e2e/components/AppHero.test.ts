@@ -8,7 +8,7 @@ test.beforeEach(async ({ page, goto }) => {
 test.describe("Hero section picture and headings", () => {
   test("Hero picture and headings", async ({ page }) => {
     await expect(
-      page.getByAltText("Profile picture", { exact: true })
+      page.getByAltText("My profile picture", { exact: true })
     ).toBeVisible();
     await expect(
       page.getByRole("heading", {
