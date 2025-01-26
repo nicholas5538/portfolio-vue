@@ -12,8 +12,10 @@ It's a great opportunity to showcase my frontend skills, and to explore new fram
 
 - [Getting Started](#getting-started)
   - [Environment Setup](#environment-setup)
-    - [2 ways to run the app](#2-ways-to-run-the-app)
+    - [How to run the application](#how-to-run-the-application)
   - [Repository Setup](#repository-setup)
+    - [Obtaining environment variables](#obtaining-environment-variables)
+    - [GraphQL setup](#graphql-setup)
 - [Developing](#developing)
 - [Frequently Used Scripts](#frequently-used-scripts)
 - [Additional Documentations](#additional-documentations)
@@ -22,22 +24,22 @@ It's a great opportunity to showcase my frontend skills, and to explore new fram
 
 #### Environment Setup
 
-##### 2 ways to run the app
+##### How to run the application
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-2. With package manager **[pnpm](https://pnpm.io/installation)**
+2. OR with package manager **[pnpm](https://pnpm.io/installation)**
 
-- Install LTS node version.
+   - Install LTS node version.
 
-> 💁 **Tip:** You can use [nvm](https://github.com/nvm-sh/nvm "nvm repo") to easily manage multiple versions of node.
-> Once installed, run `nvm use` in the project directory.
+   > 💁 **Tip:** You can use [nvm](https://github.com/nvm-sh/nvm "nvm repo") to easily manage multiple versions of node.
+   > Once installed, run `nvm use` in the project directory.
 
-- Install [pnpm](https://pnpm.io/installation)
+   - Install [pnpm](https://pnpm.io/installation)
 
-> 💁 `corepack enable pnpm` (Installed Node.js without Homebrew)
+   > 💁 `corepack enable pnpm` (Installed Node.js without Homebrew)
 
-> 💁 `brew install corepack` (Installed Node.js using Homebrew)
+   > 💁 `brew install corepack` (Installed Node.js using Homebrew)
 
 ### Repository Setup
 
@@ -48,18 +50,18 @@ git clone https://github.com/nicholas5538/fp-voucher-BE.git
 cd fp-voucher-BE
 ```
 
-2 methods of obtaining environment variables
+#### Obtaining environment variables
 
-1. Using [dotenv-vault](https://github.com/dotenv-org/dotenv-vault#pull "dotenv-vault GitHub repository"), please
-   request `vault_id` from [@nicholas5538](https://github.com/nicholas5538) (recommended)
+- Using [dotenv-vault](https://github.com/dotenv-org/dotenv-vault#pull "dotenv-vault GitHub repository"), please
+  request `vault_id` from [@nicholas5538](https://github.com/nicholas5538) (recommended)
 
 ```zsh
 npx dotenv-vault@latest new <vault_id>
 npx dotenv-vault@latest pull development .env
 ```
 
-2. Create a `.env` file to store environment variables, please request secret keys
-   from [@nicholas5538](https://github.com/nicholas5538 "nicholas5538 GitHub profile").
+- OR Create a `.env` file to store environment variables, please request secret keys
+  from [@nicholas5538](https://github.com/nicholas5538 "nicholas5538 GitHub profile").
 
 ```sh
 NUXT_CLOUDFLARE_R2_ACCESS_KEY=<Insert access key here>
@@ -69,12 +71,14 @@ NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY=<Insert secret access key here>
 NUXT_GITHUB_SECRET=<Insert token here>
 ```
 
-3. Install the GraphQL plugins for your preferred IDE
+#### GraphQL setup
+
+1. Install the GraphQL plugins for your preferred IDE
 
 - [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql "VSCode GraphQL feature support")
 - [JetBrains IDE](https://plugins.jetbrains.com/plugin/8097-graphql "JetBrains IDE GraphQL feature support")
 
-4. Generate the GraphQL schema and its relevant type files for GraphQL TypeScript support with the following command(s):
+2. Generate the GraphQL schema and its relevant type files for GraphQL TypeScript support with the following command(s):
 
 ```
 pnpm run generate-schema
