@@ -2,43 +2,18 @@
 import { TooltipProvider } from "radix-vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import { externalLinks, iconAlias } from "~/constants/globalVariables";
-import type { gitUserSchema } from "~/constants/typeInference";
+import { getGithubViewer } from "~/data/data";
 
 const gitHubIcon = iconAlias.get("github")!;
 const profileIcon = iconAlias.get("profile")!;
 const mailIcon = iconAlias.get("mail")!;
 const locationIcon = iconAlias.get("location")!;
 
-const config = useRuntimeConfig();
-const { data, status } = await useLazyAsyncData<gitUserSchema>(
-  "user",
-  () =>
-    $fetch(`${config.public.githubBaseUrl}/user`, {
-      headers: {
-        Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${config.githubSecret}`,
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-      method: "get",
-      timeout: 5000,
-    }),
-  {
-    deep: false,
-    getCachedData(key, nuxtApp) {
-      return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
-    },
-    pick: [
-      "avatar_url",
-      "bio",
-      "email",
-      "following",
-      "followers",
-      "location",
-      "login",
-      "name",
-    ],
-  }
-);
+const { data, status } = await getGithubViewer({
+  getCachedData(key, nuxtApp) {
+    return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
+  },
+});
 </script>
 
 <template>
@@ -110,15 +85,14 @@ const { data, status } = await useLazyAsyncData<gitUserSchema>(
       </hgroup>
       <div class="flex items-center justify-start space-x-6">
         <template v-for="[key, value] in externalLinks" :key="key">
-          <LazyUiHoverCard
-            v-if="key === 'GitHub' && status === 'success'"
+          <UiHoverCard
+            v-if="key === 'GitHub' && data?.data.viewer && status === 'success'"
             :application="key"
             :application-icon="gitHubIcon"
-            :data="data!"
+            :data="data.data.viewer"
             :profile-icon="profileIcon"
             :mail-icon="mailIcon"
             :location-icon="locationIcon"
-            :to="value.url"
           />
           <TooltipProvider v-else :delay-duration="300">
             <UiTooltip :icon="value.icon!" :text="value.text" :url="value.url">

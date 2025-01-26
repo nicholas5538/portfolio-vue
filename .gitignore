@@ -37,9 +37,14 @@ logs
 playwright-report
 test-results
 
-#Vitest
+# Vitest
 src/coverage
+
+# Environment variables
 .env*
 .flaskenv*
 !.env.project
 !.env.vault
+
+# GraphQL
+/src/data/types/github-schema.graphql

@@ -111,7 +111,7 @@ export default defineNuxtConfig({
       process.env.NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY,
     githubSecret: process.env.NUXT_GITHUB_SECRET,
     public: {
-      githubBaseUrl: "https://api.github.com",
+      githubBaseUrl: "https://api.github.com/graphql",
     },
   },
   srcDir: "src/",

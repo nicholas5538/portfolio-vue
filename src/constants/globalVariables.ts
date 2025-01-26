@@ -48,7 +48,6 @@ export const externalLinks = new Map([
     {
       icon: iconAlias.get("github"),
       text: "GitHub Profile",
-      url: "https://github.com/nicholas5538",
     },
   ],
   [
