@@ -81,9 +81,10 @@ NUXT_GITHUB_SECRET=<Insert token here>
 2. Generate the GraphQL schema and its relevant type files for GraphQL TypeScript support with the following command(s):
 
 ```
-pnpm run generate-schema
-# OR
-bash generate-graphql-schema.sh
+pnpm run generate-graphql
+# OR use this command if you prefer using node.
+# node version has to be >= 22.6.0 due to the --experimental-strip-types flag
+node --env-file=.env --experimental-strip-types generate-graphql-files.ts
 ```
 
 ### Developing
