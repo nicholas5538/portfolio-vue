@@ -14,7 +14,7 @@
     "lint": "eslint --color .",
     "lint:fix": "eslint --fix .",
     "preview": "nuxt preview",
-    "postinstall": "node --experimental-strip-types generate-graphql-files.ts && nuxt prepare",
+    "postinstall": "nuxt prepare",
     "prepare": "node --experimental-strip-types .husky/install.ts",
     "test": "vitest --watch=false",
     "test:watch": "vitest -w",
