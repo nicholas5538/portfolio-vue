@@ -3,11 +3,9 @@ import {
   generateOutput,
   generateTurbo,
 } from "@gql.tada/cli-utils";
-import { config } from "dotenv";
 import { spawn } from "node:child_process";
 import process from "node:process";
 
-config();
 const token = process.env.NUXT_GITHUB_SECRET;
 
 if (!token) {
@@ -72,19 +70,3 @@ try {
   }
   process.exit(1);
 }
-(async function () {
-  try {
-    await runPnpmExec("gql-tada", ["doctor"]);
-    console.info("'pnpm exec gql-tada doctor' executed successfully!");
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(
-        "Error executing `pnpm exec gql-tada doctor`:",
-        error.message
-      );
-    } else {
-      console.error("An unknown error occurred.");
-    }
-    process.exit(1);
-  }
-})();
