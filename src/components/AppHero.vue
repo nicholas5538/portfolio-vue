@@ -10,6 +10,7 @@ const mailIcon = iconAlias.get("mail")!;
 const locationIcon = iconAlias.get("location")!;
 
 const { data, status } = await getGithubViewer({
+  deep: false,
   getCachedData(key, nuxtApp) {
     return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
   },
