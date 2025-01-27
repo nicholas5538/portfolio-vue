@@ -1,3 +1,4 @@
-gql-tada turbo
-vitest --watch=false
+pnpm exec vitest --watch=false
+pnpm exec gql-tada turbo
+pnpm exec gql-tada check
 pnpm exec lint-staged
