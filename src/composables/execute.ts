@@ -17,6 +17,7 @@ export async function useExecute<TResult, TVariables>({
 }: ExecuteParams<TResult, TVariables>) {
   const {
     public: { githubBaseUrl },
+    githubSecret,
   } = useRuntimeConfig();
 
   return useAsyncData<{ data: TResult }>(key, () =>
@@ -24,7 +25,7 @@ export async function useExecute<TResult, TVariables>({
       method: "POST",
       headers: {
         Accept: "application/json",
-        Authorization: `Bearer ${process.env.NUXT_GITHUB_SECRET}`,
+        Authorization: `Bearer ${githubSecret}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
