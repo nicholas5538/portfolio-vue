@@ -6,6 +6,7 @@ import AppProjects from "~/components/AppProjects.vue";
 import AppSkills from "~/components/AppSkills.vue";
 import AppWorkExperience from "~/components/AppWorkExperience.vue";
 import useGetCloudflareR2Object from "~/composables/getCloudflareR2Object";
+
 type DataT = {
   aboutMeLink: string;
   skillsLink: string;

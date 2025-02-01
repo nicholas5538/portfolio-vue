@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import UiButton from "~/components/ui/UiButton.server.vue";
-import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
-import { resumeButtonProps } from "~/constants/globalVariables";
 import {
   DropdownMenuContent,
   DropdownMenuItem,
@@ -9,6 +6,9 @@ import {
   DropdownMenuRoot,
   DropdownMenuTrigger,
 } from "radix-vue";
+import UiButton from "~/components/ui/UiButton.server.vue";
+import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
+import { resumeButtonProps } from "~/constants/globalVariables";
 
 const emit = defineEmits<{
   (e: "executeScroll", index: number): void;

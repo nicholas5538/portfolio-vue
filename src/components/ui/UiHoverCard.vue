@@ -9,9 +9,9 @@ import {
   HoverCardRoot,
   HoverCardTrigger,
 } from "radix-vue";
+import type { ResultOf } from "gql.tada";
 import UiIconButton from "~/components/ui/UiIconButton.server.vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
-import type { ResultOf } from "gql.tada";
 import type { GithubViewerQuery } from "~/data/query";
 
 const props = defineProps<{

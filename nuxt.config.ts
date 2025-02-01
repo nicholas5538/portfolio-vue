@@ -6,6 +6,15 @@ import { browserslistToTargets } from "lightningcss";
 const largeModules = ["radix-vue", "@lottiefiles/dotlottie-vue"];
 
 export default defineNuxtConfig({
+  modules: ["@nuxt/image", "@nuxt/test-utils/module", "@nuxtjs/google-fonts"],
+  plugins: ["~/plugins/Lottie.client"],
+  devtools: {
+    componentInspector: false,
+    enabled: true,
+    timeline: {
+      enabled: true,
+    },
+  },
   app: {
     head: {
       htmlAttrs: {
@@ -45,6 +54,24 @@ export default defineNuxtConfig({
       noscript: [{ innerHTML: "JavaScript is required" }],
     },
   },
+  css: ["~/assets/css/fonts.css", "~/assets/css/main.css"],
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag === "iconify-icon",
+    },
+  },
+  runtimeConfig: {
+    cloudflareR2Region: process.env.NUXT_CLOUDFLARE_R2_REGION,
+    cloudflareR2AccountID: process.env.NUXT_CLOUDFLARE_R2_ACCOUNT_ID,
+    cloudflareR2AccessKey: process.env.NUXT_CLOUDFLARE_R2_ACCESS_KEY,
+    cloudflareR2SecretAccessKey:
+      process.env.NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY,
+    githubSecret: process.env.NUXT_GITHUB_SECRET,
+    public: {
+      githubBaseUrl: "https://api.github.com/graphql",
+    },
+  },
+  srcDir: "src/",
   build: {
     analyze: {
       brotliSize: true,
@@ -52,33 +79,16 @@ export default defineNuxtConfig({
       template: "treemap",
     },
   },
-  compatibilityDate: "2024-09-28",
-  css: ["~/assets/css/fonts.css", "~/assets/css/main.css"],
   devServer: { port: 5173 },
-  devtools: {
-    componentInspector: false,
-    enabled: true,
-    timeline: {
-      enabled: true,
-    },
+  future: {
+    compatibilityVersion: 4,
   },
   experimental: {
     renderJsonPayloads: false,
     payloadExtraction: true,
     componentIslands: true,
   },
-  future: {
-    compatibilityVersion: 4,
-  },
-  googleFonts: {
-    display: "swap",
-    families: {
-      Montserrat: {
-        wght: "400..700",
-      },
-    },
-  },
-  modules: ["@nuxt/image", "@nuxt/test-utils/module", "@nuxtjs/google-fonts"],
+  compatibilityDate: "2024-09-28",
   nitro: {
     awsAmplify: {
       catchAllStaticFallback: true,
@@ -102,21 +112,6 @@ export default defineNuxtConfig({
     preset:
       process.env.NODE_ENV !== "production" ? "node-server" : "aws-amplify",
   },
-  plugins: ["~/plugins/Lottie.client"],
-  runtimeConfig: {
-    cloudflareR2Region: process.env.NUXT_CLOUDFLARE_R2_REGION,
-    cloudflareR2AccountID: process.env.NUXT_CLOUDFLARE_R2_ACCOUNT_ID,
-    cloudflareR2AccessKey: process.env.NUXT_CLOUDFLARE_R2_ACCESS_KEY,
-    cloudflareR2SecretAccessKey:
-      process.env.NUXT_CLOUDFLARE_R2_SECRET_ACCESS_KEY,
-    githubSecret: process.env.NUXT_GITHUB_SECRET,
-    public: {
-      githubBaseUrl: "https://api.github.com/graphql",
-    },
-  },
-  srcDir: "src/",
-  telemetry: false,
-  typescript: { typeCheck: true },
   vite: {
     css: {
       transformer: "lightningcss",
@@ -149,9 +144,14 @@ export default defineNuxtConfig({
     },
     plugins: [tailwindcss() as Plugin[]],
   },
-  vue: {
-    compilerOptions: {
-      isCustomElement: (tag) => tag === "iconify-icon",
+  typescript: { typeCheck: true },
+  telemetry: false,
+  googleFonts: {
+    display: "swap",
+    families: {
+      Montserrat: {
+        wght: "400..700",
+      },
     },
   },
 });

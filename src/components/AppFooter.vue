@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { TooltipProvider } from "radix-vue";
 import UiIconButton from "~/components/ui/UiIconButton.server.vue";
 import UiTooltip from "~/components/ui/UiTooltip.vue";
 import { externalLinks } from "~/constants/globalVariables";
-import { TooltipProvider } from "radix-vue";
 
 const footerLinks = new Map(externalLinks);
 footerLinks.delete("Resume");

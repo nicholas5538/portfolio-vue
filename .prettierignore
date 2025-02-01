@@ -7,3 +7,6 @@ src/assets/animations/*
 # Ignore build configuration files:
 .amplify-hosting
 amplify.yml
+
+# Ignore GraphQL files
+src/data/types/*

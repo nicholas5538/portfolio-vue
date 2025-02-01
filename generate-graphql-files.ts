@@ -1,10 +1,10 @@
+import { spawn } from "node:child_process";
+import process from "node:process";
 import {
   generateSchema,
   generateOutput,
   generateTurbo,
 } from "@gql.tada/cli-utils";
-import { spawn } from "node:child_process";
-import process from "node:process";
 
 const token = process.env.NUXT_GITHUB_SECRET;
 
