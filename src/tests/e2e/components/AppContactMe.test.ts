@@ -20,7 +20,11 @@ test.describe("Contact me section testing", () => {
 
     if (isMobile) {
       await page.getByRole("button", { expanded: false }).tap();
-      await page.getByRole("menuitem").filter({ hasText: "Contact" }).tap();
+      const menuItem = page
+        .getByRole("menuitem")
+        .filter({ hasText: "Contact" });
+      await menuItem.waitFor();
+      await menuItem.tap();
     } else {
       await page
         .getByRole("listitem")
@@ -28,24 +32,30 @@ test.describe("Contact me section testing", () => {
         .click({ button: "left" });
     }
 
-    await expect(contactMeHeading).toBeInViewport();
-    await expect(contactMeButton).toBeInViewport();
-    await expect(contactMeButton).toHaveAttribute(
-      "href",
-      "mailto:nicholas8399@gmail.com"
-    );
+    await Promise.all([
+      expect(contactMeHeading).toBeInViewport(),
+      expect(contactMeButton).toBeInViewport(),
+      expect(contactMeButton).toHaveAttribute(
+        "href",
+        "mailto:nicholas8399@gmail.com"
+      ),
+    ]);
   });
 
   test("Dark blue gradient dismount on dark mode", async ({ page }) => {
     const themeSwitch = page.getByLabel("Appearance", { exact: true });
-    await expect(themeSwitch).toBeInViewport();
-
     const darkBlueGradient = page.getByTestId("contact-me-dark-blue-gradient");
-    await expect(darkBlueGradient).toBeVisible();
 
-    await themeSwitch.click({ button: "left" });
-    await expect(page.getByTestId("sun")).not.toBeVisible();
-    await expect(page.getByTestId("moon")).toBeInViewport();
-    await expect(darkBlueGradient).not.toBeVisible();
+    await Promise.all([
+      expect(themeSwitch).toBeInViewport(),
+      expect(darkBlueGradient).toBeVisible(),
+      themeSwitch.click({ button: "left" }),
+    ]);
+
+    await Promise.all([
+      expect(page.getByTestId("sun")).not.toBeVisible(),
+      expect(page.getByTestId("moon")).toBeInViewport(),
+      expect(darkBlueGradient).not.toBeVisible(),
+    ]);
   });
 });

@@ -24,8 +24,11 @@ test("App project section heading, and tooltip", async ({
       .click({ button: "left" });
     await expect(externalLink).toHaveAttribute("data-state", "closed");
     await externalLink.hover();
-    await expect(externalLink).toHaveAttribute("data-state", "delayed-open");
-    await expect(projectImage).toBeInViewport();
+
+    await Promise.all([
+      expect(externalLink).toHaveAttribute("data-state", "delayed-open"),
+      expect(projectImage).toBeInViewport(),
+    ]);
   }
 
   await expect(externalLink).toBeInViewport();
