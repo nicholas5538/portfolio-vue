@@ -886,7 +886,7 @@ export type introspection_types = {
     'ProjectV2FieldEdge': { kind: 'OBJECT'; name: 'ProjectV2FieldEdge'; fields: { 'cursor': { name: 'cursor'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'SCALAR'; name: 'String'; ofType: null; }; } }; 'node': { name: 'node'; type: { kind: 'OBJECT'; name: 'ProjectV2Field'; ofType: null; } }; }; };
     'ProjectV2FieldOrder': { kind: 'INPUT_OBJECT'; name: 'ProjectV2FieldOrder'; isOneOf: false; inputFields: [{ name: 'field'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'ENUM'; name: 'ProjectV2FieldOrderField'; ofType: null; }; }; defaultValue: null }, { name: 'direction'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'ENUM'; name: 'OrderDirection'; ofType: null; }; }; defaultValue: null }]; };
     'ProjectV2FieldOrderField': { name: 'ProjectV2FieldOrderField'; enumValues: 'POSITION' | 'CREATED_AT' | 'NAME'; };
-    'ProjectV2FieldType': { name: 'ProjectV2FieldType'; enumValues: 'ASSIGNEES' | 'LINKED_PULL_REQUESTS' | 'REVIEWERS' | 'LABELS' | 'MILESTONE' | 'REPOSITORY' | 'TITLE' | 'TEXT' | 'SINGLE_SELECT' | 'NUMBER' | 'DATE' | 'ITERATION' | 'TRACKS' | 'TRACKED_BY'; };
+    'ProjectV2FieldType': { name: 'ProjectV2FieldType'; enumValues: 'ASSIGNEES' | 'LINKED_PULL_REQUESTS' | 'REVIEWERS' | 'LABELS' | 'MILESTONE' | 'REPOSITORY' | 'TITLE' | 'TEXT' | 'SINGLE_SELECT' | 'NUMBER' | 'DATE' | 'ITERATION' | 'TRACKS' | 'TRACKED_BY' | 'PARENT_ISSUE' | 'SUB_ISSUES_PROGRESS'; };
     'ProjectV2FieldValue': { kind: 'INPUT_OBJECT'; name: 'ProjectV2FieldValue'; isOneOf: false; inputFields: [{ name: 'text'; type: { kind: 'SCALAR'; name: 'String'; ofType: null; }; defaultValue: null }, { name: 'number'; type: { kind: 'SCALAR'; name: 'Float'; ofType: null; }; defaultValue: null }, { name: 'date'; type: { kind: 'SCALAR'; name: 'Date'; ofType: null; }; defaultValue: null }, { name: 'singleSelectOptionId'; type: { kind: 'SCALAR'; name: 'String'; ofType: null; }; defaultValue: null }, { name: 'iterationId'; type: { kind: 'SCALAR'; name: 'String'; ofType: null; }; defaultValue: null }]; };
     'ProjectV2Filters': { kind: 'INPUT_OBJECT'; name: 'ProjectV2Filters'; isOneOf: false; inputFields: [{ name: 'state'; type: { kind: 'ENUM'; name: 'ProjectV2State'; ofType: null; }; defaultValue: null }]; };
     'ProjectV2Item': { kind: 'OBJECT'; name: 'ProjectV2Item'; fields: { 'content': { name: 'content'; type: { kind: 'UNION'; name: 'ProjectV2ItemContent'; ofType: null; } }; 'createdAt': { name: 'createdAt'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'SCALAR'; name: 'DateTime'; ofType: null; }; } }; 'creator': { name: 'creator'; type: { kind: 'INTERFACE'; name: 'Actor'; ofType: null; } }; 'databaseId': { name: 'databaseId'; type: { kind: 'SCALAR'; name: 'Int'; ofType: null; } }; 'fieldValueByName': { name: 'fieldValueByName'; type: { kind: 'UNION'; name: 'ProjectV2ItemFieldValue'; ofType: null; } }; 'fieldValues': { name: 'fieldValues'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'OBJECT'; name: 'ProjectV2ItemFieldValueConnection'; ofType: null; }; } }; 'fullDatabaseId': { name: 'fullDatabaseId'; type: { kind: 'SCALAR'; name: 'BigInt'; ofType: null; } }; 'id': { name: 'id'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'SCALAR'; name: 'ID'; ofType: null; }; } }; 'isArchived': { name: 'isArchived'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'SCALAR'; name: 'Boolean'; ofType: null; }; } }; 'project': { name: 'project'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'OBJECT'; name: 'ProjectV2'; ofType: null; }; } }; 'type': { name: 'type'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'ENUM'; name: 'ProjectV2ItemType'; ofType: null; }; } }; 'updatedAt': { name: 'updatedAt'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'SCALAR'; name: 'DateTime'; ofType: null; }; } }; }; };
@@ -1640,16 +1640,16 @@ export type introspection_types = {
  */
 export type introspection = {
   name: never;
-  query: 'Query';
-  mutation: 'Mutation';
+  query: "Query";
+  mutation: "Mutation";
   subscription: never;
   types: introspection_types;
 };
 
-import * as gqlTada from 'gql.tada';
+import * as gqlTada from "gql.tada";
 
-declare module 'gql.tada' {
+declare module "gql.tada" {
   interface setupSchema {
-    introspection: introspection
+    introspection: introspection;
   }
 }
