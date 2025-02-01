@@ -26,8 +26,8 @@ test.describe("Hero icon buttons", () => {
 
   test("Hero icon buttons' hover effect", async ({ page }) => {
     const githubToolTip = page
-      .getByLabel("Click to see more on my GitHub Profile", { exact: true })
-      .first();
+      .getByRole("link")
+      .getByLabel("Click to see more on my GitHub Profile", { exact: true });
     const linkedinIcon = page
       .getByLabel("Click to see more on my LinkedIn Profile", {
         exact: true,
@@ -41,8 +41,8 @@ test.describe("Hero icon buttons", () => {
       expect(linkedinIcon).toHaveAttribute("data-state", "closed"),
     ]);
 
+    await githubToolTip.hover();
     await Promise.all([
-      githubToolTip.hover({ force: true }),
       expect(githubToolTip).toHaveAttribute("data-state", "open"),
       expect(
         page.getByText("Whatever happens, happens", { exact: true })
@@ -50,6 +50,9 @@ test.describe("Hero icon buttons", () => {
     ]);
 
     await linkedinIcon.hover({ force: true });
-    await expect(linkedinIcon).toHaveAttribute("data-state", "delayed-open");
+    await Promise.all([
+      expect(linkedinIcon).toHaveAttribute("data-state", "delayed-open"),
+      expect(page.getByText("LinkedIn Profile", { exact: true })).toBeVisible(),
+    ]);
   });
 });
