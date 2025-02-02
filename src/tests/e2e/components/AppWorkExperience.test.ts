@@ -10,9 +10,16 @@ test("Skills section heading, icons and lottie component", async ({
 
   const experienceLottie = page.getByTestId("experienceLottie");
   if (isMobile) {
-    await page.getByRole("button", { expanded: false }).tap();
-    await page.getByRole("menuitem").filter({ hasText: "Experience" }).tap();
-    await expect(experienceLottie).toBeHidden();
+    await Promise.all([
+      expect(experienceLottie).toBeHidden(),
+      page.getByRole("button", { expanded: false }).tap(),
+    ]);
+
+    const menuItem = page
+      .getByRole("menuitem")
+      .filter({ hasText: "Experience" });
+    await menuItem.waitFor();
+    await menuItem.tap();
   } else {
     await page
       .getByRole("listitem")
@@ -21,22 +28,24 @@ test("Skills section heading, icons and lottie component", async ({
     await expect(experienceLottie).toBeInViewport();
   }
 
-  await expect(
-    page.getByRole("heading", {
-      name: "A peek at my early career",
-      exact: true,
-    })
-  ).toBeInViewport();
-  await expect(
-    page.getByLabel("Click here to redirect to foodpanda website", {
-      exact: true,
-    })
-  ).toBeInViewport();
-  await expect(
-    page
-      .getByLabel("Technologies used in foodpanda", {
+  await Promise.all([
+    expect(
+      page.getByRole("heading", {
+        name: "A peek at my early career",
         exact: true,
       })
-      .getByRole("listitem")
-  ).toHaveCount(5);
+    ).toBeInViewport(),
+    expect(
+      page.getByLabel("Click here to redirect to foodpanda website", {
+        exact: true,
+      })
+    ).toBeInViewport(),
+    expect(
+      page
+        .getByLabel("Technologies used in foodpanda", {
+          exact: true,
+        })
+        .getByRole("listitem")
+    ).toHaveCount(5),
+  ]);
 });

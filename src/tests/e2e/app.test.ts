@@ -10,13 +10,17 @@ test("Test dark mode switch", async ({ page }) => {
   const faSun = page.getByTestId("sun");
   const faMoon = page.getByTestId("moon");
 
-  await expect(themeButton).toBeInViewport();
-  await expect(faSun).toBeInViewport();
-  await expect(faMoon).toBeHidden();
+  await Promise.all([
+    expect(themeButton).toBeInViewport(),
+    expect(faSun).toBeInViewport(),
+    expect(faMoon).toBeHidden(),
+  ]);
 
   await themeButton.click();
-  await expect(faSun).toBeHidden();
-  await expect(faMoon).toBeInViewport();
+  await Promise.all([
+    expect(faSun).toBeHidden(),
+    expect(faMoon).toBeInViewport(),
+  ]);
 });
 
 test.describe("Desktop viewport only", { tag: "@desktop" }, () => {
@@ -29,9 +33,12 @@ test.describe("Desktop viewport only", { tag: "@desktop" }, () => {
       name: "Hi There! I'm",
     });
 
-    await expect(projectListItem).toBeInViewport();
-    await expect(heroHeading).toBeInViewport();
-    await projectListItem.click({ button: "left" });
+    await Promise.all([
+      expect(projectListItem).toBeInViewport(),
+      expect(heroHeading).toBeInViewport(),
+      projectListItem.click({ button: "left" }),
+    ]);
+
     await expect(heroHeading).not.toBeInViewport();
   });
 });
@@ -41,9 +48,12 @@ test.describe("Mobile viewport only", { tag: "@mobile" }, () => {
 
   test("Test navigation bar dropdown menu", async ({ page }) => {
     const dropdownContent = page.getByRole("menu");
-    await expect(dropdownContent).toBeHidden();
 
-    await page.getByRole("button", { expanded: false }).click();
+    await Promise.all([
+      expect(dropdownContent).toBeHidden(),
+      page.getByRole("button", { expanded: false }).click(),
+    ]);
+
     await expect(dropdownContent).toBeInViewport();
   });
 });
