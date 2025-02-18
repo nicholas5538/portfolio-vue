@@ -23,7 +23,6 @@ if (!CONFIG.accessToken) {
 const execa: ExecaMethod = execa_({
   preferLocal: true,
   reject: true,
-  extendEnv: false,
   stdio: "pipe",
 });
 async function pnpmCommand(
