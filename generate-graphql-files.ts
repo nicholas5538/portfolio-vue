@@ -1,72 +1,92 @@
-import { spawn } from "node:child_process";
 import process from "node:process";
+import console from "node:console";
 import {
-  generateSchema,
-  generateOutput,
-  generateTurbo,
-} from "@gql.tada/cli-utils";
+  ExecaError,
+  type ExecaMethod,
+  type TemplateExpression,
+  execa as execa_,
+} from "execa";
 
-const token = process.env.NUXT_GITHUB_SECRET;
+const CONFIG = {
+  accessToken: process.env.NUXT_GITHUB_SECRET,
+  graphqlUrl: "https://api.github.com/graphql",
+  schemaFile: "./src/data/types/github-schema.graphql",
+};
 
-if (!token) {
-  console.error("$NUXT_GITHUB_SECRET is not set in the .env file.");
+if (!CONFIG.accessToken) {
+  console.error(
+    "\x1b[31m❌ $NUXT_GITHUB_SECRET is not set in the .env file\x1b[0m"
+  );
   process.exit(1);
 }
 
-console.info("Generating the schema from GitHub GraphQL API...\n");
-await generateSchema({
-  input: "https://api.github.com/graphql",
-  output: "./src/data/types/github-schema.graphql",
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-  tsconfig: undefined,
+const execa: ExecaMethod = execa_({
+  preferLocal: true,
+  reject: true,
+  stdio: "pipe",
 });
+async function pnpmCommand(
+  args: TemplateExpression | readonly string[],
+  successMessage: string
+) {
+  try {
+    const { stdout, stderr } = await execa`pnpm run ${args}`;
 
-const outputFn = generateOutput({
-  output: "./src/data/types/github-graphql-env.d.ts",
-  disablePreprocessing: false,
-  tsconfig: undefined,
-});
-
-const turboFn = generateTurbo({
-  output: "./src/data/types/github-graphql-cache.d.ts",
-  failOnWarn: true,
-  tsconfig: undefined,
-});
-
-console.info("Generating the necessary gql.tada output files...\n");
-await Promise.all([outputFn, turboFn]);
-
-console.info("Running pnpm exec gql-tada doctor...");
-function runPnpmExec(command: string, args: string[] = []): Promise<void> {
-  return new Promise((resolve, reject) => {
-    const child = spawn("pnpm", ["exec", command, ...args], {
-      stdio: "inherit",
-      shell: true,
-    });
-
-    child.on("close", (code) => {
-      if (code === 0) {
-        resolve();
-      } else {
-        reject(new Error(`Command failed with exit code ${code}`));
-      }
-    });
-  });
-}
-
-try {
-  await runPnpmExec("gql-tada", ["doctor"]);
-  console.info("'pnpm exec gql-tada doctor' executed successfully!");
-} catch (error) {
-  if (error instanceof Error) {
-    console.error(
-      "Error executing `pnpm exec gql-tada doctor`:",
-      error.message
-    );
-  } else {
-    console.error("An unknown error occurred.");
+    if (stdout) console.info(stdout);
+    if (stderr) console.error(`\x1b[31m❌${stderr} \x1b[0m\n`);
+    else {
+      console.info(`\x1b[32m✅ ${successMessage} \x1b[0m\n`);
+    }
+  } catch (error) {
+    if (error instanceof ExecaError) {
+      throw new Error(error.message);
+    }
+    throw new Error("An unknown error occurred.");
   }
+}
+
+console.info(
+  "\x1b[33m⏳ Generating the schema from the GitHub GraphQL API...\x1b[0m"
+);
+
+await pnpmCommand(
+  [
+    "graphql:schema",
+    CONFIG.graphqlUrl,
+    "--output",
+    CONFIG.schemaFile,
+    "--header",
+    `Authorization: Bearer ${CONFIG.accessToken}`,
+  ],
+  "GitHub GraphQL introspection is successful."
+);
+
+console.info(
+  "\x1b[33m⏳ Generating the necessary gql.tada output files...\x1b[0m"
+);
+const [outputResult, turboResult] = await Promise.allSettled([
+  pnpmCommand(
+    "graphql:type",
+    "gql.tada output typings file has been generated."
+  ),
+  pnpmCommand(
+    "graphql:cache",
+    "The cache for all GraphQL document types has been generated."
+  ),
+]);
+
+if (outputResult.status === "rejected") {
+  console.error(`\x1b[31m❌${outputResult.reason} \x1b[0m\n`);
   process.exit(1);
 }
+
+// Please run pnpm graphql:cache if this fails, development can still work without the cache file
+if (turboResult.status === "rejected") {
+  console.error(`\x1b[31m❌${turboResult.reason} \x1b[0m\n`);
+}
+
+console.info("\x1b[33m⏳ Checking the GraphQL configuration...\x1b[0m");
+await pnpmCommand(
+  "graphql:doctor",
+  "No mistakes found in the GraphQL configuration and schema."
+);

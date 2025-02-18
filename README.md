@@ -81,7 +81,7 @@ NUXT_GITHUB_SECRET=<Insert token here>
 2. Generate the GraphQL schema and its relevant type files for GraphQL TypeScript support with the following command(s):
 
 ```
-pnpm run generate-graphql
+pnpm run graphql
 # OR use this command if you prefer using node.
 # node version has to be >= 22.6.0 due to the --experimental-strip-types flag
 node --env-file=.env --experimental-strip-types generate-graphql-files.ts
@@ -113,7 +113,7 @@ The `dev` command will start the application in your local environment.
 
 ### Frequently Used Scripts
 
-In addition to the `pnpm run dev` command, there are other scripts available in the [package.json](https://github.com/nicholas5538/portfolio-vue/blob/main/package.json#L6-L28). Some of the most common you might get to use are:
+In addition to the `pnpm run dev` command, there are other scripts available in the [package.json](https://github.com/nicholas5538/portfolio-vue/blob/main/package.json#L6-L33). Some of the most common you might get to use are:
 
 - `pnpm run test` - Runs unit tests.
 
