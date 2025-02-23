@@ -61,7 +61,7 @@ const { skillsLink: animationLink = "", status } = defineProps<{
     </div>
     <ClientOnly>
       <aside
-        class="hidden size-56 lg:absolute lg:right-5 lg:bottom-40 lg:block lg:h-[18rem] lg:w-[18rem] xl:h-[24rem] xl:w-[24rem]"
+        class="hidden size-56 lg:absolute lg:right-5 lg:bottom-40 lg:block lg:size-72 xl:size-96"
       >
         <div
           v-if="status === 'pending'"

@@ -46,7 +46,7 @@ const lastIndex = listElements.length - 1;
       <DropdownMenuPortal>
         <DropdownMenuContent
           align="end"
-          class="bg-white-400 shadow-dropdown data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade dark:bg-black-500 z-50 max-w-sm min-w-[18.75rem] rounded-tr-xl rounded-br-xl will-change-[opacity,transform] dark:shadow-none"
+          class="bg-white-400 shadow-dropdown data-[side=bottom]:animate-slide-up-and-fade data-[side=left]:animate-slide-right-and-fade data-[side=right]:animate-slide-left-and-fade data-[side=top]:animate-slide-down-and-fade dark:bg-black-500 z-50 max-w-sm min-w-75 rounded-tr-xl rounded-br-xl will-change-[opacity,transform] dark:shadow-none"
           hide-when-detached
           side="bottom"
           :side-offset="22"

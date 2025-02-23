@@ -16,7 +16,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
 <template>
   <section class="dark-blue-section">
     <div
-      class="dark-blue-container 3xl:mb-[22rem] mb-[13rem] md:mt-20 md:mb-72 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-[22rem] xl:mb-80 2xl:mb-[26rem] dark:mb-12 dark:xl:mb-24"
+      class="dark-blue-container 3xl:mb-88 mb-52 md:mt-20 md:mb-72 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-88 xl:mb-80 2xl:mb-104 dark:mb-12 dark:xl:mb-24"
     >
       <div class="md:col-span-2 md:row-start-1 md:row-end-1 md:mt-5 md:mb-0">
         <h2
@@ -91,7 +91,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
       </div>
       <ClientOnly>
         <aside
-          class="hidden size-44 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-5 lg:block lg:h-[14rem] lg:w-[14rem] lg:place-self-center xl:h-[18rem] xl:w-[18rem]"
+          class="hidden size-44 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-5 lg:block lg:size-56 lg:place-self-center xl:size-72"
         >
           <div
             v-if="status === 'pending'"
@@ -110,7 +110,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
     </div>
     <div
       v-if="!darkMode"
-      class="dark-blue-gradient -left-[6rem] xl:h-[130%] 2xl:-left-40 2xl:h-[140%]"
+      class="dark-blue-gradient -left-24 xl:h-13/10 2xl:-left-40 2xl:h-7/5"
     />
   </section>
 </template>

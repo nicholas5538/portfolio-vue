@@ -37,20 +37,24 @@
   --breakpoint-ipad-mini: 40.625rem;
 
   --animate-wave: wave 2.1s 0.6s infinite;
-  --animate-slide-down-and-fade: slideDownAndFade 0.3s linear 1;
-  --animate-slide-left-and-fade: slideLeftAndFade 0.3s linear 1;
-  --animate-slide-up-and-fade: slideUpAndFade 0.3s linear 1;
-  --animate-slide-right-and-fade: slideRightAndFade 0.3s linear 1;
+  --animate-slide-down-and-fade: slide-down-and-fade 0.3s linear 1;
+  --animate-slide-left-and-fade: slide-left-and-fade 0.3s linear 1;
+  --animate-slide-up-and-fade: slide-up-and-fade 0.3s linear 1;
+  --animate-slide-right-and-fade: slide-right-and-fade 0.3s linear 1;
 
-  --shadow-dropdown: oklch(0.3396 0.0743 281.7 / 0.25) 0px 50px 100px -20px,
+  --shadow-dropdown:
+    oklch(0.3396 0.0743 281.7 / 0.25) 0px 50px 100px -20px,
     oklch(0% 0 0 / 0.3) 0px 30px 60px -30px;
-  --shadow-project: oklch(0.206 0.0468 252.49 / 0.4) 0px 0px 0px 2px,
+  --shadow-project:
+    oklch(0.206 0.0468 252.49 / 0.4) 0px 0px 0px 2px,
     oklch(0.206 0.0468 252.49 / 0.65) 0px 4px 6px -1px,
     oklch(1 0 0 / 0.08) 0px 1px 0px inset;
-  --shadow-project-dark: oklch(0.1913 0 0 / 0.4) 0px 0px 0px 2px,
+  --shadow-project-dark:
+    oklch(0.1913 0 0 / 0.4) 0px 0px 0px 2px,
     oklch(0.1913 0 0 / 0.65) 0px 4px 6px -1px,
     oklch(1 0 0 / 0.08) 0px 1px 0px inset;
-  --shadow-tooltip: oklch(0.1807 0.0099 241.08 / 0.35) 0 10px 38px -10px,
+  --shadow-tooltip:
+    oklch(0.1807 0.0099 241.08 / 0.35) 0 10px 38px -10px,
     oklch(0.1807 0.0099 241.08 / 0.2) 0 10px 20px -15px;
 
   --background-image-orange-gradient: linear-gradient(
@@ -96,7 +100,7 @@
       transform: rotate(-4deg);
     }
   }
-  @keyframes slideDownAndFade {
+  @keyframes slide-down-and-fade {
     0% {
       opacity: 0;
       transform: translateY(-2px);
@@ -106,7 +110,7 @@
       transform: translateY(0);
     }
   }
-  @keyframes slideLeftAndFade {
+  @keyframes slide-left-and-fade {
     0% {
       opacity: 0;
       transform: translateX(2px);
@@ -116,7 +120,7 @@
       transform: translateX(0);
     }
   }
-  @keyframes slideUpAndFade {
+  @keyframes slide-up-and-fade {
     0% {
       opacity: 0;
       transform: translateY(2px);
@@ -126,7 +130,7 @@
       transform: translateY(0);
     }
   }
-  @keyframes slideRightAndFade {
+  @keyframes slide-right-and-fade {
     0% {
       opacity: 0;
       transform: translateX(-2px);
@@ -151,7 +155,7 @@
 }
 
 @utility dark-blue-gradient {
-  @apply bg-dark-blue ipad-mini:h-[125%] 3xl:h-[160%] absolute -top-56 -left-[4.5rem] -z-10 h-[120%] w-[250rem] -rotate-6 transition-colors duration-300 ease-out lg:h-[135%] 2xl:h-[145%];
+  @apply bg-dark-blue ipad-mini:h-5/4 3xl:h-8/5 absolute -top-56 -left-18 -z-10 h-6/5 w-1000 -rotate-6 transition-colors duration-300 ease-out lg:h-27/20 2xl:h-29/20;
 }
 
 @utility dark-blue-section {
@@ -167,11 +171,11 @@
 }
 
 @utility about-me-animation {
-  @apply absolute top-0 right-0 size-[7rem] md:static md:-top-16 md:right-12 md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-6 md:size-[10rem] md:place-self-center lg:col-start-3 lg:size-[13rem];
+  @apply absolute top-0 right-0 size-28 md:static md:-top-16 md:right-12 md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-6 md:size-40 md:place-self-center lg:col-start-3 lg:size-52;
 }
 
 @utility navbar-gradient {
-  @apply from-blue-gradient-1 to-blue-gradient-2 transition-background-image 3xl:h-[50rem] dark:from-black-300 dark:to-black-300 absolute -top-64 -left-20 -z-20 h-[20rem] w-[250rem] -rotate-6 bg-linear-to-b duration-300 ease-out md:-left-40 md:h-[31.25rem] xl:-top-80 xl:h-[37.5rem] 2xl:h-[43.75rem];
+  @apply from-blue-gradient-1 to-blue-gradient-2 transition-background-image 3xl:h-200 dark:from-black-300 dark:to-black-300 absolute -top-64 -left-20 -z-20 h-80 w-1000 -rotate-6 bg-linear-to-b duration-300 ease-out md:-left-40 md:h-125 xl:-top-80 xl:h-150 2xl:h-175;
 }
 
 @layer base {
