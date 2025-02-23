@@ -80,19 +80,29 @@ const hoverState = ref(false);
           </AvatarRoot>
           <div class="text-black-100 dark:text-white-100 flex flex-col gap-4">
             <div class="flex flex-col gap-y-1 text-[0.9375rem]">
-              <div class="m-0 leading-[1.5] font-bold">
-                {{ data.name }}
-              </div>
+              <div class="m-0 leading-[1.5] font-bold">{{ data.name }}</div>
               <div class="flex gap-1 font-semibold">
                 <UiIconifyIcon :icon="profileIcon" />
-                <div class="m-0 leading-[1.5]">
-                  {{ data.login }}
-                </div>
+                <NuxtLink
+                  aria-label="Click here to view my GitHub profile"
+                  class="m-0 leading-[1.5]"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  :to="data.url as string"
+                  >{{ data.login }}</NuxtLink
+                >
               </div>
               <div class="flex gap-1 font-semibold">
                 <UiIconifyIcon :icon="mailIcon" />
                 <div class="m-0 leading-[1.5]">
-                  {{ data.email }}
+                  <NuxtLink
+                    aria-label="Click here to contact me"
+                    class="m-0 leading-[1.5]"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    :to="`mailto:${data.email}`"
+                    >{{ data.email }}</NuxtLink
+                  >
                 </div>
               </div>
               <div class="flex gap-1 font-semibold">
