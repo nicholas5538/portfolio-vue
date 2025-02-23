@@ -15,7 +15,7 @@ const { aboutMeLink: animationLink = "", status } = defineProps<{
 <template>
   <section class="dark-blue-section">
     <div
-      class="dark-blue-container dark-mode-container 3xl:mb-[17rem] md:mb-40 md:grid-rows-5 md:gap-y-4 lg:mb-52 xl:mb-56 2xl:mb-72 dark:mb-12 dark:2xl:mb-24"
+      class="dark-blue-container dark-mode-container 3xl:mb-68 md:mb-40 md:grid-rows-5 md:gap-y-4 lg:mb-52 xl:mb-56 2xl:mb-72 dark:mb-12 dark:2xl:mb-24"
     >
       <div class="md:col-span-2 md:justify-self-start">
         <h2

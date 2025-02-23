@@ -23,7 +23,7 @@ const { data, status } = await getGithubViewer({
     class="mx-auto mb-28 grid w-full max-w-7xl grid-cols-1 px-4 pt-32 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-between md:gap-x-8 md:pt-60 lg:mb-60 xl:grid-cols-4 dark:mb-12 dark:2xl:mb-24"
   >
     <div
-      class="group shadow-dropdown z-10 mx-auto mb-8 aspect-[2/3] max-h-110 min-h-110 overflow-hidden rounded-3xl md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:m-0 md:aspect-auto md:max-h-full md:min-h-84 md:w-fit md:justify-self-end lg:min-h-112 xl:col-span-2 xl:min-h-[42.65625rem] dark:shadow-none"
+      class="group shadow-dropdown z-10 mx-auto mb-8 aspect-2/3 max-h-110 min-h-110 overflow-hidden rounded-3xl md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:m-0 md:aspect-auto md:max-h-full md:min-h-84 md:w-fit md:justify-self-end lg:min-h-112 xl:col-span-2 xl:min-h-[42.65625rem] dark:shadow-none"
     >
       <div
         class="z-20 size-full bg-contain transition-transform duration-300 ease-in-out group-hover:scale-110"

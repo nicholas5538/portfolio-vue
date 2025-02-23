@@ -47,7 +47,7 @@ const buttonProps = {
     <div
       v-if="!darkMode"
       data-testid="contact-me-dark-blue-gradient"
-      class="dark-blue-gradient ipad-mini:h-[160%] 3xl:h-[200%] h-[145%] lg:h-[170%] xl:h-[180%]"
+      class="dark-blue-gradient ipad-mini:h-8/5 3xl:h-[200%] h-29/20 lg:h-17/10 xl:h-9/5"
     />
   </section>
 </template>
