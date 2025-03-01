@@ -53,7 +53,7 @@
     "@nuxt/test-utils": "3.17.0",
     "@nuxtjs/google-fonts": "3.2.0",
     "@playwright/test": "1.50.1",
-    "@tailwindcss/vite": "4.0.8",
+    "@tailwindcss/vite": "4.0.9",
     "@vitest/coverage-v8": "3.0.6",
     "@vue/test-utils": "2.4.6",
     "eslint": "9.21.0",
