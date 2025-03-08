@@ -6,6 +6,9 @@ export default createConfigForNuxt({
   features: { stylistic: true },
 })
   .append(eslintConfigPrettier, {
+    rules: {
+      "vue/multi-word-component-names": "warn",
+    },
     ignores: ["src/data/types/", ".husky/install.ts"],
   })
   .prepend(
