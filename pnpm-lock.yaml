@@ -15,8 +15,8 @@ importers:
         specifier: 3.777.0
         version: 3.777.0
       '@lottiefiles/dotlottie-vue':
-        specifier: 0.6.0
-        version: 0.6.0(vue@3.5.13(typescript@5.8.2))
+        specifier: 0.6.1
+        version: 0.6.1(vue@3.5.13(typescript@5.8.2))
       '@nuxt/image':
         specifier: 1.10.0
         version: 1.10.0(db0@0.3.1)(ioredis@5.6.0)(magicast@0.3.5)
@@ -760,13 +760,13 @@ packages:
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
 
-  '@lottiefiles/dotlottie-vue@0.6.0':
-    resolution: {integrity: sha512-OmR5a+pW0AuRFPQ6po7W9JKsVcRI3wtJigVtyxHXCn6Nd+ZIF/HrbbyG9Wi8t/3YviCbhtDgqd5vQMKqFMYCWw==}
+  '@lottiefiles/dotlottie-vue@0.6.1':
+    resolution: {integrity: sha512-cmKpDYVbHQUzMEmMcoMXCgkKQDNX4DY+KgKXMlMf7pVzS03VjvFAmOb/GEN+fB5qWK60sdy38zHyHlif0tIYlw==}
     peerDependencies:
       vue: ^3.3.4
 
-  '@lottiefiles/dotlottie-web@0.39.0':
-    resolution: {integrity: sha512-kJWL6NEtbXQQHFK8kMfNte/5vuTHjFhL11a30s4PJSikao8IeEu+hLJH72flWHyTLpL4tmnxW3WkTKUwZ8Osug==}
+  '@lottiefiles/dotlottie-web@0.42.0':
+    resolution: {integrity: sha512-Zr2LCaOAoPCsdAQgeLyCSiQ1+xrAJtRCyuEYDj0qR5heUwpc+Pxbb88JyTVumcXFfKOBMOMmrlsTScLz2mrvQQ==}
 
   '@mapbox/node-pre-gyp@2.0.0':
     resolution: {integrity: sha512-llMXd39jtP0HpQLVI37Bf1m2ADlEb35GYSh1SDSLsBhR+5iCxiNGlT31yqbNtVHygHAtMy6dWFERpU2JgufhPg==}
@@ -6010,12 +6010,12 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
-  '@lottiefiles/dotlottie-vue@0.6.0(vue@3.5.13(typescript@5.8.2))':
+  '@lottiefiles/dotlottie-vue@0.6.1(vue@3.5.13(typescript@5.8.2))':
     dependencies:
-      '@lottiefiles/dotlottie-web': 0.39.0
+      '@lottiefiles/dotlottie-web': 0.42.0
       vue: 3.5.13(typescript@5.8.2)
 
-  '@lottiefiles/dotlottie-web@0.39.0': {}
+  '@lottiefiles/dotlottie-web@0.42.0': {}
 
   '@mapbox/node-pre-gyp@2.0.0(encoding@0.1.13)':
     dependencies:
