@@ -60,7 +60,7 @@ jobs:
 
       - name: Cache Playwright Browsers for Playwright's Version
         id: cache-playwright-browsers
-        uses: actions/cache@v4.2.2
+        uses: actions/cache@v4.2.3
         with:
           key: playwright-browsers-${{ env.PLAYWRIGHT_VERSION }}
           path: ~/.cache/ms-playwright
