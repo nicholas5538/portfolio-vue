@@ -59,7 +59,7 @@
     "eslint": "9.25.0",
     "eslint-config-prettier": "10.1.2",
     "execa": "9.5.2",
-    "happy-dom": "17.4.4",
+    "happy-dom": "17.4.6",
     "husky": "9.1.7",
     "iconify-icon": "2.3.0",
     "lightningcss": "1.29.3",
