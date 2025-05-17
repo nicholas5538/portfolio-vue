@@ -24,6 +24,7 @@ export default defineVitestConfig({
       "./src/tests/e2e/**",
       "./src/constants/**",
     ],
+    include: ["./src/tests/ut/**/*.{test,spec}.ts"],
     server: {
       deps: {
         inline: ["vitest-canvas-mock"],
