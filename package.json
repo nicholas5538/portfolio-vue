@@ -59,6 +59,7 @@
     "eslint": "9.27.0",
     "eslint-config-prettier": "10.1.5",
     "execa": "9.5.3",
+    "get-tsconfig": "4.10.1",
     "happy-dom": "17.4.7",
     "husky": "9.1.7",
     "iconify-icon": "3.0.0",
