@@ -37,11 +37,11 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
         </h2>
       </div>
       <div
-        v-for="[key, workExperience] in workExperiences"
+        v-for="([key, workExperience], index) in workExperiences"
         :key="key"
         :class="{
-          'md:row-start-2 md:row-end-4': workExperience.index === 0,
-          'md:row-start-4 md:row-end-6': workExperience.index !== 0,
+          'md:row-start-2 md:row-end-4': index === 0,
+          'md:row-start-4 md:row-end-6': index !== 0,
         }"
         class="mb-10 md:col-span-2 md:mb-5"
       >
@@ -64,6 +64,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
             :to="workExperience.url"
             class="text-blue dark:text-orange"
             external
+            rel="noopener noreferrer"
             target="_blank"
           >
             {{ workExperience.company }}
@@ -73,18 +74,17 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
           class="text-white-300 dark:text-white-100 list-inside list-disc text-sm opacity-80 transition-colors duration-300 ease-out md:text-lg xl:text-xl"
         >
           <li
-            v-for="(pointer, index) in workExperience.jobPointers"
-            :key="`${workExperience.company} job pointer ${index + 1}`"
+            v-for="(pointer, jobPointerIndex) in workExperience.jobPointers"
+            :key="`${workExperience.company} job pointer ${jobPointerIndex + 1}`"
             :class="{
-              'mb-0': index === workExperience.jobPointers.length - 1,
-              'mb-2': index !== workExperience.jobPointers.length - 1,
+              'mb-0': jobPointerIndex === workExperience.jobPointers.length - 1,
+              'mb-2': jobPointerIndex !== workExperience.jobPointers.length - 1,
             }"
           >
             {{ pointer }}
           </li>
         </ul>
         <UiSkillLabels
-          v-if="workExperience.skills"
           :label="`Technologies used in ${workExperience.company}`"
           :skills="workExperience.skills"
         />

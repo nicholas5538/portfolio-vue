@@ -73,10 +73,10 @@ const { data, status } = await getGithubViewer({
         </h2>
         <p class="dark:text-white-100 transition-colors duration-300 ease-out">
           Currently working at
-          <span
-            ><NuxtLink
+          <span>
+            <NuxtLink
               external
-              to="https://www.bandlab.com"
+              to="https://bandlabtechnologies.com"
               rel="noopener noreferrer"
               target="_blank"
               >BandLab Technologies</NuxtLink

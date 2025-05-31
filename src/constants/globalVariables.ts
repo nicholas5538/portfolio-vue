@@ -61,43 +61,48 @@ export const externalLinks = new Map([
   ],
 ]);
 
-const fpJobPointers = [
-  "Engineered modern applications with a variety of different languages, framework and testing libraries such as React, Typescript, Jest and Cypress.",
-  "Collaborated with other engineers to develop front-end interfaces on company internal tools, allowing other employees to easily modify the configurations in the parcel delivery service.",
-  "Improved API periodic tests by reducing test flakiness and implementing reattempts on timeout errors, resulting in a ~85% reduction in false positive errors.",
-  "Involved in setting up CI/CD pipeline with bash script and GitHub Actions to fully automate testing and deployment stage which increased the team’s productivity by ~50%.",
+const bandlabJobPointers = [
+  "Built and maintained modern full-stack web applications using React, TypeScript, Next.js, GraphQL and Tailwind CSS, ensuring clean architecture and maintainable codebases",
+  "Spearheaded development of a headless CMS that enabled dynamic content delivery, contributing to a ~50% increase in user traffic",
+  "Enhanced frontend performance by migrating from REST to GraphQL, streamlining data retrieval and reducing payload sizes to achieve 35% lower server costs and improved SEO",
+  "Implemented server-side authentication using Supabase, ensuring secure user management and seamless authentication flows across applications",
 ];
-
-const siaecJobPointers = [
-  "Performed composite laminate and aluminium sheet metal repairs.",
-  "Applied aircraft systems knowledge during OJTs on A380 & B787 aircraft.",
-  "Exposed and familiarized to OEM manuals such as AMM and SRM in AirNav.",
+const foodpandaJobPointers = [
+  "Developed and maintained React applications with TypeScript, implementing comprehensive testing strategies using Jest and Cypress",
+  "Improved API periodic tests by reducing test flakiness and implementing reattempts on timeout errors, resulting in a ~85% reduction in false positive errors",
+  "Involved in setting up CI/CD pipeline with bash script and GitHub Actions to automate unit testing which increased the team’s productivity by ~50%",
 ];
 
 export const workExperiences = new Map([
   [
+    "bandlab",
+    {
+      startDate: "Jul 2024",
+      endDate: "Present",
+      title: "Full Stack Web Developer",
+      company: "BandLab Technologies",
+      url: "https://bandlabtechnologies.com",
+      jobPointers: bandlabJobPointers,
+      skills: [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "GraphQL",
+        "Supabase",
+      ],
+    },
+  ],
+  [
     "foodpanda",
     {
-      index: 0,
       startDate: "Oct 2022",
       endDate: "Mar 2023",
       title: "Software Engineer Trainee",
       company: "foodpanda",
       url: "https://www.foodpanda.com",
-      jobPointers: fpJobPointers,
+      jobPointers: foodpandaJobPointers,
       skills: ["JavaScript", "TypeScript", "React", "Jest", "Cypress"],
-    },
-  ],
-  [
-    "siaec",
-    {
-      index: 1,
-      startDate: "Jan 2022",
-      endDate: "Sep 2022",
-      title: "Aircraft Engineer Trainee",
-      company: "SIAEC",
-      url: "https://www.siaec.com.sg",
-      jobPointers: siaecJobPointers,
     },
   ],
 ]);
