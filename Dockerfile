@@ -10,12 +10,12 @@ RUN corepack enable pnpm
 COPY . /app
 WORKDIR /app
 
-FROM base AS dev
+FROM base AS development
 ENV NODE_ENV=development
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm i --frozen-lockfile
 
 EXPOSE 5173
-ENV PORT 5173
+ENV PORT=5173
 
 CMD ["pnpm", "run", "dev"]
 
@@ -25,7 +25,7 @@ COPY --from=dev /app/node_modules ./node_modules
 
 RUN pnpm run build
 
-FROM base AS prod
+FROM base AS production
 EXPOSE 3000
 ENV PORT=3000
 ENV HOST="0.0.0.0"

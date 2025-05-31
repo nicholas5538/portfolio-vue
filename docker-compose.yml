@@ -1,11 +1,11 @@
 services:
-  nuxt-dev:
+  development:
     build:
       args:
         NODE_VERSION: lts-alpine
       dockerfile: Dockerfile
-      target: dev
-    container_name: portfolio-nuxt
+      target: development
+    container_name: nuxt-development
     command: pnpm run dev
     environment:
       NODE_ENV: development
@@ -18,3 +18,16 @@ services:
       - .:/app
       - /app/node_modules
       - /app/.nuxt
+  production:
+    build:
+      args:
+        NODE_VERSION: lts-alpine
+      dockerfile: Dockerfile
+      target: production
+    container_name: nuxt-production
+    environment:
+      NODE_ENV: production
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
