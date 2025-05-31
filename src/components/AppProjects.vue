@@ -111,7 +111,7 @@ const columnPlacement = computed(() => {
               loading="lazy"
               placeholder
               quality="75"
-              :alt="`An image of ${value.projectTitle}`"
+              :alt="value.projectTitle"
               :src="value.imageURL"
               sizes="0 md:50vw xl:552px"
             />

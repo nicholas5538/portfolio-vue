@@ -14,9 +14,7 @@ test("Error page rendering and redirect button", async ({ page, goto }) => {
         exact: true,
       })
     ).toBeVisible(),
-    expect(
-      page.getByAltText("Error page picture", { exact: true })
-    ).toBeVisible(),
+    expect(page.getByAltText("Error 404", { exact: true })).toBeVisible(),
   ]);
 
   const redirectButton = page.getByRole("button", { name: "Send me back!" });

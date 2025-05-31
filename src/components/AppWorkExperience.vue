@@ -16,7 +16,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
 <template>
   <section class="dark-blue-section">
     <div
-      class="dark-blue-container 3xl:mb-88 mb-52 md:mt-20 md:mb-72 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-88 xl:mb-80 2xl:mb-104 dark:mb-12 dark:xl:mb-24"
+      class="dark-blue-container 3xl:mb-68 md:mt-20 md:mb-40 md:items-center md:gap-x-5 md:gap-y-12 md:pt-0 lg:mb-52 xl:mb-56 2xl:mb-72 dark:mb-12 dark:xl:mb-24"
     >
       <div class="md:col-span-2 md:row-start-1 md:row-end-1 md:mt-5 md:mb-0">
         <h2
@@ -110,7 +110,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
     </div>
     <div
       v-if="!darkMode"
-      class="dark-blue-gradient -left-24 xl:h-13/10 2xl:-left-40 2xl:h-7/5"
+      class="dark-blue-gradient -left-24 h-11/10 xl:h-6/5"
     />
   </section>
 </template>
