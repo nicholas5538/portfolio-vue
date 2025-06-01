@@ -35,7 +35,7 @@ const { data, status } = await getGithubViewer({
           preload
           quality="75"
           sizes="294px md:455px"
-          src="~/assets/images/profile-picture.webp"
+          src="/images/profile-picture.webp"
         />
       </div>
     </div>

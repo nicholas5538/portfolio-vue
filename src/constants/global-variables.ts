@@ -107,7 +107,7 @@ export const workExperiences = new Map([
 
 const voucherManagementProject = {
   id: 0,
-  imageURL: "~/assets/images/voucher-management.webp",
+  imageURL: "/images/voucher-management.webp",
   links: [
     {
       icon: iconAlias.get("github"),
@@ -137,7 +137,7 @@ const voucherManagementProject = {
 
 const stocksProject = {
   id: 1,
-  imageURL: "~/assets/images/stocks-portfolio.webp",
+  imageURL: "/images/stocks-portfolio.webp",
   links: [
     {
       icon: iconAlias.get("github"),
@@ -158,7 +158,7 @@ const stocksProject = {
 
 const ioTProject = {
   id: 2,
-  imageURL: "~/assets/images/hand-sanitizer.webp",
+  imageURL: "/images/hand-sanitizer.webp",
   links: [
     {
       icon: iconAlias.get("github"),
