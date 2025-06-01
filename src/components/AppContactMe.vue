@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import type { TElement } from "~/constants/typeInference";
+import type { TElement } from "~/constants/type-inference";
 import UiButton from "~/components/ui/UiButton.server.vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 
 const listRefs = useState<TElement[]>("listRefs");
-const darkMode = useState<boolean>("darkMode");
 
 const buttonProps = {
   ariaLabel: "Click here to send an email to me",
@@ -17,12 +16,12 @@ const buttonProps = {
 
 <template>
   <section class="dark-blue-section">
-    <div
-      class="ipad-mini:mb-28 3xl:mb-72 relative mx-auto mb-20 flex size-full max-w-[28.125rem] flex-col items-center justify-center gap-y-4 p-0 px-4 text-center md:mb-32 lg:mb-48 lg:gap-y-8 xl:mb-56 xl:max-w-[37.5rem] dark:mb-12 dark:2xl:mb-24"
+    <hgroup
+      class="relative mx-auto flex size-full max-w-200 flex-col items-center justify-center gap-y-5 px-4 py-6 text-center lg:py-12"
     >
       <h2
         :ref="(el) => listRefs.push(el)"
-        class="sectionHeading text-xl font-bold md:text-3xl xl:text-4xl"
+        class="section-heading text-xl font-bold md:text-3xl xl:text-4xl"
       >
         <UiIconifyIcon
           icon="fluent-emoji:man-tipping-hand"
@@ -31,23 +30,18 @@ const buttonProps = {
         />
         <span class="span-heading">What's next?</span>
       </h2>
-      <h2
+      <h3
         class="text-white-400 dark:text-white-300 text-lg font-bold transition-colors duration-300 ease-out md:text-3xl xl:text-4xl"
       >
         Get in touch
-      </h2>
-      <h3
+      </h3>
+      <p
         class="text-white-400 dark:text-white-100 text-base font-normal transition-colors duration-300 ease-out md:text-lg xl:text-xl"
       >
         I'm always on the lookout for new opportunities. Whether you have a
         question or just want to say hi, I'll try my best to get back to you!
-      </h3>
+      </p>
       <UiButton v-bind="buttonProps" />
-    </div>
-    <div
-      v-if="!darkMode"
-      data-testid="contact-me-dark-blue-gradient"
-      class="dark-blue-gradient ipad-mini:h-8/5 3xl:h-[200%] h-29/20 lg:h-17/10 xl:h-9/5"
-    />
+    </hgroup>
   </section>
 </template>

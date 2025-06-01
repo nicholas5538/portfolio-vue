@@ -1,4 +1,4 @@
-import type { TElement } from "~/constants/typeInference";
+import type { TElement } from "~/constants/type-inference";
 
 function useScrollElementIntoView(element: TElement): void {
   if (!element) return;

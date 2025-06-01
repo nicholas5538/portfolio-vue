@@ -36,13 +36,13 @@ const handleError = () => clearError();
       </div>
       <div class="p-6 px-0 pt-0">
         <NuxtPicture
-          alt="Error page picture"
+          alt="Error 404"
           format="webp"
           fill="fill"
           loading="lazy"
           placeholder
           quality="75"
-          src="/images/error.webp"
+          src="~/assets/image/error.webp"
         />
       </div>
       <div class="flex items-center p-6 pt-0">

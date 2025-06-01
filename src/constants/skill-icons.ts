@@ -15,6 +15,7 @@ const goodCodingIcons: TIcons = new Map([
   ["GraphQL", { icon: "simple-icons:graphql" }],
   ["Express.js", { icon: "simple-icons:express" }],
   ["Prisma ORM", { icon: "simple-icons:prisma" }],
+  ["Supabase", { icon: "simple-icons:supabase" }],
 ]);
 
 const goodDesignIcons: TIcons = new Map([

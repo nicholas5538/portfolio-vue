@@ -11,7 +11,7 @@ test("App project section heading, and tooltip", async ({
   const externalLink = page
     .getByLabel("Click to see more on my Website", { exact: true })
     .first();
-  const projectImage = page.getByAltText("An image of Voucher Management");
+  const projectImage = page.getByAltText("Voucher Management");
 
   if (isMobile) {
     await page.getByRole("button", { expanded: false }).tap();

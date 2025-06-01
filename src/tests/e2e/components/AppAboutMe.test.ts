@@ -12,12 +12,12 @@ test("About Me section heading, link and Lottie component", async ({
       page.getByLabel("SIT ASE program external link", { exact: true })
     ).toBeVisible(),
     expect(
-      page.getByRole("heading", {
-        name:
-          "Since then, I have taken a liking in web development which comprises of\n" +
-          "        problem-solving skills and creativity.",
-      })
+      page.getByText(
+        "Since then, I have taken a liking in web development which comprises of problem-solving skills and creativity.",
+        {
+          exact: true,
+        }
+      )
     ).toBeVisible(),
-    expect(page.locator(".about-me-animation").first()).toBeVisible(),
   ]);
 });

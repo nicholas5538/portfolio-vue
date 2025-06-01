@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import "iconify-icon";
-import type { TIcon } from "~/constants/typeInference";
+import type { TIcon } from "~/constants/type-inference";
 
 const { icon, width = 24, height = 24 } = defineProps<TIcon>();
 </script>
