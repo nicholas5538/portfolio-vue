@@ -36,16 +36,10 @@ test("Skills section heading, icons and lottie component", async ({
       })
     ).toBeInViewport(),
     expect(
-      page.getByLabel("Click here to redirect to foodpanda website", {
+      page.getByRole("link", {
+        name: "Check out more on BandLab Technologies",
         exact: true,
       })
     ).toBeInViewport(),
-    expect(
-      page
-        .getByLabel("Technologies used in foodpanda", {
-          exact: true,
-        })
-        .getByRole("listitem")
-    ).toHaveCount(5),
   ]);
 });

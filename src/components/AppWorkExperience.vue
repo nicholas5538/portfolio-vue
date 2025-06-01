@@ -57,7 +57,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
             >
               @
               <NuxtLink
-                :aria-label="`Click here to redirect to ${workExperience.company} website`"
+                :aria-label="`Check out more on ${workExperience.company}`"
                 :to="workExperience.url"
                 class="text-blue dark:text-orange"
                 external
@@ -83,10 +83,7 @@ const { workExperienceLink: animationLink = "", status } = defineProps<{
               {{ pointer }}
             </li>
           </ul>
-          <UiSkillLabels
-            :label="`Technologies used in ${workExperience.company}`"
-            :skills="workExperience.skills"
-          />
+          <UiSkillLabels :skills="workExperience.skills" />
         </div>
       </section>
       <ClientOnly>

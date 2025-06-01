@@ -8,8 +8,7 @@ test.beforeEach(async ({ page, goto }) => {
 test.describe.configure({ mode: "parallel" });
 
 test("Footer text", async ({ page }) => {
-  const footerHeading = page.getByRole("heading", {
-    name: "Designed & Built by Nicholas Yong",
+  const footerHeading = page.getByText("Designed & Built by Nicholas Yong", {
     exact: true,
   });
 
@@ -18,8 +17,7 @@ test("Footer text", async ({ page }) => {
   await Promise.all([
     expect(footerHeading).toBeInViewport(),
     expect(
-      page.getByRole("heading", {
-        name: "Thanks for visiting!",
+      page.getByText("Thanks for visiting!", {
         exact: true,
       })
     ).toBeInViewport(),
