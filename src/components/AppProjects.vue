@@ -17,8 +17,8 @@ const listRefs = useState<TElement[]>("listRefs");
 const columnPlacement = computed(() => {
   return (index: number) => [
     checkIndex(index)
-      ? "md:col-start-1 md:col-end-7"
-      : "md:col-start-6 md:col-end-13",
+      ? "lg:col-start-1 lg:col-end-7"
+      : "lg:col-start-6 lg:col-end-13",
   ];
 });
 </script>
@@ -48,24 +48,24 @@ const columnPlacement = computed(() => {
         class="relative z-10"
       >
         <div
-          class="shadow-project dark:shadow-project-dark grid grid-rows-1 rounded-lg p-4 transition-transform duration-300 ease-out hover:-translate-y-2 md:grid-cols-12 md:items-center md:justify-items-center md:rounded-none md:p-0 md:shadow-none md:transition-none md:hover:translate-y-0 lg:gap-y-2 dark:md:shadow-none"
+          class="shadow-project dark:shadow-project-dark grid grid-rows-1 rounded-lg p-4 transition-transform duration-300 ease-out hover:-translate-y-2 lg:grid-cols-12 lg:items-center lg:justify-items-center lg:gap-y-2 lg:rounded-none lg:p-0 lg:shadow-none lg:transition-none lg:hover:translate-y-0 dark:lg:shadow-none"
         >
           <div
             :class="[
               columnPlacement(value.id),
-              'flex flex-col justify-center space-y-4 md:items-center',
+              'flex flex-col justify-center space-y-4 lg:items-center',
             ]"
           >
             <h4
               :class="[
-                'white-sub-heading dark:text-dark-orange font-bold tracking-wide select-none md:mb-0',
+                'white-sub-heading dark:text-dark-orange font-bold tracking-wide select-none',
               ]"
             >
               {{ value.projectTitle }}
             </h4>
             <div
               :class="[
-                'md:bg-white-400 md:shadow-project dark:md:bg-black-500 transition-colors duration-300 ease-out md:p-4 dark:bg-none dark:md:shadow-xl',
+                'lg:bg-white-400 lg:shadow-project dark:lg:bg-black-500 transition-colors duration-300 ease-out lg:p-4 dark:bg-none dark:lg:shadow-xl',
               ]"
             >
               <p :class="['dark:text-white-100 text-sm xl:text-xl']">
@@ -79,11 +79,11 @@ const columnPlacement = computed(() => {
             </div>
             <div class="space-y-2">
               <p
-                class="text-black-200 dark:text-white-500 font-semibold transition-colors duration-300 ease-out select-none md:text-center md:text-lg lg:text-xl xl:text-2xl"
+                class="text-black-200 dark:text-white-500 font-semibold transition-colors duration-300 ease-out select-none md:text-lg lg:text-center lg:text-xl xl:text-2xl"
               >
                 Links
               </p>
-              <div class="flex flex-wrap space-x-4 md:justify-center">
+              <div class="flex flex-wrap space-x-4 lg:justify-center">
                 <TooltipProvider :delay-duration="300">
                   <UiTooltip
                     v-for="{ icon, text, url } in value.links"
@@ -102,8 +102,8 @@ const columnPlacement = computed(() => {
           </div>
           <div
             :class="[
-              { 'md:left-9/20': checkIndex(value.id) },
-              'md:border-black-200 absolute top-0 left-0 -z-10 hidden aspect-276/175 h-auto w-fit max-w-11/20 overflow-y-clip md:top-1/10 md:block md:rounded-md md:border-2 md:opacity-100 lg:top-0 xl:top-0 dark:md:opacity-30',
+              { 'lg:left-9/20': checkIndex(value.id) },
+              'lg:border-black-200 absolute top-0 left-0 -z-10 hidden aspect-video h-full w-auto max-w-138 overflow-y-clip lg:block lg:rounded-md lg:border lg:opacity-100 dark:lg:opacity-30',
             ]"
           >
             <NuxtImg
