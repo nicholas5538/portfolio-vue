@@ -24,21 +24,23 @@ const columnPlacement = computed(() => {
 </script>
 
 <template>
-  <section class="mx-auto mb-20 w-full max-w-7xl px-4 sm:mb-36 2xl:mb-44">
-    <h2
-      :ref="(el) => listRefs.push(el)"
-      class="sectionHeading white-bg-heading mb-5 text-lg md:text-3xl xl:text-4xl"
-    >
-      <UiIconifyIcon
-        icon="fluent-emoji:backhand-index-pointing-down"
-        :width="36"
-        :height="36"
-      />
-      <span class="span-heading from-black-400 to-black-400">Projects</span>
-    </h2>
-    <h3 class="white-sub-heading text-lg font-bold md:text-3xl xl:text-4xl">
-      Coding projects that I enjoyed working on
-    </h3>
+  <section class="mx-auto w-full max-w-7xl space-y-5 px-4 py-6 lg:py-12">
+    <hgroup>
+      <h2
+        :ref="(el) => listRefs.push(el)"
+        class="section-heading white-bg-heading mb-5 text-lg md:text-3xl xl:text-4xl"
+      >
+        <UiIconifyIcon
+          icon="fluent-emoji:backhand-index-pointing-down"
+          :width="36"
+          :height="36"
+        />
+        <span class="span-heading from-black-400 to-black-400">Projects</span>
+      </h2>
+      <h3 class="white-sub-heading text-lg font-bold md:text-3xl xl:text-4xl">
+        Coding projects that I enjoyed working on
+      </h3>
+    </hgroup>
     <article class="space-y-5 lg:space-y-20">
       <article
         v-for="[key, value] in projects"
@@ -46,7 +48,7 @@ const columnPlacement = computed(() => {
         class="relative z-10"
       >
         <div
-          class="shadow-project dark:shadow-project-dark grid grid-rows-1 rounded-lg px-4 py-4 transition-transform duration-300 ease-out hover:-translate-y-2 md:grid-cols-12 md:items-center md:justify-items-center md:rounded-none md:px-0 md:shadow-none md:transition-none md:hover:translate-y-0 lg:gap-y-2 dark:md:shadow-none"
+          class="shadow-project dark:shadow-project-dark grid grid-rows-1 rounded-lg p-4 transition-transform duration-300 ease-out hover:-translate-y-2 md:grid-cols-12 md:items-center md:justify-items-center md:rounded-none md:p-0 md:shadow-none md:transition-none md:hover:translate-y-0 lg:gap-y-2 dark:md:shadow-none"
         >
           <div
             :class="[
@@ -54,16 +56,16 @@ const columnPlacement = computed(() => {
               'flex flex-col justify-center space-y-4 md:items-center',
             ]"
           >
-            <h3
+            <h4
               :class="[
                 'white-sub-heading dark:text-dark-orange font-bold tracking-wide select-none md:mb-0',
               ]"
             >
               {{ value.projectTitle }}
-            </h3>
+            </h4>
             <div
               :class="[
-                'md:bg-white-400 md:shadow-project dark:md:bg-black-500 mb-2 transition-colors duration-300 ease-out md:p-4 dark:bg-none dark:md:shadow-xl',
+                'md:bg-white-400 md:shadow-project dark:md:bg-black-500 transition-colors duration-300 ease-out md:p-4 dark:bg-none dark:md:shadow-xl',
               ]"
             >
               <p :class="['dark:text-white-100 text-sm xl:text-xl']">
@@ -72,15 +74,15 @@ const columnPlacement = computed(() => {
               <UiSkillLabels
                 :label="`Technologies used in ${value.projectTitle}`"
                 :skills="value.techStack"
-                class="gap-x-4 gap-y-2"
+                class="mt-2 gap-x-4 gap-y-2"
               />
             </div>
-            <div>
-              <h4
-                class="text-black-200 dark:text-white-500 mb-2 font-semibold transition-colors duration-300 ease-out select-none md:text-center md:text-lg lg:text-xl xl:text-2xl"
+            <div class="space-y-2">
+              <p
+                class="text-black-200 dark:text-white-500 font-semibold transition-colors duration-300 ease-out select-none md:text-center md:text-lg lg:text-xl xl:text-2xl"
               >
                 Links
-              </h4>
+              </p>
               <div class="flex flex-wrap space-x-4 md:justify-center">
                 <TooltipProvider :delay-duration="300">
                   <UiTooltip

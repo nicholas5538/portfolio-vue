@@ -20,7 +20,7 @@ const { data, status } = await getGithubViewer({
 <template>
   <div
     v-once
-    class="mx-auto mb-28 grid w-full max-w-7xl grid-cols-1 px-4 pt-32 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-between md:gap-x-8 md:pt-60 lg:mb-60 xl:grid-cols-4 dark:mb-12 dark:2xl:mb-24"
+    class="mx-auto grid w-full max-w-7xl grid-cols-1 px-4 pt-32 pb-6 md:grid-cols-3 md:grid-rows-3 md:items-center md:justify-between md:gap-x-8 md:pt-60 lg:pb-12 xl:grid-cols-4"
   >
     <div
       class="group shadow-dropdown z-10 mx-auto mb-8 aspect-2/3 max-h-110 min-h-110 overflow-hidden rounded-3xl md:order-last md:col-span-1 md:row-start-1 md:row-end-4 md:m-0 md:aspect-auto md:max-h-full md:min-h-84 md:w-fit md:justify-self-end lg:min-h-112 xl:col-span-2 xl:min-h-[42.65625rem] dark:shadow-none"
@@ -67,7 +67,7 @@ const { data, status } = await getGithubViewer({
     <section
       class="space-y-4 md:col-span-2 md:row-start-3 md:row-end-4 md:space-y-8 xl:gap-y-10"
     >
-      <hgroup class="space-y-2">
+      <div class="space-y-2">
         <h2 class="md:text-2xl xl:text-3xl">
           Always looking out for opportunities.
         </h2>
@@ -83,8 +83,8 @@ const { data, status } = await getGithubViewer({
             ></span
           >.
         </p>
-      </hgroup>
-      <div class="flex items-center justify-start space-x-6">
+      </div>
+      <div class="flex w-fit items-center gap-x-4">
         <template v-for="[key, value] in externalLinks" :key="key">
           <UiHoverCard
             v-if="key === 'GitHub' && data?.data.viewer && status === 'success'"

@@ -91,7 +91,7 @@ const lastIndex = listElements.length - 1;
       <li
         v-for="(list, index) in listElements"
         :key="`${list}-navbar`"
-        class="navbar-text hover:decoration-black-200 dark:hover:decoration-white-400 cursor-pointer transition-all duration-300 ease-out hover:underline hover:decoration-2 hover:underline-offset-8"
+        class="font-mont text-black-200 dark:text-white-400 hover:decoration-black-200 dark:hover:decoration-white-400 cursor-pointer text-base font-bold tracking-widest transition-all duration-300 ease-out hover:underline hover:decoration-2 hover:underline-offset-8 xl:text-xl"
         @click="scrollEmit(index, lastIndex)"
       >
         <UiButton
