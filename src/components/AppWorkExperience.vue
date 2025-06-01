@@ -2,8 +2,8 @@
 import type { AsyncDataRequestStatus } from "#app";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import UiSkillLabels from "~/components/ui/UiSkillLabels.server.vue";
-import { workExperiences } from "~/constants/globalVariables";
-import type { TElement } from "~/constants/typeInference";
+import { workExperiences } from "~/constants/global-variables";
+import type { TElement } from "~/constants/type-inference";
 
 const listRefs = useState<TElement[]>("listRefs");
 const { workExperienceLink: animationLink = "", status } = defineProps<{

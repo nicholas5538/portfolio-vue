@@ -5,8 +5,8 @@ import UiIconButton from "~/components/ui/UiIconButton.server.vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import UiSkillLabels from "~/components/ui/UiSkillLabels.server.vue";
 import UiTooltip from "~/components/ui/UiTooltip.vue";
-import { projects } from "~/constants/globalVariables";
-import type { TElement } from "~/constants/typeInference";
+import { projects } from "~/constants/global-variables";
+import type { TElement } from "~/constants/type-inference";
 
 function checkIndex(index: number) {
   return index % 2 === 0;

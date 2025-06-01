@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TElement } from "~/constants/typeInference";
+import type { TElement } from "~/constants/type-inference";
 import UiButton from "~/components/ui/UiButton.server.vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 

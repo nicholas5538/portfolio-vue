@@ -2,7 +2,7 @@
 import { SwitchRoot, SwitchThumb } from "radix-vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import useToggleTheme from "~/composables/toggleTheme";
-import { iconAlias } from "~/constants/globalVariables";
+import { iconAlias } from "~/constants/global-variables";
 
 const darkMode = useState<boolean>("darkMode");
 const { toggleTheme } = useToggleTheme();

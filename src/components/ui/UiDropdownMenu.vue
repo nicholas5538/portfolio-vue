@@ -8,7 +8,7 @@ import {
 } from "radix-vue";
 import UiButton from "~/components/ui/UiButton.server.vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
-import { resumeButtonProps } from "~/constants/globalVariables";
+import { resumeButtonProps } from "~/constants/global-variables";
 
 const emit = defineEmits<{
   (e: "executeScroll", index: number): void;

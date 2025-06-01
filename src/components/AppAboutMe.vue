@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { AsyncDataRequestStatus } from "#app";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
-import type { TElement } from "~/constants/typeInference";
+import type { TElement } from "~/constants/type-inference";
 
 const listRefs = useState<TElement[]>("listRefs", () => shallowRef([]));
 

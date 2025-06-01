@@ -1,9 +1,7 @@
-import type { IconNames } from "~/constants/typeInference";
+import type { IconNames } from "~/constants/type-inference";
 
 const resumeLink =
   "https://drive.google.com/file/d/1qAhqlPGqBdURD958C8yNdTVteQZKCQBJ/view?usp=sharing";
-
-// TODO: make a map to store icons
 
 export const iconAlias = new Map<IconNames, string>([
   ["externalLink", "mdi:external-link"],
@@ -179,25 +177,8 @@ const ioTProject = {
   techStack: ["Python", "Jupyter Notebook", "Arduino"],
 };
 
-const pepsiProject = {
-  id: 3,
-  imageURL: "~/assets/images/pepsi-corporate.webp",
-  links: [
-    {
-      icon: iconAlias.get("github"),
-      text: "GitHub",
-      url: "https://github.com/nicholas5538/fp-mini-project",
-    },
-  ],
-  projectTitle: "Pepsi corporate SPA",
-  projectDescription:
-    "Creating a new React-based single-page application from the beginning, in order to gain familiarity with various tools, including Typescript, React Router, framer motion, and the vitest unit testing framework.",
-  techStack: ["TypeScript", "React", "Framer Motion"],
-};
-
 export const projects = new Map([
   ["Voucher Management", voucherManagementProject],
   ["StocksTracker", stocksProject],
   ["IoT Hand Sanitizer", ioTProject],
-  ["Pepsi SPA", pepsiProject],
 ]);

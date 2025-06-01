@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { TooltipProvider } from "radix-vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
-import { externalLinks, iconAlias } from "~/constants/globalVariables";
+import { externalLinks, iconAlias } from "~/constants/global-variables";
 import { getGithubViewer } from "~/data/data";
 
 const gitHubIcon = iconAlias.get("github")!;

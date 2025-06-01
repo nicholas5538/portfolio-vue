@@ -4,7 +4,7 @@ import type { AsyncDataRequestStatus } from "#app";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import UiTooltip from "~/components/ui/UiTooltip.vue";
 import skillsIcons from "~/constants/skill-icons";
-import type { TElement } from "~/constants/typeInference";
+import type { TElement } from "~/constants/type-inference";
 
 const listRefs = useState<TElement[]>("listRefs");
 const { skillsLink: animationLink = "", status } = defineProps<{

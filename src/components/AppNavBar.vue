@@ -2,7 +2,7 @@
 import UiDropdownMenu from "~/components/ui/UiDropdownMenu.vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import UiThemeSwitch from "~/components/ui/UiThemeSwitch.vue";
-import type { TElement } from "~/constants/typeInference";
+import type { TElement } from "~/constants/type-inference";
 import useScrollElementIntoView from "~/composables/scrollElementIntoView";
 
 const listRefs = useState<TElement[]>("listRefs");

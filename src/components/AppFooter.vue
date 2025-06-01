@@ -2,7 +2,7 @@
 import { TooltipProvider } from "radix-vue";
 import UiIconButton from "~/components/ui/UiIconButton.server.vue";
 import UiTooltip from "~/components/ui/UiTooltip.vue";
-import { externalLinks } from "~/constants/globalVariables";
+import { externalLinks } from "~/constants/global-variables";
 
 const footerLinks = new Map(externalLinks);
 footerLinks.delete("Resume");
