@@ -14,7 +14,7 @@ const { aboutMeLink: animationLink = "", status } = defineProps<{
 <template>
   <section class="dark-blue-section">
     <div class="dark-blue-container lg:flex lg:items-center lg:gap-x-30">
-      <hgroup class="max-w-200 space-y-5">
+      <hgroup class="space-y-5">
         <h2
           :ref="(el) => listRefs.push(el)"
           class="section-heading text-xl font-bold md:text-3xl xl:text-4xl"
@@ -64,16 +64,14 @@ const { aboutMeLink: animationLink = "", status } = defineProps<{
         </p>
       </hgroup>
       <ClientOnly>
-        <aside
-          class="absolute top-3 right-0 size-24 lg:static lg:h-auto lg:w-full"
-        >
+        <aside class="absolute top-3 right-0 lg:static">
           <div
             v-if="status === 'pending'"
             class="animate-pulse rounded-2xl p-4"
           />
           <Lottie
             v-else
-            class="h-full w-auto"
+            class="size-24 lg:size-56 xl:size-72"
             autoplay
             loop
             :src="animationLink"
