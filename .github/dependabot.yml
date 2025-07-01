@@ -15,7 +15,5 @@ updates:
       day: monday
       time: "10:00"
       timezone: Asia/Singapore
-    reviewers:
-      - "nicholas5538"
     pull-request-branch-name:
       separator: "-"
