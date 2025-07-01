@@ -57,7 +57,7 @@
     "@tailwindcss/vite": "4.1.11",
     "@vitest/coverage-v8": "3.2.4",
     "@vue/test-utils": "2.4.6",
-    "eslint": "9.29.0",
+    "eslint": "9.30.0",
     "eslint-config-prettier": "10.1.5",
     "execa": "9.6.0",
     "get-tsconfig": "4.10.1",
