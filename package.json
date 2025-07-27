@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "analyze": "nuxi analyze",
+    "analyze": "nuxt analyze",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "format": "prettier . --check",
@@ -29,7 +29,8 @@
     "test-e2e:debug": "playwright test --debug",
     "test-e2e:desktop": "playwright test --grep @desktop",
     "test-e2e:mobile": "playwright test --grep @mobile",
-    "test-e2e:ui": "playwright test --ui"
+    "test-e2e:ui": "playwright test --ui",
+    "typecheck": "nuxt prepare && vue-tsc -b --noEmit"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.850.0",
