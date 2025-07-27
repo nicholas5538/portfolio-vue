@@ -2,11 +2,17 @@
 import tailwindcss from "@tailwindcss/vite";
 import browserslist from "browserslist";
 import { browserslistToTargets } from "lightningcss";
+import { defineNuxtConfig } from "nuxt/config";
 
 const largeModules = ["radix-vue", "@lottiefiles/dotlottie-vue"];
 
 export default defineNuxtConfig({
-  modules: ["@nuxt/image", "@nuxt/test-utils/module", "@nuxtjs/google-fonts"],
+  modules: [
+    "@nuxt/image",
+    "@nuxt/test-utils/module",
+    "@nuxtjs/google-fonts",
+    "@nuxt/eslint",
+  ],
   plugins: ["~/plugins/Lottie.client"],
   devtools: {
     componentInspector: false,
@@ -71,7 +77,6 @@ export default defineNuxtConfig({
       githubBaseUrl: "https://api.github.com/graphql",
     },
   },
-  srcDir: "src/",
   build: {
     analyze: {
       brotliSize: true,
@@ -142,9 +147,17 @@ export default defineNuxtConfig({
       },
       ssrManifest: true,
     },
-    plugins: [tailwindcss() as Plugin[]],
+    plugins: [tailwindcss()],
   },
-  typescript: { typeCheck: true },
+  typescript: {
+    typeCheck: true,
+    tsConfig: { compilerOptions: { strict: true } },
+    nodeTsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
+    },
+  },
   telemetry: false,
   googleFonts: {
     display: "swap",
