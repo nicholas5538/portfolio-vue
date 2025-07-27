@@ -12,7 +12,7 @@ import {
 import type { ResultOf } from "gql.tada";
 import UiIconButton from "~/components/ui/UiIconButton.server.vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
-import type { GithubViewerQuery } from "~/data/query";
+import type { GithubViewerQuery } from "~/graphql/query";
 
 const props = defineProps<{
   application: string;

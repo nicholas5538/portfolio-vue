@@ -2,7 +2,7 @@
 import { TooltipProvider } from "radix-vue";
 import UiIconifyIcon from "~/components/ui/UiIconifyIcon.vue";
 import { externalLinks, iconAlias } from "~/constants/global-variables";
-import { getGithubViewer } from "~/data/data";
+import { getGithubViewer } from "~~/app/graphql/data";
 
 const gitHubIcon = iconAlias.get("github")!;
 const profileIcon = iconAlias.get("profile")!;
@@ -11,7 +11,8 @@ const locationIcon = iconAlias.get("location")!;
 
 const { data, status } = await getGithubViewer({
   deep: false,
-  getCachedData(key, nuxtApp) {
+  getCachedData(key, nuxtApp, ctx) {
+    if (ctx.cause === "refresh:manual") return undefined;
     return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
   },
 });

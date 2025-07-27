@@ -10,7 +10,7 @@ import {
 const CONFIG = {
   accessToken: process.env.NUXT_GITHUB_SECRET,
   graphqlUrl: "https://api.github.com/graphql",
-  schemaFile: "./src/data/types/github-schema.graphql",
+  schemaFile: "./app/graphql/types/github-schema.graphql",
 };
 
 if (!CONFIG.accessToken) {

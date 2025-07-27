@@ -1,9 +1,10 @@
-// @vitest-environment nuxt
 import { defineVitestConfig } from "@nuxt/test-utils/config";
 
 export default defineVitestConfig({
   test: {
+    environment: "nuxt",
     coverage: {
+      provider: "istanbul",
       reporter: ["text", "json", "json-summary", "html"],
       reportOnFailure: true,
       reportsDirectory: "coverage",
@@ -21,10 +22,10 @@ export default defineVitestConfig({
       "**/cypress/**",
       "**/.{idea,git,cache,output,temp}/**",
       "**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*",
-      "./src/tests/e2e/**",
-      "./src/constants/**",
+      "./app/tests/e2e/**",
+      "./app/constants/**",
     ],
-    include: ["./src/tests/ut/**/*.{test,spec}.ts"],
+    include: ["./app/tests/ut/**/*.{test,spec}.ts"],
     server: {
       deps: {
         inline: ["vitest-canvas-mock"],

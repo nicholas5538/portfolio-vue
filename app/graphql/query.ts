@@ -1,4 +1,4 @@
-import { graphql } from "~/data/graphql";
+import { graphql } from "~/graphql/graphql";
 
 export const GithubViewerQuery = graphql(`
   query GithubViewer {
