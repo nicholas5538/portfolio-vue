@@ -35,7 +35,7 @@ playwright-report
 test-results
 
 # Vitest
-src/coverage
+app/coverage
 
 # Environment variables
 .env*

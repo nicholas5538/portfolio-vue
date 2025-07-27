@@ -4,7 +4,7 @@ export default defineVitestConfig({
   test: {
     environment: "nuxt",
     coverage: {
-      provider: "istanbul",
+      provider: "v8",
       reporter: ["text", "json", "json-summary", "html"],
       reportOnFailure: true,
       reportsDirectory: "coverage",
