@@ -25,9 +25,6 @@ logs
 !.env.example
 !.env.vault
 
-# Vitest
-./coverage
-
 # Playwright
 /packages/playwright-core/src/generated
 /packages/playwright-ct-core/src/generated
@@ -38,7 +35,7 @@ playwright-report
 test-results
 
 # Vitest
-src/coverage
+app/coverage
 
 # Environment variables
 .env*
@@ -47,4 +44,4 @@ src/coverage
 !.env.vault
 
 # GraphQL
-/src/data/types/github-schema.graphql
+/app/graphql/types/github-schema.graphql

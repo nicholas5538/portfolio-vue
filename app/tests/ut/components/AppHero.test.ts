@@ -1,10 +1,9 @@
-// @vitest-environment nuxt
 import { afterEach, test, expect, vi } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 import AppHero from "~/components/AppHero.vue";
-import * as dataFunctions from "~/data/data";
+import * as dataFunctions from "~/graphql/data";
 
-vi.mock("~/data/data", () => ({
+vi.mock("~/graphql/data", () => ({
   getGithubViewer: vi.fn().mockResolvedValue({
     clear: vi.fn(),
     data: {

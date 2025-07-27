@@ -30,7 +30,8 @@ const { data: animationLinks, status } = await useLazyAsyncData<DataT>(
   },
   {
     deep: false,
-    getCachedData(key, nuxtApp) {
+    getCachedData(key, nuxtApp, ctx) {
+      if (ctx.cause === "refresh:manual") return undefined;
       return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
     },
   }

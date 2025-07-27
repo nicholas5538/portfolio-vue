@@ -40,7 +40,7 @@ jobs:
           pnpm exec gql-tada generate-schema \
             "https://api.github.com/graphql" \
             --header "Authorization: Bearer $TOKEN" \
-            -o ./src/data/types/github-schema.graphql
+            -o ./app/graphql/types/github-schema.graphql
 
       - name: gql-tada Checks
         run: |

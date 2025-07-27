@@ -9,7 +9,7 @@ export default createConfigForNuxt({
     rules: {
       "vue/multi-word-component-names": "warn",
     },
-    ignores: ["src/data/types/", ".husky/install.ts"],
+    ignores: ["app/graphql/types/", ".husky/install.ts"],
   })
   .prepend(
     {

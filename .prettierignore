@@ -9,4 +9,4 @@ src/assets/animations/*
 amplify.yml
 
 # Ignore GraphQL files
-src/data/types/*
+app/graphql/types/*
