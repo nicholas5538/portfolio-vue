@@ -1,6 +1,6 @@
 import type { ResultOf } from "gql.tada";
-import { useExecute } from "~~/app/composables/execute";
-import { GithubViewerQuery } from "~~/app/graphql/query";
+import { useExecute } from "~/composables/execute";
+import { GithubViewerQuery } from "~/graphql/query";
 import type { AsyncDataOptions } from "#app";
 
 export async function getGithubViewer(
