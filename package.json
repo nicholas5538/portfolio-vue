@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.858.0",
-    "@aws-sdk/s3-request-presigner": "3.850.0",
+    "@aws-sdk/s3-request-presigner": "3.858.0",
     "@lottiefiles/dotlottie-vue": "0.8.1",
     "@nuxt/eslint": "1.7.1",
     "@nuxt/image": "1.11.0",
