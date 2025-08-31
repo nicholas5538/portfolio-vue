@@ -20,10 +20,7 @@ logs
 .idea
 
 # Local env files
-.env
-.env.*
-!.env.example
-!.env.vault
+
 
 # Playwright
 /packages/playwright-core/src/generated
@@ -38,10 +35,11 @@ test-results
 app/coverage
 
 # Environment variables
-.env*
 .flaskenv*
+.env
+.env.*
+!.env.example
 !.env.project
-!.env.vault
 
 # GraphQL
 /app/graphql/types/github-schema.graphql

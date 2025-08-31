@@ -29,12 +29,10 @@ It's a great opportunity to showcase my frontend skills, and to explore new fram
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 2. OR with package manager **[pnpm](https://pnpm.io/installation)**
-
    - Install LTS node version.
 
    > 💁 **Tip:** You can use [nvm](https://github.com/nvm-sh/nvm "nvm repo") to easily manage multiple versions of node.
    > Once installed, run `nvm use` in the project directory.
-
    - Install [pnpm](https://pnpm.io/installation)
 
    > 💁 `corepack enable pnpm` (Installed Node.js without Homebrew)
@@ -52,15 +50,7 @@ cd fp-voucher-BE
 
 #### Obtaining environment variables
 
-- Using [dotenv-vault](https://github.com/dotenv-org/dotenv-vault#pull "dotenv-vault GitHub repository"), please
-  request `vault_id` from [@nicholas5538](https://github.com/nicholas5538) (recommended)
-
-```zsh
-npx dotenv-vault@latest new <vault_id>
-npx dotenv-vault@latest pull development .env
-```
-
-- OR Create a `.env` file to store environment variables, please request secret keys
+- Create a `.env.local` and/or `.env.production` file to store environment variables, please request secret keys
   from [@nicholas5538](https://github.com/nicholas5538 "nicholas5538 GitHub profile").
 
 ```sh
