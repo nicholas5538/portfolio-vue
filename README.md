@@ -90,7 +90,7 @@ docker compose up development -d --build
 
 # Or build your own image
 docker build --build-arg="NODE_VERSION=lts-alpine" --compress -t <image name> --target development .
-docker run -d --env-file .env -p 5173:5173 -v .:/app -v /app/node_modules --name <container name> <image name>
+docker run -d --env-file .env -p 5173:5173 type=bind,source=$(pwd),target=/app --mount type=volume,source=/app/node_modules,target=/app/node_modules --name <container name> <image name>
 ```
 
 - With **_pnpm_**
