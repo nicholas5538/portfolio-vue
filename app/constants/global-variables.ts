@@ -1,7 +1,7 @@
 import type { IconNames } from "~/constants/type-inference";
 
 const resumeLink =
-  "https://drive.google.com/file/d/1qAhqlPGqBdURD958C8yNdTVteQZKCQBJ/view?usp=sharing";
+  "https://drive.google.com/file/d/1UastvqYHbtxznocessMda0ySuZ4AGNXM/view?usp=sharing";
 
 export const iconAlias = new Map<IconNames, string>([
   ["externalLink", "mdi:external-link"],
