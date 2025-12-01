@@ -41,7 +41,7 @@
     "browserslist": "4.27.0",
     "gql.tada": "1.8.13",
     "graphql": "16.11.0",
-    "nuxt": "4.2.0",
+    "nuxt": "4.2.1",
     "radix-vue": "1.9.17",
     "sharp": "0.34.4",
     "tailwind-merge": "3.3.1",
