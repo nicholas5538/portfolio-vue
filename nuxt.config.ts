@@ -93,7 +93,6 @@ export default defineNuxtConfig({
     payloadExtraction: true,
     componentIslands: true,
   },
-  compatibilityDate: "2024-09-28",
   nitro: {
     awsAmplify: {
       catchAllStaticFallback: true,
@@ -113,6 +112,9 @@ export default defineNuxtConfig({
           },
         ],
       },
+    },
+    externals: {
+      inline: ["graphql"],
     },
     preset:
       process.env.NODE_ENV !== "production" ? "node-server" : "aws-amplify",
