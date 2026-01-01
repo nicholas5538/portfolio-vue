@@ -33,7 +33,7 @@ jobs:
           NUXT_GITHUB_SECRET=${{ secrets.NUXT_GITHUB_SECRET }}
           EOF
 
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v6.0.1
 
       - name: Enable Corepack
         run: corepack enable pnpm
@@ -85,7 +85,7 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v6.0.1
 
       - name: Enable Corepack
         run: corepack enable pnpm
@@ -133,7 +133,7 @@ jobs:
         id: dependabot-metadata
         uses: dependabot/fetch-metadata@v2.4.0
 
-      - uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v6.0.1
       - name: Approve a PR If not already approved
         run: |
           gh pr checkout "$PR_URL"
