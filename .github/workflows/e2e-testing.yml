@@ -43,7 +43,7 @@ jobs:
         with:
           run_install: false
 
-      - uses: actions/setup-node@v6.1.0
+      - uses: actions/setup-node@v6.2.0
         with:
           node-version-file: ".nvmrc"
           cache: "pnpm"
@@ -60,7 +60,7 @@ jobs:
 
       - name: Cache Playwright Browsers for Playwright's Version
         id: cache-playwright-browsers
-        uses: actions/cache@v5.0.1
+        uses: actions/cache@v5.0.3
         with:
           key: playwright-browsers-${{ env.PLAYWRIGHT_VERSION }}
           path: ~/.cache/ms-playwright
@@ -95,7 +95,7 @@ jobs:
         with:
           run_install: false
 
-      - uses: actions/setup-node@v6.1.0
+      - uses: actions/setup-node@v6.2.0
         with:
           node-version-file: ".nvmrc"
           cache: "pnpm"
@@ -131,7 +131,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: dependabot-metadata
-        uses: dependabot/fetch-metadata@v2.4.0
+        uses: dependabot/fetch-metadata@v2.5.0
 
       - uses: actions/checkout@v6.0.1
       - name: Approve a PR If not already approved
