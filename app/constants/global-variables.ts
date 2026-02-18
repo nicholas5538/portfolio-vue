@@ -6,7 +6,6 @@ const resumeLink =
 export const iconAlias = new Map<IconNames, string>([
   ["externalLink", "mdi:external-link"],
   ["github", "mdi:github"],
-  ["instagram", "mdi:instagram"],
   ["linkedin", "mdi:linkedin"],
   ["mail", "material-symbols:mail-outline"],
   ["moon", "solar-moon-bold-duotone"],
@@ -47,14 +46,6 @@ export const externalLinks = new Map([
       icon: iconAlias.get("github"),
       text: "GitHub Profile",
       url: "https://www.github.com/nicholas5538",
-    },
-  ],
-  [
-    "Instagram",
-    {
-      icon: iconAlias.get("instagram"),
-      text: "Instagram Profile",
-      url: "https://www.instagram.com/frivolousnicholas",
     },
   ],
 ]);

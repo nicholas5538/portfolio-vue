@@ -11,7 +11,6 @@ export type TIcon = {
 export type IconNames =
   | "externalLink"
   | "github"
-  | "instagram"
   | "linkedin"
   | "location"
   | "mail"
