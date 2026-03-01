@@ -24,16 +24,15 @@ const { data, status } = await getGithubViewer({
     class="mx-auto flex w-full max-w-7xl grid-cols-1 flex-col gap-8 px-4 pt-32 pb-6 md:grid md:grid-cols-3 md:items-center md:justify-between md:pt-60 lg:pb-12 xl:grid-cols-4"
   >
     <figure
-      class="group shadow-dropdown z-10 mx-auto aspect-2/3 overflow-hidden rounded-3xl md:order-last md:col-span-1 md:aspect-auto md:max-h-full md:w-fit md:justify-self-end xl:col-span-2 dark:shadow-none"
+      class="group shadow-dropdown z-10 mx-auto aspect-2/3 w-full overflow-hidden rounded-3xl max-md:max-w-100 md:order-last md:col-span-1 md:max-h-full md:justify-self-end xl:col-span-2 xl:w-fit dark:shadow-none"
     >
       <NuxtImg
-        alt="My profile picture"
+        alt="A picture of Nicholas at Kawaguchiko"
         class="z-20 size-full bg-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
         format="avif,webp"
-        placeholder
         preload
         quality="75"
-        sizes="294px md:455px"
+        sizes="calc(100vw - 32px) sm:400px md:calc(33.33vw - 32px) xl:400px"
         src="/images/profile-picture.webp"
       />
     </figure>
