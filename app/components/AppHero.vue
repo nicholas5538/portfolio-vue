@@ -27,7 +27,7 @@ const { data, status } = await getGithubViewer({
       class="group shadow-dropdown z-10 mx-auto aspect-2/3 w-full overflow-hidden rounded-3xl max-md:max-w-100 md:order-last md:col-span-1 md:max-h-full md:justify-self-end xl:col-span-2 xl:w-fit dark:shadow-none"
     >
       <NuxtImg
-        alt="A picture of Nicholas at Kawaguchiko"
+        alt="Nicholas at Kawaguchiko"
         class="z-20 size-full bg-contain transition-transform duration-300 ease-in-out group-hover:scale-110"
         format="avif,webp"
         preload

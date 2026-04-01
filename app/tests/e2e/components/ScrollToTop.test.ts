@@ -7,7 +7,7 @@ test.describe("Test ScrollToTop component", () => {
     isMobile,
   }) => {
     await goto("/", { waitUntil: "hydration" });
-    const profilePicture = page.getByAltText("My profile picture", {
+    const profilePicture = page.getByAltText("Nicholas at Kawaguchiko", {
       exact: true,
     });
 

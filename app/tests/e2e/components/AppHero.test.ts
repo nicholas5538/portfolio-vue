@@ -9,7 +9,9 @@ test.describe("Hero section picture and headings", () => {
   test("Hero picture and headings", async ({ page }) => {
     await Promise.all([
       expect(
-        page.getByAltText("My profile picture", { exact: true })
+        page.getByAltText("Nicholas at Kawaguchiko", {
+          exact: true,
+        })
       ).toBeVisible(),
       expect(
         page.getByRole("heading", {
