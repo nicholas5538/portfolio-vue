@@ -21,7 +21,7 @@ CMD ["pnpm", "run", "dev"]
 
 FROM base AS build
 ENV NODE_ENV=production
-COPY --from=dev /app/node_modules ./node_modules
+COPY --from=development /app/node_modules ./node_modules
 
 RUN pnpm run build
 
