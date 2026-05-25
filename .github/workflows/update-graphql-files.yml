@@ -7,9 +7,12 @@ on:
 
 jobs:
   update-graphql-schema:
+    env:
+      HUSKY: 0
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v6
 
@@ -43,16 +46,21 @@ jobs:
         run: pnpm exec gql-tada turbo --fail-on-warn
 
       - name: Check the GraphQL configuration
-        run: pnpm exec gql-tada doctor --fail-on-warn
+        run: pnpm exec gql-tada doctor
 
-      - name: Commit and push changes
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git add .
-            git commit -am "Update GitHub GraphQL schema [skip ci]"
-            git push origin HEAD:${{ github.ref }}
-          else
-            echo "No changes to commit"
-          fi
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: chore/update-github-graphql-schema
+          body: |
+            # Describe your change(s)
+
+            Automated weekly update of GitHub GraphQL schema and output typings.
+
+            ## Type of change(s)
+
+            - [X] Update TypeScript declaration file
+          commit-message: "chore: Update the GitHub GraphQL schema and output typings"
+          reviewers: "nicholas5538"
+          title: "chore: Update the Supabase database types"
+          token: ${{ secrets.BOT_PAT }}
