@@ -61,6 +61,5 @@ jobs:
 
             - [X] Update TypeScript declaration file
           commit-message: "chore: Update the GitHub GraphQL schema and output typings"
-          reviewers: "nicholas5538"
-          title: "chore: Update the Supabase database types"
+          title: "chore: Update the GitHub GraphQL schema and output typings"
           token: ${{ secrets.BOT_PAT }}
