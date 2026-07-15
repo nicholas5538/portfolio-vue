@@ -59,25 +59,9 @@ const { data, status } = await getGithubViewer({
         adventure.
       </h2>
       <section class="space-y-4 md:col-span-2 md:space-y-8">
-        <hgroup class="space-y-2">
-          <h2 class="md:text-2xl xl:text-3xl">
-            Always looking out for opportunities.
-          </h2>
-          <p
-            class="dark:text-white-100 transition-colors duration-300 ease-out"
-          >
-            Currently working at
-            <span>
-              <NuxtLink
-                external
-                to="https://bandlabtechnologies.com"
-                rel="noopener noreferrer"
-                target="_blank"
-                >BandLab Technologies</NuxtLink
-              ></span
-            >.
-          </p>
-        </hgroup>
+        <h2 class="md:text-2xl xl:text-3xl">
+          Currently searching for opportunities.
+        </h2>
         <nav class="grid w-fit grid-cols-4 gap-x-4">
           <template v-for="[key, value] in externalLinks" :key="key">
             <UiHoverCard

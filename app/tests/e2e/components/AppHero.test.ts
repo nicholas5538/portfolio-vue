@@ -15,7 +15,7 @@ test.describe("Hero section picture and headings", () => {
       ).toBeVisible(),
       expect(
         page.getByRole("heading", {
-          name: "Always looking out for opportunities.",
+          name: "Currently searching for opportunities.",
           exact: true,
         })
       ).toBeVisible(),
