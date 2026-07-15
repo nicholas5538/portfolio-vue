@@ -52,8 +52,8 @@ export const externalLinks = new Map([
 
 const bandlabJobPointers = [
   "Built and maintained modern full-stack web applications using React, TypeScript, Next.js, GraphQL and Tailwind CSS, ensuring clean architecture and maintainable codebases",
-  "Spearheaded development of a headless CMS that enabled dynamic content delivery, contributing to a ~50% increase in user traffic",
-  "Enhanced frontend performance by migrating from REST to GraphQL, streamlining data retrieval and reducing payload sizes to achieve 35% lower server costs and improved SEO",
+  "Architected and led the development of a headless CMS using Next.js, increasing user traffic by 50% through improve dynamic content delivery and SEO optimization",
+  "Enhanced frontend performance by migrating from REST API to GraphQL, streamlining data retrieval and reducing payload sizes to achieve 35% lower server costs and improved SEO",
   "Implemented server-side authentication using Supabase, ensuring secure user management and seamless authentication flows across applications",
 ];
 const foodpandaJobPointers = [
@@ -67,7 +67,7 @@ export const workExperiences = new Map([
     "bandlab",
     {
       startDate: "Jul 2024",
-      endDate: "Present",
+      endDate: "Jul 2026",
       title: "Full Stack Web Developer",
       company: "BandLab Technologies",
       url: "https://bandlabtechnologies.com",
