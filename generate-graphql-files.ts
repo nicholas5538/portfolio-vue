@@ -1,5 +1,4 @@
 import process from "node:process";
-import console from "node:console";
 import {
   ExecaError,
   type ExecaMethod,
@@ -39,9 +38,9 @@ async function pnpmCommand(
     }
   } catch (error) {
     if (error instanceof ExecaError) {
-      throw new Error(error.message);
+      throw new Error(error.message, { cause: error });
     }
-    throw new Error("An unknown error occurred.");
+    throw new Error("An unknown error occurred.", { cause: error });
   }
 }
 
