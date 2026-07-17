@@ -48,7 +48,7 @@
     "vue-router": "5.2.0"
   },
   "devDependencies": {
-    "@eslint/js": "9.39.3",
+    "@eslint/js": "10.0.1",
     "@gql.tada/vue-support": "1.0.3",
     "@graphql-typed-document-node/core": "3.2.0",
     "@nuxt/eslint": "1.16.0",
@@ -59,7 +59,7 @@
     "@tailwindcss/vite": "4.3.2",
     "@vitest/coverage-v8": "4.1.10",
     "@vue/test-utils": "2.4.11",
-    "eslint": "9.39.2",
+    "eslint": "10.7.0",
     "eslint-config-prettier": "10.1.8",
     "execa": "9.6.1",
     "get-tsconfig": "4.14.0",
