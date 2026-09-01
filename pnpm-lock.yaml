@@ -25,10 +25,10 @@ importers:
         version: 4.28.8
       gql.tada:
         specifier: 1.11.3
-        version: 1.11.3(@gql.tada/vue-support@1.0.3(typescript@6.0.3))(graphql@16.14.0)(typescript@6.0.3)
+        version: 1.11.3(@gql.tada/vue-support@1.0.3(typescript@6.0.3))(graphql@17.0.2)(typescript@6.0.3)
       graphql:
-        specifier: 16.14.0
-        version: 16.14.0
+        specifier: 17.0.2
+        version: 17.0.2
       nuxt:
         specifier: 4.5.2
         version: 4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@netlify/blobs@9.1.2)(@oxc-project/types@0.147.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@7.0.0)(commander@14.0.3)(db0@0.3.4)(esbuild@0.28.2)(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.4)(optionator@0.9.4)(rolldown@1.2.6)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.6)(rollup@4.63.1))(rollup@4.63.1)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue-tsc@3.3.11(typescript@6.0.3))(yaml@2.9.0)
@@ -56,7 +56,7 @@ importers:
         version: 1.0.3(typescript@6.0.3)
       '@graphql-typed-document-node/core':
         specifier: 3.2.0
-        version: 3.2.0(graphql@16.14.0)
+        version: 3.2.0(graphql@17.0.2)
       '@nuxt/eslint':
         specifier: 1.17.0
         version: 1.17.0(@typescript-eslint/utils@8.68.0(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(@vue/compiler-sfc@3.5.42)(esbuild@0.28.2)(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(magic-string@1.2.3)(magicast@0.5.4)(rolldown@1.2.6)(rollup@4.63.1)(srvx@0.11.22)(supports-color@10.2.2)(typescript@6.0.3)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.6)(rollup@4.63.1)(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
@@ -3491,9 +3491,9 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  graphql@16.14.0:
-    resolution: {integrity: sha512-BBvQ/406p+4CZbTpCbVPSxfzrZrbnuWSP1ELYgyS6B+hNeKzgrdB4JczCa5VZUBQrDa9hUngm0KnexY6pJRN5Q==}
-    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+  graphql@17.0.2:
+    resolution: {integrity: sha512-FRWbddMxfkjiB7z+aQDWIR+E34xo9I8c9mtK2RPv8PmMzKRvrdsreHL/Ui/TmwHJfhHChEtsFPyMHKI+xuarQQ==}
+    engines: {node: ^22.0.0 || ^24.0.0 || ^25.0.0 || >=26.0.0}
 
   gzip-size@7.0.0:
     resolution: {integrity: sha512-O1Ld7Dr+nqPnmGpdhzLmMTQ4vAsD+rHwMm1NLUmoUFFymBOMKxCCrtDxqdBRYXdeEPEi3SyoR4TizJLQrnKBNA==}
@@ -4277,6 +4277,10 @@ packages:
     resolution: {integrity: sha512-1FlR+gjXK7X+AsAHso35MnyN5KqGwJRi/31ft6x0M194ht7S+rWAvd7PHss9xSKMzE0asv1pyIHaJYq+BbacAQ==}
     engines: {node: '>=12'}
 
+  open@11.0.1:
+    resolution: {integrity: sha512-NzwMUB6C1D0+Kd+9iMS/H4k+Ck3cTX6Ckyfr/gAGlmvSE1LUQZnEZvWBi4PYmMwH/S5SMeTXnE+9uAz8uF+pWw==}
+    engines: {node: '>=20'}
+
   open@11.0.2:
     resolution: {integrity: sha512-RWqF+pBSkqecEvCKOn8QYhaNdRMJDZRIrlS/7rTDdLHaPcfXGCZ/h8zb413NfvdeAV0MR7T1yJcA34/q+CSm1Q==}
     engines: {node: '>=20'}
@@ -4596,6 +4600,10 @@ packages:
 
   powershell-utils@0.1.0:
     resolution: {integrity: sha512-dM0jVuXJPsDN6DvRpea484tCUaMiXWjuCn++HGTqUWzGDjv5tZkEZldAJ/UMlqRYGFrD/etByo4/xOuC/snX2A==}
+    engines: {node: '>=20'}
+
+  powershell-utils@0.2.0:
+    resolution: {integrity: sha512-ZlsFlG7MtSFCoc5xreOvBAozCJ6Pf06opgJjh9ONEv418xpZSAzNjstD36C6+JwOnfSqOW/9uDkqKjezTdxZhw==}
     engines: {node: '>=20'}
 
   powershell-utils@0.2.1:
@@ -5740,14 +5748,14 @@ packages:
 
 snapshots:
 
-  '@0no-co/graphql.web@1.3.4(graphql@16.14.0)':
+  '@0no-co/graphql.web@1.3.4(graphql@17.0.2)':
     optionalDependencies:
-      graphql: 16.14.0
+      graphql: 17.0.2
 
-  '@0no-co/graphqlsp@1.17.5(graphql@16.14.0)(typescript@6.0.3)':
+  '@0no-co/graphqlsp@1.17.5(graphql@17.0.2)(typescript@6.0.3)':
     dependencies:
-      '@gql.tada/internal': 1.2.2(graphql@16.14.0)(typescript@6.0.3)
-      graphql: 16.14.0
+      '@gql.tada/internal': 1.2.2(graphql@17.0.2)(typescript@6.0.3)
+      graphql: 17.0.2
       typescript: 6.0.3
 
   '@antfu/install-pkg@2.0.1':
@@ -6633,19 +6641,19 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@gql.tada/cli-utils@1.9.3(@0no-co/graphqlsp@1.17.5(graphql@16.14.0)(typescript@6.0.3))(@gql.tada/vue-support@1.0.3(typescript@6.0.3))(graphql@16.14.0)(typescript@6.0.3)':
+  '@gql.tada/cli-utils@1.9.3(@0no-co/graphqlsp@1.17.5(graphql@17.0.2)(typescript@6.0.3))(@gql.tada/vue-support@1.0.3(typescript@6.0.3))(graphql@17.0.2)(typescript@6.0.3)':
     dependencies:
-      '@0no-co/graphqlsp': 1.17.5(graphql@16.14.0)(typescript@6.0.3)
-      '@gql.tada/internal': 1.2.2(graphql@16.14.0)(typescript@6.0.3)
-      graphql: 16.14.0
+      '@0no-co/graphqlsp': 1.17.5(graphql@17.0.2)(typescript@6.0.3)
+      '@gql.tada/internal': 1.2.2(graphql@17.0.2)(typescript@6.0.3)
+      graphql: 17.0.2
       typescript: 6.0.3
     optionalDependencies:
       '@gql.tada/vue-support': 1.0.3(typescript@6.0.3)
 
-  '@gql.tada/internal@1.2.2(graphql@16.14.0)(typescript@6.0.3)':
+  '@gql.tada/internal@1.2.2(graphql@17.0.2)(typescript@6.0.3)':
     dependencies:
-      '@0no-co/graphql.web': 1.3.4(graphql@16.14.0)
-      graphql: 16.14.0
+      '@0no-co/graphql.web': 1.3.4(graphql@17.0.2)
+      graphql: 17.0.2
       typescript: 6.0.3
 
   '@gql.tada/vue-support@1.0.3(typescript@6.0.3)':
@@ -6654,9 +6662,9 @@ snapshots:
       '@vue/language-core': 3.3.11
       typescript: 6.0.3
 
-  '@graphql-typed-document-node/core@3.2.0(graphql@16.14.0)':
+  '@graphql-typed-document-node/core@3.2.0(graphql@17.0.2)':
     dependencies:
-      graphql: 16.14.0
+      graphql: 17.0.2
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -7358,7 +7366,7 @@ snapshots:
       - vite
       - webpack
 
-  '@nuxt/vite-builder@4.5.2(4ca467f6607cb0d432f345425b61156a)':
+  '@nuxt/vite-builder@4.5.2(cf9f991581e4c9d661afdabd50a56ecd)':
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@1.2.3)(magicast@0.5.4)(rolldown@1.2.6)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.6)(rollup@4.63.1)(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
       '@vitejs/plugin-vue': 6.0.8(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.42(typescript@6.0.3))
@@ -7386,6 +7394,7 @@ snapshots:
       std-env: 4.2.0
       ufo: 1.6.4
       unenv: 2.0.0-rc.24
+      unplugin: 3.3.0(esbuild@0.28.2)(rolldown@1.2.6)(rollup@4.63.1)(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
       vite: 8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
       vite-node: 6.0.0(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
       vite-plugin-checker: 0.14.5(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(optionator@0.9.4)(typescript@6.0.3)(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue-tsc@3.3.11(typescript@6.0.3))
@@ -7397,8 +7406,11 @@ snapshots:
       rollup-plugin-visualizer: 7.1.1(rolldown@1.2.6)(rollup@4.63.1)
     transitivePeerDependencies:
       - '@biomejs/biome'
+      - '@farmfe/core'
+      - '@rspack/core'
       - '@types/node'
       - '@vitejs/devtools'
+      - bun-types-no-globals
       - esbuild
       - eslint
       - less
@@ -7408,6 +7420,7 @@ snapshots:
       - optionator
       - oxc-parser
       - oxlint
+      - rollup
       - sass
       - sass-embedded
       - stylelint
@@ -7417,8 +7430,9 @@ snapshots:
       - terser
       - tsx
       - typescript
-      - unplugin
+      - unloader
       - vue-tsc
+      - webpack
       - yaml
 
   '@nuxtjs/google-fonts@3.2.0(magicast@0.5.4)':
@@ -9755,12 +9769,12 @@ snapshots:
   gopd@1.2.0:
     optional: true
 
-  gql.tada@1.11.3(@gql.tada/vue-support@1.0.3(typescript@6.0.3))(graphql@16.14.0)(typescript@6.0.3):
+  gql.tada@1.11.3(@gql.tada/vue-support@1.0.3(typescript@6.0.3))(graphql@17.0.2)(typescript@6.0.3):
     dependencies:
-      '@0no-co/graphql.web': 1.3.4(graphql@16.14.0)
-      '@0no-co/graphqlsp': 1.17.5(graphql@16.14.0)(typescript@6.0.3)
-      '@gql.tada/cli-utils': 1.9.3(@0no-co/graphqlsp@1.17.5(graphql@16.14.0)(typescript@6.0.3))(@gql.tada/vue-support@1.0.3(typescript@6.0.3))(graphql@16.14.0)(typescript@6.0.3)
-      '@gql.tada/internal': 1.2.2(graphql@16.14.0)(typescript@6.0.3)
+      '@0no-co/graphql.web': 1.3.4(graphql@17.0.2)
+      '@0no-co/graphqlsp': 1.17.5(graphql@17.0.2)(typescript@6.0.3)
+      '@gql.tada/cli-utils': 1.9.3(@0no-co/graphqlsp@1.17.5(graphql@17.0.2)(typescript@6.0.3))(@gql.tada/vue-support@1.0.3(typescript@6.0.3))(graphql@17.0.2)(typescript@6.0.3)
+      '@gql.tada/internal': 1.2.2(graphql@17.0.2)(typescript@6.0.3)
       typescript: 6.0.3
     transitivePeerDependencies:
       - '@gql.tada/svelte-support'
@@ -9769,7 +9783,7 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  graphql@16.14.0: {}
+  graphql@17.0.2: {}
 
   gzip-size@7.0.0:
     dependencies:
@@ -10522,7 +10536,7 @@ snapshots:
       '@nuxt/nitro-server': 4.5.2(640b39f6f80ebd418c978621503db935)
       '@nuxt/schema': 4.5.2
       '@nuxt/telemetry': 2.8.0(@nuxt/kit@4.5.2(magic-string@1.2.3)(magicast@0.5.4)(rolldown@1.2.6)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.6)(rollup@4.63.1)(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))))
-      '@nuxt/vite-builder': 4.5.2(4ca467f6607cb0d432f345425b61156a)
+      '@nuxt/vite-builder': 4.5.2(cf9f991581e4c9d661afdabd50a56ecd)
       '@unhead/vue': 3.4.0(@oxc-project/types@0.147.0)(esbuild@0.28.2)(lightningcss@1.33.0)(rolldown@1.2.6)(rollup@4.63.1)(vite@8.2.2(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.42(typescript@6.0.3))
       '@vue/shared': 3.5.42
       chokidar: 5.0.0
@@ -10689,6 +10703,15 @@ snapshots:
   onetime@6.0.0:
     dependencies:
       mimic-fn: 4.0.0
+
+  open@11.0.1:
+    dependencies:
+      default-browser: 5.5.1
+      define-lazy-prop: 3.0.0
+      is-in-ssh: 1.0.0
+      is-inside-container: 1.0.0
+      powershell-utils: 0.2.0
+      wsl-utils: 1.0.0
 
   open@11.0.2:
     dependencies:
@@ -10980,6 +11003,8 @@ snapshots:
 
   powershell-utils@0.1.0: {}
 
+  powershell-utils@0.2.0: {}
+
   powershell-utils@0.2.1: {}
 
   prelude-ls@1.2.1: {}
@@ -11139,7 +11164,7 @@ snapshots:
 
   rollup-plugin-visualizer@7.1.1(rolldown@1.2.6)(rollup@4.63.1):
     dependencies:
-      open: 11.0.2
+      open: 11.0.1
       picomatch: 4.0.7
       source-map: 0.8.0
       yargs: 18.1.0
