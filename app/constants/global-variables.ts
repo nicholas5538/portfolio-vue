@@ -59,7 +59,7 @@ const bandlabJobPointers = [
 const foodpandaJobPointers = [
   "Developed and maintained React applications with TypeScript, implementing comprehensive testing strategies using Jest and Cypress",
   "Improved API periodic tests by reducing test flakiness and implementing reattempts on timeout errors, resulting in a ~85% reduction in false positive errors",
-  "Involved in setting up CI/CD pipeline with bash script and GitHub Actions to automate unit testing which increased the team’s productivity by ~50%",
+  "Involved in setting up CI/CD pipeline with bash script and GitHub Actions to automate unit testing and deployment which increased the team's productivity",
 ];
 
 export const workExperiences = new Map([
