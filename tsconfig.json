@@ -3,6 +3,7 @@
     "strict": true,
     "module": "ESNext",
     "target": "ESNext",
+    "types": ["node"],
     "plugins": [
       {
         "name": "gql.tada/ts-plugin",
