@@ -29,13 +29,9 @@ async function pnpmCommand(
   successMessage: string
 ) {
   try {
-    const { stdout, stderr } = await execa`pnpm run ${args}`;
-
-    if (stdout) console.info(stdout);
-    if (stderr) console.error(`\x1b[31m❌${stderr} \x1b[0m\n`);
-    else {
-      console.info(`\x1b[32m✅ ${successMessage} \x1b[0m\n`);
-    }
+    const { stdout } = await execa`pnpm run ${args}`;
+    console.info(stdout);
+    console.info(`\x1b[32m✅ ${successMessage} \x1b[0m\n`);
   } catch (error) {
     if (error instanceof ExecaError) {
       throw new Error(error.message, { cause: error });
