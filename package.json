@@ -37,7 +37,7 @@
     "@aws-sdk/s3-request-presigner": "3.1000.0",
     "@lottiefiles/dotlottie-vue": "0.11.27",
     "@nuxt/image": "2.1.0",
-    "browserslist": "4.28.8",
+    "browserslist": "4.29.1",
     "gql.tada": "1.11.3",
     "graphql": "17.0.2",
     "nuxt": "4.5.2",
