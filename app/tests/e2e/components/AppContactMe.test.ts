@@ -31,7 +31,7 @@ test("Contact me heading and button", async ({ page, isMobile }) => {
     expect(contactMeButton).toBeInViewport(),
     expect(contactMeButton).toHaveAttribute(
       "href",
-      "mailto:nicholas.yong.dev@proton.me"
+      "mailto:nicholas@nicholasyong.dev"
     ),
   ]);
 });

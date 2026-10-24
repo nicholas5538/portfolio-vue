@@ -8,7 +8,7 @@ const listRefs = useState<TElement[]>("listRefs");
 const buttonProps = {
   ariaLabel: "Click here to send an email to me",
   buttonClass: "text-base md:text-lg xl:text-xl",
-  link: "mailto:nicholas.yong.dev@proton.me",
+  link: "mailto:nicholas@nicholasyong.dev",
   linkClass: "w-1/2 max-w-40",
   text: "Say Hello!",
 };
