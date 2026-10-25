@@ -17,13 +17,9 @@ export default defineEventHandler(async (event) => {
     Key: event.context.params!.key,
   });
 
-  const options = {
-    expiresIn: 604800,
-  };
-
   // Expires in 7 days
   try {
-    return await getSignedUrl(S3, getObjectCommand, options);
+    return await getSignedUrl(S3, getObjectCommand, { expiresIn: 604800 });
   } catch (error) {
     return { statusCode: 500, error };
   }
