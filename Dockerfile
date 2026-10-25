@@ -7,8 +7,8 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV HUSKY="0"
 RUN corepack enable pnpm
-COPY . /app
-WORKDIR /app
+WORKDIR /portfolio-vue
+COPY . /portfolio-vue
 
 FROM base AS development
 ENV NODE_ENV=development
@@ -21,7 +21,7 @@ CMD ["pnpm", "run", "dev"]
 
 FROM base AS build
 ENV NODE_ENV=production
-COPY --from=development /app/node_modules ./node_modules
+COPY --from=development /portfolio-vue/node_modules /portfolio-vue/node_modules
 
 RUN pnpm run build
 
@@ -36,9 +36,11 @@ RUN deluser --remove-home node \
   && adduser -S -g node -u 1001 node \
   && chown -R node:node .
 
-COPY --from=build --chown=node:node /app/.amplify-hosting .amplify-hosting
-COPY --from=build /app/node_modules ./node_modules
+COPY --from=development /portfolio-vue/node_modules /portfolio-vue/node_modules
+COPY --from=build --chown=node:node /portfolio-vue/.amplify-hosting /portfolio-vue/.amplify-hosting
 
 USER node
 
-CMD ["node", ".amplify-hosting/compute/default/server.js"]
+WORKDIR /portfolio-vue/.amplify-hosting/compute/default
+
+CMD ["node", "server.js"]

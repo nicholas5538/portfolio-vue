@@ -89,8 +89,11 @@ Once you have [set up the repository](#repo-setup), you're ready to start develo
 docker compose up development -d --build
 
 # Or build your own image
-docker build --build-arg="NODE_VERSION=lts-alpine" --compress -t <image name> --target development .
-docker run -d --env-file .env -p 5173:5173 type=bind,source=$(pwd),target=/app --mount type=volume,source=/app/node_modules,target=/app/node_modules --name <container name> <image name>
+docker build --build-arg="NODE_VERSION=lts-alpine" -t <image name> --target development .
+docker run -d --rm --env-file .env -p 5173:5173 \
+  --mount type=bind,source="$(pwd)",target=/portfolio-vue \
+  --mount type=volume,target=/portfolio-vue/node_modules \
+  <image>
 ```
 
 - With **_pnpm_**
