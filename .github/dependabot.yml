@@ -5,15 +5,56 @@ updates:
     directory: /
     schedule:
       interval: monthly
-      day: monday
       time: "10:00"
       timezone: Asia/Singapore
+    groups:
+      actions:
+        applies-to: version-updates
+        patterns:
+          - "*"
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: monthly
-      day: monday
       time: "10:00"
       timezone: Asia/Singapore
     pull-request-branch-name:
       separator: "-"
+    groups:
+      aws:
+        applies-to: version-updates
+        patterns:
+          - "@aws-sdk*"
+      eslint:
+        applies-to: version-updates
+        patterns:
+          - "*eslint*"
+        exclude-patterns:
+          - "@nuxt/eslint*"
+      graphql:
+        applies-to: version-updates
+        patterns:
+          - "graphql"
+          - "gql.tada"
+          - "@graphql-typed-document-node/core"
+          - "@gql.tada/vue-support"
+      nuxt-plugins:
+        applies-to: version-updates
+        patterns:
+          - "@nuxt/*"
+      playwright:
+        applies-to: version-updates
+        patterns:
+          - "*playwright*"
+      tailwind:
+        applies-to: version-updates
+        patterns:
+          - "*tailwindcss*"
+      vitest:
+        applies-to: version-updates
+        patterns:
+          - "vitest*"
+      vue:
+        applies-to: version-updates
+        patterns:
+          - "vue*"
