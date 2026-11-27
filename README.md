@@ -17,6 +17,7 @@ It's a great opportunity to showcase my frontend skills, and to explore new fram
     - [Obtaining environment variables](#obtaining-environment-variables)
     - [GraphQL setup](#graphql-setup)
 - [Developing](#developing)
+- [Developing with Claude Code](#developing-with-claude-code)
 - [Frequently Used Scripts](#frequently-used-scripts)
 - [Additional Documentations](#additional-documentations)
 
@@ -103,6 +104,24 @@ pnpm run dev
 ```
 
 The `dev` command will start the application in your local environment.
+
+### Developing with Claude Code
+
+This repository ships with a shared [Claude Code](https://code.claude.com/docs "Claude Code documentation") configuration.
+
+#### Unit test hook
+
+The [hook](.claude/hooks/run-unit-tests.ts) registered in [`.claude/settings.json`](.claude/settings.json) runs `pnpm run test` when Claude finishes a turn in which the watched code changed. It requires installed dependencies and a Node.js version that Vitest supports (`^22.12.0 || ^24.0.0 || >=26.0.0`).
+
+- **Watched files:** `.ts`, `.js` and `.vue` files under `app/` and `server/`, except `app/tests/e2e/`, `app/coverage/` and `app/app.config.ts`. Root-level files, such as `package.json`, are not watched.
+- **Failing tests:** Claude is asked once to fix them. If they still fail, you get a warning.
+- **Tests that cannot run:** missing dependencies or `pnpm`, and runs longer than 120 seconds, only produce a warning.
+
+> 💁 **Tip:** run `/hooks` in Claude Code to check that the hooks are loaded.
+
+#### Agent skills
+
+[`CLAUDE.md`](CLAUDE.md) and [`docs/agents/`](docs/agents) tell [Matt Pocock's skills](https://github.com/mattpocock/skills "mattpocock/skills repo") where issues are tracked, which triage labels to use and where domain docs live. The skills are optional and are installed separately as a Claude Code plugin.
 
 ### Frequently Used Scripts
 
