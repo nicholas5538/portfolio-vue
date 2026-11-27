@@ -111,7 +111,7 @@ This repository ships with a shared [Claude Code](https://code.claude.com/docs "
 
 #### Unit test hook
 
-The [hook](.claude/hooks/run-unit-tests.ts) registered in [`.claude/settings.json`](.claude/settings.json) runs `pnpm run test` when Claude finishes a turn in which the watched code changed. It requires Node.js >= 22.6.0 and installed dependencies.
+The [hook](.claude/hooks/run-unit-tests.ts) registered in [`.claude/settings.json`](.claude/settings.json) runs `pnpm run test` when Claude finishes a turn in which the watched code changed. It requires installed dependencies and a Node.js version that Vitest supports (`^22.12.0 || ^24.0.0 || >=26.0.0`).
 
 - **Watched files:** `.ts`, `.js` and `.vue` files under `app/` and `server/`, except `app/tests/e2e/`, `app/coverage/` and `app/app.config.ts`. Root-level files, such as `package.json`, are not watched.
 - **Failing tests:** Claude is asked once to fix them. If they still fail, you get a warning.
