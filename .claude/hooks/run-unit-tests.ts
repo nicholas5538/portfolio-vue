@@ -3,7 +3,7 @@
 //   check    (Stop): run `pnpm run test` if the fingerprint changed
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
-import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rename, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { text } from "node:stream/consumers";
@@ -18,6 +18,8 @@ interface State {
   fingerprint: string;
   // True once a failing run has blocked Claude in the current turn
   blocked: boolean;
+  // True once the check has finished with this fingerprint
+  checked: boolean;
 }
 
 type TestResult =
@@ -71,10 +73,13 @@ async function takeFingerprint() {
   return hash(hashes.join("\n"));
 }
 
+// A missing or corrupt state file counts as no state, so it gets overwritten
 async function readState(path: string): Promise<State | undefined> {
   try {
-    return JSON.parse(await readFile(path, "utf8"));
+    const state = JSON.parse(await readFile(path, "utf8"));
+    return typeof state?.fingerprint === "string" ? state : undefined;
   } catch (error) {
+    if (error instanceof SyntaxError) return undefined;
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return undefined;
     throw error;
   }
@@ -82,7 +87,10 @@ async function readState(path: string): Promise<State | undefined> {
 
 async function writeState(path: string, state: State) {
   await mkdir(dirname(path), { recursive: true });
-  await writeFile(path, JSON.stringify(state));
+  // Rename into place so an interrupted write cannot leave a partial file
+  const temporaryPath = `${path}.${process.pid}.tmp`;
+  await writeFile(temporaryPath, JSON.stringify(state));
+  await rename(temporaryPath, path);
 }
 
 async function runTests(): Promise<TestResult> {
@@ -137,20 +145,28 @@ async function main() {
   const state = await readState(statePath);
 
   if (mode === "snapshot") {
-    // A leftover fingerprint means the last turn was interrupted before its
+    // An unchecked fingerprint means the last turn was interrupted before its
     // check, so keep it to cover those changes too
+    const unchecked = state && !state.checked ? state.fingerprint : undefined;
     await writeState(statePath, {
-      fingerprint: state?.fingerprint ?? (await takeFingerprint()),
+      fingerprint: unchecked ?? (await takeFingerprint()),
       blocked: false,
+      checked: false,
     });
     return;
   }
 
   if (mode !== "check") throw new Error(`unknown mode "${mode}"`);
-  if (!state) return;
 
-  if (!state.blocked && state.fingerprint === (await takeFingerprint())) {
-    await rm(statePath, { force: true });
+  // Taken before the tests run, so edits made during the run are caught later
+  const fingerprint = await takeFingerprint();
+  // Kept after the check, in case Claude carries on without a new prompt
+  const finishCheck = () =>
+    writeState(statePath, { fingerprint, blocked: false, checked: true });
+
+  // Without an earlier fingerprint there is nothing to compare against
+  if (!state || (!state.blocked && state.fingerprint === fingerprint)) {
+    await finishCheck();
     return;
   }
 
@@ -165,7 +181,7 @@ async function main() {
     return;
   }
 
-  await rm(statePath, { force: true });
+  await finishCheck();
 
   if (result.status === "failed") {
     respond({
